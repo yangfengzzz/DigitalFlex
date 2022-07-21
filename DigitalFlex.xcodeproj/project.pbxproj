@@ -103,7 +103,18 @@
 		04D0A13128898D430014DCFD /* transform3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A11928898D430014DCFD /* transform3_tests.cpp */; };
 		04D0A13228898D430014DCFD /* color_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A11A28898D430014DCFD /* color_tests.cpp */; };
 		04D0A13328898D430014DCFD /* matrix2x2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A11B28898D430014DCFD /* matrix2x2_tests.cpp */; };
+		04D0A138288994A10014DCFD /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04D0A1352889949E0014DCFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D09F8828897C900014DCFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D0A05328898BB60014DCFD;
+			remoteInfo = vox.math;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		04D09F8E28897C900014DCFD /* CopyFiles */ = {
@@ -249,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D0A138288994A10014DCFD /* libvox.math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +274,7 @@
 				04D0A0FD28898D0E0014DCFD /* test.math */,
 				04D09F9228897C900014DCFD /* apps */,
 				04D09F9128897C900014DCFD /* Products */,
+				04D0A137288994A10014DCFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -394,6 +407,13 @@
 			path = test.math;
 			sourceTree = "<group>";
 		};
+		04D0A137288994A10014DCFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -519,6 +539,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				04D0A1362889949E0014DCFD /* PBXTargetDependency */,
 			);
 			name = test.math;
 			productName = test.math;
@@ -617,6 +638,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04D0A1362889949E0014DCFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D0A05328898BB60014DCFD /* vox.math */;
+			targetProxy = 04D0A1352889949E0014DCFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		04D09F9528897C900014DCFD /* Debug */ = {
@@ -756,8 +785,12 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -769,8 +802,12 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -781,7 +818,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LIBRARY_SEARCH_PATHS = ./third_party/googletest/build/lib;
+				OTHER_LDFLAGS = (
+					"-lgtest",
+					"-lgtest_main",
+					"-lgmock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/googletest/googlemock/include,
+					./third_party/googletest/googletest/include,
+				);
 			};
 			name = Debug;
 		};
@@ -792,7 +840,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LIBRARY_SEARCH_PATHS = ./third_party/googletest/build/lib;
+				OTHER_LDFLAGS = (
+					"-lgtest",
+					"-lgtest_main",
+					"-lgmock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/googletest/googlemock/include,
+					./third_party/googletest/googletest/include,
+				);
 			};
 			name = Release;
 		};
