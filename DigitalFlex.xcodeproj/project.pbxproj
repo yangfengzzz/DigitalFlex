@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04D09F9028897C900014DCFD /* DigitalFlex */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DigitalFlex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 		04D09F8728897C900014DCFD = {
 			isa = PBXGroup;
 			children = (
-				04D09F9228897C900014DCFD /* DigitalFlex */,
+				04D09F9228897C900014DCFD /* apps */,
 				04D09F9128897C900014DCFD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +49,25 @@
 		04D09F9128897C900014DCFD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04D09F9028897C900014DCFD /* DigitalFlex */,
+				04D09F9028897C900014DCFD /* apps */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04D09F9228897C900014DCFD /* DigitalFlex */ = {
+		04D09F9228897C900014DCFD /* apps */ = {
 			isa = PBXGroup;
 			children = (
 				04D09F9328897C900014DCFD /* main.cpp */,
 			);
-			path = DigitalFlex;
+			path = apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04D09F8F28897C900014DCFD /* DigitalFlex */ = {
+		04D09F8F28897C900014DCFD /* apps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04D09F9728897C900014DCFD /* Build configuration list for PBXNativeTarget "DigitalFlex" */;
+			buildConfigurationList = 04D09F9728897C900014DCFD /* Build configuration list for PBXNativeTarget "apps" */;
 			buildPhases = (
 				04D09F8C28897C900014DCFD /* Sources */,
 				04D09F8D28897C900014DCFD /* Frameworks */,
@@ -77,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = DigitalFlex;
+			name = apps;
 			productName = DigitalFlex;
-			productReference = 04D09F9028897C900014DCFD /* DigitalFlex */;
+			productReference = 04D09F9028897C900014DCFD /* apps */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04D09F8F28897C900014DCFD /* DigitalFlex */,
+				04D09F8F28897C900014DCFD /* apps */,
 			);
 		};
 /* End PBXProject section */
@@ -267,7 +267,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04D09F9728897C900014DCFD /* Build configuration list for PBXNativeTarget "DigitalFlex" */ = {
+		04D09F9728897C900014DCFD /* Build configuration list for PBXNativeTarget "apps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04D09F9828897C900014DCFD /* Debug */,
