@@ -6,9 +6,9 @@
 
 #include <gtest/gtest.h>
 
+#include "vox.base/constants.h"
 #include "vox.geometry/blas.h"
 #include "vox.geometry/cg.h"
-#include "vox.base/constants.h"
 #include "vox.math/matrix2x2.h"
 #include "vox.math/vector2.h"
 
