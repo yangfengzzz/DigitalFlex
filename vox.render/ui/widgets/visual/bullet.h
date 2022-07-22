@@ -1,0 +1,20 @@
+//  Copyright (c) 2022 Feng Yang
+//
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
+
+#pragma once
+
+#include "vox.render/ui/widgets/widget.h"
+
+namespace vox::ui {
+/**
+ * Simple widget that display a bullet point
+ */
+class Bullet : public Widget {
+protected:
+    void DrawImpl() override;
+};
+
+}  // namespace vox::ui
