@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04D09F8F28897C900014DCFD"
-               BuildableName = "apps"
-               BlueprintName = "apps"
+               BlueprintIdentifier = "04D0A13C288A1F620014DCFD"
+               BuildableName = "libvox.render.a"
+               BlueprintName = "vox.render"
                ReferencedContainer = "container:DigitalFlex.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -35,23 +35,11 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/yangfeng/Desktop/DigitalFlex"
+      useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      enableGPUFrameCaptureMode = "1"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04D09F8F28897C900014DCFD"
-            BuildableName = "apps"
-            BlueprintName = "apps"
-            ReferencedContainer = "container:DigitalFlex.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "04D09F8F28897C900014DCFD"
-            BuildableName = "apps"
-            BlueprintName = "apps"
+            BlueprintIdentifier = "04D0A13C288A1F620014DCFD"
+            BuildableName = "libvox.render.a"
+            BlueprintName = "vox.render"
             ReferencedContainer = "container:DigitalFlex.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

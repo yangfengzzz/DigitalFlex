@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045EE6B5288A36EA001D6B5B /* libvox.render.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A13D288A1F620014DCFD /* libvox.render.a */; };
+		045EE6B7288A37B7001D6B5B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE6B6288A37B7001D6B5B /* Cocoa.framework */; };
+		045EE6B9288A37BC001D6B5B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE6B8288A37BC001D6B5B /* IOKit.framework */; };
+		045EE6BC288A37C5001D6B5B /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
+		045EE6C0288A3856001D6B5B /* screenshot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EE6BE288A3856001D6B5B /* screenshot.cpp */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -583,6 +588,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		045EE6B3288A36E7001D6B5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D09F8828897C900014DCFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D0A13C288A1F620014DCFD;
+			remoteInfo = vox.render;
+		};
+		045EE6BA288A37C3001D6B5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D09F8828897C900014DCFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D0A05328898BB60014DCFD;
+			remoteInfo = vox.math;
+		};
 		04D0A1352889949E0014DCFD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04D09F8828897C900014DCFD /* Project object */;
@@ -614,6 +633,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		045EE6B6288A37B7001D6B5B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		045EE6B8288A37BC001D6B5B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		045EE6BE288A3856001D6B5B /* screenshot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = screenshot.cpp; sourceTree = "<group>"; };
+		045EE6BF288A3856001D6B5B /* screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screenshot.h; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1226,6 +1249,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045EE6B9288A37BC001D6B5B /* IOKit.framework in Frameworks */,
+				045EE6B7288A37B7001D6B5B /* Cocoa.framework in Frameworks */,
+				045EE6BC288A37C5001D6B5B /* libvox.math.a in Frameworks */,
+				045EE6B5288A36EA001D6B5B /* libvox.render.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,6 +1281,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045EE6BD288A3841001D6B5B /* screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				045EE6BF288A3856001D6B5B /* screenshot.h */,
+				045EE6BE288A3856001D6B5B /* screenshot.cpp */,
+			);
+			path = screenshot;
+			sourceTree = "<group>";
+		};
 		04D09F8728897C900014DCFD = {
 			isa = PBXGroup;
 			children = (
@@ -1431,6 +1467,8 @@
 		04D0A137288994A10014DCFD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				045EE6B8288A37BC001D6B5B /* IOKit.framework */,
+				045EE6B6288A37B7001D6B5B /* Cocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2227,6 +2265,7 @@
 			children = (
 				04D0A512288A28770014DCFD /* plugins.cpp */,
 				04D0A511288A28770014DCFD /* plugins.h */,
+				045EE6BD288A3841001D6B5B /* screenshot */,
 				04D0A501288A28390014DCFD /* benchmark_mode */,
 				04D0A500288A28320014DCFD /* window_options */,
 				04D0A4FF288A282C0014DCFD /* file_logger */,
@@ -2632,6 +2671,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				045EE6BB288A37C3001D6B5B /* PBXTargetDependency */,
+				045EE6B4288A36E7001D6B5B /* PBXTargetDependency */,
 			);
 			name = apps;
 			productName = DigitalFlex;
@@ -2744,6 +2785,7 @@
 				04D0A53F288A28880014DCFD /* gui_app.cpp in Sources */,
 				04D0A510288A28710014DCFD /* stop_after.cpp in Sources */,
 				04D0A547288A28880014DCFD /* framebuffer_picker_app.cpp in Sources */,
+				045EE6C0288A3856001D6B5B /* screenshot.cpp in Sources */,
 				04D0A538288A28880014DCFD /* cascade_shadowmap_app.cpp in Sources */,
 				04D0A504288A285B0014DCFD /* benchmark_mode.cpp in Sources */,
 				04D0A543288A28880014DCFD /* shadowmap_app.cpp in Sources */,
@@ -3018,6 +3060,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		045EE6B4288A36E7001D6B5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D0A13C288A1F620014DCFD /* vox.render */;
+			targetProxy = 045EE6B3288A36E7001D6B5B /* PBXContainerItemProxy */;
+		};
+		045EE6BB288A37C3001D6B5B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D0A05328898BB60014DCFD /* vox.math */;
+			targetProxy = 045EE6BA288A37C3001D6B5B /* PBXContainerItemProxy */;
+		};
 		04D0A1362889949E0014DCFD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 04D0A05328898BB60014DCFD /* vox.math */;
@@ -3081,6 +3133,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -3132,6 +3185,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
@@ -3142,7 +3196,77 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'ROOT_PATH_SIZE=39'",
+					VKB_VULKAN_DEBUG,
+					VK_NO_PROTOTYPES,
+					VK_USE_PLATFORM_METAL_EXT,
+					LIBKTX,
+					"'KTX_FEATURE_WRITE=0'",
+					"'BASISD_SUPPORT_KTX2_ZSTD=0'",
+					BASISU_NO_ITERATOR_DEBUG_LEVEL,
+					"'VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1'",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LD_RUNPATH_SEARCH_PATHS = ./third_party/assimp/build_debug/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"./cmake-build-debug/third_party/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/glfw/src/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/glslang/glslang/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/glslang/glslang/OSDependent/Unix/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/glslang/SPIRV/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/spirv-cross/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/hwcpipe/lib/Debug/arm64",
+					"./cmake-build-debug/third_party/glslang/OGLCompilersDLL/lib/Debug/arm64",
+					/usr/local/lib,
+					./third_party/assimp/build_debug/bin,
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lvolk",
+					"-lktx",
+					"-lastc",
+					"-limgui",
+					"-lglslang",
+					"-lSPIRV",
+					"-lMachineIndependent",
+					"-lOGLCompiler",
+					"-lOSDependent",
+					"-lGenericCodeGen",
+					"-lhwcpipe",
+					"-lspirv-cross-glsl",
+					"-lspirv-cross-core",
+					"-lglslang-default-resource-limits",
+					"-lglfw3",
+					"-lassimpd",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/vma/src,
+					./third_party/volk,
+					./third_party/vulkan/include,
+					./third_party/spdlog/include,
+					./third_party/glm,
+					./third_party/glslang,
+					./third_party/tinygltf,
+					./third_party/cli11/include,
+					./third_party/glfw/include,
+					"./third_party/spirv-cross",
+					./third_party/hwcpipe,
+					./third_party/imgui,
+					./third_party/astc/Source,
+					./third_party/stb,
+					./third_party/ktx/include,
+					./third_party/CTPL,
+					/usr/local/include,
+					./third_party/assimp/include,
+					./third_party/assimp/build_debug/include,
+					./third_party/nlohmann/include,
+					./third_party/sol2/include,
+					/opt/homebrew/Cellar/lua/5.4.4_1/include/lua,
+				);
 			};
 			name = Debug;
 		};
@@ -3153,7 +3277,77 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'ROOT_PATH_SIZE=39'",
+					VKB_VULKAN_DEBUG,
+					VK_NO_PROTOTYPES,
+					VK_USE_PLATFORM_METAL_EXT,
+					LIBKTX,
+					"'KTX_FEATURE_WRITE=0'",
+					"'BASISD_SUPPORT_KTX2_ZSTD=0'",
+					BASISU_NO_ITERATOR_DEBUG_LEVEL,
+					"'VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1'",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				LD_RUNPATH_SEARCH_PATHS = ./third_party/assimp/build_release/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"./cmake-build-release/third_party/lib/Release/arm64",
+					"./cmake-build-release/third_party/glfw/src/lib/Release/arm64",
+					"./cmake-build-release/third_party/glslang/glslang/lib/Release/arm64",
+					"./cmake-build-release/third_party/glslang/glslang/OSDependent/Unix/lib/Release/arm64",
+					"./cmake-build-release/third_party/glslang/SPIRV/lib/Release/arm64",
+					"./cmake-build-release/third_party/spirv-cross/lib/Release/arm64",
+					"./cmake-build-release/third_party/hwcpipe/lib/Release/arm64",
+					"./cmake-build-release/third_party/glslang/OGLCompilersDLL/lib/Release/arm64",
+					/usr/local/lib,
+					./third_party/assimp/build_release/bin,
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-lvolk",
+					"-lktx",
+					"-lastc",
+					"-limgui",
+					"-lglslang",
+					"-lSPIRV",
+					"-lMachineIndependent",
+					"-lOGLCompiler",
+					"-lOSDependent",
+					"-lGenericCodeGen",
+					"-lhwcpipe",
+					"-lspirv-cross-glsl",
+					"-lspirv-cross-core",
+					"-lglslang-default-resource-limits",
+					"-lglfw3",
+					"-lassimp",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/vma/src,
+					./third_party/volk,
+					./third_party/vulkan/include,
+					./third_party/spdlog/include,
+					./third_party/glm,
+					./third_party/glslang,
+					./third_party/tinygltf,
+					./third_party/cli11/include,
+					./third_party/glfw/include,
+					"./third_party/spirv-cross",
+					./third_party/hwcpipe,
+					./third_party/imgui,
+					./third_party/astc/Source,
+					./third_party/stb,
+					./third_party/ktx/include,
+					./third_party/CTPL,
+					/usr/local/include,
+					./third_party/assimp/include,
+					./third_party/assimp/build_release/include,
+					./third_party/nlohmann/include,
+					./third_party/sol2/include,
+					/opt/homebrew/Cellar/lua/5.4.4_1/include/lua,
+				);
 			};
 			name = Release;
 		};
@@ -3243,8 +3437,45 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'ROOT_PATH_SIZE=39'",
+					VKB_VULKAN_DEBUG,
+					VK_NO_PROTOTYPES,
+					VK_USE_PLATFORM_METAL_EXT,
+					LIBKTX,
+					"'KTX_FEATURE_WRITE=0'",
+					"'BASISD_SUPPORT_KTX2_ZSTD=0'",
+					BASISU_NO_ITERATOR_DEBUG_LEVEL,
+					"'VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1'",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/vma/src,
+					./third_party/volk,
+					./third_party/vulkan/include,
+					./third_party/spdlog/include,
+					./third_party/glm,
+					./third_party/glslang,
+					./third_party/tinygltf,
+					./third_party/cli11/include,
+					./third_party/glfw/include,
+					"./third_party/spirv-cross",
+					./third_party/hwcpipe,
+					./third_party/imgui,
+					./third_party/astc/Source,
+					./third_party/stb,
+					./third_party/ktx/include,
+					./third_party/CTPL,
+					/usr/local/include,
+					./third_party/assimp/include,
+					./third_party/assimp/build_debug/include,
+					./third_party/nlohmann/include,
+					./third_party/sol2/include,
+					/opt/homebrew/Cellar/lua/5.4.4_1/include/lua,
+				);
 			};
 			name = Debug;
 		};
@@ -3256,8 +3487,45 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'ROOT_PATH_SIZE=39'",
+					VKB_VULKAN_DEBUG,
+					VK_NO_PROTOTYPES,
+					VK_USE_PLATFORM_METAL_EXT,
+					LIBKTX,
+					"'KTX_FEATURE_WRITE=0'",
+					"'BASISD_SUPPORT_KTX2_ZSTD=0'",
+					BASISU_NO_ITERATOR_DEBUG_LEVEL,
+					"'VULKAN_HPP_DISPATCH_LOADER_DYNAMIC=1'",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/vma/src,
+					./third_party/volk,
+					./third_party/vulkan/include,
+					./third_party/spdlog/include,
+					./third_party/glm,
+					./third_party/glslang,
+					./third_party/tinygltf,
+					./third_party/cli11/include,
+					./third_party/glfw/include,
+					"./third_party/spirv-cross",
+					./third_party/hwcpipe,
+					./third_party/imgui,
+					./third_party/astc/Source,
+					./third_party/stb,
+					./third_party/ktx/include,
+					./third_party/CTPL,
+					/usr/local/include,
+					./third_party/assimp/include,
+					./third_party/assimp/build_release/include,
+					./third_party/nlohmann/include,
+					./third_party/sol2/include,
+					/opt/homebrew/Cellar/lua/5.4.4_1/include/lua,
+				);
 			};
 			name = Release;
 		};
