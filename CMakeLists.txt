@@ -56,11 +56,6 @@ add_subdirectory(test.math)
 add_subdirectory(vox.render)
 add_subdirectory(apps)
 
-# Add simulator
-#add_subdirectory(vox.cloth)
-#add_subdirectory(vox.compute)
-#add_subdirectory(simulator)
-
 # Add editor
-#add_subdirectory(vox.editor)
-#add_subdirectory(editor)
+add_subdirectory(vox.editor)
+add_subdirectory(editor)

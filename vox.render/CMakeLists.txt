@@ -426,7 +426,7 @@ set(LUA_FILES
 
 set(LUA_SOURCE
         ../third_party/sol2/include
-        /opt/homebrew/Cellar/lua/5.4.4_1/include/lua
+        /opt/homebrew/include/lua
         )
 
 set(CONTROL_FILES controls/spherical.h
