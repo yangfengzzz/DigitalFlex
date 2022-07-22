@@ -52,7 +52,7 @@ void svd(const MatrixMxN<T> &a, MatrixMxN<T> &u, VectorN<T> &w, MatrixMxN<T> &v)
     T c = 0, f = 0, h = 0, s = 0, x = 0, y = 0, z = 0;
     T anorm = 0, g = 0, scale = 0;
 
-    JET_THROW_INVALID_ARG_WITH_MESSAGE_IF(m < n,
+    VOX_THROW_INVALID_ARG_WITH_MESSAGE_IF(m < n,
                                           "Number of rows of input matrix must "
                                           "be greater than or equal to "
                                           "columns.");

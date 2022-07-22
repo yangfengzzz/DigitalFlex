@@ -52,9 +52,11 @@ add_subdirectory(third_party)
 add_subdirectory(vox.math)
 add_subdirectory(test.math)
 
+# Add geometry library
 add_subdirectory(vox.geometry)
+add_subdirectory(test.geometry)
 
-# Add render frameworkv
+# Add render framework
 add_subdirectory(vox.render)
 add_subdirectory(apps)
 
