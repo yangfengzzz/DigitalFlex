@@ -60,6 +60,7 @@ add_subdirectory(test.geometry)
 
 # Add force library
 add_subdirectory(vox.force)
+add_subdirectory(test.force)
 
 # Add render framework
 add_subdirectory(vox.render)
