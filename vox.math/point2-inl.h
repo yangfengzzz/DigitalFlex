@@ -407,7 +407,7 @@ Point<T, 2> operator*(const Point<T, 2> &a, T b) {
 
 template <typename T>
 Point<T, 2> operator*(T a, const Point<T, 2> &b) {
-    return b.rmul(a);
+    return b.mul(a);
 }
 
 template <typename T>

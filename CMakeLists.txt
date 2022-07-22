@@ -52,6 +52,8 @@ add_subdirectory(third_party)
 add_subdirectory(vox.math)
 add_subdirectory(test.math)
 
+add_subdirectory(vox.geometry)
+
 # Add render frameworkv
 add_subdirectory(vox.render)
 add_subdirectory(apps)

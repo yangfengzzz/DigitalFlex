@@ -433,7 +433,7 @@ Point<T, 3> operator*(const Point<T, 3> &a, T b) {
 
 template <typename T>
 Point<T, 3> operator*(T a, const Point<T, 3> &b) {
-    return b.rmul(a);
+    return b.mul(a);
 }
 
 template <typename T>
