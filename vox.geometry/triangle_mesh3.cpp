@@ -1,4 +1,4 @@
-// Copyright (c) 2019 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,8 +6,8 @@
 
 #include "vox.geometry/triangle_mesh3.h"
 
-#include "vox.geometry/parallel.h"
-#include "vox.render/logging.h"
+#include "vox.base/parallel.h"
+#include "vox.base/logging.h"
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #define TINYOBJLOADER_USE_DOUBLE

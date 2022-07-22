@@ -10,7 +10,7 @@
 #include <functional>
 #include <vector>
 
-#include "vox.math/macros.h"
+#include "vox.base/macros.h"
 
 namespace vox {
 

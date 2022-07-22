@@ -1,11 +1,10 @@
-// Copyright (c) 2022 Feng Yang
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_LIST_QUERY_ENGINE3_INL_H_
-#define INCLUDE_JET_DETAIL_LIST_QUERY_ENGINE3_INL_H_
+#pragma once
 
 #include "vox.geometry/list_query_engine3.h"
 
@@ -96,5 +95,3 @@ NearestNeighborQueryResult3<T> ListQueryEngine3<T>::nearest(const Point3D& pt,
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_LIST_QUERY_ENGINE3_INL_H_

@@ -8,7 +8,7 @@
 
 #include <limits>
 
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 
 namespace vox {
 

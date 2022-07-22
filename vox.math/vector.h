@@ -9,8 +9,8 @@
 #include <array>
 #include <type_traits>
 
-#include "vox.math/constants.h"
-#include "vox.math/type_helpers.h"
+#include "vox.base/constants.h"
+#include "vox.base/type_helpers.h"
 #include "vox.math/vector_expression.h"
 
 namespace vox {

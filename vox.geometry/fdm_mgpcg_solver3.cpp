@@ -10,7 +10,7 @@
 
 #include "vox.geometry/cg.h"
 #include "vox.geometry/mg.h"
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 
 using namespace vox;
 

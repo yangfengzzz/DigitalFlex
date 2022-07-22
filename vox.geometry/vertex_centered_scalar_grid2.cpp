@@ -8,7 +8,7 @@
 
 #include <utility>
 
-#include "vox.geometry/private_helpers.h"
+#include "vox.base/private_helpers.h"
 
 using namespace vox;
 

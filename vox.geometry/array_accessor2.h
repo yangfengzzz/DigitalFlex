@@ -235,7 +235,7 @@ public:
     ArrayAccessor &operator=(const ArrayAccessor &other);
 
     //! Casts type to ConstArrayAccessor.
-    explicit operator ConstArrayAccessor<T, 2>() const;
+    operator ConstArrayAccessor<T, 2>() const;
 
 private:
     Size2 _size;

@@ -13,8 +13,8 @@
 
 #include "vox.geometry/array2.h"
 #include "vox.geometry/array3.h"
-#include "vox.geometry/serial.h"
-#include "vox.math/constants.h"
+#include "vox.base/serial.h"
+#include "vox.base/constants.h"
 
 using namespace vox;
 

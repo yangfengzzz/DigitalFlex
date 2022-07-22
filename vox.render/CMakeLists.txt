@@ -50,13 +50,11 @@ set(COMMON_FILES
         utils.h
         strings.h
         tags.h
-        timer.h
         # Source Files
         error.cpp
         vk_common.cpp
         utils.cpp
-        strings.cpp
-        timer.cpp)
+        strings.cpp)
 
 set(RENDERING_FILES
         # Header files

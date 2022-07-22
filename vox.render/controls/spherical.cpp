@@ -6,7 +6,7 @@
 
 #include "vox.render/controls/spherical.h"
 
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 
 namespace vox::control {
 Spherical::Spherical(float radius, float phi, float theta) : radius_(radius), phi_(phi), theta_(theta) {}

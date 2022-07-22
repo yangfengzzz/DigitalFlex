@@ -8,9 +8,9 @@
 
 #include <numeric>
 
-#include "vox.geometry/cpp_utils.h"
+#include "vox.base/cpp_utils.h"
 #include "vox.geometry/matrix_csr.h"
-#include "vox.geometry/parallel.h"
+#include "vox.base/parallel.h"
 #include "vox.math/math_utils.h"
 
 namespace vox {

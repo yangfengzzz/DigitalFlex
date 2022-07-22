@@ -9,7 +9,7 @@
 #include <functional>
 
 #include "vox.math/bounding_box3.h"
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 
 namespace vox {
 

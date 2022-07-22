@@ -48,6 +48,8 @@ include(check_atomic)
 # Add third party libraries
 add_subdirectory(third_party)
 
+add_subdirectory(vox.base)
+
 # Add math library
 add_subdirectory(vox.math)
 add_subdirectory(test.math)

@@ -6,7 +6,7 @@
 
 #include "vox.render/rendering/subpasses/color_picker_subpass.h"
 
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 #include "vox.render/camera.h"
 #include "vox.render/components_manager.h"
 #include "vox.render/mesh/mesh.h"

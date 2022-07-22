@@ -10,8 +10,8 @@
 #include <utility>
 #include <vector>
 
-#include "vox.geometry/parallel.h"
-#include "vox.math/constants.h"
+#include "vox.base/parallel.h"
+#include "vox.base/constants.h"
 
 namespace vox {
 

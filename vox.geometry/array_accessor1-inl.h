@@ -8,8 +8,8 @@
 
 #include <utility>
 
-#include "vox.geometry/parallel.h"
-#include "vox.math/macros.h"
+#include "vox.base/parallel.h"
+#include "vox.base/macros.h"
 
 namespace vox {
 

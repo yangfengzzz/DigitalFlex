@@ -33,7 +33,7 @@ endif ()
 
 target_include_directories(${PROJECT_NAME} PUBLIC ../)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE vox.render vox.math vox.editor spdlog)
+target_link_libraries(${PROJECT_NAME} PRIVATE vox.render vox.math vox.editor vox.base spdlog)
 
 if (CMAKE_BUILD_TYPE MATCHES "Release")
     target_link_directories(${PROJECT_NAME} PUBLIC

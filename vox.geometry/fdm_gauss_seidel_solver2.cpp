@@ -6,7 +6,7 @@
 
 #include "vox.geometry/fdm_gauss_seidel_solver2.h"
 
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 
 using namespace vox;
 

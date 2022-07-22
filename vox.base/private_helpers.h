@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.math/macros.h"
+#include "vox.base/macros.h"
 
 #ifndef UNUSED_VARIABLE
 #define UNUSED_VARIABLE(x) ((void)x)

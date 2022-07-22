@@ -11,9 +11,9 @@
 #include "vox.geometry/array1.h"
 #include "vox.geometry/array2.h"
 #include "vox.geometry/array3.h"
-#include "vox.geometry/parallel.h"
-#include "vox.geometry/serial.h"
-#include "vox.math/type_helpers.h"
+#include "vox.base/parallel.h"
+#include "vox.base/serial.h"
+#include "vox.base/type_helpers.h"
 
 namespace vox {
 

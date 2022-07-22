@@ -9,7 +9,7 @@
 #include <numeric>
 
 #include "vox.geometry/bvh2.h"
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 #include "vox.math/math_utils.h"
 
 namespace vox {

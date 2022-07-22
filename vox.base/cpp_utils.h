@@ -14,4 +14,4 @@ template <class ForwardIt, class T, class Compare = std::less<T>>
 ForwardIt binaryFind(ForwardIt first, ForwardIt last, const T &value, Compare comp = {});
 }  // namespace vox
 
-#include "vox.geometry/cpp_utils-inl.h"
+#include "vox.base/cpp_utils-inl.h"

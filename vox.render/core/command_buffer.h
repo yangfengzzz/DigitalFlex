@@ -9,7 +9,7 @@
 #include <list>
 
 #include "vox.render/helper.h"
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 #include "vox.render/core/buffer.h"
 #include "vox.render/core/image.h"
 #include "vox.render/core/image_view.h"

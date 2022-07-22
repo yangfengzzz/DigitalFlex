@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.math/macros.h"
+#include "vox.base/macros.h"
 #include "vox.math/math_utils.h"
 #include "vox.math/vector.h"
 

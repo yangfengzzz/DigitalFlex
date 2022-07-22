@@ -11,8 +11,8 @@
 #include <future>
 #include <vector>
 
-#include "vox.math/constants.h"
-#include "vox.math/macros.h"
+#include "vox.base/constants.h"
+#include "vox.base/macros.h"
 
 #define JET_TASKING_CPP11THREADS true
 

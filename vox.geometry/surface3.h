@@ -9,7 +9,7 @@
 #include <memory>
 
 #include "vox.math/bounding_box3.h"
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 #include "vox.math/ray3.h"
 #include "vox.math/transform3.h"
 

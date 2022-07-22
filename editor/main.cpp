@@ -4,7 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 #include "vox.render/platform/platform.h"
 
 #include "vox.editor/editor_application.h"

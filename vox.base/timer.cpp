@@ -4,12 +4,12 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#include "vox.render/timer.h"
+#include "vox.base/timer.h"
 
 #include <chrono>
 #include <utility>
 
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 
 namespace vox::utility {
 

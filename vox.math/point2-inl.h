@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <cassert>
 
-#include "vox.math/macros.h"
+#include "vox.base/macros.h"
 #include "vox.math/math_utils.h"
 
 namespace vox {

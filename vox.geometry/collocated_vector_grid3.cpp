@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "vox.geometry/serial.h"
+#include "vox.base/serial.h"
 
 using namespace vox;
 

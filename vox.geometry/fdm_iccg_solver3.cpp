@@ -7,8 +7,8 @@
 #include "vox.geometry/fdm_iccg_solver3.h"
 
 #include "vox.geometry/cg.h"
-#include "vox.math/constants.h"
-#include "vox.render/logging.h"
+#include "vox.base/constants.h"
+#include "vox.base/logging.h"
 
 using namespace vox;
 

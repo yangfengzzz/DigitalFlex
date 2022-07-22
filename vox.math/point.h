@@ -9,7 +9,7 @@
 #include <array>
 #include <type_traits>
 
-#include "vox.math/macros.h"
+#include "vox.base/macros.h"
 
 namespace vox {
 //!

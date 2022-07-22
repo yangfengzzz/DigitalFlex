@@ -8,7 +8,7 @@
 
 #include <queue>
 
-#include "vox.render/logging.h"
+#include "vox.base/logging.h"
 #include "vox.render/camera.h"
 #include "vox.render/entity.h"
 

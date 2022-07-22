@@ -122,4 +122,4 @@ void serialSort(RandomIterator begin, RandomIterator end, const SortingFunction 
 
 }  // namespace vox
 
-#include "vox.geometry/serial-inl.h"
+#include "vox.base/serial-inl.h"

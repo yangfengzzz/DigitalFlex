@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.geometry/cpp_utils.h"
+#include "vox.base/cpp_utils.h"
 
 namespace vox {
 

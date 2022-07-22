@@ -8,7 +8,7 @@
 
 #include <cmath>
 
-#include "vox.math/constants.h"
+#include "vox.base/constants.h"
 
 // Function fractionInside is originally from Christopher Batty's code:
 //

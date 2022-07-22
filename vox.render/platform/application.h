@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "vox.render/timer.h"
+#include "vox.base/timer.h"
 #include "vox.render/debug_info.h"
 #include "vox.render/platform/configuration.h"
 #include "vox.render/platform/input_events.h"

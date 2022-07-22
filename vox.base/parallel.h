@@ -258,4 +258,4 @@ unsigned int maxNumberOfThreads();
 
 }  // namespace vox
 
-#include "vox.geometry/parallel-inl.h"
+#include "vox.base/parallel-inl.h"
