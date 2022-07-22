@@ -80,8 +80,8 @@ TEST(ParticleSystemData3, AddVectorData) {
     size_t a1 = particleSystem.addVectorData(Vector3D(9.0, -2.0, 5.0));
 
     EXPECT_EQ(12u, particleSystem.numberOfParticles());
-    EXPECT_EQ(3u, a0);
-    EXPECT_EQ(4u, a1);
+    EXPECT_EQ(2u, a0);
+    EXPECT_EQ(3u, a1);
 
     auto as0 = particleSystem.vectorDataAt(a0);
     for (size_t i = 0; i < 12; ++i) {

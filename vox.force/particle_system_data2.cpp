@@ -50,6 +50,7 @@ void ParticleSystemData2::resize(size_t newNumberOfParticles) {
     for (auto& attr : _vectorDataList) {
         attr.resize(newNumberOfParticles, Vector2D());
     }
+    _positionData.resize(newNumberOfParticles, Point2D());
 }
 
 size_t ParticleSystemData2::numberOfParticles() const { return _numberOfParticles; }

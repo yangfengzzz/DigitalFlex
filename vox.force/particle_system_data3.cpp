@@ -50,6 +50,7 @@ void ParticleSystemData3::resize(size_t newNumberOfParticles) {
     for (auto& attr : _vectorDataList) {
         attr.resize(newNumberOfParticles, Vector3D());
     }
+    _positionData.resize(newNumberOfParticles, Point3D());
 }
 
 size_t ParticleSystemData3::numberOfParticles() const { return _numberOfParticles; }
