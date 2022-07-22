@@ -149,7 +149,7 @@ public:
     //! stored.
     //!
     template <typename E>
-    explicit MatrixCsr(const MatrixExpression<T, E> &other, T epsilon = std::numeric_limits<T>::epsilon());
+    MatrixCsr(const MatrixExpression<T, E> &other, T epsilon = std::numeric_limits<T>::epsilon());
 
     //! Copy constructor.
     MatrixCsr(const MatrixCsr &other);

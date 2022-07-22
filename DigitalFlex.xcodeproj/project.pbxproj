@@ -346,6 +346,8 @@
 		045EE93B288ADCC2001D6B5B /* constant_scalar_field3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EE933288ADCC2001D6B5B /* constant_scalar_field3.cpp */; };
 		046C2D49288AF3830031B2BE /* libvox.geometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE784288A4458001D6B5B /* libvox.geometry.a */; };
 		046C2D4A288AF3830031B2BE /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
+		046C2D4B288AF5A20031B2BE /* matrix_csr_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AD2288AEA0500696E23 /* matrix_csr_tests.cpp */; };
+		046C2D4C288AF5DC0031B2BE /* vector_n_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AE6288AEA0600696E23 /* vector_n_tests.cpp */; };
 		04BEAD7A288ADE06008D3CA1 /* box3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6B288ADE05008D3CA1 /* box3.h */; };
 		04BEAD7B288ADE06008D3CA1 /* sphere2.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6C288ADE05008D3CA1 /* sphere2.h */; };
 		04BEAD7C288ADE06008D3CA1 /* plane3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6D288ADE06008D3CA1 /* plane3.h */; };
@@ -4351,6 +4353,7 @@
 				041F4B1D288AEA0600696E23 /* array_accessor2_tests.cpp in Sources */,
 				041F4B07288AEA0600696E23 /* surface_set2_tests.cpp in Sources */,
 				041F4AFD288AEA0600696E23 /* fdm_jacobi_solver2_tests.cpp in Sources */,
+				046C2D4B288AF5A20031B2BE /* matrix_csr_tests.cpp in Sources */,
 				041F4AF6288AEA0600696E23 /* triangle3_tests.cpp in Sources */,
 				041F4AF3288AEA0600696E23 /* sphere3_tests.cpp in Sources */,
 				041F4B0B288AEA0600696E23 /* implicit_triangle_mesh3_tests.cpp in Sources */,
@@ -4386,6 +4389,7 @@
 				041F4B01288AEA0600696E23 /* list_query_engine2_tests.cpp in Sources */,
 				041F4AFC288AEA0600696E23 /* fdm_utils_tests.cpp in Sources */,
 				041F4B1E288AEA0600696E23 /* fdm_cg_solver2_tests.cpp in Sources */,
+				046C2D4C288AF5DC0031B2BE /* vector_n_tests.cpp in Sources */,
 				041F4B12288AEA0600696E23 /* fdm_jacobi_solver3_tests.cpp in Sources */,
 				041F4AEB288AEA0600696E23 /* fdm_gauss_seidel_solver2_tests.cpp in Sources */,
 				041F4B0E288AEA0600696E23 /* implicit_surface_set2_tests.cpp in Sources */,

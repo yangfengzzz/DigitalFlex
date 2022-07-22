@@ -63,9 +63,9 @@ TEST(Blas, Mvm) {
     Vector3D result;
     Blas<double, Vector3D, Matrix3x3D>::mvm(mat, Vector3D(1, 2, 3), &result);
 
-    EXPECT_DOUBLE_EQ(14.0, result.x);
-    EXPECT_DOUBLE_EQ(32.0, result.y);
-    EXPECT_DOUBLE_EQ(50.0, result.z);
+    EXPECT_DOUBLE_EQ(30.0, result.x);
+    EXPECT_DOUBLE_EQ(36.0, result.y);
+    EXPECT_DOUBLE_EQ(42.0, result.z);
 }
 
 TEST(Blas, Residual) {
@@ -74,9 +74,9 @@ TEST(Blas, Residual) {
     Vector3D result;
     Blas<double, Vector3D, Matrix3x3D>::residual(mat, Vector3D(1, 2, 3), Vector3D(4, 5, 6), &result);
 
-    EXPECT_DOUBLE_EQ(-10.0, result.x);
-    EXPECT_DOUBLE_EQ(-27.0, result.y);
-    EXPECT_DOUBLE_EQ(-44.0, result.z);
+    EXPECT_DOUBLE_EQ(-26.0, result.x);
+    EXPECT_DOUBLE_EQ(-31.0, result.y);
+    EXPECT_DOUBLE_EQ(-36.0, result.z);
 }
 
 TEST(Blas, L2Norm) {

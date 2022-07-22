@@ -46,7 +46,7 @@ public:
 
     //! Constructs vector with expression template.
     template <typename E>
-    explicit VectorN(const VectorExpression<T, E> &other);
+    VectorN(const VectorExpression<T, E> &other);
 
     //! Copy constructor.
     VectorN(const VectorN &other);
