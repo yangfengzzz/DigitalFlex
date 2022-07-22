@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "vox.base/helper.h"
+#include "vox.render/helper.h"
 #include "vox.math/vector3.h"
 #include "vox.render/error.h"
 

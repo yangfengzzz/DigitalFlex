@@ -5,7 +5,7 @@
 //  property of any third parties.
 
 #include "apps/skybox_app.h"
-
+#include "vox.render/entity.h"
 #include "vox.render/camera.h"
 #include "vox.render/material/unlit_material.h"
 #include "vox.render/mesh/mesh_renderer.h"

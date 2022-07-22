@@ -6,7 +6,7 @@
 
 #include "vox.render/core/descriptor_set.h"
 
-#include "vox.base/logging.h"
+#include "vox.render/logging.h"
 #include "vox.render/core/descriptor_pool.h"
 #include "vox.render/core/descriptor_set_layout.h"
 #include "vox.render/core/device.h"

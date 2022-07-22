@@ -7,7 +7,7 @@
 #include "apps/assimp_app.h"
 
 #include <assimp/postprocess.h>
-
+#include "vox.render/entity.h"
 #include "vox.render/assimp_parser.h"
 #include "vox.render/camera.h"
 #include "vox.render/controls/orbit_control.h"

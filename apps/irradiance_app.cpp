@@ -7,7 +7,7 @@
 #include "apps/irradiance_app.h"
 
 #include <utility>
-
+#include "vox.render/entity.h"
 #include "vox.render/camera.h"
 #include "vox.render/controls/orbit_control.h"
 #include "vox.render/material/pbr_material.h"

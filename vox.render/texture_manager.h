@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/singleton.h"
+#include "vox.render/singleton.h"
 #include "vox.math/spherical_harmonics3.h"
 #include "vox.render/rendering/postprocessing_computepass.h"
 #include "vox.render/rendering/postprocessing_pipeline.h"

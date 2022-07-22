@@ -6,7 +6,7 @@
 
 #include "vox.render/buffer_pool.h"
 
-#include "vox.base/logging.h"
+#include "vox.render/logging.h"
 #include "vox.render/core/device.h"
 #include "vox.render/error.h"
 

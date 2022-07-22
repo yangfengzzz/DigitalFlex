@@ -4,8 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#ifndef DIGITALVOX_VOX_RENDER_LAYER_H_
-#define DIGITALVOX_VOX_RENDER_LAYER_H_
+#pragma once
 
 namespace vox {
 /**
@@ -83,5 +82,3 @@ enum Layer {
 };
 
 }  // namespace vox
-
-#endif /* DIGITALVOX_VOX_RENDER_LAYER_H_ */

@@ -62,12 +62,6 @@ void Behaviour::OnBeginRender(Camera *camera) {}
 
 void Behaviour::OnEndRender(Camera *camera) {}
 
-void Behaviour::OnTriggerEnter(const physics::ColliderShapePtr &other) {}
-
-void Behaviour::OnTriggerExit(const physics::ColliderShapePtr &other) {}
-
-void Behaviour::OnTriggerStay(const physics::ColliderShapePtr &other) {}
-
 void Behaviour::InputEvent(const vox::InputEvent &input_event) {}
 
 void Behaviour::Resize(uint32_t win_width, uint32_t win_height, uint32_t fb_width, uint32_t fb_height) {}

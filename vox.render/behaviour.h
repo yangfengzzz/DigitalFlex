@@ -108,25 +108,6 @@ public:
      */
     void OnEndRender(Camera *camera) override;
 
-    /**
-     * Called when the collision enter.
-     * @param other ColliderShape
-     */
-    void OnTriggerEnter(const physics::ColliderShapePtr &other) override;
-
-    /**
-     * Called when the collision stay.
-     * @remarks onTriggerStay is called every frame while the collision stay.
-     * @param other ColliderShape
-     */
-    void OnTriggerExit(const physics::ColliderShapePtr &other) override;
-
-    /**
-     * Called when the collision exit.
-     * @param other ColliderShape
-     */
-    void OnTriggerStay(const physics::ColliderShapePtr &other) override;
-
     void InputEvent(const vox::InputEvent &input_event) override;
 
     void Resize(uint32_t win_width, uint32_t win_height, uint32_t fb_width, uint32_t fb_height) override;

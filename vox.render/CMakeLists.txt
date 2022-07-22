@@ -50,11 +50,13 @@ set(COMMON_FILES
         utils.h
         strings.h
         tags.h
+        timer.h
         # Source Files
         error.cpp
         vk_common.cpp
         utils.cpp
-        strings.cpp)
+        strings.cpp
+        timer.cpp)
 
 set(RENDERING_FILES
         # Header files
@@ -423,8 +425,8 @@ set(LUA_FILES
         lua/script_interpreter.h)
 
 set(LUA_SOURCE
-        ../third_party/sol2/single/include
-        /usr/local/include/lua
+        ../third_party/sol2/include
+        /opt/homebrew/Cellar/lua/5.4.4_1/include/lua
         )
 
 set(CONTROL_FILES controls/spherical.h
@@ -433,73 +435,6 @@ set(CONTROL_FILES controls/spherical.h
         controls/orbit_control.cpp
         controls/free_control.h
         controls/free_control.cpp)
-
-set(PHYSX_FILES physics/collider.h
-        physics/collider.cpp
-        physics/dynamic_collider.h
-        physics/dynamic_collider.cpp
-        physics/hit_result.h
-        physics/physics.h
-        physics/physics.cpp
-        physics/physics_manager.h
-        physics/physics_manager.cpp
-        physics/static_collider.h
-        physics/static_collider.cpp
-
-        physics/shape/box_collider_shape.h
-        physics/shape/box_collider_shape.cpp
-        physics/shape/capsule_collider_shape.h
-        physics/shape/capsule_collider_shape.cpp
-        physics/shape/collider_shape.h
-        physics/shape/collider_shape.cpp
-        physics/shape/plane_collider_shape.h
-        physics/shape/plane_collider_shape.cpp
-        physics/shape/sphere_collider_shape.h
-        physics/shape/sphere_collider_shape.cpp
-
-        physics/joint/joint.h
-        physics/joint/joint.cpp
-        physics/joint/configurable_joint.h
-        physics/joint/configurable_joint.cpp
-        physics/joint/fixed_joint.h
-        physics/joint/fixed_joint.cpp
-        physics/joint/hinge_joint.h
-        physics/joint/hinge_joint.cpp
-        physics/joint/spherical_joint.h
-        physics/joint/spherical_joint.cpp
-        physics/joint/spring_joint.h
-        physics/joint/spring_joint.cpp
-        physics/joint/translational_joint.h
-        physics/joint/translational_joint.cpp
-
-        physics/character_controller/character_controller.h
-        physics/character_controller/character_controller.cpp
-        physics/character_controller/box_character_controller.h
-        physics/character_controller/box_character_controller.cpp
-        physics/character_controller/capsule_character_controller.h
-        physics/character_controller/capsule_character_controller.cpp)
-
-set(PHYSX_SOURCE
-        ../third_party/physx/physx/source/common/src/mac
-        ../third_party/physx/physx/include
-        ../third_party/physx/physx/source/common/include
-        ../third_party/physx/physx/source/common/src
-        ../third_party/physx/physx/source/geomutils/include
-        ../third_party/physx/physx/source/geomutils/src
-        ../third_party/physx/physx/source/geomutils/src/contact
-        ../third_party/physx/physx/source/geomutils/src/common
-        ../third_party/physx/physx/source/geomutils/src/convex
-        ../third_party/physx/physx/source/geomutils/src/distance
-        ../third_party/physx/physx/source/geomutils/src/sweep
-        ../third_party/physx/physx/source/geomutils/src/gjk
-        ../third_party/physx/physx/source/geomutils/src/intersection
-        ../third_party/physx/physx/source/geomutils/src/mesh
-        ../third_party/physx/physx/source/geomutils/src/hf
-        ../third_party/physx/physx/source/geomutils/src/pcm
-        ../third_party/physx/physx/source/geomutils/src/ccd
-        ../third_party/physx/physx/source/physxgpu/include
-        ../third_party/physx/physx/../pxshared/include
-        ../third_party/physx/physx/source/foundation/include)
 
 set(MESH_FILES mesh/index_buffer_binding.h
         mesh/index_buffer_binding.cpp
@@ -663,7 +598,6 @@ set(PROJECT_FILES
         ${UI_FILES}
         ${SCENE_FILES}
         ${CONTROL_FILES}
-        ${PHYSX_FILES}
         ${MESH_FILES}
         ${WIREFRAME_FILES}
         ${SHADER_FILES}
@@ -733,12 +667,6 @@ if (${VKB_VULKAN_DEBUG})
     target_compile_definitions(${PROJECT_NAME} PUBLIC VKB_VULKAN_DEBUG)
 endif ()
 
-if (CMAKE_BUILD_TYPE MATCHES "Release")
-    target_compile_definitions(${PROJECT_NAME} PUBLIC DISABLE_CUDA_PHYSX PX_PHYSX_CORE_EXPORTS NDEBUG PX_SUPPORT_PVD=0)
-ELSEIF (CMAKE_BUILD_TYPE MATCHES "Debug")
-    target_compile_definitions(${PROJECT_NAME} PUBLIC DISABLE_CUDA_PHYSX PX_PHYSX_CORE_EXPORTS _DEBUG PX_DEBUG=1 PX_CHECKED=1 PX_NVTX=0 PX_SUPPORT_PVD=1)
-endif ()
-
 if (${VKB_WARNINGS_AS_ERRORS})
     message(STATUS "Warnings as Errors Enabled")
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -749,7 +677,7 @@ if (${VKB_WARNINGS_AS_ERRORS})
 endif ()
 
 target_include_directories(${PROJECT_NAME} PUBLIC ../
-        ${CMAKE_CURRENT_SOURCE_DIR} ${PHYSX_SOURCE} ${LOADER_SOURCE} ${LUA_SOURCE}
+        ${CMAKE_CURRENT_SOURCE_DIR} ${LOADER_SOURCE} ${LUA_SOURCE}
         ../third_party/nlohmann/include)
 
 # Link third party libraries

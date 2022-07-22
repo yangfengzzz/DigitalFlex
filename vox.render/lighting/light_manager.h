@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/singleton.h"
+#include "vox.render/singleton.h"
 #include "vox.render/lighting/direct_light.h"
 #include "vox.render/lighting/point_light.h"
 #include "vox.render/lighting/spot_light.h"

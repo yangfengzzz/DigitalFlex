@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/logging.h"
+#include "vox.render/logging.h"
 #include "vox.render/behaviour.h"
 
 namespace vox {

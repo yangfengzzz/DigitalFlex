@@ -9,7 +9,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "vox.base/singleton.h"
+#include "vox.render/singleton.h"
 #include "vox.render/rendering/render_context.h"
 #include "vox.render/ui/canvas.h"
 

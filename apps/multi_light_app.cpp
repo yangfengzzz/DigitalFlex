@@ -7,7 +7,7 @@
 #include "apps/multi_light_app.h"
 
 #include <random>
-
+#include "vox.render/entity.h"
 #include "vox.render/camera.h"
 #include "vox.render/controls/orbit_control.h"
 #include "vox.render/lighting/debug/sprite_debug.h"

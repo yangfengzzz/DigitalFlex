@@ -14,8 +14,8 @@ VKBP_DISABLE_WARNINGS()
 
 VKBP_ENABLE_WARNINGS()
 
-#include "vox.base/helper.h"
-#include "vox.base/logging.h"
+#include "vox.render/helper.h"
+#include "vox.render/logging.h"
 #include "vox.render/platform/glfw_window.h"
 #include "vox.render/platform/platform.h"
 #include "vox.render/platform/window.h"
@@ -63,7 +63,7 @@ bool GraphicsApplication::Prepare(Platform &platform) {
         return false;
     }
 
-    LOGI("Initializing DigitalVox")
+    LOGI("Initializing DigitalFlex")
 
     bool headless = platform.GetWindow().GetWindowMode() == Window::Mode::HEADLESS;
 

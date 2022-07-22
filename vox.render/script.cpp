@@ -8,7 +8,6 @@
 
 #include "vox.render/components_manager.h"
 #include "vox.render/entity.h"
-#include "vox.render/physics/physics_manager.h"
 #include "vox.render/scene.h"
 
 namespace vox {
@@ -30,7 +29,6 @@ void Script::OnEnable() {
         components_manager->AddOnStartScript(this);
     }
     components_manager->AddOnUpdateScript(this);
-    physics::PhysicsManager::GetSingleton().AddOnPhysicsUpdateScript(this);
     entity_->AddScript(this);
     OnScriptEnable();
 }
@@ -39,7 +37,6 @@ void Script::OnDisable() {
     auto components_manager = ComponentsManager::GetSingletonPtr();
     components_manager->RemoveOnStartScript(this);
     components_manager->RemoveOnUpdateScript(this);
-    physics::PhysicsManager::GetSingleton().RemoveOnPhysicsUpdateScript(this);
     entity_->RemoveScript(this);
     OnScriptDisable();
 }

@@ -10,12 +10,6 @@
 #include "vox.render/platform/input_events.h"
 
 namespace vox {
-namespace physics {
-class ColliderShape;
-
-using ColliderShapePtr = std::shared_ptr<ColliderShape>;
-}  // namespace physics
-
 /**
  * Script class, used for logic writing.
  */
@@ -83,30 +77,6 @@ public:
      * @param camera - Current camera.
      */
     virtual void OnEndRender(Camera *camera) {}
-
-    /**
-     * Called before physics calculations, the number of times is related to the physical update frequency.
-     */
-    virtual void OnPhysicsUpdate() {}
-
-    /**
-     * Called when the collision enter.
-     * @param other ColliderShape
-     */
-    virtual void OnTriggerEnter(const physics::ColliderShapePtr &other) {}
-
-    /**
-     * Called when the collision stay.
-     * @remarks OnTriggerStay is called every frame while the collision stay.
-     * @param other ColliderShape
-     */
-    virtual void OnTriggerExit(const physics::ColliderShapePtr &other) {}
-
-    /**
-     * Called when the collision exit.
-     * @param other ColliderShape
-     */
-    virtual void OnTriggerStay(const physics::ColliderShapePtr &other) {}
 
     virtual void InputEvent(const InputEvent &input_event) {}
 

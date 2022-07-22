@@ -11,7 +11,6 @@
 #include "vox.render/lighting/light_manager.h"
 #include "vox.render/mesh/mesh_manager.h"
 #include "vox.render/particle/particle_manager.h"
-#include "vox.render/physics/physics_manager.h"
 #include "vox.render/scene_manager.h"
 #include "vox.render/shader/shader_manager.h"
 #include "vox.render/shadow/shadow_manager.h"
@@ -55,7 +54,6 @@ protected:
     std::unique_ptr<MeshManager> mesh_manager_{nullptr};
 
     std::unique_ptr<ComponentsManager> components_manager_{nullptr};
-    std::unique_ptr<physics::PhysicsManager> physics_manager_{nullptr};
     std::unique_ptr<SceneManager> scene_manager_{nullptr};
     std::unique_ptr<ShadowManager> shadow_manager_{nullptr};
     std::unique_ptr<LightManager> light_manager_{nullptr};

@@ -4,8 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#ifndef DIGITALVOX_VOX_RENDER_EVENT_INL_H_
-#define DIGITALVOX_VOX_RENDER_EVENT_INL_H_
+#pragma once
 
 #include "vox.render/event.h"
 
@@ -47,5 +46,3 @@ void Event<ArgTypes...>::Invoke(ArgTypes... p_args) {
     for (auto const& [kEy, kValue] : callbacks_) kValue(p_args...);
 }
 }  // namespace vox
-
-#endif /* DIGITALVOX_VOX_RENDER_EVENT_INL_H_ */

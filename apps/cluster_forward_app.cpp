@@ -7,7 +7,7 @@
 #include "apps/cluster_forward_app.h"
 
 #include <random>
-
+#include "vox.render/entity.h"
 #include "vox.render/camera.h"
 #include "vox.render/controls/orbit_control.h"
 #include "vox.render/lighting/debug/cluster_debug_material.h"

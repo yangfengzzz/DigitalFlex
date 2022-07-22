@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/helper.h"
+#include "vox.render/helper.h"
 #include "vox.render/core/render_pass.h"
 #include "vox.render/rendering/render_target.h"
 #include "vox.render/vk_common.h"

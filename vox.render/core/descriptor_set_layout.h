@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/helper.h"
+#include "vox.render/helper.h"
 #include "vox.render/vk_common.h"
 
 namespace vox {

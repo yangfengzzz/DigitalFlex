@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/singleton.h"
+#include "vox.render/singleton.h"
 #include "vox.render/shader/shader_source.h"
 
 namespace vox {

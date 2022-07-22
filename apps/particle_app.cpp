@@ -5,7 +5,7 @@
 //  property of any third parties.
 
 #include "apps/particle_app.h"
-
+#include "vox.render/entity.h"
 #include "vox.render/camera.h"
 #include "vox.render/controls/orbit_control.h"
 #include "vox.render/material/blinn_phong_material.h"

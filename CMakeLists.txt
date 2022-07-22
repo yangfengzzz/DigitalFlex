@@ -17,7 +17,7 @@
 
 cmake_minimum_required(VERSION 3.12)
 
-project(DigitalVox)
+project(DigitalFlex)
 
 # create output folder
 file(MAKE_DIRECTORY output)
@@ -48,23 +48,19 @@ include(check_atomic)
 # Add third party libraries
 add_subdirectory(third_party)
 
-# Add base library
-add_subdirectory(vox.base)
-add_subdirectory(test.base)
-
 # Add math library
 add_subdirectory(vox.math)
 add_subdirectory(test.math)
 
-# Add render framework
+# Add render frameworkv
 add_subdirectory(vox.render)
 add_subdirectory(apps)
 
 # Add simulator
-add_subdirectory(vox.cloth)
-add_subdirectory(vox.compute)
-add_subdirectory(simulator)
+#add_subdirectory(vox.cloth)
+#add_subdirectory(vox.compute)
+#add_subdirectory(simulator)
 
 # Add editor
-add_subdirectory(vox.editor)
-add_subdirectory(editor)
+#add_subdirectory(vox.editor)
+#add_subdirectory(editor)

@@ -8,7 +8,7 @@
 
 #include <vector>
 
-#include "vox.base/singleton.h"
+#include "vox.render/singleton.h"
 #include "vox.math/matrix4x4.h"
 #include "vox.math/vector3.h"
 #include "vox.render/mesh/index_buffer_binding.h"

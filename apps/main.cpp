@@ -16,14 +16,11 @@
 #include "apps/multi_light_app.h"
 #include "apps/particle_app.h"
 #include "apps/pbr_app.h"
-#include "apps/physx_app.h"
-#include "apps/physx_dynamic_app.h"
-#include "apps/physx_joint_app.h"
 #include "apps/plugins/plugins.h"
 #include "apps/primitive_app.h"
 #include "apps/shadowmap_app.h"
 #include "apps/skybox_app.h"
-#include "vox.base/logging.h"
+#include "vox.render/logging.h"
 #include "vox.render/platform/platform.h"
 
 // MARK: - Entry
@@ -53,7 +50,7 @@ int main(int argc, char *argv[]) {
 
     auto code = platform.Initialize(plugins::GetAll());
     if (code == vox::ExitCode::SUCCESS) {
-        platform.SetApp(std::make_unique<vox::PhysXJointApp>());
+        platform.SetApp(std::make_unique<vox::PrimitiveApp>());
         code = platform.MainLoop();
     }
     platform.Terminate(code);

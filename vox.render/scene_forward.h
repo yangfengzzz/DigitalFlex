@@ -4,8 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#ifndef DIGITALVOX_VOX_RENDER_SCENE_FORWARD_H_
-#define DIGITALVOX_VOX_RENDER_SCENE_FORWARD_H_
+#pragma once
 
 #include <memory>
 
@@ -77,5 +76,3 @@ class SpotLight;
 class DirectLight;
 
 }  // namespace vox
-
-#endif /* DIGITALVOX_VOX_RENDER_SCENE_FORWARD_H_ */

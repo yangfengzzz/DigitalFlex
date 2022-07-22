@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "vox.base/helper.h"
+#include "vox.render/helper.h"
 #include "vox.render/buffer_pool.h"
 #include "vox.render/core/buffer.h"
 #include "vox.render/core/command_buffer.h"

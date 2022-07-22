@@ -10,7 +10,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "vox.base/helper.h"
+#include "vox.render/helper.h"
 #include "vox.render/core/descriptor_pool.h"
 #include "vox.render/core/descriptor_set.h"
 #include "vox.render/core/descriptor_set_layout.h"

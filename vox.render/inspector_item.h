@@ -4,8 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#ifndef DIGITALVOX_VOX_RENDER_INSPECTOR_ITEM_H_
-#define DIGITALVOX_VOX_RENDER_INSPECTOR_ITEM_H_
+#pragma once
 
 #include "vox.render/ui/widgets/widget_container.h"
 #include "vox.render/vobject.h"
@@ -29,4 +28,3 @@ public:
 };
 
 }  // namespace vox
-#endif /* DIGITALVOX_VOX_RENDER_INSPECTOR_ITEM_H_ */

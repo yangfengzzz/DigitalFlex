@@ -14,9 +14,6 @@ add_subdirectory(plugins)
 
 set(SRC
         primitive_app.cpp
-        physx_app.cpp
-        physx_dynamic_app.cpp
-        physx_joint_app.cpp
         skybox_app.cpp
         assimp_app.cpp
         gui_app.cpp
@@ -52,28 +49,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ../third_party/nlohmann/include
         ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE vox.base vox.render vox.math plugins spdlog)
+target_link_libraries(${PROJECT_NAME} PRIVATE vox.render vox.math plugins spdlog)
 
 if (CMAKE_BUILD_TYPE MATCHES "Release")
-    target_compile_definitions(${PROJECT_NAME} PUBLIC DISABLE_CUDA_PHYSX PX_PHYSX_CORE_EXPORTS NDEBUG PX_SUPPORT_PVD=0)
-    target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/third_party/physX/physx/bin/linux.clang/release
-            ${CMAKE_SOURCE_DIR}/third_party/assimp/build_release/bin)
+    target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/third_party/assimp/build_release/bin)
 ELSEIF (CMAKE_BUILD_TYPE MATCHES "Debug")
-    target_compile_definitions(${PROJECT_NAME} PUBLIC DISABLE_CUDA_PHYSX PX_PHYSX_CORE_EXPORTS _DEBUG PX_DEBUG=1 PX_CHECKED=1 PX_NVTX=0 PX_SUPPORT_PVD=1)
-    target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/third_party/physX/physx/bin/linux.clang/debug
-            ${CMAKE_SOURCE_DIR}/third_party/assimp/build_release/bin)
+    target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/third_party/assimp/build_release/bin)
 endif ()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
-        # PhysX
-        libPhysX_static_64.a
-        libPhysXCharacterKinematic_static_64.a
-        libPhysXCommon_static_64.a
-        libPhysXCooking_static_64.a
-        libPhysXExtensions_static_64.a
-        libPhysXFoundation_static_64.a
-        libPhysXPvdSDK_static_64.a
-        libPhysXVehicle_static_64.a
         # Assimp
         assimp)
 
