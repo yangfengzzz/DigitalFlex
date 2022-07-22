@@ -18,7 +18,7 @@ TEST(ImplicitTriangleMesh3, SignedDistance) {
     auto box = Box3::builder().withLowerCorner({0, 0, 0}).withUpperCorner({1, 1, 1}).makeShared();
     SurfaceToImplicit3 refSurf(box);
 
-    std::ifstream objFile("./Assets/cube.obj");
+    std::ifstream objFile("./assets/Models/cube.obj");
     auto mesh = TriangleMesh3::builder().makeShared();
     mesh->readObj(&objFile);
 
