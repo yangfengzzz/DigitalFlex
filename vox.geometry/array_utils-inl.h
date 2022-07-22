@@ -13,7 +13,7 @@
 #include "vox.geometry/array3.h"
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/serial.h"
-#include "vox.geometry/type_helpers.h"
+#include "vox.math/type_helpers.h"
 
 namespace vox {
 
