@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY_SAMPLERS3_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY_SAMPLERS3_INL_H_
+#pragma once
 
 #include <algorithm>
 #include <functional>
@@ -42,9 +41,9 @@ T NearestArraySampler3<T, R>::operator()(const Point3<R> &x) const {
                _gridSpacing.z > std::numeric_limits<R>::epsilon());
     Vector3<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto kSize = static_cast<ssize_t>(_accessor.size().z);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -67,9 +66,9 @@ void NearestArraySampler3<T, R>::getCoordinate(const Point3<R> &x, Point3UI *ind
                _gridSpacing.z > std::numeric_limits<R>::epsilon());
     Vector3<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto kSize = static_cast<ssize_t>(_accessor.size().z);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -116,9 +115,9 @@ T LinearArraySampler3<T, R>::operator()(const Point3<R> &x) const {
                _gridSpacing.z > std::numeric_limits<R>::epsilon());
     Vector3<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto kSize = static_cast<ssize_t>(_accessor.size().z);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -144,9 +143,9 @@ void LinearArraySampler3<T, R>::getCoordinatesAndWeights(const Point3<R> &x,
 
     const Vector3<R> normalizedX = (x - _origin) * _invGridSpacing;
 
-    const ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    const ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    const ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    const auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    const auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    const auto kSize = static_cast<ssize_t>(_accessor.size().z);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -186,9 +185,9 @@ void LinearArraySampler3<T, R>::getCoordinatesAndGradientWeights(const Point3<R>
 
     Vector3<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto kSize = static_cast<ssize_t>(_accessor.size().z);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -249,9 +248,9 @@ CubicArraySampler3<T, R>::CubicArraySampler(const CubicArraySampler &other) {
 template <typename T, typename R>
 T CubicArraySampler3<T, R>::operator()(const Point3<R> &x) const {
     ssize_t i, j, k;
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
-    ssize_t kSize = static_cast<ssize_t>(_accessor.size().z);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto kSize = static_cast<ssize_t>(_accessor.size().z);
     R fx, fy, fz;
 
     VOX_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
@@ -290,5 +289,3 @@ std::function<T(const Point3<R> &)> CubicArraySampler3<T, R>::functor() const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY_SAMPLERS3_INL_H_

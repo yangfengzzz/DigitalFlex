@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_LINEAR_SYSTEM_SOLVER2_H_
-#define INCLUDE_JET_FDM_LINEAR_SYSTEM_SOLVER2_H_
+#pragma once
 
 #include <memory>
 
@@ -31,5 +30,3 @@ public:
 typedef std::shared_ptr<FdmLinearSystemSolver2> FdmLinearSystemSolver2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_LINEAR_SYSTEM_SOLVER2_H_

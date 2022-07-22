@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,7 +6,6 @@
 
 #include "vox.geometry/fdm_linear_system2.h"
 
-#include "vox.geometry/parallel.h"
 #include "vox.math/math_utils.h"
 
 using namespace vox;
@@ -48,7 +47,7 @@ void FdmBlas2::set(const FdmMatrix2 &m, FdmMatrix2 *result) { result->set(m); }
 double FdmBlas2::dot(const FdmVector2 &a, const FdmVector2 &b) {
     Size2 size = a.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != b.size());
+    VOX_THROW_INVALID_ARG_IF(size != b.size())
 
     double result = 0.0;
 
@@ -64,8 +63,8 @@ double FdmBlas2::dot(const FdmVector2 &a, const FdmVector2 &b) {
 void FdmBlas2::axpy(double a, const FdmVector2 &x, const FdmVector2 &y, FdmVector2 *result) {
     Size2 size = x.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != y.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != y.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     x.parallelForEachIndex([&](size_t i, size_t j) { (*result)(i, j) = a * x(i, j) + y(i, j); });
 }
@@ -73,8 +72,8 @@ void FdmBlas2::axpy(double a, const FdmVector2 &x, const FdmVector2 &y, FdmVecto
 void FdmBlas2::mvm(const FdmMatrix2 &m, const FdmVector2 &v, FdmVector2 *result) {
     Size2 size = m.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != v.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != v.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     m.parallelForEachIndex([&](size_t i, size_t j) {
         (*result)(i, j) = m(i, j).center * v(i, j) + ((i > 0) ? m(i - 1, j).right * v(i - 1, j) : 0.0) +
@@ -87,9 +86,9 @@ void FdmBlas2::mvm(const FdmMatrix2 &m, const FdmVector2 &v, FdmVector2 *result)
 void FdmBlas2::residual(const FdmMatrix2 &a, const FdmVector2 &x, const FdmVector2 &b, FdmVector2 *result) {
     Size2 size = a.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != x.size());
-    VOX_THROW_INVALID_ARG_IF(size != b.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != x.size())
+    VOX_THROW_INVALID_ARG_IF(size != b.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     a.parallelForEachIndex([&](size_t i, size_t j) {
         (*result)(i, j) = b(i, j) - a(i, j).center * x(i, j) - ((i > 0) ? a(i - 1, j).right * x(i - 1, j) : 0.0) -

@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VECTOR_FIELD2_H_
-#define INCLUDE_JET_VECTOR_FIELD2_H_
+#pragma once
 
 #include <functional>
 #include <memory>
@@ -22,24 +21,22 @@ public:
     VectorField2();
 
     //! Default destructor.
-    virtual ~VectorField2();
+    ~VectorField2() override;
 
     //! Returns sampled value at given position \p x.
-    virtual Vector2D sample(const Point2D &x) const = 0;
+    [[nodiscard]] virtual Vector2D sample(const Point2D &x) const = 0;
 
     //! Returns divergence at given position \p x.
-    virtual double divergence(const Point2D &x) const;
+    [[nodiscard]] virtual double divergence(const Point2D &x) const;
 
     //! Returns curl at given position \p x.
-    virtual double curl(const Point2D &x) const;
+    [[nodiscard]] virtual double curl(const Point2D &x) const;
 
     //! Returns sampler function object.
-    virtual std::function<Vector2D(const Point2D &)> sampler() const;
+    [[nodiscard]] virtual std::function<Vector2D(const Point2D &)> sampler() const;
 };
 
 //! Shared pointer for the VectorField2 type.
 typedef std::shared_ptr<VectorField2> VectorField2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_VECTOR_FIELD2_H_

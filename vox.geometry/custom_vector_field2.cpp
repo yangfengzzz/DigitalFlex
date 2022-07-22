@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,25 +6,27 @@
 
 #include "vox.geometry/custom_vector_field2.h"
 
+#include <utility>
+
 using namespace vox;
 
-CustomVectorField2::CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
+CustomVectorField2::CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction), _resolution(derivativeResolution) {}
+    : _customFunction(std::move(customFunction)), _resolution(derivativeResolution) {}
 
-CustomVectorField2::CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
-                                       const std::function<double(const Point2D &)> &customDivergenceFunction,
+CustomVectorField2::CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
+                                       std::function<double(const Point2D &)> customDivergenceFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction),
-      _customDivergenceFunction(customDivergenceFunction),
+    : _customFunction(std::move(customFunction)),
+      _customDivergenceFunction(std::move(customDivergenceFunction)),
       _resolution(derivativeResolution) {}
 
-CustomVectorField2::CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
-                                       const std::function<double(const Point2D &)> &customDivergenceFunction,
-                                       const std::function<double(const Point2D &)> &customCurlFunction)
-    : _customFunction(customFunction),
-      _customDivergenceFunction(customDivergenceFunction),
-      _customCurlFunction(customCurlFunction) {}
+CustomVectorField2::CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
+                                       std::function<double(const Point2D &)> customDivergenceFunction,
+                                       std::function<double(const Point2D &)> customCurlFunction)
+    : _customFunction(std::move(customFunction)),
+      _customDivergenceFunction(std::move(customDivergenceFunction)),
+      _customCurlFunction(std::move(customCurlFunction)) {}
 
 Vector2D CustomVectorField2::sample(const Point2D &x) const { return _customFunction(x); }
 
@@ -56,7 +58,7 @@ double CustomVectorField2::curl(const Point2D &x) const {
     }
 }
 
-CustomVectorField2::Builder CustomVectorField2::builder() { return Builder(); }
+CustomVectorField2::Builder CustomVectorField2::builder() { return {}; }
 
 CustomVectorField2::Builder &CustomVectorField2::Builder::withFunction(
         const std::function<Vector2D(const Point2D &)> &func) {
@@ -83,20 +85,18 @@ CustomVectorField2::Builder &CustomVectorField2::Builder::withDerivativeResoluti
 
 CustomVectorField2 CustomVectorField2::Builder::build() const {
     if (_customCurlFunction) {
-        return CustomVectorField2(_customFunction, _customDivergenceFunction, _customCurlFunction);
+        return {_customFunction, _customDivergenceFunction, _customCurlFunction};
     } else {
-        return CustomVectorField2(_customFunction, _customDivergenceFunction, _resolution);
+        return {_customFunction, _customDivergenceFunction, _resolution};
     }
 }
 
 CustomVectorField2Ptr CustomVectorField2::Builder::makeShared() const {
     if (_customCurlFunction) {
-        return std::shared_ptr<CustomVectorField2>(
-                new CustomVectorField2(_customFunction, _customDivergenceFunction, _customCurlFunction),
-                [](CustomVectorField2 *obj) { delete obj; });
+        return {new CustomVectorField2(_customFunction, _customDivergenceFunction, _customCurlFunction),
+                [](CustomVectorField2 *obj) { delete obj; }};
     } else {
-        return std::shared_ptr<CustomVectorField2>(
-                new CustomVectorField2(_customFunction, _customDivergenceFunction, _resolution),
-                [](CustomVectorField2 *obj) { delete obj; });
+        return {new CustomVectorField2(_customFunction, _customDivergenceFunction, _resolution),
+                [](CustomVectorField2 *obj) { delete obj; }};
     }
 }

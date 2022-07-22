@@ -1,11 +1,10 @@
-// Copyright (c) Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_BVH3_INL_H_
-#define INCLUDE_JET_DETAIL_BVH3_INL_H_
+#pragma once
 
 #include <numeric>
 
@@ -42,7 +41,7 @@ bool Bvh3<T>::Node::isLeaf() const {
 //
 
 template <typename T>
-Bvh3<T>::Bvh3() {}
+Bvh3<T>::Bvh3() = default;
 
 template <typename T>
 void Bvh3<T>::build(const std::vector<T> &items, const std::vector<BoundingBox3D> &itemsBounds) {
@@ -571,5 +570,3 @@ size_t Bvh3<T>::qsplit(size_t *itemIndices, size_t numItems, double pivot, uint8
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_BVH3_INL_H_

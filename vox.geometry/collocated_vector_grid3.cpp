@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,17 +7,16 @@
 #include "vox.geometry/collocated_vector_grid3.h"
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
-#include "vox.geometry/parallel.h"
 #include "vox.geometry/serial.h"
 
 using namespace vox;
 
 CollocatedVectorGrid3::CollocatedVectorGrid3() : _linearSampler(_data.constAccessor(), Vector3D(1, 1, 1), Point3D()) {}
 
-CollocatedVectorGrid3::~CollocatedVectorGrid3() {}
+CollocatedVectorGrid3::~CollocatedVectorGrid3() = default;
 
 const Vector3D &CollocatedVectorGrid3::operator()(size_t i, size_t j, size_t k) const { return _data(i, j, k); }
 
@@ -67,16 +66,16 @@ Vector3D CollocatedVectorGrid3::curlAtDataPoint(size_t i, size_t j, size_t k) co
     double Fz_ym = down.z;
     double Fz_yp = up.z;
 
-    return Vector3D(0.5 * (Fz_yp - Fz_ym) / gs.y - 0.5 * (Fy_zp - Fy_zm) / gs.z,
-                    0.5 * (Fx_zp - Fx_zm) / gs.z - 0.5 * (Fz_xp - Fz_xm) / gs.x,
-                    0.5 * (Fy_xp - Fy_xm) / gs.x - 0.5 * (Fx_yp - Fx_ym) / gs.y);
+    return {0.5 * (Fz_yp - Fz_ym) / gs.y - 0.5 * (Fy_zp - Fy_zm) / gs.z,
+            0.5 * (Fx_zp - Fx_zm) / gs.z - 0.5 * (Fz_xp - Fz_xm) / gs.x,
+            0.5 * (Fy_xp - Fy_xm) / gs.x - 0.5 * (Fx_yp - Fx_ym) / gs.y};
 }
 
 Vector3D CollocatedVectorGrid3::sample(const Point3D &x) const { return _sampler(x); }
 
 double CollocatedVectorGrid3::divergence(const Point3D &x) const {
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     double result = 0.0;
@@ -90,7 +89,7 @@ double CollocatedVectorGrid3::divergence(const Point3D &x) const {
 
 Vector3D CollocatedVectorGrid3::curl(const Point3D &x) const {
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     Vector3D result;

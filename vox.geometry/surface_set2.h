@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_SURFACE_SET2_H_
-#define INCLUDE_JET_SURFACE_SET2_H_
+#pragma once
 
 #include <vector>
 
@@ -29,7 +28,7 @@ public:
     SurfaceSet2();
 
     //! Constructs with a list of other surfaces.
-    explicit SurfaceSet2(const std::vector<Surface2Ptr> &others,
+    explicit SurfaceSet2(std::vector<Surface2Ptr> others,
                          const Transform2D &transform = Transform2D(),
                          bool isNormalFlipped = false);
 
@@ -96,15 +95,13 @@ public:
     Builder &withSurfaces(const std::vector<Surface2Ptr> &others);
 
     //! Builds SurfaceSet2.
-    SurfaceSet2 build() const;
+    [[nodiscard]] SurfaceSet2 build() const;
 
     //! Builds shared pointer of SurfaceSet2 instance.
-    SurfaceSet2Ptr makeShared() const;
+    [[nodiscard]] SurfaceSet2Ptr makeShared() const;
 
 private:
     std::vector<Surface2Ptr> _surfaces;
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_SURFACE_SET2_H_

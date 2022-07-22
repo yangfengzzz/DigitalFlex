@@ -6,13 +6,14 @@
 
 #include "vox.geometry/surface_to_implicit2.h"
 
+#include <utility>
+
 using namespace vox;
 
-SurfaceToImplicit2::SurfaceToImplicit2(const Surface2Ptr &surface, const Transform2D &transform, bool isNormalFlipped)
-    : ImplicitSurface2(transform, isNormalFlipped), _surface(surface) {}
+SurfaceToImplicit2::SurfaceToImplicit2(Surface2Ptr surface, const Transform2D &transform, bool isNormalFlipped)
+    : ImplicitSurface2(transform, isNormalFlipped), _surface(std::move(surface)) {}
 
-SurfaceToImplicit2::SurfaceToImplicit2(const SurfaceToImplicit2 &other)
-    : ImplicitSurface2(other), _surface(other._surface) {}
+SurfaceToImplicit2::SurfaceToImplicit2(const SurfaceToImplicit2 &other) = default;
 
 bool SurfaceToImplicit2::isBounded() const { return _surface->isBounded(); }
 
@@ -22,7 +23,7 @@ bool SurfaceToImplicit2::isValidGeometry() const { return _surface->isValidGeome
 
 Surface2Ptr SurfaceToImplicit2::surface() const { return _surface; }
 
-SurfaceToImplicit2::Builder SurfaceToImplicit2::builder() { return Builder(); }
+SurfaceToImplicit2::Builder SurfaceToImplicit2::builder() { return {}; }
 
 Point2D SurfaceToImplicit2::closestPointLocal(const Point2D &otherPoint) const {
     return _surface->closestPoint(otherPoint);
@@ -62,6 +63,6 @@ SurfaceToImplicit2 SurfaceToImplicit2::Builder::build() const {
 }
 
 SurfaceToImplicit2Ptr SurfaceToImplicit2::Builder::makeShared() const {
-    return std::shared_ptr<SurfaceToImplicit2>(new SurfaceToImplicit2(_surface, _transform, _isNormalFlipped),
-                                               [](SurfaceToImplicit2 *obj) { delete obj; });
+    return {new SurfaceToImplicit2(_surface, _transform, _isNormalFlipped),
+            [](SurfaceToImplicit2 *obj) { delete obj; }};
 }

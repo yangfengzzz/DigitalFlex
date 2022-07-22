@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -34,9 +34,9 @@ void FdmIccgSolver3::Preconditioner::build(const FdmMatrix3 &matrix) {
 
 void FdmIccgSolver3::Preconditioner::solve(const FdmVector3 &b, FdmVector3 *x) {
     Size3 size = b.size();
-    ssize_t sx = static_cast<ssize_t>(size.x);
-    ssize_t sy = static_cast<ssize_t>(size.y);
-    ssize_t sz = static_cast<ssize_t>(size.z);
+    auto sx = static_cast<ssize_t>(size.x);
+    auto sy = static_cast<ssize_t>(size.y);
+    auto sz = static_cast<ssize_t>(size.z);
 
     b.forEachIndex([&](size_t i, size_t j, size_t k) {
         y(i, j, k) = (b(i, j, k) - ((i > 0) ? A(i - 1, j, k).right * y(i - 1, j, k) : 0.0) -
@@ -94,7 +94,7 @@ void FdmIccgSolver3::PreconditionerCompressed::build(const MatrixCsrD &matrix) {
 }
 
 void FdmIccgSolver3::PreconditionerCompressed::solve(const VectorND &b, VectorND *x) {
-    const ssize_t size = static_cast<ssize_t>(b.size());
+    const auto size = static_cast<ssize_t>(b.size());
 
     const auto rp = A->rowPointersBegin();
     const auto ci = A->columnIndicesBegin();
@@ -122,7 +122,7 @@ void FdmIccgSolver3::PreconditionerCompressed::solve(const VectorND &b, VectorND
 
         double sum = y[i];
         for (size_t jj = rowBegin; jj < rowEnd; ++jj) {
-            ssize_t j = static_cast<ssize_t>(ci[jj]);
+            auto j = static_cast<ssize_t>(ci[jj]);
 
             if (j > i) {
                 sum -= nnz[jj] * (*x)[j];

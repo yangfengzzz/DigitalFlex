@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,16 +6,16 @@
 
 #include "vox.geometry/surface3.h"
 
-#include <algorithm>
+#include <utility>
 
 using namespace vox;
 
-Surface3::Surface3(const Transform3D &transform_, bool isNormalFlipped_)
-    : transform(transform_), isNormalFlipped(isNormalFlipped_) {}
+Surface3::Surface3(Transform3D transform_, bool isNormalFlipped_)
+    : transform(std::move(transform_)), isNormalFlipped(isNormalFlipped_) {}
 
-Surface3::Surface3(const Surface3 &other) : transform(other.transform), isNormalFlipped(other.isNormalFlipped) {}
+Surface3::Surface3(const Surface3 &other) = default;
 
-Surface3::~Surface3() {}
+Surface3::~Surface3() = default;
 
 Point3D Surface3::closestPoint(const Point3D &otherPoint) const {
     return transform.toWorld(closestPointLocal(transform.toLocal(otherPoint)));

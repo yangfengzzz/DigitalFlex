@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VECTOR_GRID3_H_
-#define INCLUDE_JET_VECTOR_GRID3_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -29,7 +28,7 @@ public:
     VectorGrid3();
 
     //! Default destructor.
-    virtual ~VectorGrid3();
+    ~VectorGrid3() override;
 
     //! Clears the contents of the grid.
     void clear();
@@ -73,7 +72,7 @@ public:
                       ExecutionPolicy policy = ExecutionPolicy::kParallel) = 0;
 
     //! Returns the copy of the grid instance.
-    virtual std::shared_ptr<VectorGrid3> clone() const = 0;
+    [[nodiscard]] virtual std::shared_ptr<VectorGrid3> clone() const = 0;
 
 protected:
     //!
@@ -102,15 +101,13 @@ public:
     virtual ~VectorGridBuilder3();
 
     //! Returns 3-D vector grid with given parameters.
-    virtual VectorGrid3Ptr build(const Size3 &resolution,
-                                 const Vector3D &gridSpacing,
-                                 const Point3D &gridOrigin,
-                                 const Vector3D &initialVal) const = 0;
+    [[nodiscard]] virtual VectorGrid3Ptr build(const Size3 &resolution,
+                                               const Vector3D &gridSpacing,
+                                               const Point3D &gridOrigin,
+                                               const Vector3D &initialVal) const = 0;
 };
 
 //! Shared pointer for the VectorGridBuilder3 type.
 typedef std::shared_ptr<VectorGridBuilder3> VectorGridBuilder3Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_VECTOR_GRID3_H_

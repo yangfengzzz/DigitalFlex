@@ -1,9 +1,15 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
-//
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
+
+#pragma once
+
+#include <cmath>
+
+#include "vox.math/constants.h"
+
 // Function fractionInside is originally from Christopher Batty's code:
 //
 // http://www.cs.ubc.ca/labs/imager/tr/2007/Batty_VariationalFluids/
@@ -11,14 +17,6 @@
 // and
 //
 // https://github.com/christopherbatty/Fluid3D
-
-#ifndef INCLUDE_JET_DETAIL_LEVEL_SET_UTILS_INL_H_
-#define INCLUDE_JET_DETAIL_LEVEL_SET_UTILS_INL_H_
-
-#include <cmath>
-
-#include "vox.math/constants.h"
-
 namespace vox {
 
 template <typename T>
@@ -155,5 +153,3 @@ T distanceToZeroLevelSet(T phi0, T phi1) {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_LEVEL_SET_UTILS_INL_H_

@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CUSTOM_VECTOR_FIELD3_H_
-#define INCLUDE_JET_CUSTOM_VECTOR_FIELD3_H_
+#pragma once
 
 #include "vox.geometry/vector_field3.h"
 
@@ -24,8 +23,8 @@ public:
     //! differencing is used. Thus, the differencing resolution also can be
     //! provided as the last parameter.
     //!
-    CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
-                       double derivativeResolution = 1e-3);
+    explicit CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
+                                double derivativeResolution = 1e-3);
 
     //!
     //! \brief Constructs a field with given field and gradient function.
@@ -35,26 +34,26 @@ public:
     //! Thus, the differencing resolution also can be provided as the last
     //! parameter.
     //!
-    CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
-                       const std::function<double(const Point3D &)> &customDivergenceFunction,
+    CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
+                       std::function<double(const Point3D &)> customDivergenceFunction,
                        double derivativeResolution = 1e-3);
 
     //! Constructs a field with given field, gradient, and Laplacian function.
-    CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
-                       const std::function<double(const Point3D &)> &customDivergenceFunction,
-                       const std::function<Vector3D(const Point3D &)> &customCurlFunction);
+    CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
+                       std::function<double(const Point3D &)> customDivergenceFunction,
+                       std::function<Vector3D(const Point3D &)> customCurlFunction);
 
     //! Returns the sampled value at given position \p x.
-    Vector3D sample(const Point3D &x) const override;
+    [[nodiscard]] Vector3D sample(const Point3D &x) const override;
 
     //! Returns the divergence at given position \p x.
-    double divergence(const Point3D &x) const override;
+    [[nodiscard]] double divergence(const Point3D &x) const override;
 
     //! Returns the curl at given position \p x.
-    Vector3D curl(const Point3D &x) const override;
+    [[nodiscard]] Vector3D curl(const Point3D &x) const override;
 
     //! Returns the sampler function.
-    std::function<Vector3D(const Point3D &)> sampler() const override;
+    [[nodiscard]] std::function<Vector3D(const Point3D &)> sampler() const override;
 
     //! Returns builder fox CustomVectorField2.
     static Builder builder();
@@ -87,10 +86,10 @@ public:
     Builder &withDerivativeResolution(double resolution);
 
     //! Builds CustomVectorField3.
-    CustomVectorField3 build() const;
+    [[nodiscard]] CustomVectorField3 build() const;
 
     //! Builds shared pointer of CustomVectorField3 instance.
-    CustomVectorField3Ptr makeShared() const;
+    [[nodiscard]] CustomVectorField3Ptr makeShared() const;
 
 private:
     double _resolution = 1e-3;
@@ -100,5 +99,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CUSTOM_VECTOR_FIELD3_H_

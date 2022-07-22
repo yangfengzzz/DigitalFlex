@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CELL_CENTERED_SCALAR_GRID2_H_
-#define INCLUDE_JET_CELL_CENTERED_SCALAR_GRID2_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/scalar_grid2.h"
 
@@ -42,21 +41,21 @@ public:
 
     //! Constructs a grid with given resolution, grid spacing, origin and
     //! initial value.
-    CellCenteredScalarGrid2(const Size2 &resolution,
-                            const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
-                            const Point2D &origin = Point2D(),
-                            double initialValue = 0.0);
+    explicit CellCenteredScalarGrid2(const Size2 &resolution,
+                                     const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
+                                     const Point2D &origin = Point2D(),
+                                     double initialValue = 0.0);
 
     //! Copy constructor.
     CellCenteredScalarGrid2(const CellCenteredScalarGrid2 &other);
 
     //! Returns the actual data point size.
-    Size2 dataSize() const override;
+    [[nodiscard]] Size2 dataSize() const override;
 
     //! Returns data position for the grid point at (0, 0).
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
-    Point2D dataOrigin() const override;
+    [[nodiscard]] Point2D dataOrigin() const override;
 
     //!
     //! \brief Swaps the contents with the given \p other grid.
@@ -73,7 +72,7 @@ public:
     CellCenteredScalarGrid2 &operator=(const CellCenteredScalarGrid2 &other);
 
     //! Returns the copy of the grid instance.
-    std::shared_ptr<ScalarGrid2> clone() const override;
+    [[nodiscard]] std::shared_ptr<ScalarGrid2> clone() const override;
 
     //! Returns builder fox CellCenteredScalarGrid2.
     static Builder builder();
@@ -109,20 +108,20 @@ public:
     Builder &withInitialValue(double initialVal);
 
     //! Builds CellCenteredScalarGrid2 instance.
-    CellCenteredScalarGrid2 build() const;
+    [[nodiscard]] CellCenteredScalarGrid2 build() const;
 
     //! Builds shared pointer of CellCenteredScalarGrid2 instance.
-    CellCenteredScalarGrid2Ptr makeShared() const;
+    [[nodiscard]] CellCenteredScalarGrid2Ptr makeShared() const;
 
     //!
     //! \brief Builds shared pointer of CellCenteredScalarGrid2 instance.
     //!
     //! This is an overriding function that implements ScalarGridBuilder2.
     //!
-    ScalarGrid2Ptr build(const Size2 &resolution,
-                         const Vector2D &gridSpacing,
-                         const Point2D &gridOrigin,
-                         double initialVal) const override;
+    [[nodiscard]] ScalarGrid2Ptr build(const Size2 &resolution,
+                                       const Vector2D &gridSpacing,
+                                       const Point2D &gridOrigin,
+                                       double initialVal) const override;
 
 private:
     Size2 _resolution{1, 1};
@@ -132,5 +131,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CELL_CENTERED_SCALAR_GRID2_H_

@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_JACOBI_SOLVER3_H_
-#define INCLUDE_JET_FDM_JACOBI_SOLVER3_H_
+#pragma once
 
 #include "vox.geometry/fdm_linear_system_solver3.h"
 
@@ -24,16 +23,16 @@ public:
     bool solveCompressed(FdmCompressedLinearSystem3 *system) override;
 
     //! Returns the max number of Jacobi iterations.
-    unsigned int maxNumberOfIterations() const;
+    [[nodiscard]] unsigned int maxNumberOfIterations() const;
 
     //! Returns the last number of Jacobi iterations the solver made.
-    unsigned int lastNumberOfIterations() const;
+    [[nodiscard]] unsigned int lastNumberOfIterations() const;
 
     //! Returns the max residual tolerance for the Jacobi method.
-    double tolerance() const;
+    [[nodiscard]] double tolerance() const;
 
     //! Returns the last residual after the Jacobi iterations.
-    double lastResidual() const;
+    [[nodiscard]] double lastResidual() const;
 
     //! Performs single Jacobi relaxation step.
     static void relax(const FdmMatrix3 &A, const FdmVector3 &b, FdmVector3 *x, FdmVector3 *xTemp);
@@ -65,5 +64,3 @@ private:
 typedef std::shared_ptr<FdmJacobiSolver3> FdmJacobiSolver3Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_JACOBI_SOLVER3_H_

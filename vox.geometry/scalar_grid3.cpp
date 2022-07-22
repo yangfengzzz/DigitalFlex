@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -11,8 +11,7 @@
 #include "vox.geometry/scalar_grid3.h"
 
 #include <algorithm>
-#include <string>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/fdm_utils.h"
@@ -24,7 +23,7 @@ using namespace vox;
 ScalarGrid3::ScalarGrid3()
     : _linearSampler(LinearArraySampler3<double, double>(_data.constAccessor(), Vector3D(1, 1, 1), Point3D())) {}
 
-ScalarGrid3::~ScalarGrid3() {}
+ScalarGrid3::~ScalarGrid3() = default;
 
 void ScalarGrid3::clear() { resize(Size3(), gridSpacing(), origin(), 0.0); }
 
@@ -79,7 +78,7 @@ std::function<double(const Point3D &)> ScalarGrid3::sampler() const { return _sa
 
 Vector3D ScalarGrid3::gradient(const Point3D &x) const {
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     Vector3D result;
@@ -93,7 +92,7 @@ Vector3D ScalarGrid3::gradient(const Point3D &x) const {
 
 double ScalarGrid3::laplacian(const Point3D &x) const {
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     double result = 0.0;
@@ -167,6 +166,6 @@ void ScalarGrid3::setData(const std::vector<double> &data) {
     std::copy(data.begin(), data.end(), _data.begin());
 }
 
-ScalarGridBuilder3::ScalarGridBuilder3() {}
+ScalarGridBuilder3::ScalarGridBuilder3() = default;
 
-ScalarGridBuilder3::~ScalarGridBuilder3() {}
+ScalarGridBuilder3::~ScalarGridBuilder3() = default;

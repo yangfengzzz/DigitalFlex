@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_ACCESSOR1_H_
-#define INCLUDE_JET_ARRAY_ACCESSOR1_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array_accessor.h"
 
@@ -31,7 +30,7 @@ public:
     ArrayAccessor();
 
     //! Constructs an array accessor that wraps given array.
-    ArrayAccessor(size_t size, T *const data);
+    ArrayAccessor(size_t size, T *data);
 
     //! Copy constructor.
     ArrayAccessor(const ArrayAccessor &other);
@@ -40,7 +39,7 @@ public:
     void set(const ArrayAccessor &other);
 
     //! Resets the array.
-    void reset(size_t size, T *const data);
+    void reset(size_t size, T *data);
 
     //! Returns the reference to the i-th element.
     T &at(size_t i);
@@ -49,10 +48,10 @@ public:
     const T &at(size_t i) const;
 
     //! Returns the begin iterator of the array.
-    T *const begin() const;
+    T *begin() const;
 
     //! Returns the end iterator of the array.
-    T *const end() const;
+    T *end() const;
 
     //! Returns the begin iterator of the array.
     T *begin();
@@ -61,10 +60,10 @@ public:
     T *end();
 
     //! Returns size of the array.
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     //! Returns the raw pointer to the array data.
-    T *const data() const;
+    T *data() const;
 
     //! Swaps the content of with \p other array accessor.
     void swap(ArrayAccessor &other);
@@ -162,10 +161,10 @@ public:
     ArrayAccessor &operator=(const ArrayAccessor &other);
 
     //! Casts type to ConstArrayAccessor.
-    operator ConstArrayAccessor<T, 1>() const;
+    explicit operator ConstArrayAccessor<T, 1>() const;
 
 private:
-    size_t _size;
+    size_t _size{};
     T *_data;
 };
 
@@ -188,7 +187,7 @@ public:
     ConstArrayAccessor();
 
     //! Constructs an read-only array accessor that wraps given array.
-    ConstArrayAccessor(size_t size, const T *const data);
+    ConstArrayAccessor(size_t size, const T *data);
 
     //! Constructs a read-only array accessor from read/write accessor.
     explicit ConstArrayAccessor(const ArrayAccessor<T, 1> &other);
@@ -200,16 +199,16 @@ public:
     const T &at(size_t i) const;
 
     //! Returns the begin iterator of the array.
-    const T *const begin() const;
+    const T *begin() const;
 
     //! Returns the end iterator of the array.
-    const T *const end() const;
+    const T *end() const;
 
     //! Returns size of the array.
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     //! Returns the raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //!
     //! \brief Iterates the array and invoke given \p func for each element.
@@ -285,5 +284,3 @@ using ConstArrayAccessor1 = ConstArrayAccessor<T, 1>;
 }  // namespace vox
 
 #include "vox.geometry/array_accessor1-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_ACCESSOR1_H_

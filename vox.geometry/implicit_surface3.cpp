@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -13,9 +13,9 @@ using namespace vox;
 ImplicitSurface3::ImplicitSurface3(const Transform3D &transform_, bool isNormalFlipped_)
     : Surface3(transform_, isNormalFlipped_) {}
 
-ImplicitSurface3::ImplicitSurface3(const ImplicitSurface3 &other) : Surface3(other) {}
+ImplicitSurface3::ImplicitSurface3(const ImplicitSurface3 &other) = default;
 
-ImplicitSurface3::~ImplicitSurface3() {}
+ImplicitSurface3::~ImplicitSurface3() = default;
 
 double ImplicitSurface3::signedDistance(const Point3D &otherPoint) const {
     double sd = signedDistanceLocal(transform.toLocal(otherPoint));

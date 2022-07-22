@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,7 +7,6 @@
 #include "vox.geometry/fdm_mg_linear_system2.h"
 
 #include "vox.geometry/fdm_gauss_seidel_solver2.h"
-#include "vox.geometry/fdm_jacobi_solver2.h"
 
 using namespace vox;
 
@@ -45,7 +44,7 @@ void FdmMgUtils2::restrict(const FdmVector2 &finer, FdmVector2 *coarser) {
 
     const Size2 n = coarser->size();
     parallelRangeFor(kZeroSize, n.x, kZeroSize, n.y, [&](size_t iBegin, size_t iEnd, size_t jBegin, size_t jEnd) {
-        std::array<size_t, 4> jIndices;
+        std::array<size_t, 4> jIndices{};
 
         for (size_t j = jBegin; j < jEnd; ++j) {
             jIndices[0] = (j > 0) ? 2 * j - 1 : 2 * j;
@@ -53,7 +52,7 @@ void FdmMgUtils2::restrict(const FdmVector2 &finer, FdmVector2 *coarser) {
             jIndices[2] = 2 * j + 1;
             jIndices[3] = (j + 1 < n.y) ? 2 * j + 2 : 2 * j + 1;
 
-            std::array<size_t, 4> iIndices;
+            std::array<size_t, 4> iIndices{};
             for (size_t i = iBegin; i < iEnd; ++i) {
                 iIndices[0] = (i > 0) ? 2 * i - 1 : 2 * i;
                 iIndices[1] = 2 * i;
@@ -85,10 +84,10 @@ void FdmMgUtils2::correct(const FdmVector2 &coarser, FdmVector2 *finer) {
     parallelRangeFor(kZeroSize, n.x, kZeroSize, n.y, [&](size_t iBegin, size_t iEnd, size_t jBegin, size_t jEnd) {
         for (size_t j = jBegin; j < jEnd; ++j) {
             for (size_t i = iBegin; i < iEnd; ++i) {
-                std::array<size_t, 2> iIndices;
-                std::array<size_t, 2> jIndices;
-                std::array<double, 2> iWeights;
-                std::array<double, 2> jWeights;
+                std::array<size_t, 2> iIndices{};
+                std::array<size_t, 2> jIndices{};
+                std::array<double, 2> iWeights{};
+                std::array<double, 2> jWeights{};
 
                 const size_t ci = i / 2;
                 const size_t cj = j / 2;

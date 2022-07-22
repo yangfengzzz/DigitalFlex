@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,25 +6,27 @@
 
 #include "vox.geometry/custom_vector_field3.h"
 
+#include <utility>
+
 using namespace vox;
 
-CustomVectorField3::CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
+CustomVectorField3::CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction), _resolution(derivativeResolution) {}
+    : _customFunction(std::move(customFunction)), _resolution(derivativeResolution) {}
 
-CustomVectorField3::CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
-                                       const std::function<double(const Point3D &)> &customDivergenceFunction,
+CustomVectorField3::CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
+                                       std::function<double(const Point3D &)> customDivergenceFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction),
-      _customDivergenceFunction(customDivergenceFunction),
+    : _customFunction(std::move(customFunction)),
+      _customDivergenceFunction(std::move(customDivergenceFunction)),
       _resolution(derivativeResolution) {}
 
-CustomVectorField3::CustomVectorField3(const std::function<Vector3D(const Point3D &)> &customFunction,
-                                       const std::function<double(const Point3D &)> &customDivergenceFunction,
-                                       const std::function<Vector3D(const Point3D &)> &customCurlFunction)
-    : _customFunction(customFunction),
-      _customDivergenceFunction(customDivergenceFunction),
-      _customCurlFunction(customCurlFunction) {}
+CustomVectorField3::CustomVectorField3(std::function<Vector3D(const Point3D &)> customFunction,
+                                       std::function<double(const Point3D &)> customDivergenceFunction,
+                                       std::function<Vector3D(const Point3D &)> customCurlFunction)
+    : _customFunction(std::move(customFunction)),
+      _customDivergenceFunction(std::move(customDivergenceFunction)),
+      _customCurlFunction(std::move(customCurlFunction)) {}
 
 Vector3D CustomVectorField3::sample(const Point3D &x) const { return _customFunction(x); }
 
@@ -77,7 +79,7 @@ Vector3D CustomVectorField3::curl(const Point3D &x) const {
 
 std::function<Vector3D(const Point3D &)> CustomVectorField3::sampler() const { return _customFunction; }
 
-CustomVectorField3::Builder CustomVectorField3::builder() { return Builder(); }
+CustomVectorField3::Builder CustomVectorField3::builder() { return {}; }
 
 CustomVectorField3::Builder &CustomVectorField3::Builder::withFunction(
         const std::function<Vector3D(const Point3D &)> &func) {
@@ -104,20 +106,18 @@ CustomVectorField3::Builder &CustomVectorField3::Builder::withDerivativeResoluti
 
 CustomVectorField3 CustomVectorField3::Builder::build() const {
     if (_customCurlFunction) {
-        return CustomVectorField3(_customFunction, _customDivergenceFunction, _customCurlFunction);
+        return {_customFunction, _customDivergenceFunction, _customCurlFunction};
     } else {
-        return CustomVectorField3(_customFunction, _customDivergenceFunction, _resolution);
+        return {_customFunction, _customDivergenceFunction, _resolution};
     }
 }
 
 CustomVectorField3Ptr CustomVectorField3::Builder::makeShared() const {
     if (_customCurlFunction) {
-        return std::shared_ptr<CustomVectorField3>(
-                new CustomVectorField3(_customFunction, _customDivergenceFunction, _customCurlFunction),
-                [](CustomVectorField3 *obj) { delete obj; });
+        return {new CustomVectorField3(_customFunction, _customDivergenceFunction, _customCurlFunction),
+                [](CustomVectorField3 *obj) { delete obj; }};
     } else {
-        return std::shared_ptr<CustomVectorField3>(
-                new CustomVectorField3(_customFunction, _customDivergenceFunction, _resolution),
-                [](CustomVectorField3 *obj) { delete obj; });
+        return {new CustomVectorField3(_customFunction, _customDivergenceFunction, _resolution),
+                [](CustomVectorField3 *obj) { delete obj; }};
     }
 }

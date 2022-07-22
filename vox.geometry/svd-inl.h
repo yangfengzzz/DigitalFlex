@@ -1,18 +1,17 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
+
+#pragma once
+
+#include "vox.math/math_utils.h"
+
 //
 // This implementation is adopted from Numerical Recipes
 // http://numerical.recipes/webnotes/nr3web2.pdf
 //
-
-#ifndef INCLUDE_JET_DETAIL_SVD_H_
-#define INCLUDE_JET_DETAIL_SVD_H_
-
-#include "vox.math/math_utils.h"
-
 namespace vox {
 
 namespace internal {
@@ -566,5 +565,3 @@ void svd(const Matrix<T, M, N> &a, Matrix<T, M, N> &u, Vector<T, N> &w, Matrix<T
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_SVD_H_

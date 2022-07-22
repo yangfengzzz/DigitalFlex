@@ -1,11 +1,10 @@
-// Copyright (c) 2019 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_SURFACE_TO_IMPLICIT3_H_
-#define INCLUDE_JET_SURFACE_TO_IMPLICIT3_H_
+#pragma once
 
 #include <memory>
 
@@ -29,9 +28,9 @@ public:
     class Builder;
 
     //! Constructs an instance with generic Surface3 instance.
-    SurfaceToImplicit3(const Surface3Ptr &surface,
-                       const Transform3D &transform = Transform3D(),
-                       bool isNormalFlipped = false);
+    explicit SurfaceToImplicit3(const Surface3Ptr &surface,
+                                const Transform3D &transform = Transform3D(),
+                                bool isNormalFlipped = false);
 
     //! Copy constructor.
     SurfaceToImplicit3(const SurfaceToImplicit3 &other);
@@ -40,33 +39,33 @@ public:
     void updateQueryEngine() override;
 
     //! Returns true if bounding box can be defined.
-    bool isBounded() const override;
+    [[nodiscard]] bool isBounded() const override;
 
     //! Returns true if the surface is a valid geometry.
-    bool isValidGeometry() const override;
+    [[nodiscard]] bool isValidGeometry() const override;
 
     //! Returns the raw surface instance.
-    Surface3Ptr surface() const;
+    [[nodiscard]] Surface3Ptr surface() const;
 
     //! Returns builder fox SurfaceToImplicit3.
     static Builder builder();
 
 protected:
-    Point3D closestPointLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] Point3D closestPointLocal(const Point3D &otherPoint) const override;
 
-    double closestDistanceLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] double closestDistanceLocal(const Point3D &otherPoint) const override;
 
-    bool intersectsLocal(const Ray3D &ray) const override;
+    [[nodiscard]] bool intersectsLocal(const Ray3D &ray) const override;
 
-    BoundingBox3D boundingBoxLocal() const override;
+    [[nodiscard]] BoundingBox3D boundingBoxLocal() const override;
 
-    Vector3D closestNormalLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] Vector3D closestNormalLocal(const Point3D &otherPoint) const override;
 
-    double signedDistanceLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] double signedDistanceLocal(const Point3D &otherPoint) const override;
 
-    SurfaceRayIntersection3 closestIntersectionLocal(const Ray3D &ray) const override;
+    [[nodiscard]] SurfaceRayIntersection3 closestIntersectionLocal(const Ray3D &ray) const override;
 
-    bool isInsideLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] bool isInsideLocal(const Point3D &otherPoint) const override;
 
 private:
     Surface3Ptr _surface;
@@ -84,15 +83,13 @@ public:
     Builder &withSurface(const Surface3Ptr &surface);
 
     //! Builds SurfaceToImplicit3.
-    SurfaceToImplicit3 build() const;
+    [[nodiscard]] SurfaceToImplicit3 build() const;
 
     //! Builds shared pointer of SurfaceToImplicit3 instance.
-    SurfaceToImplicit3Ptr makeShared() const;
+    [[nodiscard]] SurfaceToImplicit3Ptr makeShared() const;
 
 private:
     Surface3Ptr _surface;
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_SURFACE_TO_IMPLICIT3_H_

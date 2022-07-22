@@ -1,10 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
 // property of any third parties.
 
 #include "vox.geometry/triangle3.h"
+
+#include <utility>
 
 using namespace vox;
 
@@ -43,15 +45,17 @@ inline Vector3D closestNormalOnLine(
 
 Triangle3::Triangle3(const Transform3D &transform_, bool isNormalFlipped_) : Surface3(transform_, isNormalFlipped_) {}
 
-Triangle3::Triangle3(const std::array<Point3D, 3> &newPoints,
-                     const std::array<Vector3D, 3> &newNormals,
-                     const std::array<Vector2D, 3> &newUvs,
+Triangle3::Triangle3(std::array<Point3D, 3> newPoints,
+                     std::array<Vector3D, 3> newNormals,
+                     std::array<Vector2D, 3> newUvs,
                      const Transform3D &transform_,
                      bool isNormalFlipped_)
-    : Surface3(transform_, isNormalFlipped_), points(newPoints), normals(newNormals), uvs(newUvs) {}
+    : Surface3(transform_, isNormalFlipped_),
+      points(std::move(newPoints)),
+      normals(std::move(newNormals)),
+      uvs(std::move(newUvs)) {}
 
-Triangle3::Triangle3(const Triangle3 &other)
-    : Surface3(other), points(other.points), normals(other.normals), uvs(other.uvs) {}
+Triangle3::Triangle3(const Triangle3 &other) = default;
 
 Point3D Triangle3::closestPointLocal(const Point3D &otherPoint) const {
     Vector3D n = faceNormal();
@@ -81,9 +85,9 @@ Point3D Triangle3::closestPointLocal(const Point3D &otherPoint) const {
     double b1 = 0.5 * q02.length() / a;
     double b2 = 0.5 * q01.length() / a;
 
-    return Point3D(b0 * points[0].x + b1 * points[1].x + b2 * points[2].x,
-                   b0 * points[0].y + b1 * points[1].y + b2 * points[2].y,
-                   b0 * points[0].z + b1 * points[1].z + b2 * points[2].z);
+    return {b0 * points[0].x + b1 * points[1].x + b2 * points[2].x,
+            b0 * points[0].y + b1 * points[1].y + b2 * points[2].y,
+            b0 * points[0].z + b1 * points[1].z + b2 * points[2].z};
 }
 
 Vector3D Triangle3::closestNormalLocal(const Point3D &otherPoint) const {
@@ -231,7 +235,7 @@ Vector3D Triangle3::faceNormal() const {
 
 void Triangle3::setNormalsToFaceNormal() { normals[0] = normals[1] = normals[2] = faceNormal(); }
 
-Triangle3::Builder Triangle3::builder() { return Builder(); }
+Triangle3::Builder Triangle3::builder() { return {}; }
 
 Triangle3::Builder &Triangle3::Builder::withPoints(const std::array<Point3D, 3> &points) {
     _points = points;
@@ -251,6 +255,5 @@ Triangle3::Builder &Triangle3::Builder::withUvs(const std::array<Vector2D, 3> &u
 Triangle3 Triangle3::Builder::build() const { return Triangle3(_points, _normals, _uvs, _transform, _isNormalFlipped); }
 
 Triangle3Ptr Triangle3::Builder::makeShared() const {
-    return std::shared_ptr<Triangle3>(new Triangle3(_points, _normals, _uvs, _transform, _isNormalFlipped),
-                                      [](Triangle3 *obj) { delete obj; });
+    return {new Triangle3(_points, _normals, _uvs, _transform, _isNormalFlipped), [](Triangle3 *obj) { delete obj; }};
 }

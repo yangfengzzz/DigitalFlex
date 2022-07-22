@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_MATRIX_CSR_INL_H_
-#define INCLUDE_JET_DETAIL_MATRIX_CSR_INL_H_
+#pragma once
 
 #include <numeric>
 
@@ -115,7 +114,7 @@ MatrixCsr<T>::MatrixCsr(const MatrixCsr &other) {
 }
 
 template <typename T>
-MatrixCsr<T>::MatrixCsr(MatrixCsr &&other) {
+MatrixCsr<T>::MatrixCsr(MatrixCsr &&other) noexcept {
     (*this) = std::move(other);
 }
 
@@ -380,17 +379,17 @@ T *MatrixCsr<T>::nonZeroData() {
 }
 
 template <typename T>
-const T *const MatrixCsr<T>::nonZeroData() const {
+const T *MatrixCsr<T>::nonZeroData() const {
     return _nonZeros.data();
 }
 
 template <typename T>
-const size_t *const MatrixCsr<T>::rowPointersData() const {
+const size_t *MatrixCsr<T>::rowPointersData() const {
     return _rowPointers.data();
 }
 
 template <typename T>
-const size_t *const MatrixCsr<T>::columnIndicesData() const {
+const size_t *MatrixCsr<T>::columnIndicesData() const {
     return _columnIndices.data();
 }
 
@@ -489,7 +488,7 @@ template <typename T>
 template <typename VE>
 MatrixCsrVectorMul<T, VE> MatrixCsr<T>::mul(const VectorExpression<T, VE> &v) const {
     return MatrixCsrVectorMul<T, VE>(*this, v());
-};
+}
 
 template <typename T>
 template <typename ME>
@@ -701,7 +700,7 @@ MatrixCsr<T> &MatrixCsr<T>::operator=(const MatrixCsr &other) {
 }
 
 template <typename T>
-MatrixCsr<T> &MatrixCsr<T>::operator=(MatrixCsr &&other) {
+MatrixCsr<T> &MatrixCsr<T>::operator=(MatrixCsr &&other) noexcept {
     _size = other._size;
     other._size = Size2();
     _nonZeros = std::move(other._nonZeros);
@@ -916,5 +915,3 @@ MatrixCsr<T> operator/(T a, const MatrixCsr<T> &b) {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_MATRIX_CSR_INL_H_

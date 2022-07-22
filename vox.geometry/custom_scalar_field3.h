@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CUSTOM_SCALAR_FIELD3_H_
-#define INCLUDE_JET_CUSTOM_SCALAR_FIELD3_H_
+#pragma once
 
 #include "vox.geometry/scalar_field3.h"
 
@@ -24,8 +23,8 @@ public:
     //! differencing is used. Thus, the differencing resolution also can be
     //! provided as the last parameter.
     //!
-    CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
-                       double derivativeResolution = 1e-3);
+    explicit CustomScalarField3(std::function<double(const Point3D &)> customFunction,
+                                double derivativeResolution = 1e-3);
 
     //!
     //! \brief Constructs a field with given field and gradient function.
@@ -35,26 +34,26 @@ public:
     //! Thus, the differencing resolution also can be provided as the last
     //! parameter.
     //!
-    CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
-                       const std::function<Vector3D(const Point3D &)> &customGradientFunction,
+    CustomScalarField3(std::function<double(const Point3D &)> customFunction,
+                       std::function<Vector3D(const Point3D &)> customGradientFunction,
                        double derivativeResolution = 1e-3);
 
     //! Constructs a field with given field, gradient, and Laplacian function.
-    CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
-                       const std::function<Vector3D(const Point3D &)> &customGradientFunction,
-                       const std::function<double(const Point3D &)> &customLaplacianFunction);
+    CustomScalarField3(std::function<double(const Point3D &)> customFunction,
+                       std::function<Vector3D(const Point3D &)> customGradientFunction,
+                       std::function<double(const Point3D &)> customLaplacianFunction);
 
     //! Returns the sampled value at given position \p x.
-    double sample(const Point3D &x) const override;
+    [[nodiscard]] double sample(const Point3D &x) const override;
 
     //! Returns the sampler function.
-    std::function<double(const Point3D &)> sampler() const override;
+    [[nodiscard]] std::function<double(const Point3D &)> sampler() const override;
 
     //! Returns the gradient vector at given position \p x.
-    Vector3D gradient(const Point3D &x) const override;
+    [[nodiscard]] Vector3D gradient(const Point3D &x) const override;
 
     //! Returns the Laplacian at given position \p x.
-    double laplacian(const Point3D &x) const override;
+    [[nodiscard]] double laplacian(const Point3D &x) const override;
 
     //! Returns builder fox CustomScalarField3.
     static Builder builder();
@@ -87,10 +86,10 @@ public:
     Builder &withDerivativeResolution(double resolution);
 
     //! Builds CustomScalarField3.
-    CustomScalarField3 build() const;
+    [[nodiscard]] CustomScalarField3 build() const;
 
     //! Builds shared pointer of CustomScalarField3 instance.
-    CustomScalarField3Ptr makeShared() const;
+    [[nodiscard]] CustomScalarField3Ptr makeShared() const;
 
 private:
     double _resolution = 1e-3;
@@ -100,5 +99,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CUSTOM_SCALAR_FIELD3_H_

@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VERTEX_CENTERED_VECTOR_GRID2_H_
-#define INCLUDE_JET_VERTEX_CENTERED_VECTOR_GRID2_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/collocated_vector_grid2.h"
 
@@ -43,21 +42,21 @@ public:
 
     //! Constructs a grid with given resolution, grid spacing, origin and
     //! initial value.
-    VertexCenteredVectorGrid2(const Size2 &resolution,
-                              const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
-                              const Point2D &origin = Point2D(),
-                              const Vector2D &initialValue = Vector2D());
+    explicit VertexCenteredVectorGrid2(const Size2 &resolution,
+                                       const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
+                                       const Point2D &origin = Point2D(),
+                                       const Vector2D &initialValue = Vector2D());
 
     //! Copy constructor.
     VertexCenteredVectorGrid2(const VertexCenteredVectorGrid2 &other);
 
     //! Returns the actual data point size.
-    Size2 dataSize() const override;
+    [[nodiscard]] Size2 dataSize() const override;
 
     //! Returns data position for the grid point at (0, 0).
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
-    Point2D dataOrigin() const override;
+    [[nodiscard]] Point2D dataOrigin() const override;
 
     //!
     //! \brief Swaps the contents with the given \p other grid.
@@ -81,7 +80,7 @@ public:
               ExecutionPolicy policy = ExecutionPolicy::kParallel) override;
 
     //! Returns the copy of the grid instance.
-    std::shared_ptr<VectorGrid2> clone() const override;
+    [[nodiscard]] std::shared_ptr<VectorGrid2> clone() const override;
 
     //! Returns builder fox VertexCenteredVectorGrid2.
     static Builder builder();
@@ -118,20 +117,20 @@ public:
     Builder &withInitialValue(double initialValX, double initialValY);
 
     //! Builds VertexCenteredVectorGrid2 instance.
-    VertexCenteredVectorGrid2 build() const;
+    [[nodiscard]] VertexCenteredVectorGrid2 build() const;
 
     //! Builds shared pointer of VertexCenteredVectorGrid2 instance.
-    VertexCenteredVectorGrid2Ptr makeShared() const;
+    [[nodiscard]] VertexCenteredVectorGrid2Ptr makeShared() const;
 
     //!
     //! \brief Builds shared pointer of VertexCenteredVectorGrid2 instance.
     //!
     //! This is an overriding function that implements VectorGridBuilder2.
     //!
-    VectorGrid2Ptr build(const Size2 &resolution,
-                         const Vector2D &gridSpacing,
-                         const Point2D &gridOrigin,
-                         const Vector2D &initialVal) const override;
+    [[nodiscard]] VectorGrid2Ptr build(const Size2 &resolution,
+                                       const Vector2D &gridSpacing,
+                                       const Point2D &gridOrigin,
+                                       const Vector2D &initialVal) const override;
 
 private:
     Size2 _resolution{1, 1};
@@ -141,5 +140,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_VERTEX_CENTERED_VECTOR_GRID2_H_

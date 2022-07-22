@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_MG_INL_H_
-#define INCLUDE_JET_DETAIL_MG_INL_H_
+#pragma once
 
 #include "vox.geometry/mg.h"
 
@@ -114,5 +113,3 @@ MgResult mgVCycle(const MgMatrix<BlasType> &A,
     return internal::mgVCycle<BlasType>(A, params, 0u, x, b, buffer);
 }
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_MG_INL_H_

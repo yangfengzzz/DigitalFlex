@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,13 +7,12 @@
 #include "vox.geometry/face_centered_grid2.h"
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array_samplers2.h"
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/private_helpers.h"
-#include "vox.geometry/serial.h"
 
 using namespace vox;
 
@@ -52,7 +51,7 @@ FaceCenteredGrid2::FaceCenteredGrid2(const FaceCenteredGrid2 &other)
 }
 
 void FaceCenteredGrid2::swap(Grid2 *other) {
-    FaceCenteredGrid2 *sameType = dynamic_cast<FaceCenteredGrid2 *>(other);
+    auto *sameType = dynamic_cast<FaceCenteredGrid2 *>(other);
 
     if (sameType != nullptr) {
         swapGrid(sameType);
@@ -180,7 +179,7 @@ void FaceCenteredGrid2::fill(const std::function<Vector2D(const Point2D &)> &fun
             [this, &func, &vPos](size_t i, size_t j) { _dataV(i, j) = func(vPos(i, j)).y; }, policy);
 }
 
-std::shared_ptr<VectorGrid2> FaceCenteredGrid2::clone() const { return CLONE_W_CUSTOM_DELETER(FaceCenteredGrid2); }
+std::shared_ptr<VectorGrid2> FaceCenteredGrid2::clone() const { return CLONE_W_CUSTOM_DELETER(FaceCenteredGrid2) }
 
 void FaceCenteredGrid2::forEachUIndex(const std::function<void(size_t, size_t)> &func) const {
     _dataU.forEachIndex(func);
@@ -213,7 +212,7 @@ double FaceCenteredGrid2::divergence(const Point2D &x) const {
     getBarycentric(normalizedX.y, 0, static_cast<ssize_t>(resolution().y) - 1, &j, &fy);
 
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
 
     indices[0] = Point2UI(i, j);
     indices[1] = Point2UI(i + 1, j);
@@ -245,7 +244,7 @@ double FaceCenteredGrid2::curl(const Point2D &x) const {
     getBarycentric(normalizedX.y, 0, static_cast<ssize_t>(resolution().y) - 1, &j, &fy);
 
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
 
     indices[0] = Point2UI(i, j);
     indices[1] = Point2UI(i + 1, j);
@@ -293,11 +292,11 @@ void FaceCenteredGrid2::resetSampler() {
     _sampler = [uSampler, vSampler](const Point2D &x) -> Vector2D {
         double u = uSampler(x);
         double v = vSampler(x);
-        return Vector2D(u, v);
+        return {u, v};
     };
 }
 
-FaceCenteredGrid2::Builder FaceCenteredGrid2::builder() { return Builder(); }
+FaceCenteredGrid2::Builder FaceCenteredGrid2::builder() { return {}; }
 
 void FaceCenteredGrid2::getData(std::vector<double> *data) const {
     size_t size = uSize().x * uSize().y + vSize().x * vSize().y;
@@ -364,9 +363,8 @@ FaceCenteredGrid2 FaceCenteredGrid2::Builder::build() const {
 }
 
 FaceCenteredGrid2Ptr FaceCenteredGrid2::Builder::makeShared() const {
-    return std::shared_ptr<FaceCenteredGrid2>(
-            new FaceCenteredGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](FaceCenteredGrid2 *obj) { delete obj; });
+    return {new FaceCenteredGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](FaceCenteredGrid2 *obj) { delete obj; }};
 }
 
 VectorGrid2Ptr FaceCenteredGrid2::Builder::build(const Size2 &resolution,

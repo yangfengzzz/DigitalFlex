@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,14 +6,14 @@
 
 #include "vox.geometry/cell_centered_vector_grid3.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/private_helpers.h"
 
 using namespace vox;
 
-CellCenteredVectorGrid3::CellCenteredVectorGrid3() {}
+CellCenteredVectorGrid3::CellCenteredVectorGrid3() = default;
 
 CellCenteredVectorGrid3::CellCenteredVectorGrid3(size_t resolutionX,
                                                  size_t resolutionY,
@@ -38,14 +38,16 @@ CellCenteredVectorGrid3::CellCenteredVectorGrid3(const Size3 &resolution,
     resize(resolution, gridSpacing, origin, initialValue);
 }
 
-CellCenteredVectorGrid3::CellCenteredVectorGrid3(const CellCenteredVectorGrid3 &other) { set(other); }
+CellCenteredVectorGrid3::CellCenteredVectorGrid3(const CellCenteredVectorGrid3 &other) : CollocatedVectorGrid3(other) {
+    set(other);
+}
 
 Size3 CellCenteredVectorGrid3::dataSize() const { return resolution(); }
 
 Point3D CellCenteredVectorGrid3::dataOrigin() const { return origin() + 0.5 * gridSpacing(); }
 
 void CellCenteredVectorGrid3::swap(Grid3 *other) {
-    CellCenteredVectorGrid3 *sameType = dynamic_cast<CellCenteredVectorGrid3 *>(other);
+    auto *sameType = dynamic_cast<CellCenteredVectorGrid3 *>(other);
     if (sameType != nullptr) {
         swapCollocatedVectorGrid(sameType);
     }
@@ -76,10 +78,11 @@ void CellCenteredVectorGrid3::fill(const std::function<Vector3D(const Point3D &)
 }
 
 std::shared_ptr<VectorGrid3> CellCenteredVectorGrid3::clone() const {
-    return CLONE_W_CUSTOM_DELETER(CellCenteredVectorGrid3);
-}
+        return CLONE_W_CUSTOM_DELETER(CellCenteredVectorGrid3)}
 
-CellCenteredVectorGrid3::Builder CellCenteredVectorGrid3::builder() { return Builder(); }
+CellCenteredVectorGrid3::Builder CellCenteredVectorGrid3::builder() {
+    return {};
+}
 
 CellCenteredVectorGrid3::Builder &CellCenteredVectorGrid3::Builder::withResolution(const Size3 &resolution) {
     _resolution = resolution;
@@ -151,7 +154,6 @@ VectorGrid3Ptr CellCenteredVectorGrid3::Builder::build(const Size3 &resolution,
 }
 
 CellCenteredVectorGrid3Ptr CellCenteredVectorGrid3::Builder::makeShared() const {
-    return std::shared_ptr<CellCenteredVectorGrid3>(
-            new CellCenteredVectorGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](CellCenteredVectorGrid3 *obj) { delete obj; });
+    return {new CellCenteredVectorGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](CellCenteredVectorGrid3 *obj) { delete obj; }};
 }

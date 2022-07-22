@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -11,16 +11,12 @@
 #include "vox.geometry/vector_grid3.h"
 
 #include <algorithm>
-#include <string>
-#include <vector>
-
-#include "vox.geometry/array_samplers3.h"
 
 using namespace vox;
 
-VectorGrid3::VectorGrid3() {}
+VectorGrid3::VectorGrid3() = default;
 
-VectorGrid3::~VectorGrid3() {}
+VectorGrid3::~VectorGrid3() = default;
 
 void VectorGrid3::clear() { resize(Size3(), gridSpacing(), origin(), Vector3D()); }
 
@@ -58,6 +54,6 @@ void VectorGrid3::resize(const Vector3D &gridSpacing, const Point3D &origin) {
     resize(resolution(), gridSpacing, origin);
 }
 
-VectorGridBuilder3::VectorGridBuilder3() {}
+VectorGridBuilder3::VectorGridBuilder3() = default;
 
-VectorGridBuilder3::~VectorGridBuilder3() {}
+VectorGridBuilder3::~VectorGridBuilder3() = default;

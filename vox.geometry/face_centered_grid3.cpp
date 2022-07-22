@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,13 +7,12 @@
 #include "vox.geometry/face_centered_grid3.h"
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array_samplers3.h"
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/private_helpers.h"
-#include "vox.geometry/serial.h"
 
 using namespace vox;
 
@@ -60,7 +59,7 @@ FaceCenteredGrid3::FaceCenteredGrid3(const FaceCenteredGrid3 &other)
 }
 
 void FaceCenteredGrid3::swap(Grid3 *other) {
-    FaceCenteredGrid3 *sameType = dynamic_cast<FaceCenteredGrid3 *>(other);
+    auto *sameType = dynamic_cast<FaceCenteredGrid3 *>(other);
 
     if (sameType != nullptr) {
         swapGrid(sameType);
@@ -158,9 +157,9 @@ Vector3D FaceCenteredGrid3::curlAtCellCenter(size_t i, size_t j, size_t k) const
     double Fz_ym = down.z;
     double Fz_yp = up.z;
 
-    return Vector3D(0.5 * (Fz_yp - Fz_ym) / gs.y - 0.5 * (Fy_zp - Fy_zm) / gs.z,
-                    0.5 * (Fx_zp - Fx_zm) / gs.z - 0.5 * (Fz_xp - Fz_xm) / gs.x,
-                    0.5 * (Fy_xp - Fy_xm) / gs.x - 0.5 * (Fx_yp - Fx_ym) / gs.y);
+    return {0.5 * (Fz_yp - Fz_ym) / gs.y - 0.5 * (Fy_zp - Fy_zm) / gs.z,
+            0.5 * (Fx_zp - Fx_zm) / gs.z - 0.5 * (Fz_xp - Fz_xm) / gs.x,
+            0.5 * (Fy_xp - Fy_xm) / gs.x - 0.5 * (Fx_yp - Fx_ym) / gs.y};
 }
 
 FaceCenteredGrid3::ScalarDataAccessor FaceCenteredGrid3::uAccessor() { return _dataU.accessor(); }
@@ -234,7 +233,7 @@ void FaceCenteredGrid3::fill(const std::function<Vector3D(const Point3D &)> &fun
             [this, &func, &wPos](size_t i, size_t j, size_t k) { _dataW(i, j, k) = func(wPos(i, j, k)).z; }, policy);
 }
 
-std::shared_ptr<VectorGrid3> FaceCenteredGrid3::clone() const { return CLONE_W_CUSTOM_DELETER(FaceCenteredGrid3); }
+std::shared_ptr<VectorGrid3> FaceCenteredGrid3::clone() const { return CLONE_W_CUSTOM_DELETER(FaceCenteredGrid3) }
 
 void FaceCenteredGrid3::forEachUIndex(const std::function<void(size_t, size_t, size_t)> &func) const {
     _dataU.forEachIndex(func);
@@ -277,7 +276,7 @@ double FaceCenteredGrid3::divergence(const Point3D &x) const {
     getBarycentric(normalizedX.z, 0, static_cast<ssize_t>(res.z) - 1, &k, &fz);
 
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
 
     indices[0] = Point3UI(i, j, k);
     indices[1] = Point3UI(i + 1, j, k);
@@ -319,7 +318,7 @@ Vector3D FaceCenteredGrid3::curl(const Point3D &x) const {
     getBarycentric(normalizedX.z, 0, static_cast<ssize_t>(res.z) - 1, &k, &fz);
 
     std::array<Point3UI, 8> indices;
-    std::array<double, 8> weights;
+    std::array<double, 8> weights{};
 
     indices[0] = Point3UI(i, j, k);
     indices[1] = Point3UI(i + 1, j, k);
@@ -381,11 +380,11 @@ void FaceCenteredGrid3::resetSampler() {
         double u = uSampler(x);
         double v = vSampler(x);
         double w = wSampler(x);
-        return Vector3D(u, v, w);
+        return {u, v, w};
     };
 }
 
-FaceCenteredGrid3::Builder FaceCenteredGrid3::builder() { return Builder(); }
+FaceCenteredGrid3::Builder FaceCenteredGrid3::builder() { return {}; }
 
 void FaceCenteredGrid3::getData(std::vector<double> *data) const {
     size_t size =
@@ -469,9 +468,8 @@ FaceCenteredGrid3 FaceCenteredGrid3::Builder::build() const {
 }
 
 FaceCenteredGrid3Ptr FaceCenteredGrid3::Builder::makeShared() const {
-    return std::shared_ptr<FaceCenteredGrid3>(
-            new FaceCenteredGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](FaceCenteredGrid3 *obj) { delete obj; });
+    return {new FaceCenteredGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](FaceCenteredGrid3 *obj) { delete obj; }};
 }
 
 VectorGrid3Ptr FaceCenteredGrid3::Builder::build(const Size3 &resolution,

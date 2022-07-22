@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VECTOR_GRID2_H_
-#define INCLUDE_JET_VECTOR_GRID2_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -30,7 +29,7 @@ public:
     VectorGrid2();
 
     //! Default destructor.
-    virtual ~VectorGrid2();
+    ~VectorGrid2() override;
 
     //! Clears the contents of the grid.
     void clear();
@@ -65,7 +64,7 @@ public:
                       ExecutionPolicy policy = ExecutionPolicy::kParallel) = 0;
 
     //! Returns the copy of the grid instance.
-    virtual std::shared_ptr<VectorGrid2> clone() const = 0;
+    [[nodiscard]] virtual std::shared_ptr<VectorGrid2> clone() const = 0;
 
 protected:
     //!
@@ -94,15 +93,13 @@ public:
     virtual ~VectorGridBuilder2();
 
     //! Returns 2-D vector grid with given parameters.
-    virtual VectorGrid2Ptr build(const Size2 &resolution,
-                                 const Vector2D &gridSpacing,
-                                 const Point2D &gridOrigin,
-                                 const Vector2D &initialVal) const = 0;
+    [[nodiscard]] virtual VectorGrid2Ptr build(const Size2 &resolution,
+                                               const Vector2D &gridSpacing,
+                                               const Point2D &gridOrigin,
+                                               const Vector2D &initialVal) const = 0;
 };
 
 //! Shared pointer for the VectorGridBuilder2 type.
 typedef std::shared_ptr<VectorGridBuilder2> VectorGridBuilder2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_VECTOR_GRID2_H_

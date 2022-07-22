@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,25 +6,27 @@
 
 #include "vox.geometry/custom_scalar_field3.h"
 
+#include <utility>
+
 using namespace vox;
 
-CustomScalarField3::CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
+CustomScalarField3::CustomScalarField3(std::function<double(const Point3D &)> customFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction), _resolution(derivativeResolution) {}
+    : _customFunction(std::move(customFunction)), _resolution(derivativeResolution) {}
 
-CustomScalarField3::CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
-                                       const std::function<Vector3D(const Point3D &)> &customGradientFunction,
+CustomScalarField3::CustomScalarField3(std::function<double(const Point3D &)> customFunction,
+                                       std::function<Vector3D(const Point3D &)> customGradientFunction,
                                        double derivativeResolution)
-    : _customFunction(customFunction),
-      _customGradientFunction(customGradientFunction),
+    : _customFunction(std::move(customFunction)),
+      _customGradientFunction(std::move(customGradientFunction)),
       _resolution(derivativeResolution) {}
 
-CustomScalarField3::CustomScalarField3(const std::function<double(const Point3D &)> &customFunction,
-                                       const std::function<Vector3D(const Point3D &)> &customGradientFunction,
-                                       const std::function<double(const Point3D &)> &customLaplacianFunction)
-    : _customFunction(customFunction),
-      _customGradientFunction(customGradientFunction),
-      _customLaplacianFunction(customLaplacianFunction),
+CustomScalarField3::CustomScalarField3(std::function<double(const Point3D &)> customFunction,
+                                       std::function<Vector3D(const Point3D &)> customGradientFunction,
+                                       std::function<double(const Point3D &)> customLaplacianFunction)
+    : _customFunction(std::move(customFunction)),
+      _customGradientFunction(std::move(customGradientFunction)),
+      _customLaplacianFunction(std::move(customLaplacianFunction)),
       _resolution(1e-3) {}
 
 double CustomScalarField3::sample(const Point3D &x) const { return _customFunction(x); }
@@ -42,7 +44,7 @@ Vector3D CustomScalarField3::gradient(const Point3D &x) const {
         double back = _customFunction(x - Vector3D(0.0, 0.0, 0.5 * _resolution));
         double front = _customFunction(x + Vector3D(0.0, 0.0, 0.5 * _resolution));
 
-        return Vector3D((right - left) / _resolution, (top - bottom) / _resolution, (front - back) / _resolution);
+        return {(right - left) / _resolution, (top - bottom) / _resolution, (front - back) / _resolution};
     }
 }
 
@@ -62,7 +64,7 @@ double CustomScalarField3::laplacian(const Point3D &x) const {
     }
 }
 
-CustomScalarField3::Builder CustomScalarField3::builder() { return Builder(); }
+CustomScalarField3::Builder CustomScalarField3::builder() { return {}; }
 
 CustomScalarField3::Builder &CustomScalarField3::Builder::withFunction(
         const std::function<double(const Point3D &)> &func) {
@@ -89,20 +91,18 @@ CustomScalarField3::Builder &CustomScalarField3::Builder::withDerivativeResoluti
 
 CustomScalarField3 CustomScalarField3::Builder::build() const {
     if (_customLaplacianFunction) {
-        return CustomScalarField3(_customFunction, _customGradientFunction, _customLaplacianFunction);
+        return {_customFunction, _customGradientFunction, _customLaplacianFunction};
     } else {
-        return CustomScalarField3(_customFunction, _customGradientFunction, _resolution);
+        return {_customFunction, _customGradientFunction, _resolution};
     }
 }
 
 CustomScalarField3Ptr CustomScalarField3::Builder::makeShared() const {
     if (_customLaplacianFunction) {
-        return std::shared_ptr<CustomScalarField3>(
-                new CustomScalarField3(_customFunction, _customGradientFunction, _customLaplacianFunction),
-                [](CustomScalarField3 *obj) { delete obj; });
+        return {new CustomScalarField3(_customFunction, _customGradientFunction, _customLaplacianFunction),
+                [](CustomScalarField3 *obj) { delete obj; }};
     } else {
-        return std::shared_ptr<CustomScalarField3>(
-                new CustomScalarField3(_customFunction, _customGradientFunction, _resolution),
-                [](CustomScalarField3 *obj) { delete obj; });
+        return {new CustomScalarField3(_customFunction, _customGradientFunction, _resolution),
+                [](CustomScalarField3 *obj) { delete obj; }};
     }
 }

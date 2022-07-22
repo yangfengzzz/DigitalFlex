@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -8,9 +8,9 @@
 
 using namespace vox;
 
-VectorField2::VectorField2() {}
+VectorField2::VectorField2() = default;
 
-VectorField2::~VectorField2() {}
+VectorField2::~VectorField2() = default;
 
 double VectorField2::divergence(const Point2D &) const { return 0.0; }
 

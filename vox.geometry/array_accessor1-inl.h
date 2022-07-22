@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY_ACCESSOR1_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY_ACCESSOR1_INL_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/parallel.h"
 #include "vox.math/macros.h"
@@ -51,12 +50,12 @@ const T &ArrayAccessor<T, 1>::at(size_t i) const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 1>::begin() const {
+T *ArrayAccessor<T, 1>::begin() const {
     return _data;
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 1>::end() const {
+T *ArrayAccessor<T, 1>::end() const {
     return _data + _size;
 }
 
@@ -76,7 +75,7 @@ size_t ArrayAccessor<T, 1>::size() const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 1>::data() const {
+T *ArrayAccessor<T, 1>::data() const {
     return _data;
 }
 
@@ -163,12 +162,12 @@ const T &ConstArrayAccessor<T, 1>::at(size_t i) const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 1>::begin() const {
+const T *ConstArrayAccessor<T, 1>::begin() const {
     return _data;
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 1>::end() const {
+const T *ConstArrayAccessor<T, 1>::end() const {
     return _data + _size;
 }
 
@@ -178,7 +177,7 @@ size_t ConstArrayAccessor<T, 1>::size() const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 1>::data() const {
+const T *ConstArrayAccessor<T, 1>::data() const {
     return _data;
 }
 
@@ -210,5 +209,3 @@ const T &ConstArrayAccessor<T, 1>::operator[](size_t i) const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY_ACCESSOR1_INL_H_

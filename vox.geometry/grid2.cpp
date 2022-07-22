@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,18 +7,15 @@
 #include "vox.geometry/grid2.h"
 
 #include <algorithm>
-#include <fstream>
-#include <iostream>
-#include <utility>  // just make cpplint happy..
 
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/serial.h"
 
 using namespace vox;
 
-Grid2::Grid2() {}
+Grid2::Grid2() = default;
 
-Grid2::~Grid2() {}
+Grid2::~Grid2() = default;
 
 const Size2 &Grid2::resolution() const { return _resolution; }
 

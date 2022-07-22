@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,17 +7,16 @@
 #include "vox.geometry/collocated_vector_grid2.h"
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
-#include "vox.geometry/parallel.h"
 #include "vox.geometry/serial.h"
 
 using namespace vox;
 
 CollocatedVectorGrid2::CollocatedVectorGrid2() : _linearSampler(_data.constAccessor(), Vector2D(1, 1), Point2D()) {}
 
-CollocatedVectorGrid2::~CollocatedVectorGrid2() {}
+CollocatedVectorGrid2::~CollocatedVectorGrid2() = default;
 
 const Vector2D &CollocatedVectorGrid2::operator()(size_t i, size_t j) const { return _data(i, j); }
 
@@ -61,7 +60,7 @@ Vector2D CollocatedVectorGrid2::sample(const Point2D &x) const { return _sampler
 
 double CollocatedVectorGrid2::divergence(const Point2D &x) const {
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     double result = 0.0;
@@ -75,7 +74,7 @@ double CollocatedVectorGrid2::divergence(const Point2D &x) const {
 
 double CollocatedVectorGrid2::curl(const Point2D &x) const {
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     double result = 0.0;

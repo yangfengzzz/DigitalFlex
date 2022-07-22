@@ -15,6 +15,7 @@
 #include <tiny_obj_loader.h>
 
 #include <fstream>
+#include <utility>
 
 using namespace vox;
 
@@ -79,21 +80,21 @@ inline std::ostream &operator<<(std::ostream &strm, const Point3D &v) {
 TriangleMesh3::TriangleMesh3(const Transform3D &transform_, bool isNormalFlipped_)
     : Surface3(transform_, isNormalFlipped_) {}
 
-TriangleMesh3::TriangleMesh3(const PointArray &points,
-                             const NormalArray &normals,
-                             const UvArray &uvs,
-                             const IndexArray &pointIndices,
-                             const IndexArray &normalIndices,
-                             const IndexArray &uvIndices,
+TriangleMesh3::TriangleMesh3(PointArray points,
+                             NormalArray normals,
+                             UvArray uvs,
+                             IndexArray pointIndices,
+                             IndexArray normalIndices,
+                             IndexArray uvIndices,
                              const Transform3D &transform_,
                              bool isNormalFlipped_)
     : Surface3(transform_, isNormalFlipped_),
-      _points(points),
-      _normals(normals),
-      _uvs(uvs),
-      _pointIndices(pointIndices),
-      _normalIndices(normalIndices),
-      _uvIndices(uvIndices) {}
+      _points(std::move(points)),
+      _normals(std::move(normals)),
+      _uvs(std::move(uvs)),
+      _pointIndices(std::move(pointIndices)),
+      _normalIndices(std::move(normalIndices)),
+      _uvIndices(std::move(uvIndices)) {}
 
 TriangleMesh3::TriangleMesh3(const TriangleMesh3 &other) : Surface3(other) { set(other); }
 
@@ -528,7 +529,7 @@ bool TriangleMesh3::readObj(std::istream *strm) {
 
     // `err` may contain warning message.
     if (!err.empty()) {
-        LOGE(err);
+        LOGE(err)
         return false;
     }
 
@@ -616,7 +617,7 @@ TriangleMesh3 &TriangleMesh3::operator=(const TriangleMesh3 &other) {
     return *this;
 }
 
-TriangleMesh3::Builder TriangleMesh3::builder() { return Builder(); }
+TriangleMesh3::Builder TriangleMesh3::builder() { return {}; }
 
 void TriangleMesh3::invalidateCache() {
     _bvhInvalidated = true;
@@ -774,7 +775,7 @@ TriangleMesh3 TriangleMesh3::Builder::build() const {
 }
 
 TriangleMesh3Ptr TriangleMesh3::Builder::makeShared() const {
-    return std::shared_ptr<TriangleMesh3>(new TriangleMesh3(_points, _normals, _uvs, _pointIndices, _normalIndices,
-                                                            _uvIndices, _transform, _isNormalFlipped),
-                                          [](TriangleMesh3 *obj) { delete obj; });
+    return {new TriangleMesh3(_points, _normals, _uvs, _pointIndices, _normalIndices, _uvIndices, _transform,
+                              _isNormalFlipped),
+            [](TriangleMesh3 *obj) { delete obj; }};
 }

@@ -1,15 +1,14 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_MATRIX_MXN_H_
-#define INCLUDE_JET_MATRIX_MXN_H_
+#pragma once
 
 #include "vox.geometry/array2.h"
-#include "vox.geometry/matrix_expression.h"
 #include "vox.geometry/vector_n.h"
+#include "vox.math/matrix_expression.h"
 
 namespace vox {
 
@@ -492,5 +491,3 @@ typedef MatrixMxN<double> MatrixMxND;
 }  // namespace vox
 
 #include "vox.geometry/matrix_mxn-inl.h"
-
-#endif  // INCLUDE_JET_MATRIX_MXN_H_

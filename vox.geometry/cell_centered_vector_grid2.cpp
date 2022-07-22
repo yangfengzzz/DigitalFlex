@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,14 +6,14 @@
 
 #include "vox.geometry/cell_centered_vector_grid2.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/private_helpers.h"
 
 using namespace vox;
 
-CellCenteredVectorGrid2::CellCenteredVectorGrid2() {}
+CellCenteredVectorGrid2::CellCenteredVectorGrid2() = default;
 
 CellCenteredVectorGrid2::CellCenteredVectorGrid2(size_t resolutionX,
                                                  size_t resolutionY,
@@ -40,7 +40,7 @@ Size2 CellCenteredVectorGrid2::dataSize() const { return resolution(); }
 Point2D CellCenteredVectorGrid2::dataOrigin() const { return origin() + 0.5 * gridSpacing(); }
 
 void CellCenteredVectorGrid2::swap(Grid2 *other) {
-    CellCenteredVectorGrid2 *sameType = dynamic_cast<CellCenteredVectorGrid2 *>(other);
+    auto *sameType = dynamic_cast<CellCenteredVectorGrid2 *>(other);
     if (sameType != nullptr) {
         swapCollocatedVectorGrid(sameType);
     }
@@ -70,10 +70,11 @@ void CellCenteredVectorGrid2::fill(const std::function<Vector2D(const Point2D &)
 }
 
 std::shared_ptr<VectorGrid2> CellCenteredVectorGrid2::clone() const {
-    return CLONE_W_CUSTOM_DELETER(CellCenteredVectorGrid2);
-}
+        return CLONE_W_CUSTOM_DELETER(CellCenteredVectorGrid2)}
 
-CellCenteredVectorGrid2::Builder CellCenteredVectorGrid2::builder() { return Builder(); }
+CellCenteredVectorGrid2::Builder CellCenteredVectorGrid2::builder() {
+    return {};
+}
 
 CellCenteredVectorGrid2::Builder &CellCenteredVectorGrid2::Builder::withResolution(const Size2 &resolution) {
     _resolution = resolution;
@@ -136,7 +137,6 @@ VectorGrid2Ptr CellCenteredVectorGrid2::Builder::build(const Size2 &resolution,
 }
 
 CellCenteredVectorGrid2Ptr CellCenteredVectorGrid2::Builder::makeShared() const {
-    return std::shared_ptr<CellCenteredVectorGrid2>(
-            new CellCenteredVectorGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](CellCenteredVectorGrid2 *obj) { delete obj; });
+    return {new CellCenteredVectorGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](CellCenteredVectorGrid2 *obj) { delete obj; }};
 }

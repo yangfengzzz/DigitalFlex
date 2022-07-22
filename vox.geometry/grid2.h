@@ -1,16 +1,15 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_GRID2_H_
-#define INCLUDE_JET_GRID2_H_
+#pragma once
 
 #include <functional>
 #include <memory>
 #include <string>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.math/bounding_box2.h"
@@ -38,22 +37,22 @@ public:
     virtual ~Grid2();
 
     //! Returns the type name of derived grid.
-    virtual std::string typeName() const = 0;
+    [[nodiscard]] virtual std::string typeName() const = 0;
 
     //! Returns the grid resolution.
-    const Size2 &resolution() const;
+    [[nodiscard]] const Size2 &resolution() const;
 
     //! Returns the grid origin.
-    const Point2D &origin() const;
+    [[nodiscard]] const Point2D &origin() const;
 
     //! Returns the grid spacing.
-    const Vector2D &gridSpacing() const;
+    [[nodiscard]] const Vector2D &gridSpacing() const;
 
     //! Returns the bounding box of the grid.
-    const BoundingBox2D &boundingBox() const;
+    [[nodiscard]] const BoundingBox2D &boundingBox() const;
 
     //! Returns the function that maps grid index to the cell-center position.
-    DataPositionFunc cellCenterPosition() const;
+    [[nodiscard]] DataPositionFunc cellCenterPosition() const;
 
     //!
     //! \brief Invokes the given function \p func for each grid cell.
@@ -75,7 +74,7 @@ public:
     void parallelForEachCellIndex(const std::function<void(size_t, size_t)> &func) const;
 
     //! Returns true if resolution, grid-spacing and origin are same.
-    bool hasSameShape(const Grid2 &other) const;
+    [[nodiscard]] bool hasSameShape(const Grid2 &other) const;
 
     //! Swaps the data with other grid.
     virtual void swap(Grid2 *other) = 0;
@@ -110,5 +109,3 @@ typedef std::shared_ptr<Grid2> Grid2Ptr;
     std::string typeName() const override { return #DerivedClassName; }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_GRID2_H_

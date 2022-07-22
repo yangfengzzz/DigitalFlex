@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_COLLOCATED_VECTOR_GRID2_H_
-#define INCLUDE_JET_COLLOCATED_VECTOR_GRID2_H_
+#pragma once
 
 #include <vector>
 
@@ -22,10 +21,10 @@ public:
     CollocatedVectorGrid2();
 
     //! Default destructor.
-    virtual ~CollocatedVectorGrid2();
+    ~CollocatedVectorGrid2() override;
 
     //! Returns the actual data point size.
-    virtual Size2 dataSize() const = 0;
+    [[nodiscard]] virtual Size2 dataSize() const = 0;
 
     //!
     //! \brief Returns data position for the grid point at (0, 0).
@@ -33,7 +32,7 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    virtual Point2D dataOrigin() const = 0;
+    [[nodiscard]] virtual Point2D dataOrigin() const = 0;
 
     //! Returns the grid data at given data point.
     const Vector2D &operator()(size_t i, size_t j) const;
@@ -42,19 +41,19 @@ public:
     Vector2D &operator()(size_t i, size_t j);
 
     //! Returns divergence at data point location.
-    double divergenceAtDataPoint(size_t i, size_t j) const;
+    [[nodiscard]] double divergenceAtDataPoint(size_t i, size_t j) const;
 
     //! Returns curl at data point location.
-    double curlAtDataPoint(size_t i, size_t j) const;
+    [[nodiscard]] double curlAtDataPoint(size_t i, size_t j) const;
 
     //! Returns the read-write data array accessor.
     VectorDataAccessor dataAccessor();
 
     //! Returns the read-only data array accessor.
-    ConstVectorDataAccessor constDataAccessor() const;
+    [[nodiscard]] ConstVectorDataAccessor constDataAccessor() const;
 
     //! Returns the function that maps data point to its position.
-    DataPositionFunc dataPosition() const;
+    [[nodiscard]] DataPositionFunc dataPosition() const;
 
     //!
     //! \brief Invokes the given function \p func for each data point.
@@ -79,13 +78,13 @@ public:
     // VectorField2 implementations
 
     //! Returns sampled value at given position \p x.
-    Vector2D sample(const Point2D &x) const override;
+    [[nodiscard]] Vector2D sample(const Point2D &x) const override;
 
     //! Returns divergence at given position \p x.
-    double divergence(const Point2D &x) const override;
+    [[nodiscard]] double divergence(const Point2D &x) const override;
 
     //! Returns curl at given position \p x.
-    double curl(const Point2D &x) const override;
+    [[nodiscard]] double curl(const Point2D &x) const override;
 
     //!
     //! \brief Returns the sampler function.
@@ -93,7 +92,7 @@ public:
     //! This function returns the data sampler function object. The sampling
     //! function is linear.
     //!
-    std::function<Vector2D(const Point2D &)> sampler() const override;
+    [[nodiscard]] std::function<Vector2D(const Point2D &)> sampler() const override;
 
 protected:
     //! Swaps the data storage and predefined samplers with given grid.
@@ -125,5 +124,3 @@ private:
 typedef std::shared_ptr<CollocatedVectorGrid2> CollocatedVectorGrid2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_COLLOCATED_VECTOR_GRID2_H_

@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -7,13 +7,13 @@
 #include "vox.geometry/cell_centered_scalar_grid2.h"
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/private_helpers.h"
 
 using namespace vox;
 
-CellCenteredScalarGrid2::CellCenteredScalarGrid2() {}
+CellCenteredScalarGrid2::CellCenteredScalarGrid2() = default;
 
 CellCenteredScalarGrid2::CellCenteredScalarGrid2(size_t resolutionX,
                                                  size_t resolutionY,
@@ -42,11 +42,11 @@ Size2 CellCenteredScalarGrid2::dataSize() const {
 Point2D CellCenteredScalarGrid2::dataOrigin() const { return origin() + 0.5 * gridSpacing(); }
 
 std::shared_ptr<ScalarGrid2> CellCenteredScalarGrid2::clone() const {
-    return CLONE_W_CUSTOM_DELETER(CellCenteredScalarGrid2);
+    return CLONE_W_CUSTOM_DELETER(CellCenteredScalarGrid2)
 }
 
 void CellCenteredScalarGrid2::swap(Grid2 *other) {
-    CellCenteredScalarGrid2 *sameType = dynamic_cast<CellCenteredScalarGrid2 *>(other);
+    auto *sameType = dynamic_cast<CellCenteredScalarGrid2 *>(other);
     if (sameType != nullptr) {
         swapScalarGrid(sameType);
     }
@@ -59,7 +59,7 @@ CellCenteredScalarGrid2 &CellCenteredScalarGrid2::operator=(const CellCenteredSc
     return *this;
 }
 
-CellCenteredScalarGrid2::Builder CellCenteredScalarGrid2::builder() { return Builder(); }
+CellCenteredScalarGrid2::Builder CellCenteredScalarGrid2::builder() { return {}; }
 
 CellCenteredScalarGrid2::Builder &CellCenteredScalarGrid2::Builder::withResolution(const Size2 &resolution) {
     _resolution = resolution;
@@ -115,7 +115,6 @@ ScalarGrid2Ptr CellCenteredScalarGrid2::Builder::build(const Size2 &resolution,
 }
 
 CellCenteredScalarGrid2Ptr CellCenteredScalarGrid2::Builder::makeShared() const {
-    return std::shared_ptr<CellCenteredScalarGrid2>(
-            new CellCenteredScalarGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](CellCenteredScalarGrid2 *obj) { delete obj; });
+    return {new CellCenteredScalarGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](CellCenteredScalarGrid2 *obj) { delete obj; }};
 }

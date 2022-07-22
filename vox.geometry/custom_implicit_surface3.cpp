@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,12 +6,13 @@
 
 #include "vox.geometry/custom_implicit_surface3.h"
 
-#include "vox.geometry/level_set_utils.h"
+#include <utility>
+
 #include "vox.math/constants.h"
 
 using namespace vox;
 
-CustomImplicitSurface3::CustomImplicitSurface3(const std::function<double(const Point3D &)> &func,
+CustomImplicitSurface3::CustomImplicitSurface3(std::function<double(const Point3D &)> func,
                                                const BoundingBox3D &domain,
                                                double resolution,
                                                double rayMarchingResolution,
@@ -19,13 +20,13 @@ CustomImplicitSurface3::CustomImplicitSurface3(const std::function<double(const 
                                                const Transform3D &transform,
                                                bool isNormalFlipped)
     : ImplicitSurface3(transform, isNormalFlipped),
-      _func(func),
+      _func(std::move(func)),
       _domain(domain),
       _resolution(resolution),
       _rayMarchingResolution(rayMarchingResolution),
       _maxNumOfIterations(maxNumOfIterations) {}
 
-CustomImplicitSurface3::~CustomImplicitSurface3() {}
+CustomImplicitSurface3::~CustomImplicitSurface3() = default;
 
 Point3D CustomImplicitSurface3::closestPointLocal(const Point3D &otherPoint) const {
     Point3D pt = clamp(otherPoint, _domain.lower_corner, _domain.upper_corner);
@@ -150,10 +151,10 @@ Vector3D CustomImplicitSurface3::gradientLocal(const Point3D &x) const {
     double back = _func(x - Vector3D(0.0, 0.0, 0.5 * _resolution));
     double front = _func(x + Vector3D(0.0, 0.0, 0.5 * _resolution));
 
-    return Vector3D((right - left) / _resolution, (top - bottom) / _resolution, (front - back) / _resolution);
+    return {(right - left) / _resolution, (top - bottom) / _resolution, (front - back) / _resolution};
 }
 
-CustomImplicitSurface3::Builder CustomImplicitSurface3::builder() { return Builder(); }
+CustomImplicitSurface3::Builder CustomImplicitSurface3::builder() { return {}; }
 
 CustomImplicitSurface3::Builder &CustomImplicitSurface3::Builder::withSignedDistanceFunction(
         const std::function<double(const Point3D &)> &func) {
@@ -187,8 +188,7 @@ CustomImplicitSurface3 CustomImplicitSurface3::Builder::build() const {
 }
 
 CustomImplicitSurface3Ptr CustomImplicitSurface3::Builder::makeShared() const {
-    return std::shared_ptr<CustomImplicitSurface3>(
-            new CustomImplicitSurface3(_func, _domain, _resolution, _rayMarchingResolution, _maxNumOfIterations,
+    return {new CustomImplicitSurface3(_func, _domain, _resolution, _rayMarchingResolution, _maxNumOfIterations,
                                        _transform, _isNormalFlipped),
-            [](CustomImplicitSurface3 *obj) { delete obj; });
+            [](CustomImplicitSurface3 *obj) { delete obj; }};
 }

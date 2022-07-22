@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_CG_SOLVER3_H_
-#define INCLUDE_JET_FDM_CG_SOLVER3_H_
+#pragma once
 
 #include "vox.geometry/fdm_linear_system_solver3.h"
 
@@ -25,16 +24,16 @@ public:
     bool solveCompressed(FdmCompressedLinearSystem3 *system) override;
 
     //! Returns the max number of CG iterations.
-    unsigned int maxNumberOfIterations() const;
+    [[nodiscard]] unsigned int maxNumberOfIterations() const;
 
     //! Returns the last number of CG iterations the solver made.
-    unsigned int lastNumberOfIterations() const;
+    [[nodiscard]] unsigned int lastNumberOfIterations() const;
 
     //! Returns the max residual tolerance for the CG method.
-    double tolerance() const;
+    [[nodiscard]] double tolerance() const;
 
     //! Returns the last residual after the CG iterations.
-    double lastResidual() const;
+    [[nodiscard]] double lastResidual() const;
 
 private:
     unsigned int _maxNumberOfIterations;
@@ -63,5 +62,3 @@ private:
 typedef std::shared_ptr<FdmCgSolver3> FdmCgSolver3Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_CG_SOLVER3_H_

@@ -16,12 +16,11 @@ SurfaceToImplicit3::SurfaceToImplicit3(const Surface3Ptr &surface, const Transfo
     if (std::dynamic_pointer_cast<TriangleMesh3>(surface) != nullptr) {
         LOGW("Using TriangleMesh3 with SurfaceToImplicit3 is accurate "
              "but slow. ImplicitTriangleMesh3 can provide faster but "
-             "approximated results.");
+             "approximated results.")
     }
 }
 
-SurfaceToImplicit3::SurfaceToImplicit3(const SurfaceToImplicit3 &other)
-    : ImplicitSurface3(other), _surface(other._surface) {}
+SurfaceToImplicit3::SurfaceToImplicit3(const SurfaceToImplicit3 &other) = default;
 
 bool SurfaceToImplicit3::isBounded() const { return _surface->isBounded(); }
 
@@ -31,7 +30,7 @@ bool SurfaceToImplicit3::isValidGeometry() const { return _surface->isValidGeome
 
 Surface3Ptr SurfaceToImplicit3::surface() const { return _surface; }
 
-SurfaceToImplicit3::Builder SurfaceToImplicit3::builder() { return Builder(); }
+SurfaceToImplicit3::Builder SurfaceToImplicit3::builder() { return {}; }
 
 Point3D SurfaceToImplicit3::closestPointLocal(const Point3D &otherPoint) const {
     return _surface->closestPoint(otherPoint);
@@ -71,6 +70,6 @@ SurfaceToImplicit3 SurfaceToImplicit3::Builder::build() const {
 }
 
 SurfaceToImplicit3Ptr SurfaceToImplicit3::Builder::makeShared() const {
-    return std::shared_ptr<SurfaceToImplicit3>(new SurfaceToImplicit3(_surface, _transform, _isNormalFlipped),
-                                               [](SurfaceToImplicit3 *obj) { delete obj; });
+    return {new SurfaceToImplicit3(_surface, _transform, _isNormalFlipped),
+            [](SurfaceToImplicit3 *obj) { delete obj; }};
 }

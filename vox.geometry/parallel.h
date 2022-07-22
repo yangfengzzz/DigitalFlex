@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_PARALLEL_H_
-#define INCLUDE_JET_PARALLEL_H_
+#pragma once
 
 namespace vox {
 
@@ -40,7 +39,7 @@ void parallelFill(const RandomIterator &begin,
 //! parallel. The order of the visit is not guaranteed due to the nature of
 //! parallel execution.
 //!
-//! \param[in]  beginIndex The begin index.
+//! \param[in]  start The begin index.
 //! \param[in]  endIndex   The end index.
 //! \param[in]  function   The function to call for each index.
 //! \param[in]  policy     The execution policy (parallel or serial).
@@ -49,7 +48,7 @@ void parallelFill(const RandomIterator &begin,
 //! \tparam     Function   Function type.
 //!
 template <typename IndexType, typename Function>
-void parallelFor(IndexType beginIndex,
+void parallelFor(IndexType start,
                  IndexType endIndex,
                  const Function &function,
                  ExecutionPolicy policy = ExecutionPolicy::kParallel);
@@ -63,7 +62,7 @@ void parallelFor(IndexType beginIndex,
 //! instead of single index. The order of the visit is not guaranteed due to the
 //! nature of parallel execution.
 //!
-//! \param[in]  beginIndex The begin index.
+//! \param[in]  start The begin index.
 //! \param[in]  endIndex   The end index.
 //! \param[in]  function   The function to call for each index range.
 //! \param[in]  policy     The execution policy (parallel or serial).
@@ -72,7 +71,7 @@ void parallelFor(IndexType beginIndex,
 //! \tparam     Function   Function type.
 //!
 template <typename IndexType, typename Function>
-void parallelRangeFor(IndexType beginIndex,
+void parallelRangeFor(IndexType start,
                       IndexType endIndex,
                       const Function &function,
                       ExecutionPolicy policy = ExecutionPolicy::kParallel);
@@ -197,7 +196,7 @@ void parallelRangeFor(IndexType beginIndexX,
 //! This function reduces the series of values into a single value using the
 //! provided reduce function.
 //!
-//! \param[in]  beginIndex The begin index.
+//! \param[in]  start The begin index.
 //! \param[in]  endIndex   The end index.
 //! \param[in]  identity   Identity value for the reduce operation.
 //! \param[in]  func   The function for reducing subrange.
@@ -209,7 +208,7 @@ void parallelRangeFor(IndexType beginIndexX,
 //! \tparam     Function   Reduce function type.
 //!
 template <typename IndexType, typename Value, typename Function, typename Reduce>
-Value parallelReduce(IndexType beginIndex,
+Value parallelReduce(IndexType start,
                      IndexType endIndex,
                      const Value &identity,
                      const Function &func,
@@ -260,5 +259,3 @@ unsigned int maxNumberOfThreads();
 }  // namespace vox
 
 #include "vox.geometry/parallel-inl.h"
-
-#endif  // INCLUDE_JET_PARALLEL_H_

@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VECTOR_N_H_
-#define INCLUDE_JET_VECTOR_N_H_
+#pragma once
 
 #include <initializer_list>
 #include <limits>
@@ -39,7 +38,7 @@ public:
     VectorN();
 
     //! Constructs default vector (val, val, ... , val).
-    VectorN(size_t n, const T &val = 0);
+    explicit VectorN(size_t n, const T &val = 0);
 
     //! Constructs vector with given initializer list.
     template <typename U>
@@ -47,13 +46,13 @@ public:
 
     //! Constructs vector with expression template.
     template <typename E>
-    VectorN(const VectorExpression<T, E> &other);
+    explicit VectorN(const VectorExpression<T, E> &other);
 
     //! Copy constructor.
     VectorN(const VectorN &other);
 
     //! Move constructor.
-    VectorN(VectorN &&other);
+    VectorN(VectorN &&other) noexcept;
 
     // MARK: Basic setters
 
@@ -89,13 +88,13 @@ public:
     // MARK: Basic getters
 
     //! Returns the size of the vector.
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     //! Returns the raw pointer to the vector data.
     T *data();
 
     //! Returns the const raw pointer to the vector data.
-    const T *const data() const;
+    const T *data() const;
 
     //! Returns the begin iterator of the vector.
     typename ContainerType::iterator begin();
@@ -140,10 +139,10 @@ public:
     T absmax() const;
 
     //! Returns the index of the dominant axis.
-    size_t dominantAxis() const;
+    [[nodiscard]] size_t dominantAxis() const;
 
     //! Returns the index of the subminant axis.
-    size_t subminantAxis() const;
+    [[nodiscard]] size_t subminantAxis() const;
 
     //! Returns normalized vector.
     VectorScalarDiv<T, VectorN> normalized() const;
@@ -353,7 +352,7 @@ public:
     VectorN &operator=(const VectorN &other);
 
     //! Move assignment.
-    VectorN &operator=(VectorN &&other);
+    VectorN &operator=(VectorN &&other) noexcept;
 
     //! Computes this += (s, s, ... , s)
     VectorN &operator+=(const T &s);
@@ -404,5 +403,3 @@ typedef VectorN<double> VectorND;
 }  // namespace vox
 
 #include "vox.geometry/vector_n-inl.h"
-
-#endif  // INCLUDE_JET_VECTOR_N_H_

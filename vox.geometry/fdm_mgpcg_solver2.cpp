@@ -1,10 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
 // property of any third parties.
 
 #include "vox.geometry/fdm_mgpcg_solver2.h"
+
+#include <utility>
 
 #include "vox.geometry/cg.h"
 #include "vox.geometry/mg.h"
@@ -14,10 +16,10 @@ using namespace vox;
 
 void FdmMgpcgSolver2::Preconditioner::build(FdmMgLinearSystem2 *system_, MgParameters<FdmBlas2> mgParams_) {
     system = system_;
-    mgParams = mgParams_;
+    mgParams = std::move(mgParams_);
 }
 
-void FdmMgpcgSolver2::Preconditioner::solve(const FdmVector2 &b, FdmVector2 *x) {
+void FdmMgpcgSolver2::Preconditioner::solve(const FdmVector2 &b, FdmVector2 *x) const {
     // Copy dimension
     FdmMgVector2 mgX = system->x;
     FdmMgVector2 mgB = system->x;

@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_COLLOCATED_VECTOR_GRID3_H_
-#define INCLUDE_JET_COLLOCATED_VECTOR_GRID3_H_
+#pragma once
 
 #include <vector>
 
@@ -22,10 +21,10 @@ public:
     CollocatedVectorGrid3();
 
     //! Default destructor.
-    virtual ~CollocatedVectorGrid3();
+    ~CollocatedVectorGrid3() override;
 
     //! Returns the actual data point size.
-    virtual Size3 dataSize() const = 0;
+    [[nodiscard]] virtual Size3 dataSize() const = 0;
 
     //!
     //! \brief Returns data position for the grid point at (0, 0, 0).
@@ -33,7 +32,7 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    virtual Point3D dataOrigin() const = 0;
+    [[nodiscard]] virtual Point3D dataOrigin() const = 0;
 
     //! Returns the grid data at given data point.
     const Vector3D &operator()(size_t i, size_t j, size_t k) const;
@@ -42,19 +41,19 @@ public:
     Vector3D &operator()(size_t i, size_t j, size_t k);
 
     //! Returns divergence at data point location.
-    double divergenceAtDataPoint(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] double divergenceAtDataPoint(size_t i, size_t j, size_t k) const;
 
     //! Returns curl at data point location.
-    Vector3D curlAtDataPoint(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] Vector3D curlAtDataPoint(size_t i, size_t j, size_t k) const;
 
     //! Returns the read-write data array accessor.
     VectorDataAccessor dataAccessor();
 
     //! Returns the read-only data array accessor.
-    ConstVectorDataAccessor constDataAccessor() const;
+    [[nodiscard]] ConstVectorDataAccessor constDataAccessor() const;
 
     //! Returns the function that maps data point to its position.
-    DataPositionFunc dataPosition() const;
+    [[nodiscard]] DataPositionFunc dataPosition() const;
 
     //!
     //! \brief Invokes the given function \p func for each data point.
@@ -79,13 +78,13 @@ public:
     // VectorField3 implementations
 
     //! Returns sampled value at given position \p x.
-    Vector3D sample(const Point3D &x) const override;
+    [[nodiscard]] Vector3D sample(const Point3D &x) const override;
 
     //! Returns divergence at given position \p x.
-    double divergence(const Point3D &x) const override;
+    [[nodiscard]] double divergence(const Point3D &x) const override;
 
     //! Returns curl at given position \p x.
-    Vector3D curl(const Point3D &x) const override;
+    [[nodiscard]] Vector3D curl(const Point3D &x) const override;
 
     //!
     //! \brief Returns the sampler function.
@@ -93,7 +92,7 @@ public:
     //! This function returns the data sampler function object. The sampling
     //! function is linear.
     //!
-    std::function<Vector3D(const Point3D &)> sampler() const override;
+    [[nodiscard]] std::function<Vector3D(const Point3D &)> sampler() const override;
 
 protected:
     //! Swaps the data storage and predefined samplers with given grid.
@@ -125,5 +124,3 @@ private:
 typedef std::shared_ptr<CollocatedVectorGrid3> CollocatedVectorGrid3Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_COLLOCATED_VECTOR_GRID3_H_

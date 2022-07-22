@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_SERIAL_INL_H_
-#define INCLUDE_JET_DETAIL_SERIAL_INL_H_
+#pragma once
 
 #include <algorithm>
 #include <functional>
@@ -17,7 +16,7 @@ namespace vox {
 
 template <typename RandomIterator, typename T>
 void serialFill(const RandomIterator &begin, const RandomIterator &end, const T &value) {
-    size_t size = static_cast<size_t>(end - begin);
+    auto size = static_cast<size_t>(end - begin);
     serialFor(size_t(0), size, [begin, value](size_t i) { begin[i] = value; });
 }
 
@@ -69,5 +68,3 @@ void serialSort(RandomIterator begin, RandomIterator end) {
 }
 
 }  // namespace vox
-
-#endif  //  INCLUDE_JET_DETAIL_SERIAL_INL_H_

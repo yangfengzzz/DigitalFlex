@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,7 +6,6 @@
 
 #include "vox.geometry/fdm_linear_system3.h"
 
-#include "vox.geometry/parallel.h"
 #include "vox.math/math_utils.h"
 
 using namespace vox;
@@ -48,7 +47,7 @@ void FdmBlas3::set(const FdmMatrix3 &m, FdmMatrix3 *result) { result->set(m); }
 double FdmBlas3::dot(const FdmVector3 &a, const FdmVector3 &b) {
     Size3 size = a.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != b.size());
+    VOX_THROW_INVALID_ARG_IF(size != b.size())
 
     double result = 0.0;
 
@@ -66,8 +65,8 @@ double FdmBlas3::dot(const FdmVector3 &a, const FdmVector3 &b) {
 void FdmBlas3::axpy(double a, const FdmVector3 &x, const FdmVector3 &y, FdmVector3 *result) {
     Size3 size = x.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != y.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != y.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     x.parallelForEachIndex([&](size_t i, size_t j, size_t k) { (*result)(i, j, k) = a * x(i, j, k) + y(i, j, k); });
 }
@@ -75,8 +74,8 @@ void FdmBlas3::axpy(double a, const FdmVector3 &x, const FdmVector3 &y, FdmVecto
 void FdmBlas3::mvm(const FdmMatrix3 &m, const FdmVector3 &v, FdmVector3 *result) {
     Size3 size = m.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != v.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != v.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     m.parallelForEachIndex([&](size_t i, size_t j, size_t k) {
         (*result)(i, j, k) = m(i, j, k).center * v(i, j, k) + ((i > 0) ? m(i - 1, j, k).right * v(i - 1, j, k) : 0.0) +
@@ -91,9 +90,9 @@ void FdmBlas3::mvm(const FdmMatrix3 &m, const FdmVector3 &v, FdmVector3 *result)
 void FdmBlas3::residual(const FdmMatrix3 &a, const FdmVector3 &x, const FdmVector3 &b, FdmVector3 *result) {
     Size3 size = a.size();
 
-    VOX_THROW_INVALID_ARG_IF(size != x.size());
-    VOX_THROW_INVALID_ARG_IF(size != b.size());
-    VOX_THROW_INVALID_ARG_IF(size != result->size());
+    VOX_THROW_INVALID_ARG_IF(size != x.size())
+    VOX_THROW_INVALID_ARG_IF(size != b.size())
+    VOX_THROW_INVALID_ARG_IF(size != result->size())
 
     a.parallelForEachIndex([&](size_t i, size_t j, size_t k) {
         (*result)(i, j, k) = b(i, j, k) - a(i, j, k).center * x(i, j, k) -

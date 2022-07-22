@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_NEAREST_NEIGHBOR_QUERY_ENGINE2_H_
-#define INCLUDE_JET_NEAREST_NEIGHBOR_QUERY_ENGINE2_H_
+#pragma once
 
 #include <functional>
 
@@ -25,7 +24,7 @@ struct NearestNeighborQueryResult2 {
 template <typename T>
 using NearestNeighborDistanceFunc2 = std::function<double(const T &, const Point2D &)>;
 
-//! Abstract base class for 2-D nearest neigbor query engine.
+//! Abstract base class for 2-D nearest neighbour query engine.
 template <typename T>
 class NearestNeighborQueryEngine2 {
 public:
@@ -36,5 +35,3 @@ public:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_NEAREST_NEIGHBOR_QUERY_ENGINE2_H_

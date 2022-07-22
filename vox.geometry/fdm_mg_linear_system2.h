@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_MG_LINEAR_SYSTEM2_H_
-#define INCLUDE_JET_FDM_MG_LINEAR_SYSTEM2_H_
+#pragma once
 
 #include "vox.geometry/face_centered_grid2.h"
 #include "vox.geometry/fdm_linear_system2.h"
@@ -34,7 +33,7 @@ struct FdmMgLinearSystem2 {
     void clear();
 
     //! Returns the number of multigrid levels.
-    size_t numberOfLevels() const;
+    [[nodiscard]] size_t numberOfLevels() const;
 
     //! Resizes the system with the coarsest resolution and number of levels.
     void resizeWithCoarsest(const Size2 &coarsestResolution, size_t numberOfLevels);
@@ -86,5 +85,3 @@ public:
 }  // namespace vox
 
 #include "vox.geometry/fdm_mg_linear_system2-inl.h"
-
-#endif  // INCLUDE_JET_FDM_MG_LINEAR_SYSTEM2_H_

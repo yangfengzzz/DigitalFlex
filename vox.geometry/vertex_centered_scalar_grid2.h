@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_VERTEX_CENTERED_SCALAR_GRID2_H_
-#define INCLUDE_JET_VERTEX_CENTERED_SCALAR_GRID2_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array2.h"
 #include "vox.geometry/scalar_grid2.h"
@@ -43,24 +42,24 @@ public:
 
     //! Constructs a grid with given resolution, grid spacing, origin and
     //! initial value.
-    VertexCenteredScalarGrid2(const Size2 &resolution,
-                              const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
-                              const Point2D &origin = Point2D(),
-                              double initialValue = 0.0);
+    explicit VertexCenteredScalarGrid2(const Size2 &resolution,
+                                       const Vector2D &gridSpacing = Vector2D(1.0, 1.0),
+                                       const Point2D &origin = Point2D(),
+                                       double initialValue = 0.0);
 
     //! Copy constructor.
     VertexCenteredScalarGrid2(const VertexCenteredScalarGrid2 &other);
 
     //! Returns the actual data point size.
-    Size2 dataSize() const override;
+    [[nodiscard]] Size2 dataSize() const override;
 
     //! Returns data position for the grid point at (0, 0).
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
-    Point2D dataOrigin() const override;
+    [[nodiscard]] Point2D dataOrigin() const override;
 
     //! Returns the copy of the grid instance.
-    std::shared_ptr<ScalarGrid2> clone() const override;
+    [[nodiscard]] std::shared_ptr<ScalarGrid2> clone() const override;
 
     //!
     //! \brief Swaps the contents with the given \p other grid.
@@ -110,20 +109,20 @@ public:
     Builder &withInitialValue(double initialVal);
 
     //! Builds VertexCenteredScalarGrid2 instance.
-    VertexCenteredScalarGrid2 build() const;
+    [[nodiscard]] VertexCenteredScalarGrid2 build() const;
 
     //! Builds shared pointer of VertexCenteredScalarGrid2 instance.
-    VertexCenteredScalarGrid2Ptr makeShared() const;
+    [[nodiscard]] VertexCenteredScalarGrid2Ptr makeShared() const;
 
     //!
     //! \brief Builds shared pointer of VertexCenteredScalarGrid2 instance.
     //!
     //! This is an overriding function that implements ScalarGridBuilder2.
     //!
-    ScalarGrid2Ptr build(const Size2 &resolution,
-                         const Vector2D &gridSpacing,
-                         const Point2D &gridOrigin,
-                         double initialVal) const override;
+    [[nodiscard]] ScalarGrid2Ptr build(const Size2 &resolution,
+                                       const Vector2D &gridSpacing,
+                                       const Point2D &gridOrigin,
+                                       double initialVal) const override;
 
 private:
     Size2 _resolution{1, 1};
@@ -133,5 +132,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_VERTEX_CENTERED_SCALAR_GRID2_H_

@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY_ACCESSOR2_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY_ACCESSOR2_INL_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/parallel.h"
 #include "vox.math/macros.h"
@@ -83,12 +82,12 @@ const T &ArrayAccessor<T, 2>::at(size_t i, size_t j) const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 2>::begin() const {
+T *ArrayAccessor<T, 2>::begin() const {
     return _data;
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 2>::end() const {
+T *ArrayAccessor<T, 2>::end() const {
     return _data + _size.x * _size.y;
 }
 
@@ -118,7 +117,7 @@ size_t ArrayAccessor<T, 2>::height() const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 2>::data() const {
+T *ArrayAccessor<T, 2>::data() const {
     return _data;
 }
 
@@ -262,12 +261,12 @@ const T &ConstArrayAccessor<T, 2>::at(size_t i, size_t j) const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 2>::begin() const {
+const T *ConstArrayAccessor<T, 2>::begin() const {
     return _data;
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 2>::end() const {
+const T *ConstArrayAccessor<T, 2>::end() const {
     return _data + _size.x * _size.y;
 }
 
@@ -287,7 +286,7 @@ size_t ConstArrayAccessor<T, 2>::height() const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 2>::data() const {
+const T *ConstArrayAccessor<T, 2>::data() const {
     return _data;
 }
 
@@ -347,5 +346,3 @@ const T &ConstArrayAccessor<T, 2>::operator()(size_t i, size_t j) const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY_ACCESSOR2_INL_H_

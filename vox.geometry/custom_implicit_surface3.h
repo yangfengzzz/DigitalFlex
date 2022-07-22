@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE3_H_
-#define INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE3_H_
+#pragma once
 
 #include "vox.geometry/implicit_surface3.h"
 #include "vox.geometry/scalar_field3.h"
@@ -28,16 +27,16 @@ public:
     //! \param transform Local-to-world transform.
     //! \param isNormalFlipped True if normal is flipped.
     //!
-    CustomImplicitSurface3(const std::function<double(const Point3D &)> &func,
-                           const BoundingBox3D &domain = BoundingBox3D(),
-                           double resolution = 1e-3,
-                           double rayMarchingResolution = 1e-6,
-                           unsigned int maxNumOfIterations = 5,
-                           const Transform3D &transform = Transform3D(),
-                           bool isNormalFlipped = false);
+    explicit CustomImplicitSurface3(std::function<double(const Point3D &)> func,
+                                    const BoundingBox3D &domain = BoundingBox3D(),
+                                    double resolution = 1e-3,
+                                    double rayMarchingResolution = 1e-6,
+                                    unsigned int maxNumOfIterations = 5,
+                                    const Transform3D &transform = Transform3D(),
+                                    bool isNormalFlipped = false);
 
     //! Destructor.
-    virtual ~CustomImplicitSurface3();
+    ~CustomImplicitSurface3() override;
 
     //! Returns builder for CustomImplicitSurface3.
     static Builder builder();
@@ -49,19 +48,19 @@ private:
     double _rayMarchingResolution = 1e-6;
     unsigned int _maxNumOfIterations = 5;
 
-    Point3D closestPointLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] Point3D closestPointLocal(const Point3D &otherPoint) const override;
 
-    bool intersectsLocal(const Ray3D &ray) const override;
+    [[nodiscard]] bool intersectsLocal(const Ray3D &ray) const override;
 
-    BoundingBox3D boundingBoxLocal() const override;
+    [[nodiscard]] BoundingBox3D boundingBoxLocal() const override;
 
-    Vector3D closestNormalLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] Vector3D closestNormalLocal(const Point3D &otherPoint) const override;
 
-    double signedDistanceLocal(const Point3D &otherPoint) const override;
+    [[nodiscard]] double signedDistanceLocal(const Point3D &otherPoint) const override;
 
-    SurfaceRayIntersection3 closestIntersectionLocal(const Ray3D &ray) const override;
+    [[nodiscard]] SurfaceRayIntersection3 closestIntersectionLocal(const Ray3D &ray) const override;
 
-    Vector3D gradientLocal(const Point3D &x) const;
+    [[nodiscard]] Vector3D gradientLocal(const Point3D &x) const;
 };
 
 //! Shared pointer type for the CustomImplicitSurface3.
@@ -90,10 +89,10 @@ public:
     Builder &withMaxNumberOfIterations(unsigned int numIter);
 
     //! Builds CustomImplicitSurface3.
-    CustomImplicitSurface3 build() const;
+    [[nodiscard]] CustomImplicitSurface3 build() const;
 
     //! Builds shared pointer of CustomImplicitSurface3 instance.
-    CustomImplicitSurface3Ptr makeShared() const;
+    [[nodiscard]] CustomImplicitSurface3Ptr makeShared() const;
 
 private:
     std::function<double(const Point3D &)> _func;
@@ -104,5 +103,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE3_H_

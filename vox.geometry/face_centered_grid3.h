@@ -1,14 +1,13 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FACE_CENTERED_GRID3_H_
-#define INCLUDE_JET_FACE_CENTERED_GRID3_H_
+#pragma once
 
 #include <memory>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array3.h"
@@ -54,10 +53,10 @@ public:
                       double initialValueW = 0.0);
 
     //! Resizes the grid using given parameters.
-    FaceCenteredGrid3(const Size3 &resolution,
-                      const Vector3D &gridSpacing = Vector3D(1.0, 1.0, 1.0),
-                      const Point3D &origin = Point3D(),
-                      const Vector3D &initialValue = Vector3D());
+    explicit FaceCenteredGrid3(const Size3 &resolution,
+                               const Vector3D &gridSpacing = Vector3D(1.0, 1.0, 1.0),
+                               const Point3D &origin = Point3D(),
+                               const Vector3D &initialValue = Vector3D());
 
     //! Copy constructor.
     FaceCenteredGrid3(const FaceCenteredGrid3 &other);
@@ -80,64 +79,64 @@ public:
     double &u(size_t i, size_t j, size_t k);
 
     //! Returns u-value at given data point.
-    const double &u(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] const double &u(size_t i, size_t j, size_t k) const;
 
     //! Returns v-value at given data point.
     double &v(size_t i, size_t j, size_t k);
 
     //! Returns v-value at given data point.
-    const double &v(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] const double &v(size_t i, size_t j, size_t k) const;
 
     //! Returns w-value at given data point.
     double &w(size_t i, size_t j, size_t k);
 
     //! Returns w-value at given data point.
-    const double &w(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] const double &w(size_t i, size_t j, size_t k) const;
 
     //! Returns interpolated value at cell center.
-    Vector3D valueAtCellCenter(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] Vector3D valueAtCellCenter(size_t i, size_t j, size_t k) const;
 
     //! Returns divergence at cell-center location.
-    double divergenceAtCellCenter(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] double divergenceAtCellCenter(size_t i, size_t j, size_t k) const;
 
     //! Returns curl at cell-center location.
-    Vector3D curlAtCellCenter(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] Vector3D curlAtCellCenter(size_t i, size_t j, size_t k) const;
 
     //! Returns u data accessor.
     ScalarDataAccessor uAccessor();
 
     //! Returns read-only u data accessor.
-    ConstScalarDataAccessor uConstAccessor() const;
+    [[nodiscard]] ConstScalarDataAccessor uConstAccessor() const;
 
     //! Returns v data accessor.
     ScalarDataAccessor vAccessor();
 
     //! Returns read-only v data accessor.
-    ConstScalarDataAccessor vConstAccessor() const;
+    [[nodiscard]] ConstScalarDataAccessor vConstAccessor() const;
 
     //! Returns w data accessor.
     ScalarDataAccessor wAccessor();
 
     //! Returns read-only w data accessor.
-    ConstScalarDataAccessor wConstAccessor() const;
+    [[nodiscard]] ConstScalarDataAccessor wConstAccessor() const;
 
     //! Returns function object that maps u data point to its actual position.
-    DataPositionFunc uPosition() const;
+    [[nodiscard]] DataPositionFunc uPosition() const;
 
     //! Returns function object that maps v data point to its actual position.
-    DataPositionFunc vPosition() const;
+    [[nodiscard]] DataPositionFunc vPosition() const;
 
     //! Returns function object that maps w data point to its actual position.
-    DataPositionFunc wPosition() const;
+    [[nodiscard]] DataPositionFunc wPosition() const;
 
     //! Returns data size of the u component.
-    Size3 uSize() const;
+    [[nodiscard]] Size3 uSize() const;
 
     //! Returns data size of the v component.
-    Size3 vSize() const;
+    [[nodiscard]] Size3 vSize() const;
 
     //! Returns data size of the w component.
-    Size3 wSize() const;
+    [[nodiscard]] Size3 wSize() const;
 
     //!
     //! \brief Returns u-data position for the grid point at (0, 0, 0).
@@ -145,7 +144,7 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    Point3D uOrigin() const;
+    [[nodiscard]] Point3D uOrigin() const;
 
     //!
     //! \brief Returns v-data position for the grid point at (0, 0, 0).
@@ -153,7 +152,7 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    Point3D vOrigin() const;
+    [[nodiscard]] Point3D vOrigin() const;
 
     //!
     //! \brief Returns w-data position for the grid point at (0, 0, 0).
@@ -161,7 +160,7 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    Point3D wOrigin() const;
+    [[nodiscard]] Point3D wOrigin() const;
 
     //! Fills the grid with given value.
     void fill(const Vector3D &value, ExecutionPolicy policy = ExecutionPolicy::kParallel) override;
@@ -171,7 +170,7 @@ public:
               ExecutionPolicy policy = ExecutionPolicy::kParallel) override;
 
     //! Returns the copy of the grid instance.
-    std::shared_ptr<VectorGrid3> clone() const override;
+    [[nodiscard]] std::shared_ptr<VectorGrid3> clone() const override;
 
     //!
     //! \brief Invokes the given function \p func for each u-data point.
@@ -236,13 +235,13 @@ public:
     // VectorField3 implementations
 
     //! Returns sampled value at given position \p x.
-    Vector3D sample(const Point3D &x) const override;
+    [[nodiscard]] Vector3D sample(const Point3D &x) const override;
 
     //! Returns divergence at given position \p x.
-    double divergence(const Point3D &x) const override;
+    [[nodiscard]] double divergence(const Point3D &x) const override;
 
     //! Returns curl at given position \p x.
-    Vector3D curl(const Point3D &x) const override;
+    [[nodiscard]] Vector3D curl(const Point3D &x) const override;
 
     //!
     //! \brief Returns the sampler function.
@@ -250,7 +249,7 @@ public:
     //! This function returns the data sampler function object. The sampling
     //! function is linear.
     //!
-    std::function<Vector3D(const Point3D &)> sampler() const override;
+    [[nodiscard]] std::function<Vector3D(const Point3D &)> sampler() const override;
 
     //! Returns builder fox FaceCenteredGrid3.
     static Builder builder();
@@ -316,20 +315,20 @@ public:
     Builder &withInitialValue(double initialValX, double initialValY, double initialValZ);
 
     //! Builds CellCenteredScalarGrid3 instance.
-    FaceCenteredGrid3 build() const;
+    [[nodiscard]] FaceCenteredGrid3 build() const;
 
     //! Builds shared pointer of FaceCenteredGrid3 instance.
-    FaceCenteredGrid3Ptr makeShared() const;
+    [[nodiscard]] FaceCenteredGrid3Ptr makeShared() const;
 
     //!
     //! \brief Builds shared pointer of FaceCenteredGrid3 instance.
     //!
     //! This is an overriding function that implements VectorGridBuilder3.
     //!
-    VectorGrid3Ptr build(const Size3 &resolution,
-                         const Vector3D &gridSpacing,
-                         const Point3D &gridOrigin,
-                         const Vector3D &initialVal) const override;
+    [[nodiscard]] VectorGrid3Ptr build(const Size3 &resolution,
+                                       const Vector3D &gridSpacing,
+                                       const Point3D &gridOrigin,
+                                       const Vector3D &initialVal) const override;
 
 private:
     Size3 _resolution{1, 1, 1};
@@ -339,5 +338,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FACE_CENTERED_GRID3_H_

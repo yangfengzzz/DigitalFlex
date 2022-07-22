@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY_ACCESSOR3_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY_ACCESSOR3_INL_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/parallel.h"
 #include "vox.math/macros.h"
@@ -71,12 +70,12 @@ const T &ArrayAccessor<T, 3>::at(const Point3UI &pt) const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 3>::begin() const {
+T *ArrayAccessor<T, 3>::begin() const {
     return _data;
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 3>::end() const {
+T *ArrayAccessor<T, 3>::end() const {
     return _data + _size.x * _size.y * _size.z;
 }
 
@@ -135,7 +134,7 @@ size_t ArrayAccessor<T, 3>::depth() const {
 }
 
 template <typename T>
-T *const ArrayAccessor<T, 3>::data() const {
+T *ArrayAccessor<T, 3>::data() const {
     return _data;
 }
 
@@ -272,12 +271,12 @@ const T &ConstArrayAccessor<T, 3>::at(size_t i, size_t j, size_t k) const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 3>::begin() const {
+const T *ConstArrayAccessor<T, 3>::begin() const {
     return _data;
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 3>::end() const {
+const T *ConstArrayAccessor<T, 3>::end() const {
     return _data + _size.x * _size.y * _size.z;
 }
 
@@ -302,7 +301,7 @@ size_t ConstArrayAccessor<T, 3>::depth() const {
 }
 
 template <typename T>
-const T *const ConstArrayAccessor<T, 3>::data() const {
+const T *ConstArrayAccessor<T, 3>::data() const {
     return _data;
 }
 
@@ -366,5 +365,3 @@ const T &ConstArrayAccessor<T, 3>::operator()(const Point3UI &pt) const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY_ACCESSOR3_INL_H_

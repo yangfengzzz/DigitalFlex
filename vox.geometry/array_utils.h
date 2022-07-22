@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_UTILS_H_
-#define INCLUDE_JET_ARRAY_UTILS_H_
+#pragma once
 
 #include "vox.geometry/array1.h"
 #include "vox.geometry/array2.h"
@@ -154,5 +153,3 @@ void convertToCsv(const ArrayType &data, std::ostream *strm);
 }  // namespace vox
 
 #include "vox.geometry/array_utils-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_UTILS_H_

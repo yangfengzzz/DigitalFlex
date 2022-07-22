@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_SAMPLERS3_H_
-#define INCLUDE_JET_ARRAY_SAMPLERS3_H_
+#pragma once
 
 #include <functional>
 
@@ -44,12 +43,12 @@ public:
     NearestArraySampler(const NearestArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point3<R> &pt) const;
+    T operator()(const Point3<R> &x) const;
 
     //! Returns the nearest array index for point \p x.
-    void getCoordinate(const Point3<R> &pt, Point3UI *index) const;
+    void getCoordinate(const Point3<R> &x, Point3UI *index) const;
 
-    //! Returns a funtion object that wraps this instance.
+    //! Returns a function object that wraps this instance.
     std::function<T(const Point3<R> &)> functor() const;
 
 private:
@@ -91,20 +90,20 @@ public:
     LinearArraySampler(const LinearArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point3<R> &pt) const;
+    T operator()(const Point3<R> &x) const;
 
     //! Returns the indices of points and their sampling weight for given point.
-    void getCoordinatesAndWeights(const Point3<R> &pt,
+    void getCoordinatesAndWeights(const Point3<R> &x,
                                   std::array<Point3UI, 8> *indices,
                                   std::array<R, 8> *weights) const;
 
     //! Returns the indices of points and their gradient of sampling weight for
     //! given point.
-    void getCoordinatesAndGradientWeights(const Point3<R> &pt,
+    void getCoordinatesAndGradientWeights(const Point3<R> &x,
                                           std::array<Point3UI, 8> *indices,
                                           std::array<Vector3<R>, 8> *weights) const;
 
-    //! Returns a funtion object that wraps this instance.
+    //! Returns a function object that wraps this instance.
     std::function<T(const Point3<R> &)> functor() const;
 
 private:
@@ -147,9 +146,9 @@ public:
     CubicArraySampler(const CubicArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point3<R> &pt) const;
+    T operator()(const Point3<R> &x) const;
 
-    //! Returns a funtion object that wraps this instance.
+    //! Returns a function object that wraps this instance.
     std::function<T(const Point3<R> &)> functor() const;
 
 private:
@@ -165,5 +164,3 @@ using CubicArraySampler3 = CubicArraySampler<T, R, 3>;
 }  // namespace vox
 
 #include "vox.geometry/array_samplers3-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_SAMPLERS3_H_

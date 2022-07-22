@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,12 +6,13 @@
 
 #include "vox.geometry/custom_implicit_surface2.h"
 
-#include "vox.geometry/level_set_utils.h"
+#include <utility>
+
 #include "vox.math/constants.h"
 
 using namespace vox;
 
-CustomImplicitSurface2::CustomImplicitSurface2(const std::function<double(const Point2D &)> &func,
+CustomImplicitSurface2::CustomImplicitSurface2(std::function<double(const Point2D &)> func,
                                                const BoundingBox2D &domain,
                                                double resolution,
                                                double rayMarchingResolution,
@@ -19,13 +20,13 @@ CustomImplicitSurface2::CustomImplicitSurface2(const std::function<double(const 
                                                const Transform2D &transform,
                                                bool isNormalFlipped)
     : ImplicitSurface2(transform, isNormalFlipped),
-      _func(func),
+      _func(std::move(func)),
       _domain(domain),
       _resolution(resolution),
       _rayMarchingResolution(rayMarchingResolution),
       _maxNumOfIterations(maxNumOfIterations) {}
 
-CustomImplicitSurface2::~CustomImplicitSurface2() {}
+CustomImplicitSurface2::~CustomImplicitSurface2() = default;
 
 Point2D CustomImplicitSurface2::closestPointLocal(const Point2D &otherPoint) const {
     Point2D pt = clamp(otherPoint, _domain.lower_corner, _domain.upper_corner);
@@ -148,10 +149,10 @@ Vector2D CustomImplicitSurface2::gradientLocal(const Point2D &x) const {
     double bottom = _func(x - Vector2D(0.0, 0.5 * _resolution));
     double top = _func(x + Vector2D(0.0, 0.5 * _resolution));
 
-    return Vector2D((right - left) / _resolution, (top - bottom) / _resolution);
+    return {(right - left) / _resolution, (top - bottom) / _resolution};
 }
 
-CustomImplicitSurface2::Builder CustomImplicitSurface2::builder() { return Builder(); }
+CustomImplicitSurface2::Builder CustomImplicitSurface2::builder() { return {}; }
 
 CustomImplicitSurface2::Builder &CustomImplicitSurface2::Builder::withSignedDistanceFunction(
         const std::function<double(const Point2D &)> &func) {
@@ -185,8 +186,7 @@ CustomImplicitSurface2 CustomImplicitSurface2::Builder::build() const {
 }
 
 CustomImplicitSurface2Ptr CustomImplicitSurface2::Builder::makeShared() const {
-    return std::shared_ptr<CustomImplicitSurface2>(
-            new CustomImplicitSurface2(_func, _domain, _resolution, _rayMarchingResolution, _maxNumOfIterations,
+    return {new CustomImplicitSurface2(_func, _domain, _resolution, _rayMarchingResolution, _maxNumOfIterations,
                                        _transform, _isNormalFlipped),
-            [](CustomImplicitSurface2 *obj) { delete obj; });
+            [](CustomImplicitSurface2 *obj) { delete obj; }};
 }

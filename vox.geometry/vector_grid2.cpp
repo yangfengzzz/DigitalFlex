@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -11,16 +11,14 @@
 #include "vox.geometry/vector_grid2.h"
 
 #include <algorithm>
-#include <string>
-#include <vector>
 
 #include "vox.geometry/array_samplers2.h"
 
 using namespace vox;
 
-VectorGrid2::VectorGrid2() {}
+VectorGrid2::VectorGrid2() = default;
 
-VectorGrid2::~VectorGrid2() {}
+VectorGrid2::~VectorGrid2() = default;
 
 void VectorGrid2::clear() { resize(Size2(), gridSpacing(), origin(), Vector2D()); }
 
@@ -53,6 +51,6 @@ void VectorGrid2::resize(const Vector2D &gridSpacing, const Point2D &origin) {
     resize(resolution(), gridSpacing, origin);
 }
 
-VectorGridBuilder2::VectorGridBuilder2() {}
+VectorGridBuilder2::VectorGridBuilder2() = default;
 
-VectorGridBuilder2::~VectorGridBuilder2() {}
+VectorGridBuilder2::~VectorGridBuilder2() = default;

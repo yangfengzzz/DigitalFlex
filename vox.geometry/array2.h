@@ -1,16 +1,15 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY2_H_
-#define INCLUDE_JET_ARRAY2_H_
+#pragma once
 
 #include <fstream>
 #include <functional>
 #include <iostream>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array.h"
@@ -84,7 +83,7 @@ public:
     Array(const Array &other);
 
     //! Move constructor.
-    Array(Array &&other);
+    Array(Array &&other) noexcept;
 
     //! Sets entire array with given \p value.
     void set(const T &value);
@@ -153,19 +152,19 @@ public:
     const T &at(size_t i, size_t j) const;
 
     //! Returns the size of the array.
-    Size2 size() const;
+    [[nodiscard]] Size2 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the raw pointer to the array data.
     T *data();
 
     //! Returns the const raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //! Returns the begin iterator of the array.
     Iterator begin();
@@ -323,13 +322,13 @@ public:
     const T &operator()(size_t i, size_t j) const;
 
     //! Sets entire array with given \p value.
-    Array &operator=(const T &other);
+    Array &operator=(const T &value);
 
     //! Copies given array \p other to this array.
     Array &operator=(const Array &other);
 
     //! Move assignment.
-    Array &operator=(Array &&other);
+    Array &operator=(Array &&other) noexcept;
 
     //!
     //! Copies given initializer list \p lst to this array.
@@ -352,10 +351,10 @@ public:
     Array &operator=(const std::initializer_list<std::initializer_list<T>> &lst);
 
     //! Casts to array accessor.
-    operator ArrayAccessor2<T>();
+    explicit operator ArrayAccessor2<T>();
 
     //! Casts to const array accessor.
-    operator ConstArrayAccessor2<T>() const;
+    explicit operator ConstArrayAccessor2<T>() const;
 
 private:
     Size2 _size;
@@ -369,5 +368,3 @@ using Array2 = Array<T, 2>;
 }  // namespace vox
 
 #include "vox.geometry/array2-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY2_H_

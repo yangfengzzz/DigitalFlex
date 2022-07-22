@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,7 +6,7 @@
 
 #include "vox.geometry/vertex_centered_vector_grid2.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array_samplers2.h"
 #include "vox.geometry/parallel.h"
@@ -14,7 +14,7 @@
 
 using namespace vox;
 
-VertexCenteredVectorGrid2::VertexCenteredVectorGrid2() {}
+VertexCenteredVectorGrid2::VertexCenteredVectorGrid2() = default;
 
 VertexCenteredVectorGrid2::VertexCenteredVectorGrid2(size_t resolutionX,
                                                      size_t resolutionY,
@@ -40,14 +40,14 @@ Size2 VertexCenteredVectorGrid2::dataSize() const {
     if (resolution() != Size2(0, 0)) {
         return resolution() + Size2(1, 1);
     } else {
-        return Size2(0, 0);
+        return {0, 0};
     }
 }
 
 Point2D VertexCenteredVectorGrid2::dataOrigin() const { return origin(); }
 
 void VertexCenteredVectorGrid2::swap(Grid2 *other) {
-    VertexCenteredVectorGrid2 *sameType = dynamic_cast<VertexCenteredVectorGrid2 *>(other);
+    auto *sameType = dynamic_cast<VertexCenteredVectorGrid2 *>(other);
     if (sameType != nullptr) {
         swapCollocatedVectorGrid(sameType);
     }
@@ -77,10 +77,11 @@ void VertexCenteredVectorGrid2::fill(const std::function<Vector2D(const Point2D 
 }
 
 std::shared_ptr<VectorGrid2> VertexCenteredVectorGrid2::clone() const {
-    return CLONE_W_CUSTOM_DELETER(VertexCenteredVectorGrid2);
-}
+        return CLONE_W_CUSTOM_DELETER(VertexCenteredVectorGrid2)}
 
-VertexCenteredVectorGrid2::Builder VertexCenteredVectorGrid2::builder() { return Builder(); }
+VertexCenteredVectorGrid2::Builder VertexCenteredVectorGrid2::builder() {
+    return {};
+}
 
 VertexCenteredVectorGrid2::Builder &VertexCenteredVectorGrid2::Builder::withResolution(const Size2 &resolution) {
     _resolution = resolution;
@@ -135,9 +136,8 @@ VertexCenteredVectorGrid2 VertexCenteredVectorGrid2::Builder::build() const {
 }
 
 VertexCenteredVectorGrid2Ptr VertexCenteredVectorGrid2::Builder::makeShared() const {
-    return std::shared_ptr<VertexCenteredVectorGrid2>(
-            new VertexCenteredVectorGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](VertexCenteredVectorGrid2 *obj) { delete obj; });
+    return {new VertexCenteredVectorGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](VertexCenteredVectorGrid2 *obj) { delete obj; }};
 }
 
 VectorGrid2Ptr VertexCenteredVectorGrid2::Builder::build(const Size2 &resolution,

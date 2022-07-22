@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_ICCG_SOLVER2_H_
-#define INCLUDE_JET_FDM_ICCG_SOLVER2_H_
+#pragma once
 
 #include "vox.geometry/fdm_cg_solver2.h"
 
@@ -27,16 +26,16 @@ public:
     bool solveCompressed(FdmCompressedLinearSystem2 *system) override;
 
     //! Returns the max number of Jacobi iterations.
-    unsigned int maxNumberOfIterations() const;
+    [[nodiscard]] unsigned int maxNumberOfIterations() const;
 
     //! Returns the last number of Jacobi iterations the solver made.
-    unsigned int lastNumberOfIterations() const;
+    [[nodiscard]] unsigned int lastNumberOfIterations() const;
 
     //! Returns the max residual tolerance for the Jacobi method.
-    double tolerance() const;
+    [[nodiscard]] double tolerance() const;
 
     //! Returns the last residual after the Jacobi iterations.
-    double lastResidual() const;
+    [[nodiscard]] double lastResidual() const;
 
 private:
     struct Preconditioner final {
@@ -87,5 +86,3 @@ private:
 typedef std::shared_ptr<FdmIccgSolver2> FdmIccgSolver2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_ICCG_SOLVER2_H_

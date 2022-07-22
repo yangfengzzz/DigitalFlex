@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_VECTOR_N_INL_H_
-#define INCLUDE_JET_DETAIL_VECTOR_N_INL_H_
+#pragma once
 
 #include "vox.geometry/parallel.h"
 #include "vox.geometry/vector_n.h"
@@ -17,7 +16,7 @@ namespace vox {
 // MARK: VectorN
 
 template <typename T>
-VectorN<T>::VectorN() {}
+VectorN<T>::VectorN() = default;
 
 template <typename T>
 VectorN<T>::VectorN(size_t n, const T &val) : _elements(n, val) {}
@@ -40,7 +39,7 @@ VectorN<T>::VectorN(const VectorN &other) {
 }
 
 template <typename T>
-VectorN<T>::VectorN(VectorN &&other) {
+VectorN<T>::VectorN(VectorN &&other) noexcept {
     (*this) = std::move(other);
 }
 
@@ -106,7 +105,7 @@ T *VectorN<T>::data() {
 }
 
 template <typename T>
-const T *const VectorN<T>::data() const {
+const T *VectorN<T>::data() const {
     return _elements.data();
 }
 
@@ -495,7 +494,7 @@ VectorN<T> &VectorN<T>::operator=(const VectorN &other) {
 }
 
 template <typename T>
-VectorN<T> &VectorN<T>::operator=(VectorN &&other) {
+VectorN<T> &VectorN<T>::operator=(VectorN &&other) noexcept {
     _elements = std::move(other._elements);
     return *this;
 }
@@ -565,5 +564,3 @@ bool VectorN<T>::operator!=(const E &v) const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_VECTOR_N_INL_H_

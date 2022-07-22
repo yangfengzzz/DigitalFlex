@@ -1,16 +1,15 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY1_H_
-#define INCLUDE_JET_ARRAY1_H_
+#pragma once
 
 #include <fstream>
 #include <functional>
 #include <iostream>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array.h"
@@ -60,7 +59,7 @@ public:
     Array(const Array &other);
 
     //! Move constructor.
-    Array(Array &&other);
+    Array(Array &&other) noexcept;
 
     //! Sets entire array with given \p value.
     void set(const T &value);
@@ -84,13 +83,13 @@ public:
     const T &at(size_t i) const;
 
     //! Returns size of the array.
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     //! Returns the raw pointer to the array data.
     T *data();
 
     //! Returns the const raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //! Returns the begin iterator of the array.
     Iterator begin();
@@ -205,22 +204,22 @@ public:
     const T &operator[](size_t i) const;
 
     //! Sets entire array with given \p value.
-    Array &operator=(const T &other);
+    Array &operator=(const T &value);
 
     //! Copies given array \p other to this array.
     Array &operator=(const Array &other);
 
     //! Move assignment.
-    Array &operator=(Array &&other);
+    Array &operator=(Array &&other) noexcept;
 
     //! Copies given initializer list \p lst to this array.
     Array &operator=(const std::initializer_list<T> &lst);
 
     //! Casts to array accessor.
-    operator ArrayAccessor1<T>();
+    explicit operator ArrayAccessor1<T>();
 
     //! Casts to const array accessor.
-    operator ConstArrayAccessor1<T>() const;
+    explicit operator ConstArrayAccessor1<T>() const;
 
 private:
     ContainerType _data;
@@ -233,5 +232,3 @@ using Array1 = Array<T, 1>;
 }  // namespace vox
 
 #include "vox.geometry/array1-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY1_H_

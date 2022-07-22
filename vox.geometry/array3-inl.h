@@ -1,14 +1,13 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY3_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY3_INL_H_
+#pragma once
 
 #include <algorithm>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/parallel.h"
@@ -17,7 +16,7 @@
 namespace vox {
 
 template <typename T>
-Array<T, 3>::Array() {}
+Array<T, 3>::Array() = default;
 
 template <typename T>
 Array<T, 3>::Array(const Size3 &size, const T &initVal) {
@@ -40,7 +39,7 @@ Array<T, 3>::Array(const Array &other) {
 }
 
 template <typename T>
-Array<T, 3>::Array(Array &&other) {
+Array<T, 3>::Array(Array &&other) noexcept {
     (*this) = std::move(other);
 }
 
@@ -172,7 +171,7 @@ T *Array<T, 3>::data() {
 }
 
 template <typename T>
-const T *const Array<T, 3>::data() const {
+const T *Array<T, 3>::data() const {
     return _data.data();
 }
 
@@ -283,7 +282,7 @@ Array<T, 3> &Array<T, 3>::operator=(const Array &other) {
 }
 
 template <typename T>
-Array<T, 3> &Array<T, 3>::operator=(Array &&other) {
+Array<T, 3> &Array<T, 3>::operator=(Array &&other) noexcept {
     _data = std::move(other._data);
     _size = other._size;
     other._size = Size3();
@@ -307,5 +306,3 @@ Array<T, 3>::operator ConstArrayAccessor3<T>() const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY3_INL_H_

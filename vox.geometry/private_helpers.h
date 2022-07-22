@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef SRC_JET_PRIVATE_HELPERS_H_
-#define SRC_JET_PRIVATE_HELPERS_H_
+#pragma once
 
 #include "vox.math/macros.h"
 
@@ -55,5 +54,3 @@ inline void throwIfFailed(HRESULT hr) {
 #endif
 
 #endif  // JET_WINDOWS
-
-#endif  // SRC_JET_PRIVATE_HELPERS_H_

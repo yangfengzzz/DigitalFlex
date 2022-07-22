@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_UTILS_H_
-#define INCLUDE_JET_FDM_UTILS_H_
+#pragma once
 
 #include <iostream>
 
@@ -54,5 +53,3 @@ Vector3D laplacian3(
         const ConstArrayAccessor3<Vector3D> &data, const Vector3D &gridSpacing, size_t i, size_t j, size_t k);
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_UTILS_H_

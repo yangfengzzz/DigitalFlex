@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_ACCESSOR2_H_
-#define INCLUDE_JET_ARRAY_ACCESSOR2_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array_accessor.h"
 #include "vox.math/point2.h"
@@ -37,13 +36,13 @@ public:
     //! Constructs an array accessor that wraps given array.
     //! \param size Size of the 2-D array.
     //! \param data Raw array pointer.
-    ArrayAccessor(const Size2 &size, T *const data);
+    ArrayAccessor(const Size2 &size, T *data);
 
     //! Constructs an array accessor that wraps given array.
     //! \param width Width of the 2-D array.
     //! \param height Height of the 2-D array.
     //! \param data Raw array pointer.
-    ArrayAccessor(size_t width, size_t height, T *const data);
+    ArrayAccessor(size_t width, size_t height, T *data);
 
     //! Copy constructor.
     ArrayAccessor(const ArrayAccessor &other);
@@ -52,10 +51,10 @@ public:
     void set(const ArrayAccessor &other);
 
     //! Resets the array.
-    void reset(const Size2 &size, T *const data);
+    void reset(const Size2 &size, T *data);
 
     //! Resets the array.
-    void reset(size_t width, size_t height, T *const data);
+    void reset(size_t width, size_t height, T *data);
 
     //! Returns the reference to the i-th element.
     T &at(size_t i);
@@ -76,10 +75,10 @@ public:
     const T &at(size_t i, size_t j) const;
 
     //! Returns the begin iterator of the array.
-    T *const begin() const;
+    T *begin() const;
 
     //! Returns the end iterator of the array.
-    T *const end() const;
+    T *end() const;
 
     //! Returns the begin iterator of the array.
     T *begin();
@@ -88,16 +87,16 @@ public:
     T *end();
 
     //! Returns the size of the array.
-    Size2 size() const;
+    [[nodiscard]] Size2 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the raw pointer to the array data.
-    T *const data() const;
+    T *data() const;
 
     //! Swaps the content of with \p other array accessor.
     void swap(ArrayAccessor &other);
@@ -209,10 +208,10 @@ public:
     void parallelForEachIndex(Callback func) const;
 
     //! Returns the linear index of the given 2-D coordinate (pt.x, pt.y).
-    size_t index(const Point2UI &pt) const;
+    [[nodiscard]] size_t index(const Point2UI &pt) const;
 
     //! Returns the linear index of the given 2-D coordinate (i, j).
-    size_t index(size_t i, size_t j) const;
+    [[nodiscard]] size_t index(size_t i, size_t j) const;
 
     //! Returns the reference to the i-th element.
     T &operator[](size_t i);
@@ -236,7 +235,7 @@ public:
     ArrayAccessor &operator=(const ArrayAccessor &other);
 
     //! Casts type to ConstArrayAccessor.
-    operator ConstArrayAccessor<T, 2>() const;
+    explicit operator ConstArrayAccessor<T, 2>() const;
 
 private:
     Size2 _size;
@@ -267,13 +266,13 @@ public:
     //! Constructs a read-only array accessor that wraps given array.
     //! \param size Size of the 2-D array.
     //! \param data Raw array pointer.
-    ConstArrayAccessor(const Size2 &size, const T *const data);
+    ConstArrayAccessor(const Size2 &size, const T *data);
 
     //! Constructs an array accessor that wraps given array.
     //! \param width Width of the 2-D array.
     //! \param height Height of the 2-D array.
     //! \param data Raw array pointer.
-    ConstArrayAccessor(size_t width, size_t height, const T *const data);
+    ConstArrayAccessor(size_t width, size_t height, const T *data);
 
     //! Constructs a read-only array accessor from read/write accessor.
     explicit ConstArrayAccessor(const ArrayAccessor<T, 2> &other);
@@ -291,22 +290,22 @@ public:
     const T &at(size_t i, size_t j) const;
 
     //! Returns the begin iterator of the array.
-    const T *const begin() const;
+    const T *begin() const;
 
     //! Returns the end iterator of the array.
-    const T *const end() const;
+    const T *end() const;
 
     //! Returns the size of the array.
-    Size2 size() const;
+    [[nodiscard]] Size2 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //!
     //! \brief Iterates the array and invoke given \p func for each index.
@@ -392,10 +391,10 @@ public:
     void parallelForEachIndex(Callback func) const;
 
     //! Returns the linear index of the given 2-D coordinate (pt.x, pt.y).
-    size_t index(const Point2UI &pt) const;
+    [[nodiscard]] size_t index(const Point2UI &pt) const;
 
     //! Returns the linear index of the given 2-D coordinate (i, j).
-    size_t index(size_t i, size_t j) const;
+    [[nodiscard]] size_t index(size_t i, size_t j) const;
 
     //! Returns the const reference to the i-th element.
     const T &operator[](size_t i) const;
@@ -418,5 +417,3 @@ using ConstArrayAccessor2 = ConstArrayAccessor<T, 2>;
 }  // namespace vox
 
 #include "vox.geometry/array_accessor2-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_ACCESSOR2_H_

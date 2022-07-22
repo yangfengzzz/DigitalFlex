@@ -1,11 +1,10 @@
-// Copyright (c) 2019 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_SURFACE_TO_IMPLICIT2_H_
-#define INCLUDE_JET_SURFACE_TO_IMPLICIT2_H_
+#pragma once
 
 #include <memory>
 
@@ -27,9 +26,9 @@ public:
     class Builder;
 
     //! Constructs an instance with generic Surface2 instance.
-    SurfaceToImplicit2(const Surface2Ptr &surface,
-                       const Transform2D &transform = Transform2D(),
-                       bool isNormalFlipped = false);
+    explicit SurfaceToImplicit2(Surface2Ptr surface,
+                                const Transform2D &transform = Transform2D(),
+                                bool isNormalFlipped = false);
 
     //! Copy constructor.
     SurfaceToImplicit2(const SurfaceToImplicit2 &other);
@@ -38,33 +37,33 @@ public:
     void updateQueryEngine() override;
 
     //! Returns true if bounding box can be defined.
-    bool isBounded() const override;
+    [[nodiscard]] bool isBounded() const override;
 
     //! Returns true if the surface is a valid geometry.
-    bool isValidGeometry() const override;
+    [[nodiscard]] bool isValidGeometry() const override;
 
     //! Returns the raw surface instance.
-    Surface2Ptr surface() const;
+    [[nodiscard]] Surface2Ptr surface() const;
 
     //! Returns builder fox SurfaceToImplicit2.
     static Builder builder();
 
 protected:
-    Point2D closestPointLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] Point2D closestPointLocal(const Point2D &otherPoint) const override;
 
-    double closestDistanceLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] double closestDistanceLocal(const Point2D &otherPoint) const override;
 
-    bool intersectsLocal(const Ray2D &ray) const override;
+    [[nodiscard]] bool intersectsLocal(const Ray2D &ray) const override;
 
-    BoundingBox2D boundingBoxLocal() const override;
+    [[nodiscard]] BoundingBox2D boundingBoxLocal() const override;
 
-    Vector2D closestNormalLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] Vector2D closestNormalLocal(const Point2D &otherPoint) const override;
 
-    double signedDistanceLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] double signedDistanceLocal(const Point2D &otherPoint) const override;
 
-    SurfaceRayIntersection2 closestIntersectionLocal(const Ray2D &ray) const override;
+    [[nodiscard]] SurfaceRayIntersection2 closestIntersectionLocal(const Ray2D &ray) const override;
 
-    bool isInsideLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] bool isInsideLocal(const Point2D &otherPoint) const override;
 
 private:
     Surface2Ptr _surface;
@@ -82,15 +81,13 @@ public:
     Builder &withSurface(const Surface2Ptr &surface);
 
     //! Builds SurfaceToImplicit2.
-    SurfaceToImplicit2 build() const;
+    [[nodiscard]] SurfaceToImplicit2 build() const;
 
     //! Builds shared pointer of SurfaceToImplicit2 instance.
-    SurfaceToImplicit2Ptr makeShared() const;
+    [[nodiscard]] SurfaceToImplicit2Ptr makeShared() const;
 
 private:
     Surface2Ptr _surface;
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_SURFACE_TO_IMPLICIT2_H_

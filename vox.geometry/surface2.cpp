@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,16 +6,16 @@
 
 #include "vox.geometry/surface2.h"
 
-#include <algorithm>
+#include <utility>
 
 using namespace vox;
 
-Surface2::Surface2(const Transform2D &transform_, bool isNormalFlipped_)
-    : transform(transform_), isNormalFlipped(isNormalFlipped_) {}
+Surface2::Surface2(Transform2D transform_, bool isNormalFlipped_)
+    : transform(std::move(transform_)), isNormalFlipped(isNormalFlipped_) {}
 
-Surface2::Surface2(const Surface2 &other) : transform(other.transform), isNormalFlipped(other.isNormalFlipped) {}
+Surface2::Surface2(const Surface2 &other) = default;
 
-Surface2::~Surface2() {}
+Surface2::~Surface2() = default;
 
 Point2D Surface2::closestPoint(const Point2D &otherPoint) const {
     return transform.toWorld(closestPointLocal(transform.toLocal(otherPoint)));

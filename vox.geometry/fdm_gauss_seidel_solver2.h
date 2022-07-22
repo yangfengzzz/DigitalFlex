@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_FDM_GAUSS_SEIDEL_SOLVER2_H_
-#define INCLUDE_JET_FDM_GAUSS_SEIDEL_SOLVER2_H_
+#pragma once
 
 #include "vox.geometry/fdm_linear_system_solver2.h"
 
@@ -29,22 +28,22 @@ public:
     bool solveCompressed(FdmCompressedLinearSystem2 *system) override;
 
     //! Returns the max number of Gauss-Seidel iterations.
-    unsigned int maxNumberOfIterations() const;
+    [[nodiscard]] unsigned int maxNumberOfIterations() const;
 
     //! Returns the last number of Gauss-Seidel iterations the solver made.
-    unsigned int lastNumberOfIterations() const;
+    [[nodiscard]] unsigned int lastNumberOfIterations() const;
 
     //! Returns the max residual tolerance for the Gauss-Seidel method.
-    double tolerance() const;
+    [[nodiscard]] double tolerance() const;
 
     //! Returns the last residual after the Gauss-Seidel iterations.
-    double lastResidual() const;
+    [[nodiscard]] double lastResidual() const;
 
     //! Returns the SOR (Successive Over Relaxation) factor.
-    double sorFactor() const;
+    [[nodiscard]] double sorFactor() const;
 
     //! Returns true if red-black ordering is enabled.
-    bool useRedBlackOrdering() const;
+    [[nodiscard]] bool useRedBlackOrdering() const;
 
     //! Performs single natural Gauss-Seidel relaxation step.
     static void relax(const FdmMatrix2 &A, const FdmVector2 &b, double sorFactor, FdmVector2 *x);
@@ -80,5 +79,3 @@ private:
 typedef std::shared_ptr<FdmGaussSeidelSolver2> FdmGaussSeidelSolver2Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_FDM_GAUSS_SEIDEL_SOLVER2_H_

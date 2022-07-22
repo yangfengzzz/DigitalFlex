@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_ARRAY_SAMPLERS2_INL_H_
-#define INCLUDE_JET_DETAIL_ARRAY_SAMPLERS2_INL_H_
+#pragma once
 
 #include <algorithm>
 #include <limits>
@@ -40,8 +39,8 @@ T NearestArraySampler2<T, R>::operator()(const Point2<R> &x) const {
                _gridSpacing.y > std::numeric_limits<R>::epsilon());
     Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -61,8 +60,8 @@ void NearestArraySampler2<T, R>::getCoordinate(const Point2<R> &x, Point2UI *ind
                _gridSpacing.y > std::numeric_limits<R>::epsilon());
     Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -104,8 +103,8 @@ T LinearArraySampler2<T, R>::operator()(const Point2<R> &x) const {
                _gridSpacing.y > std::numeric_limits<R>::epsilon());
     Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -127,8 +126,8 @@ void LinearArraySampler2<T, R>::getCoordinatesAndWeights(const Point2<R> &x,
 
     Vector2<R> normalizedX = (x - _origin) / _gridSpacing;
 
-    ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    auto jSize = static_cast<ssize_t>(_accessor.size().y);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -158,8 +157,8 @@ void LinearArraySampler2<T, R>::getCoordinatesAndGradientWeights(const Point2<R>
 
     const Vector2<R> normalizedX = (x - _origin) * _invGridSpacing;
 
-    const ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    const ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    const auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    const auto jSize = static_cast<ssize_t>(_accessor.size().y);
 
     getBarycentric(normalizedX.x, 0, iSize - 1, &i, &fx);
     getBarycentric(normalizedX.y, 0, jSize - 1, &j, &fy);
@@ -203,8 +202,8 @@ CubicArraySampler2<T, R>::CubicArraySampler(const CubicArraySampler &other) {
 template <typename T, typename R>
 T CubicArraySampler2<T, R>::operator()(const Point2<R> &x) const {
     ssize_t i, j;
-    const ssize_t iSize = static_cast<ssize_t>(_accessor.size().x);
-    const ssize_t jSize = static_cast<ssize_t>(_accessor.size().y);
+    const auto iSize = static_cast<ssize_t>(_accessor.size().x);
+    const auto jSize = static_cast<ssize_t>(_accessor.size().y);
     R fx, fy;
 
     VOX_ASSERT(_gridSpacing.x > std::numeric_limits<R>::epsilon() &&
@@ -234,5 +233,3 @@ std::function<T(const Point2<R> &)> CubicArraySampler2<T, R>::functor() const {
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_ARRAY_SAMPLERS2_INL_H_

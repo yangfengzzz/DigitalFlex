@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -8,6 +8,6 @@
 
 using namespace vox;
 
-Field2::Field2() {}
+Field2::Field2() = default;
 
-Field2::~Field2() {}
+Field2::~Field2() = default;

@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -44,7 +44,7 @@ void FdmMgUtils3::restrict(const FdmVector3 &finer, FdmVector3 *coarser) {
     const Size3 n = coarser->size();
     parallelRangeFor(kZeroSize, n.x, kZeroSize, n.y, kZeroSize, n.z,
                      [&](size_t iBegin, size_t iEnd, size_t jBegin, size_t jEnd, size_t kBegin, size_t kEnd) {
-                         std::array<size_t, 4> kIndices;
+                         std::array<size_t, 4> kIndices{};
 
                          for (size_t k = kBegin; k < kEnd; ++k) {
                              kIndices[0] = (k > 0) ? 2 * k - 1 : 2 * k;
@@ -52,7 +52,7 @@ void FdmMgUtils3::restrict(const FdmVector3 &finer, FdmVector3 *coarser) {
                              kIndices[2] = 2 * k + 1;
                              kIndices[3] = (k + 1 < n.z) ? 2 * k + 2 : 2 * k + 1;
 
-                             std::array<size_t, 4> jIndices;
+                             std::array<size_t, 4> jIndices{};
 
                              for (size_t j = jBegin; j < jEnd; ++j) {
                                  jIndices[0] = (j > 0) ? 2 * j - 1 : 2 * j;
@@ -60,7 +60,7 @@ void FdmMgUtils3::restrict(const FdmVector3 &finer, FdmVector3 *coarser) {
                                  jIndices[2] = 2 * j + 1;
                                  jIndices[3] = (j + 1 < n.y) ? 2 * j + 2 : 2 * j + 1;
 
-                                 std::array<size_t, 4> iIndices;
+                                 std::array<size_t, 4> iIndices{};
                                  for (size_t i = iBegin; i < iEnd; ++i) {
                                      iIndices[0] = (i > 0) ? 2 * i - 1 : 2 * i;
                                      iIndices[1] = 2 * i;
@@ -98,12 +98,12 @@ void FdmMgUtils3::correct(const FdmVector3 &coarser, FdmVector3 *finer) {
                          for (size_t k = kBegin; k < kEnd; ++k) {
                              for (size_t j = jBegin; j < jEnd; ++j) {
                                  for (size_t i = iBegin; i < iEnd; ++i) {
-                                     std::array<size_t, 2> iIndices;
-                                     std::array<size_t, 2> jIndices;
-                                     std::array<size_t, 2> kIndices;
-                                     std::array<double, 2> iWeights;
-                                     std::array<double, 2> jWeights;
-                                     std::array<double, 2> kWeights;
+                                     std::array<size_t, 2> iIndices{};
+                                     std::array<size_t, 2> jIndices{};
+                                     std::array<size_t, 2> kIndices{};
+                                     std::array<double, 2> iWeights{};
+                                     std::array<double, 2> jWeights{};
+                                     std::array<double, 2> kWeights{};
 
                                      const size_t ci = i / 2;
                                      const size_t cj = j / 2;

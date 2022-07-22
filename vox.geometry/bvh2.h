@@ -1,11 +1,10 @@
-// Copyright (c) 2019 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_BVH2_H_
-#define INCLUDE_JET_BVH2_H_
+#pragma once
 
 #include <vector>
 
@@ -64,7 +63,7 @@ public:
                                                            const GetRayIntersectionFunc2<T> &testFunc) const override;
 
     //! Returns bounding box of every items.
-    const BoundingBox2D &boundingBox() const;
+    [[nodiscard]] const BoundingBox2D &boundingBox() const;
 
     //! Returns the begin iterator of the item.
     Iterator begin();
@@ -79,22 +78,22 @@ public:
     ConstIterator end() const;
 
     //! Returns the number of items.
-    size_t numberOfItems() const;
+    [[nodiscard]] size_t numberOfItems() const;
 
     //! Returns the item at \p i.
     const T &item(size_t i) const;
 
     //! Returns the number of nodes.
-    size_t numberOfNodes() const;
+    [[nodiscard]] size_t numberOfNodes() const;
 
     //! Returns the children indices of \p i-th node.
-    std::pair<size_t, size_t> children(size_t i) const;
+    [[nodiscard]] std::pair<size_t, size_t> children(size_t i) const;
 
     //! Returns true if \p i-th node is a leaf node.
-    bool isLeaf(size_t i) const;
+    [[nodiscard]] bool isLeaf(size_t i) const;
 
     //! Returns bounding box of \p i-th node.
-    const BoundingBox2D &nodeBound(size_t i) const;
+    [[nodiscard]] const BoundingBox2D &nodeBound(size_t i) const;
 
     //! Returns item of \p i-th node.
     Iterator itemOfNode(size_t i);
@@ -107,7 +106,7 @@ private:
         char flags;
         union {
             size_t child;
-            size_t item;
+            size_t item{};
         };
         BoundingBox2D bound;
 
@@ -117,7 +116,7 @@ private:
 
         void initInternal(uint8_t axis, size_t c, const BoundingBox2D &b);
 
-        bool isLeaf() const;
+        [[nodiscard]] bool isLeaf() const;
     };
 
     BoundingBox2D _bound;
@@ -132,5 +131,3 @@ private:
 }  // namespace vox
 
 #include "vox.geometry/bvh2-inl.h"
-
-#endif  // INCLUDE_JET_BVH2_H_

@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,13 +6,13 @@
 
 #include "vox.geometry/vertex_centered_scalar_grid2.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/private_helpers.h"
 
 using namespace vox;
 
-VertexCenteredScalarGrid2::VertexCenteredScalarGrid2() {}
+VertexCenteredScalarGrid2::VertexCenteredScalarGrid2() = default;
 
 VertexCenteredScalarGrid2::VertexCenteredScalarGrid2(size_t resolutionX,
                                                      size_t resolutionY,
@@ -37,18 +37,18 @@ Size2 VertexCenteredScalarGrid2::dataSize() const {
     if (resolution() != Size2(0, 0)) {
         return resolution() + Size2(1, 1);
     } else {
-        return Size2(0, 0);
+        return {0, 0};
     }
 }
 
 Point2D VertexCenteredScalarGrid2::dataOrigin() const { return origin(); }
 
 std::shared_ptr<ScalarGrid2> VertexCenteredScalarGrid2::clone() const {
-    return CLONE_W_CUSTOM_DELETER(VertexCenteredScalarGrid2);
+    return CLONE_W_CUSTOM_DELETER(VertexCenteredScalarGrid2)
 }
 
 void VertexCenteredScalarGrid2::swap(Grid2 *other) {
-    VertexCenteredScalarGrid2 *sameType = dynamic_cast<VertexCenteredScalarGrid2 *>(other);
+    auto *sameType = dynamic_cast<VertexCenteredScalarGrid2 *>(other);
     if (sameType != nullptr) {
         swapScalarGrid(sameType);
     }
@@ -61,7 +61,7 @@ VertexCenteredScalarGrid2 &VertexCenteredScalarGrid2::operator=(const VertexCent
     return *this;
 }
 
-VertexCenteredScalarGrid2::Builder VertexCenteredScalarGrid2::builder() { return Builder(); }
+VertexCenteredScalarGrid2::Builder VertexCenteredScalarGrid2::builder() { return {}; }
 
 VertexCenteredScalarGrid2::Builder &VertexCenteredScalarGrid2::Builder::withResolution(const Size2 &resolution) {
     _resolution = resolution;
@@ -109,9 +109,8 @@ VertexCenteredScalarGrid2 VertexCenteredScalarGrid2::Builder::build() const {
 }
 
 VertexCenteredScalarGrid2Ptr VertexCenteredScalarGrid2::Builder::makeShared() const {
-    return std::shared_ptr<VertexCenteredScalarGrid2>(
-            new VertexCenteredScalarGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](VertexCenteredScalarGrid2 *obj) { delete obj; });
+    return {new VertexCenteredScalarGrid2(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](VertexCenteredScalarGrid2 *obj) { delete obj; }};
 }
 
 ScalarGrid2Ptr VertexCenteredScalarGrid2::Builder::build(const Size2 &resolution,

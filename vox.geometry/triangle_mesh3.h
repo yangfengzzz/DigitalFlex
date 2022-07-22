@@ -1,11 +1,10 @@
-// Copyright (c) 2019 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_TRIANGLE_MESH3_H_
-#define INCLUDE_JET_TRIANGLE_MESH3_H_
+#pragma once
 
 #include <iostream>
 
@@ -38,15 +37,15 @@ public:
     typedef Vector2DArray UvArray;
 
     //! Default constructor.
-    TriangleMesh3(const Transform3D &transform = Transform3D(), bool isNormalFlipped = false);
+    explicit TriangleMesh3(const Transform3D &transform = Transform3D(), bool isNormalFlipped = false);
 
     //! Constructs mesh with points, normals, uvs, and their indices.
-    TriangleMesh3(const PointArray &points,
-                  const NormalArray &normals,
-                  const UvArray &uvs,
-                  const IndexArray &pointIndices,
-                  const IndexArray &normalIndices,
-                  const IndexArray &uvIndices,
+    TriangleMesh3(PointArray points,
+                  NormalArray normals,
+                  UvArray uvs,
+                  IndexArray pointIndices,
+                  IndexArray normalIndices,
+                  IndexArray uvIndices,
                   const Transform3D &transform_ = Transform3D(),
                   bool isNormalFlipped = false);
 
@@ -266,10 +265,10 @@ public:
     Builder &withUvIndices(const IndexArray &uvIndices);
 
     //! Builds TriangleMesh3.
-    TriangleMesh3 build() const;
+    [[nodiscard]] TriangleMesh3 build() const;
 
     //! Builds shared pointer of TriangleMesh3 instance.
-    TriangleMesh3Ptr makeShared() const;
+    [[nodiscard]] TriangleMesh3Ptr makeShared() const;
 
 private:
     PointArray _points;
@@ -281,5 +280,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_TRIANGLE_MESH3_H_

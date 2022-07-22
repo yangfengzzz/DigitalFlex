@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_IMPLICIT_SURFACE_SET3_H_
-#define INCLUDE_JET_IMPLICIT_SURFACE_SET3_H_
+#pragma once
 
 #include <vector>
 
@@ -29,14 +28,14 @@ public:
     ImplicitSurfaceSet3();
 
     //! Constructs an implicit surface set using list of other surfaces.
-    ImplicitSurfaceSet3(const std::vector<ImplicitSurface3Ptr> &surfaces,
-                        const Transform3D &transform = Transform3D(),
-                        bool isNormalFlipped = false);
+    explicit ImplicitSurfaceSet3(std::vector<ImplicitSurface3Ptr> surfaces,
+                                 const Transform3D &transform = Transform3D(),
+                                 bool isNormalFlipped = false);
 
     //! Constructs an implicit surface set using list of other surfaces.
-    ImplicitSurfaceSet3(const std::vector<Surface3Ptr> &surfaces,
-                        const Transform3D &transform = Transform3D(),
-                        bool isNormalFlipped = false);
+    explicit ImplicitSurfaceSet3(const std::vector<Surface3Ptr> &surfaces,
+                                 const Transform3D &transform = Transform3D(),
+                                 bool isNormalFlipped = false);
 
     //! Copy constructor.
     ImplicitSurfaceSet3(const ImplicitSurfaceSet3 &other);
@@ -111,10 +110,10 @@ public:
     Builder &withExplicitSurfaces(const std::vector<Surface3Ptr> &surfaces);
 
     //! Builds ImplicitSurfaceSet3.
-    ImplicitSurfaceSet3 build() const;
+    [[nodiscard]] ImplicitSurfaceSet3 build() const;
 
     //! Builds shared pointer of ImplicitSurfaceSet3 instance.
-    ImplicitSurfaceSet3Ptr makeShared() const;
+    [[nodiscard]] ImplicitSurfaceSet3Ptr makeShared() const;
 
 private:
     bool _isNormalFlipped = false;
@@ -122,5 +121,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_IMPLICIT_SURFACE_SET3_H_

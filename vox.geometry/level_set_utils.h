@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_LEVEL_SET_UTILS_H_
-#define INCLUDE_JET_LEVEL_SET_UTILS_H_
+#pragma once
 
 #include "vox.math/macros.h"
 
@@ -103,5 +102,3 @@ T fractionInside(T phiBottomLeft, T phiBottomRight, T phiTopLeft, T phiTopRight)
 }  // namespace vox
 
 #include "vox.geometry/level_set_utils-inl.h"
-
-#endif  // INCLUDE_JET_LEVEL_SET_UTILS_H_

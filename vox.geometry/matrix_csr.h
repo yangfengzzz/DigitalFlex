@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_MATRIX_CSR_H_
-#define INCLUDE_JET_MATRIX_CSR_H_
+#pragma once
 
 #include <tuple>
 
@@ -35,7 +34,7 @@ public:
     MatrixCsrVectorMul(const MatrixCsrVectorMul &);
 
     //! Size of the vector.
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     //! Returns vector element at i.
     T operator[](size_t i) const;
@@ -62,13 +61,13 @@ public:
     MatrixCsrMatrixMul(const MatrixCsr<T> &m1, const ME &m2);
 
     //! Size of the matrix.
-    Size2 size() const;
+    [[nodiscard]] Size2 size() const;
 
     //! Number of rows.
-    size_t rows() const;
+    [[nodiscard]] size_t rows() const;
 
     //! Number of columns.
-    size_t cols() const;
+    [[nodiscard]] size_t cols() const;
 
     //! Returns matrix element at (i, j).
     T operator()(size_t i, size_t j) const;
@@ -150,13 +149,13 @@ public:
     //! stored.
     //!
     template <typename E>
-    MatrixCsr(const MatrixExpression<T, E> &other, T epsilon = std::numeric_limits<T>::epsilon());
+    explicit MatrixCsr(const MatrixExpression<T, E> &other, T epsilon = std::numeric_limits<T>::epsilon());
 
     //! Copy constructor.
     MatrixCsr(const MatrixCsr &other);
 
     //! Move constructor.
-    MatrixCsr(MatrixCsr &&other);
+    MatrixCsr(MatrixCsr &&other) noexcept;
 
     // MARK: Basic setters
 
@@ -227,103 +226,103 @@ public:
     void setElement(const Element &element);
 
     // MARK: Basic getters
-    bool isEqual(const MatrixCsr &other) const;
+    [[nodiscard]] bool isEqual(const MatrixCsr &other) const;
 
     //! Returns true if this matrix is similar to the input matrix within the
     //! given tolerance.
-    bool isSimilar(const MatrixCsr &other, double tol = std::numeric_limits<double>::epsilon()) const;
+    [[nodiscard]] bool isSimilar(const MatrixCsr &other, double tol = std::numeric_limits<double>::epsilon()) const;
 
     //! Returns true if this matrix is a square matrix.
-    bool isSquare() const;
+    [[nodiscard]] bool isSquare() const;
 
     //! Returns the size of this matrix.
-    Size2 size() const;
+    [[nodiscard]] Size2 size() const;
 
     //! Returns number of rows of this matrix.
-    size_t rows() const;
+    [[nodiscard]] size_t rows() const;
 
     //! Returns number of columns of this matrix.
-    size_t cols() const;
+    [[nodiscard]] size_t cols() const;
 
     //! Returns the number of non-zero elements.
-    size_t numberOfNonZeros() const;
+    [[nodiscard]] size_t numberOfNonZeros() const;
 
     //! Returns i-th non-zero element.
-    const T &nonZero(size_t i) const;
+    [[nodiscard]] const T &nonZero(size_t i) const;
 
     //! Returns i-th non-zero element.
     T &nonZero(size_t i);
 
     //! Returns i-th row pointer.
-    const size_t &rowPointer(size_t i) const;
+    [[nodiscard]] const size_t &rowPointer(size_t i) const;
 
     //! Returns i-th column index.
-    const size_t &columnIndex(size_t i) const;
+    [[nodiscard]] const size_t &columnIndex(size_t i) const;
 
     //! Returns pointer of the non-zero elements data.
     T *nonZeroData();
 
     //! Returns constant pointer of the non-zero elements data.
-    const T *const nonZeroData() const;
+    [[nodiscard]] const T *nonZeroData() const;
 
     //! Returns constant pointer of the row pointers data.
-    const size_t *const rowPointersData() const;
+    [[nodiscard]] const size_t *rowPointersData() const;
 
     //! Returns constant pointer of the column indices data.
-    const size_t *const columnIndicesData() const;
+    [[nodiscard]] const size_t *columnIndicesData() const;
 
     //! Returns the begin iterator of the non-zero elements.
     NonZeroIterator nonZeroBegin();
 
     //! Returns the begin const iterator of the non-zero elements.
-    ConstNonZeroIterator nonZeroBegin() const;
+    [[nodiscard]] ConstNonZeroIterator nonZeroBegin() const;
 
     //! Returns the end iterator of the non-zero elements.
     NonZeroIterator nonZeroEnd();
 
     //! Returns the end const iterator of the non-zero elements.
-    ConstNonZeroIterator nonZeroEnd() const;
+    [[nodiscard]] ConstNonZeroIterator nonZeroEnd() const;
 
     //! Returns the begin iterator of the row pointers.
     IndexIterator rowPointersBegin();
 
     //! Returns the begin const iterator of the row pointers.
-    ConstIndexIterator rowPointersBegin() const;
+    [[nodiscard]] ConstIndexIterator rowPointersBegin() const;
 
     //! Returns the end iterator of the row pointers.
     IndexIterator rowPointersEnd();
 
     //! Returns the end const iterator of the row pointers.
-    ConstIndexIterator rowPointersEnd() const;
+    [[nodiscard]] ConstIndexIterator rowPointersEnd() const;
 
     //! Returns the begin iterator of the column indices.
     IndexIterator columnIndicesBegin();
 
     //! Returns the begin const iterator of the column indices.
-    ConstIndexIterator columnIndicesBegin() const;
+    [[nodiscard]] ConstIndexIterator columnIndicesBegin() const;
 
     //! Returns the end iterator of the column indices.
     IndexIterator columnIndicesEnd();
 
     //! Returns the end const iterator of the column indices.
-    ConstIndexIterator columnIndicesEnd() const;
+    [[nodiscard]] ConstIndexIterator columnIndicesEnd() const;
 
     // MARK: Binary operator methods - new instance = this instance (+) input
 
     //! Returns this matrix + input scalar.
-    MatrixCsr add(const T &s) const;
+    [[nodiscard]] MatrixCsr add(const T &s) const;
 
     //! Returns this matrix + input matrix (element-wise).
-    MatrixCsr add(const MatrixCsr &m) const;
+    [[nodiscard]] MatrixCsr add(const MatrixCsr &m) const;
 
     //! Returns this matrix - input scalar.
-    MatrixCsr sub(const T &s) const;
+    [[nodiscard]] MatrixCsr sub(const T &s) const;
 
     //! Returns this matrix - input matrix (element-wise).
-    MatrixCsr sub(const MatrixCsr &m) const;
+    [[nodiscard]] MatrixCsr sub(const MatrixCsr &m) const;
 
     //! Returns this matrix * input scalar.
-    MatrixCsr mul(const T &s) const;
+    [[nodiscard]] MatrixCsr mul(const T &s) const;
 
     //! Returns this matrix * input vector.
     template <typename VE>
@@ -334,27 +333,27 @@ public:
     MatrixCsrMatrixMul<T, ME> mul(const MatrixExpression<T, ME> &m) const;
 
     //! Returns this matrix / input scalar.
-    MatrixCsr div(const T &s) const;
+    [[nodiscard]] MatrixCsr div(const T &s) const;
 
     // MARK: Binary operator methods - new instance = input (+) this instance
 
     //! Returns input scalar + this matrix.
-    MatrixCsr radd(const T &s) const;
+    [[nodiscard]] MatrixCsr radd(const T &s) const;
 
     //! Returns input matrix + this matrix (element-wise).
-    MatrixCsr radd(const MatrixCsr &m) const;
+    [[nodiscard]] MatrixCsr radd(const MatrixCsr &m) const;
 
     //! Returns input scalar - this matrix.
-    MatrixCsr rsub(const T &s) const;
+    [[nodiscard]] MatrixCsr rsub(const T &s) const;
 
     //! Returns input matrix - this matrix (element-wise).
-    MatrixCsr rsub(const MatrixCsr &m) const;
+    [[nodiscard]] MatrixCsr rsub(const MatrixCsr &m) const;
 
     //! Returns input scalar * this matrix.
-    MatrixCsr rmul(const T &s) const;
+    [[nodiscard]] MatrixCsr rmul(const T &s) const;
 
     //! Returns input matrix / this scalar.
-    MatrixCsr rdiv(const T &s) const;
+    [[nodiscard]] MatrixCsr rdiv(const T &s) const;
 
     // MARK: Augmented operator methods - this instance (+)= input
 
@@ -383,26 +382,26 @@ public:
     // MARK: Complex getters
 
     //! Returns sum of all elements.
-    T sum() const;
+    [[nodiscard]] T sum() const;
 
     //! Returns average of all elements.
-    T avg() const;
+    [[nodiscard]] T avg() const;
 
     //! Returns minimum among all elements.
-    T min() const;
+    [[nodiscard]] T min() const;
 
     //! Returns maximum among all elements.
-    T max() const;
+    [[nodiscard]] T max() const;
 
     //! Returns absolute minimum among all elements.
-    T absmin() const;
+    [[nodiscard]] T absmin() const;
 
     //! Returns absolute maximum among all elements.
-    T absmax() const;
+    [[nodiscard]] T absmax() const;
 
     //! Returns sum of all diagonal elements.
     //! \warning Should be a square matrix.
-    T trace() const;
+    [[nodiscard]] T trace() const;
 
     //! Type-casts to different value-typed matrix.
     template <typename U>
@@ -424,7 +423,7 @@ public:
     MatrixCsr &operator=(const MatrixCsr &other);
 
     //! Moves to this matrix.
-    MatrixCsr &operator=(MatrixCsr &&other);
+    MatrixCsr &operator=(MatrixCsr &&other) noexcept;
 
     //! Addition assignment with input scalar.
     MatrixCsr &operator+=(const T &s);
@@ -470,7 +469,7 @@ private:
     IndexContainerType _rowPointers;
     IndexContainerType _columnIndices;
 
-    size_t hasElement(size_t i, size_t j) const;
+    [[nodiscard]] size_t hasElement(size_t i, size_t j) const;
 
     template <typename Op>
     MatrixCsr binaryOp(const MatrixCsr &m, Op op) const;
@@ -485,5 +484,3 @@ typedef MatrixCsr<double> MatrixCsrD;
 }  // namespace vox
 
 #include "vox.geometry/matrix_csr-inl.h"
-
-#endif  // INCLUDE_JET_MATRIX_CSR_H_

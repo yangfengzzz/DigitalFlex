@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,13 +6,13 @@
 
 #include "vox.geometry/vertex_centered_scalar_grid3.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/private_helpers.h"
 
 using namespace vox;
 
-VertexCenteredScalarGrid3::VertexCenteredScalarGrid3() {}
+VertexCenteredScalarGrid3::VertexCenteredScalarGrid3() = default;
 
 VertexCenteredScalarGrid3::VertexCenteredScalarGrid3(size_t resolutionX,
                                                      size_t resolutionY,
@@ -41,18 +41,18 @@ Size3 VertexCenteredScalarGrid3::dataSize() const {
     if (resolution() != Size3(0, 0, 0)) {
         return resolution() + Size3(1, 1, 1);
     } else {
-        return Size3(0, 0, 0);
+        return {0, 0, 0};
     }
 }
 
 Point3D VertexCenteredScalarGrid3::dataOrigin() const { return origin(); }
 
 std::shared_ptr<ScalarGrid3> VertexCenteredScalarGrid3::clone() const {
-    return CLONE_W_CUSTOM_DELETER(VertexCenteredScalarGrid3);
+    return CLONE_W_CUSTOM_DELETER(VertexCenteredScalarGrid3)
 }
 
 void VertexCenteredScalarGrid3::swap(Grid3 *other) {
-    VertexCenteredScalarGrid3 *sameType = dynamic_cast<VertexCenteredScalarGrid3 *>(other);
+    auto *sameType = dynamic_cast<VertexCenteredScalarGrid3 *>(other);
     if (sameType != nullptr) {
         swapScalarGrid(sameType);
     }
@@ -65,7 +65,7 @@ VertexCenteredScalarGrid3 &VertexCenteredScalarGrid3::operator=(const VertexCent
     return *this;
 }
 
-VertexCenteredScalarGrid3::Builder VertexCenteredScalarGrid3::builder() { return Builder(); }
+VertexCenteredScalarGrid3::Builder VertexCenteredScalarGrid3::builder() { return {}; }
 
 VertexCenteredScalarGrid3::Builder &VertexCenteredScalarGrid3::Builder::withResolution(const Size3 &resolution) {
     _resolution = resolution;
@@ -119,9 +119,8 @@ VertexCenteredScalarGrid3 VertexCenteredScalarGrid3::Builder::build() const {
 }
 
 VertexCenteredScalarGrid3Ptr VertexCenteredScalarGrid3::Builder::makeShared() const {
-    return std::shared_ptr<VertexCenteredScalarGrid3>(
-            new VertexCenteredScalarGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](VertexCenteredScalarGrid3 *obj) { delete obj; });
+    return {new VertexCenteredScalarGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](VertexCenteredScalarGrid3 *obj) { delete obj; }};
 }
 
 ScalarGrid3Ptr VertexCenteredScalarGrid3::Builder::build(const Size3 &resolution,

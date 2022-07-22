@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_SAMPLERS2_H_
-#define INCLUDE_JET_ARRAY_SAMPLERS2_H_
+#pragma once
 
 #include <functional>
 
@@ -44,10 +43,10 @@ public:
     NearestArraySampler(const NearestArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point2<R> &pt) const;
+    T operator()(const Point2<R> &x) const;
 
     //! Returns the nearest array index for point \p x.
-    void getCoordinate(const Point2<R> &pt, Point2UI *index) const;
+    void getCoordinate(const Point2<R> &x, Point2UI *index) const;
 
     //! Returns a funtion object that wraps this instance.
     std::function<T(const Point2<R> &)> functor() const;
@@ -91,16 +90,16 @@ public:
     LinearArraySampler(const LinearArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point2<R> &pt) const;
+    T operator()(const Point2<R> &x) const;
 
     //! Returns the indices of points and their sampling weight for given point.
-    void getCoordinatesAndWeights(const Point2<R> &pt,
+    void getCoordinatesAndWeights(const Point2<R> &x,
                                   std::array<Point2UI, 4> *indices,
                                   std::array<R, 4> *weights) const;
 
     //! Returns the indices of points and their gradient of sampling weight for
     //! given point.
-    void getCoordinatesAndGradientWeights(const Point2<R> &pt,
+    void getCoordinatesAndGradientWeights(const Point2<R> &x,
                                           std::array<Point2UI, 4> *indices,
                                           std::array<Vector2<R>, 4> *weights) const;
 
@@ -147,7 +146,7 @@ public:
     CubicArraySampler(const CubicArraySampler &other);
 
     //! Returns sampled value at point \p pt.
-    T operator()(const Point2<R> &pt) const;
+    T operator()(const Point2<R> &x) const;
 
     //! Returns a funtion object that wraps this instance.
     std::function<T(const Point2<R> &)> functor() const;
@@ -165,5 +164,3 @@ using CubicArraySampler2 = CubicArraySampler<T, R, 2>;
 }  // namespace vox
 
 #include "vox.geometry/array_samplers2-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_SAMPLERS2_H_

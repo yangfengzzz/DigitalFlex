@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -104,7 +104,7 @@ double laplacian2(const ConstArrayAccessor2<double> &data, const Vector2D &gridS
 }
 
 Vector2D laplacian2(const ConstArrayAccessor2<Vector2D> &data, const Vector2D &gridSpacing, size_t i, size_t j) {
-    const Vector2D center = data(i, j);
+    const Vector2D &center = data(i, j);
     const Size2 ds = data.size();
 
     VOX_ASSERT(i < ds.x && j < ds.y);
@@ -171,7 +171,7 @@ double laplacian3(const ConstArrayAccessor3<double> &data, const Vector3D &gridS
 
 Vector3D laplacian3(
         const ConstArrayAccessor3<Vector3D> &data, const Vector3D &gridSpacing, size_t i, size_t j, size_t k) {
-    const Vector3D center = data(i, j, k);
+    const Vector3D &center = data(i, j, k);
     const Size3 ds = data.size();
 
     VOX_ASSERT(i < ds.x && j < ds.y && k < ds.z);

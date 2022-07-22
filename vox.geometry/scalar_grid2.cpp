@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -11,8 +11,7 @@
 #include "vox.geometry/scalar_grid2.h"
 
 #include <algorithm>
-#include <string>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/fdm_utils.h"
@@ -24,7 +23,7 @@ using namespace vox;
 ScalarGrid2::ScalarGrid2()
     : _linearSampler(LinearArraySampler2<double, double>(_data.constAccessor(), Vector2D(1, 1), Point2D())) {}
 
-ScalarGrid2::~ScalarGrid2() {}
+ScalarGrid2::~ScalarGrid2() = default;
 
 void ScalarGrid2::clear() { resize(Size2(), gridSpacing(), origin(), 0.0); }
 
@@ -75,7 +74,7 @@ std::function<double(const Point2D &)> ScalarGrid2::sampler() const { return _sa
 
 Vector2D ScalarGrid2::gradient(const Point2D &x) const {
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     Vector2D result;
@@ -89,7 +88,7 @@ Vector2D ScalarGrid2::gradient(const Point2D &x) const {
 
 double ScalarGrid2::laplacian(const Point2D &x) const {
     std::array<Point2UI, 4> indices;
-    std::array<double, 4> weights;
+    std::array<double, 4> weights{};
     _linearSampler.getCoordinatesAndWeights(x, &indices, &weights);
 
     double result = 0.0;
@@ -163,6 +162,6 @@ void ScalarGrid2::setData(const std::vector<double> &data) {
     std::copy(data.begin(), data.end(), _data.begin());
 }
 
-ScalarGridBuilder2::ScalarGridBuilder2() {}
+ScalarGridBuilder2::ScalarGridBuilder2() = default;
 
-ScalarGridBuilder2::~ScalarGridBuilder2() {}
+ScalarGridBuilder2::~ScalarGridBuilder2() = default;

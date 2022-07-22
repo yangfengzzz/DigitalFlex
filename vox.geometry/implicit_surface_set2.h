@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_IMPLICIT_SURFACE_SET2_H_
-#define INCLUDE_JET_IMPLICIT_SURFACE_SET2_H_
+#pragma once
 
 #include <vector>
 
@@ -29,14 +28,14 @@ public:
     ImplicitSurfaceSet2();
 
     //! Constructs an implicit surface set using list of other surfaces.
-    ImplicitSurfaceSet2(const std::vector<ImplicitSurface2Ptr> &surfaces,
-                        const Transform2D &transform = Transform2D(),
-                        bool isNormalFlipped = false);
+    explicit ImplicitSurfaceSet2(std::vector<ImplicitSurface2Ptr> surfaces,
+                                 const Transform2D &transform = Transform2D(),
+                                 bool isNormalFlipped = false);
 
     //! Constructs an implicit surface set using list of other surfaces.
-    ImplicitSurfaceSet2(const std::vector<Surface2Ptr> &surfaces,
-                        const Transform2D &transform = Transform2D(),
-                        bool isNormalFlipped = false);
+    explicit ImplicitSurfaceSet2(const std::vector<Surface2Ptr> &surfaces,
+                                 const Transform2D &transform = Transform2D(),
+                                 bool isNormalFlipped = false);
 
     //! Copy constructor.
     ImplicitSurfaceSet2(const ImplicitSurfaceSet2 &other);
@@ -111,10 +110,10 @@ public:
     Builder &withExplicitSurfaces(const std::vector<Surface2Ptr> &surfaces);
 
     //! Builds ImplicitSurfaceSet2.
-    ImplicitSurfaceSet2 build() const;
+    [[nodiscard]] ImplicitSurfaceSet2 build() const;
 
     //! Builds shared pointer of ImplicitSurfaceSet2 instance.
-    ImplicitSurfaceSet2Ptr makeShared() const;
+    [[nodiscard]] ImplicitSurfaceSet2Ptr makeShared() const;
 
 private:
     bool _isNormalFlipped = false;
@@ -122,5 +121,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_IMPLICIT_SURFACE_SET2_H_

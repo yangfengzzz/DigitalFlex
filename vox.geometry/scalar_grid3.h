@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_SCALAR_GRID3_H_
-#define INCLUDE_JET_SCALAR_GRID3_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -31,7 +30,7 @@ public:
     ScalarGrid3();
 
     //! Default destructor.
-    virtual ~ScalarGrid3();
+    ~ScalarGrid3() override;
 
     //!
     //! \brief Returns the size of the grid data.
@@ -39,7 +38,7 @@ public:
     //! This function returns the size of the grid data which is not necessarily
     //! equal to the grid resolution if the data is not stored at cell-center.
     //!
-    virtual Size3 dataSize() const = 0;
+    [[nodiscard]] virtual Size3 dataSize() const = 0;
 
     //!
     //! \brief Returns the origin of the grid data.
@@ -48,10 +47,10 @@ public:
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
     //!
-    virtual Point3D dataOrigin() const = 0;
+    [[nodiscard]] virtual Point3D dataOrigin() const = 0;
 
     //! Returns the copy of the grid instance.
-    virtual std::shared_ptr<ScalarGrid3> clone() const = 0;
+    [[nodiscard]] virtual std::shared_ptr<ScalarGrid3> clone() const = 0;
 
     //! Clears the contents of the grid.
     void clear();
@@ -92,19 +91,19 @@ public:
     double &operator()(size_t i, size_t j, size_t k);
 
     //! Returns the gradient vector at given data point.
-    Vector3D gradientAtDataPoint(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] Vector3D gradientAtDataPoint(size_t i, size_t j, size_t k) const;
 
     //! Returns the Laplacian at given data point.
-    double laplacianAtDataPoint(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] double laplacianAtDataPoint(size_t i, size_t j, size_t k) const;
 
     //! Returns the read-write data array accessor.
     ScalarDataAccessor dataAccessor();
 
     //! Returns the read-only data array accessor.
-    ConstScalarDataAccessor constDataAccessor() const;
+    [[nodiscard]] ConstScalarDataAccessor constDataAccessor() const;
 
     //! Returns the function that maps data point to its position.
-    DataPositionFunc dataPosition() const;
+    [[nodiscard]] DataPositionFunc dataPosition() const;
 
     //! Fills the grid with given value.
     void fill(double value, ExecutionPolicy policy = ExecutionPolicy::kParallel);
@@ -140,7 +139,7 @@ public:
     //! This function returns the data sampled at arbitrary position \p x.
     //! The sampling function is linear.
     //!
-    double sample(const Point3D &x) const override;
+    [[nodiscard]] double sample(const Point3D &x) const override;
 
     //!
     //! \brief Returns the sampler function.
@@ -148,13 +147,13 @@ public:
     //! This function returns the data sampler function object. The sampling
     //! function is linear.
     //!
-    std::function<double(const Point3D &)> sampler() const override;
+    [[nodiscard]] std::function<double(const Point3D &)> sampler() const override;
 
     //! Returns the gradient vector at given position \p x.
-    Vector3D gradient(const Point3D &x) const override;
+    [[nodiscard]] Vector3D gradient(const Point3D &x) const override;
 
     //! Returns the Laplacian at given position \p x.
-    double laplacian(const Point3D &x) const override;
+    [[nodiscard]] double laplacian(const Point3D &x) const override;
 
 protected:
     //! Swaps the data storage and predefined samplers with given grid.
@@ -190,15 +189,13 @@ public:
     virtual ~ScalarGridBuilder3();
 
     //! Returns 3-D scalar grid with given parameters.
-    virtual ScalarGrid3Ptr build(const Size3 &resolution,
-                                 const Vector3D &gridSpacing,
-                                 const Point3D &gridOrigin,
-                                 double initialVal) const = 0;
+    [[nodiscard]] virtual ScalarGrid3Ptr build(const Size3 &resolution,
+                                               const Vector3D &gridSpacing,
+                                               const Point3D &gridOrigin,
+                                               double initialVal) const = 0;
 };
 
 //! Shared pointer for the ScalarGridBuilder3 type.
 typedef std::shared_ptr<ScalarGridBuilder3> ScalarGridBuilder3Ptr;
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_SCALAR_GRID3_H_

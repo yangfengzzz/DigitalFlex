@@ -1,16 +1,15 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY3_H_
-#define INCLUDE_JET_ARRAY3_H_
+#pragma once
 
 #include <fstream>
 #include <functional>
 #include <iostream>
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array.h"
@@ -89,7 +88,7 @@ public:
     Array(const Array &other);
 
     //! Move constructor.
-    Array(Array &&other);
+    Array(Array &&other) noexcept;
 
     //! Sets entire array with given \p value.
     void set(const T &value);
@@ -163,16 +162,16 @@ public:
     const T &at(size_t i, size_t j, size_t k) const;
 
     //! Returns the size of the array.
-    Size3 size() const;
+    [[nodiscard]] Size3 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the depth of the array.
-    size_t depth() const;
+    [[nodiscard]] size_t depth() const;
 
     //! Returns the raw pointer to the array data.
     T *data();
@@ -190,7 +189,7 @@ public:
     ConstIterator end() const;
 
     //! Returns the const raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //! Returns the array accessor.
     ArrayAccessor3<T> accessor();
@@ -348,7 +347,7 @@ public:
     Array &operator=(const Array &other);
 
     //! Move assignment.
-    Array &operator=(Array &&other);
+    Array &operator=(Array &&other) noexcept;
 
     //!
     //! Copies given initializer list \p lst to this array.
@@ -374,10 +373,10 @@ public:
     Array &operator=(const std::initializer_list<std::initializer_list<std::initializer_list<T>>> &lst);
 
     //! Casts to array accessor.
-    operator ArrayAccessor3<T>();
+    explicit operator ArrayAccessor3<T>();
 
     //! Casts to const array accessor.
-    operator ConstArrayAccessor3<T>() const;
+    explicit operator ConstArrayAccessor3<T>() const;
 
 private:
     Size3 _size;
@@ -391,5 +390,3 @@ using Array3 = Array<T, 3>;
 }  // namespace vox
 
 #include "vox.geometry/array3-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY3_H_

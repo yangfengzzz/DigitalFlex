@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -6,7 +6,7 @@
 
 #include "vox.geometry/vertex_centered_vector_grid3.h"
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array_samplers3.h"
 #include "vox.geometry/parallel.h"
@@ -14,7 +14,7 @@
 
 using namespace vox;
 
-VertexCenteredVectorGrid3::VertexCenteredVectorGrid3() {}
+VertexCenteredVectorGrid3::VertexCenteredVectorGrid3() = default;
 
 VertexCenteredVectorGrid3::VertexCenteredVectorGrid3(size_t resolutionX,
                                                      size_t resolutionY,
@@ -43,14 +43,14 @@ Size3 VertexCenteredVectorGrid3::dataSize() const {
     if (resolution() != Size3(0, 0, 0)) {
         return resolution() + Size3(1, 1, 1);
     } else {
-        return Size3(0, 0, 0);
+        return {0, 0, 0};
     }
 }
 
 Point3D VertexCenteredVectorGrid3::dataOrigin() const { return origin(); }
 
 void VertexCenteredVectorGrid3::swap(Grid3 *other) {
-    VertexCenteredVectorGrid3 *sameType = dynamic_cast<VertexCenteredVectorGrid3 *>(other);
+    auto *sameType = dynamic_cast<VertexCenteredVectorGrid3 *>(other);
     if (sameType != nullptr) {
         swapCollocatedVectorGrid(sameType);
     }
@@ -74,7 +74,7 @@ void VertexCenteredVectorGrid3::fill(const std::function<Vector3D(const Point3D 
 }
 
 std::shared_ptr<VectorGrid3> VertexCenteredVectorGrid3::clone() const {
-    return CLONE_W_CUSTOM_DELETER(VertexCenteredVectorGrid3);
+    return CLONE_W_CUSTOM_DELETER(VertexCenteredVectorGrid3)
 }
 
 void VertexCenteredVectorGrid3::set(const VertexCenteredVectorGrid3 &other) { setCollocatedVectorGrid(other); }
@@ -84,7 +84,7 @@ VertexCenteredVectorGrid3 &VertexCenteredVectorGrid3::operator=(const VertexCent
     return *this;
 }
 
-VertexCenteredVectorGrid3::Builder VertexCenteredVectorGrid3::builder() { return Builder(); }
+VertexCenteredVectorGrid3::Builder VertexCenteredVectorGrid3::builder() { return {}; }
 
 VertexCenteredVectorGrid3::Builder &VertexCenteredVectorGrid3::Builder::withResolution(const Size3 &resolution) {
     _resolution = resolution;
@@ -147,9 +147,8 @@ VertexCenteredVectorGrid3 VertexCenteredVectorGrid3::Builder::build() const {
 }
 
 VertexCenteredVectorGrid3Ptr VertexCenteredVectorGrid3::Builder::makeShared() const {
-    return std::shared_ptr<VertexCenteredVectorGrid3>(
-            new VertexCenteredVectorGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
-            [](VertexCenteredVectorGrid3 *obj) { delete obj; });
+    return {new VertexCenteredVectorGrid3(_resolution, _gridSpacing, _gridOrigin, _initialVal),
+            [](VertexCenteredVectorGrid3 *obj) { delete obj; }};
 }
 
 VectorGrid3Ptr VertexCenteredVectorGrid3::Builder::build(const Size3 &resolution,

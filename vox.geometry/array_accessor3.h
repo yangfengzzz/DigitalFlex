@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_ARRAY_ACCESSOR3_H_
-#define INCLUDE_JET_ARRAY_ACCESSOR3_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 
 #include "vox.geometry/array_accessor.h"
 #include "vox.math/point3.h"
@@ -37,14 +36,14 @@ public:
     //! Constructs an array accessor that wraps given array.
     //! \param size Size of the 3-D array.
     //! \param data Raw array pointer.
-    ArrayAccessor(const Size3 &size, T *const data);
+    ArrayAccessor(const Size3 &size, T *data);
 
     //! Constructs an array accessor that wraps given array.
     //! \param width Width of the 3-D array.
     //! \param height Height of the 3-D array.
     //! \param depth Depth of the 3-D array.
     //! \param data Raw array pointer.
-    ArrayAccessor(size_t width, size_t height, size_t depth, T *const data);
+    ArrayAccessor(size_t width, size_t height, size_t depth, T *data);
 
     //! Copy constructor.
     ArrayAccessor(const ArrayAccessor &other);
@@ -53,10 +52,10 @@ public:
     void set(const ArrayAccessor &other);
 
     //! Resets the array.
-    void reset(const Size3 &size, T *const data);
+    void reset(const Size3 &size, T *data);
 
     //! Resets the array.
-    void reset(size_t width, size_t height, size_t depth, T *const data);
+    void reset(size_t width, size_t height, size_t depth, T *data);
 
     //! Returns the reference to the i-th element.
     T &at(size_t i);
@@ -77,10 +76,10 @@ public:
     const T &at(size_t i, size_t j, size_t k) const;
 
     //! Returns the begin iterator of the array.
-    T *const begin() const;
+    T *begin() const;
 
     //! Returns the end iterator of the array.
-    T *const end() const;
+    T *end() const;
 
     //! Returns the begin iterator of the array.
     T *begin();
@@ -89,19 +88,19 @@ public:
     T *end();
 
     //! Returns the size of the array.
-    Size3 size() const;
+    [[nodiscard]] Size3 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the depth of the array.
-    size_t depth() const;
+    [[nodiscard]] size_t depth() const;
 
     //! Returns the raw pointer to the array data.
-    T *const data() const;
+    T *data() const;
 
     //! Swaps the content of with \p other array accessor.
     void swap(ArrayAccessor &other);
@@ -217,10 +216,10 @@ public:
     void parallelForEachIndex(Callback func) const;
 
     //! Returns the linear index of the given 3-D coordinate (pt.x, pt.y, pt.z).
-    size_t index(const Point3UI &pt) const;
+    [[nodiscard]] size_t index(const Point3UI &pt) const;
 
     //! Returns the linear index of the given =3-D coordinate (i, j, k).
-    size_t index(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] size_t index(size_t i, size_t j, size_t k) const;
 
     //! Returns the reference to the i-th element.
     T &operator[](size_t i);
@@ -244,7 +243,7 @@ public:
     ArrayAccessor &operator=(const ArrayAccessor &other);
 
     //! Casts type to ConstArrayAccessor.
-    operator ConstArrayAccessor<T, 3>() const;
+    explicit operator ConstArrayAccessor<T, 3>() const;
 
 private:
     Size3 _size;
@@ -275,14 +274,14 @@ public:
     //! Constructs a read-only array accessor that wraps given array.
     //! \param size Size of the 3-D array.
     //! \param data Raw array pointer.
-    ConstArrayAccessor(const Size3 &size, const T *const data);
+    ConstArrayAccessor(const Size3 &size, const T *data);
 
     //! Constructs a read-only array accessor that wraps given array.
     //! \param width Width of the 3-D array.
     //! \param height Height of the 3-D array.
     //! \param depth Depth of the 3-D array.
     //! \param data Raw array pointer.
-    ConstArrayAccessor(size_t width, size_t height, size_t depth, const T *const data);
+    ConstArrayAccessor(size_t width, size_t height, size_t depth, const T *data);
 
     //! Constructs a read-only array accessor from read/write accessor.
     explicit ConstArrayAccessor(const ArrayAccessor<T, 3> &other);
@@ -300,25 +299,25 @@ public:
     const T &at(size_t i, size_t j, size_t k) const;
 
     //! Returns the begin iterator of the array.
-    const T *const begin() const;
+    const T *begin() const;
 
     //! Returns the end iterator of the array.
-    const T *const end() const;
+    const T *end() const;
 
     //! Returns the size of the array.
-    Size3 size() const;
+    [[nodiscard]] Size3 size() const;
 
     //! Returns the width of the array.
-    size_t width() const;
+    [[nodiscard]] size_t width() const;
 
     //! Returns the height of the array.
-    size_t height() const;
+    [[nodiscard]] size_t height() const;
 
     //! Returns the depth of the array.
-    size_t depth() const;
+    [[nodiscard]] size_t depth() const;
 
     //! Returns the raw pointer to the array data.
-    const T *const data() const;
+    const T *data() const;
 
     //!
     //! \brief Iterates the array and invoke given \p func for each index.
@@ -408,10 +407,10 @@ public:
     void parallelForEachIndex(Callback func) const;
 
     //! Returns the linear index of the given 3-D coordinate (pt.x, pt.y, pt.z).
-    size_t index(const Point3UI &pt) const;
+    [[nodiscard]] size_t index(const Point3UI &pt) const;
 
     //! Returns the linear index of the given =3-D coordinate (i, j, k).
-    size_t index(size_t i, size_t j, size_t k) const;
+    [[nodiscard]] size_t index(size_t i, size_t j, size_t k) const;
 
     //! Returns the const reference to the i-th element.
     const T &operator[](size_t i) const;
@@ -434,5 +433,3 @@ using ConstArrayAccessor3 = ConstArrayAccessor<T, 3>;
 }  // namespace vox
 
 #include "vox.geometry/array_accessor3-inl.h"
-
-#endif  // INCLUDE_JET_ARRAY_ACCESSOR3_H_

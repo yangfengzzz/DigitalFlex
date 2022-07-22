@@ -1,13 +1,12 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CELL_CENTERED_VECTOR_GRID3_H_
-#define INCLUDE_JET_CELL_CENTERED_VECTOR_GRID3_H_
+#pragma once
 
-#include <utility>  // just make cpplint happy..
+#include <utility>
 #include <vector>
 
 #include "vox.geometry/array3.h"
@@ -49,24 +48,24 @@ public:
 
     //! Constructs a grid with given resolution, grid spacing, origin and
     //! initial value.
-    CellCenteredVectorGrid3(const Size3 &resolution,
-                            const Vector3D &gridSpacing = Vector3D(1.0, 1.0, 1.0),
-                            const Point3D &origin = Point3D(),
-                            const Vector3D &initialValue = Vector3D());
+    explicit CellCenteredVectorGrid3(const Size3 &resolution,
+                                     const Vector3D &gridSpacing = Vector3D(1.0, 1.0, 1.0),
+                                     const Point3D &origin = Point3D(),
+                                     const Vector3D &initialValue = Vector3D());
 
     //! Copy constructor.
     CellCenteredVectorGrid3(const CellCenteredVectorGrid3 &other);
 
     //! Returns the actual data point size.
-    Size3 dataSize() const override;
+    [[nodiscard]] Size3 dataSize() const override;
 
     //! Returns data position for the grid point at (0, 0, 0).
     //! Note that this is different from origin() since origin() returns
     //! the lower corner point of the bounding box.
-    Point3D dataOrigin() const override;
+    [[nodiscard]] Point3D dataOrigin() const override;
 
     //! Returns the copy of the grid instance.
-    std::shared_ptr<VectorGrid3> clone() const override;
+    [[nodiscard]] std::shared_ptr<VectorGrid3> clone() const override;
 
     //!
     //! \brief Swaps the contents with the given \p other grid.
@@ -126,20 +125,20 @@ public:
     Builder &withInitialValue(double initialValX, double initialValY, double initialValZ);
 
     //! Builds CellCenteredScalarGrid3 instance.
-    CellCenteredVectorGrid3 build() const;
+    [[nodiscard]] CellCenteredVectorGrid3 build() const;
 
     //! Builds shared pointer of CellCenteredVectorGrid3 instance.
-    CellCenteredVectorGrid3Ptr makeShared() const;
+    [[nodiscard]] CellCenteredVectorGrid3Ptr makeShared() const;
 
     //!
     //! \brief Builds shared pointer of CellCenteredVectorGrid3 instance.
     //!
     //! This is an overriding function that implements VectorGridBuilder3.
     //!
-    VectorGrid3Ptr build(const Size3 &resolution,
-                         const Vector3D &gridSpacing,
-                         const Point3D &gridOrigin,
-                         const Vector3D &initialVal) const override;
+    [[nodiscard]] VectorGrid3Ptr build(const Size3 &resolution,
+                                       const Vector3D &gridSpacing,
+                                       const Point3D &gridOrigin,
+                                       const Vector3D &initialVal) const override;
 
 private:
     Size3 _resolution{1, 1, 1};
@@ -149,5 +148,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CELL_CENTERED_VECTOR_GRID3_H_

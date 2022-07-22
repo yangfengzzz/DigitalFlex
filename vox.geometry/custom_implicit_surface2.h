@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE2_H_
-#define INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE2_H_
+#pragma once
 
 #include "vox.geometry/implicit_surface2.h"
 #include "vox.geometry/scalar_field2.h"
@@ -28,16 +27,16 @@ public:
     //! \param transform Local-to-world transform.
     //! \param isNormalFlipped True if normal is flipped.
     //!
-    CustomImplicitSurface2(const std::function<double(const Point2D &)> &func,
-                           const BoundingBox2D &domain = BoundingBox2D(),
-                           double resolution = 1e-3,
-                           double rayMarchingResolution = 1e-6,
-                           unsigned int numberOfIterations = 5,
-                           const Transform2D &transform = Transform2D(),
-                           bool isNormalFlipped = false);
+    explicit CustomImplicitSurface2(std::function<double(const Point2D &)> func,
+                                    const BoundingBox2D &domain = BoundingBox2D(),
+                                    double resolution = 1e-3,
+                                    double rayMarchingResolution = 1e-6,
+                                    unsigned int numberOfIterations = 5,
+                                    const Transform2D &transform = Transform2D(),
+                                    bool isNormalFlipped = false);
 
     //! Destructor.
-    virtual ~CustomImplicitSurface2();
+    ~CustomImplicitSurface2() override;
 
     //! Returns builder for CustomImplicitSurface2.
     static Builder builder();
@@ -49,19 +48,19 @@ private:
     double _rayMarchingResolution = 1e-6;
     unsigned int _maxNumOfIterations = 5;
 
-    Point2D closestPointLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] Point2D closestPointLocal(const Point2D &otherPoint) const override;
 
-    bool intersectsLocal(const Ray2D &ray) const override;
+    [[nodiscard]] bool intersectsLocal(const Ray2D &ray) const override;
 
-    BoundingBox2D boundingBoxLocal() const override;
+    [[nodiscard]] BoundingBox2D boundingBoxLocal() const override;
 
-    Vector2D closestNormalLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] Vector2D closestNormalLocal(const Point2D &otherPoint) const override;
 
-    double signedDistanceLocal(const Point2D &otherPoint) const override;
+    [[nodiscard]] double signedDistanceLocal(const Point2D &otherPoint) const override;
 
-    SurfaceRayIntersection2 closestIntersectionLocal(const Ray2D &ray) const override;
+    [[nodiscard]] SurfaceRayIntersection2 closestIntersectionLocal(const Ray2D &ray) const override;
 
-    Vector2D gradientLocal(const Point2D &x) const;
+    [[nodiscard]] Vector2D gradientLocal(const Point2D &x) const;
 };
 
 //! Shared pointer type for the CustomImplicitSurface2.
@@ -90,10 +89,10 @@ public:
     Builder &withMaxNumberOfIterations(unsigned int numIter);
 
     //! Builds CustomImplicitSurface2.
-    CustomImplicitSurface2 build() const;
+    [[nodiscard]] CustomImplicitSurface2 build() const;
 
     //! Builds shared pointer of CustomImplicitSurface2 instance.
-    CustomImplicitSurface2Ptr makeShared() const;
+    [[nodiscard]] CustomImplicitSurface2Ptr makeShared() const;
 
 private:
     std::function<double(const Point2D &)> _func;
@@ -104,5 +103,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CUSTOM_IMPLICIT_SURFACE2_H_

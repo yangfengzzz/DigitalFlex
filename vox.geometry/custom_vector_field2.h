@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_CUSTOM_VECTOR_FIELD2_H_
-#define INCLUDE_JET_CUSTOM_VECTOR_FIELD2_H_
+#pragma once
 
 #include "vox.geometry/vector_field2.h"
 
@@ -24,8 +23,8 @@ public:
     //! differencing is used. Thus, the differencing resolution also can be
     //! provided as the last parameter.
     //!
-    CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
-                       double derivativeResolution = 1e-3);
+    explicit CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
+                                double derivativeResolution = 1e-3);
 
     //!
     //! \brief Constructs a field with given field and gradient function.
@@ -35,26 +34,26 @@ public:
     //! Thus, the differencing resolution also can be provided as the last
     //! parameter.
     //!
-    CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
-                       const std::function<double(const Point2D &)> &customDivergenceFunction,
+    CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
+                       std::function<double(const Point2D &)> customDivergenceFunction,
                        double derivativeResolution = 1e-3);
 
     //! Constructs a field with given field, gradient, and Laplacian function.
-    CustomVectorField2(const std::function<Vector2D(const Point2D &)> &customFunction,
-                       const std::function<double(const Point2D &)> &customDivergenceFunction,
-                       const std::function<double(const Point2D &)> &customCurlFunction);
+    CustomVectorField2(std::function<Vector2D(const Point2D &)> customFunction,
+                       std::function<double(const Point2D &)> customDivergenceFunction,
+                       std::function<double(const Point2D &)> customCurlFunction);
 
     //! Returns the sampled value at given position \p x.
-    Vector2D sample(const Point2D &x) const override;
+    [[nodiscard]] Vector2D sample(const Point2D &x) const override;
 
     //! Returns the divergence at given position \p x.
-    double divergence(const Point2D &x) const override;
+    [[nodiscard]] double divergence(const Point2D &x) const override;
 
     //! Returns the curl at given position \p x.
-    double curl(const Point2D &x) const override;
+    [[nodiscard]] double curl(const Point2D &x) const override;
 
     //! Returns the sampler function.
-    std::function<Vector2D(const Point2D &)> sampler() const override;
+    [[nodiscard]] std::function<Vector2D(const Point2D &)> sampler() const override;
 
     //! Returns builder fox CustomVectorField2.
     static Builder builder();
@@ -87,10 +86,10 @@ public:
     Builder &withDerivativeResolution(double resolution);
 
     //! Builds CustomVectorField2.
-    CustomVectorField2 build() const;
+    [[nodiscard]] CustomVectorField2 build() const;
 
     //! Builds shared pointer of CustomVectorField2 instance.
-    CustomVectorField2Ptr makeShared() const;
+    [[nodiscard]] CustomVectorField2Ptr makeShared() const;
 
 private:
     double _resolution = 1e-3;
@@ -100,5 +99,3 @@ private:
 };
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_CUSTOM_VECTOR_FIELD2_H_

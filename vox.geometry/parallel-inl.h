@@ -1,11 +1,10 @@
-// Copyright (c) 2018 Doyub Kim
+//  Copyright (c) 2022 Feng Yang
 //
-// I am making my contributions/submissions to this project solely in my
-// personal capacity and am not conveying any rights to any intellectual
-// property of any third parties.
+//  I am making my contributions/submissions to this project solely in my
+//  personal capacity and am not conveying any rights to any intellectual
+//  property of any third parties.
 
-#ifndef INCLUDE_JET_DETAIL_PARALLEL_INL_H_
-#define INCLUDE_JET_DETAIL_PARALLEL_INL_H_
+#pragma once
 
 #include <algorithm>
 #include <functional>
@@ -58,7 +57,7 @@ inline void schedule(TASK_T &&fcn) {
 }
 
 template <typename TASK_T>
-using operator_return_t = typename std::result_of<TASK_T()>::type;
+using operator_return_t = typename std::invoke_result<TASK_T>::type;
 
 // NOTE - see above, same issues associated with schedule()
 template <typename TASK_T>
@@ -154,7 +153,7 @@ void parallelFill(const RandomIterator &begin, const RandomIterator &end, const 
         return;
     }
 
-    size_t size = static_cast<size_t>(diff);
+    auto size = static_cast<size_t>(diff);
     parallelFor(
             kZeroSize, size, [begin, value](size_t i) { begin[i] = value; }, policy);
 }
@@ -183,7 +182,7 @@ void parallelFor(IndexType start, IndexType end, const Function &func, Execution
 
     // Size of a slice for the range functions
     IndexType n = end - start + 1;
-    IndexType slice = (IndexType)std::round(n / static_cast<double>(numThreads));
+    auto slice = (IndexType)std::round(n / static_cast<double>(numThreads));
     slice = std::max(slice, IndexType(1));
 
     // [Helper] Inner loop
@@ -261,7 +260,7 @@ void parallelRangeFor(IndexType start, IndexType end, const Function &func, Exec
 
     // Size of a slice for the range functions
     IndexType n = end - start + 1;
-    IndexType slice = (IndexType)std::round(n / static_cast<double>(numThreads));
+    auto slice = (IndexType)std::round(n / static_cast<double>(numThreads));
     slice = std::max(slice, IndexType(1));
 
     // Create pool and launch jobs
@@ -386,7 +385,7 @@ Value parallelReduce(IndexType start,
 
     // Size of a slice for the range functions
     IndexType n = end - start + 1;
-    IndexType slice = (IndexType)std::round(n / static_cast<double>(numThreads));
+    auto slice = (IndexType)std::round(n / static_cast<double>(numThreads));
     slice = std::max(slice, IndexType(1));
 
     // Results
@@ -441,7 +440,7 @@ void parallelSort(RandomIterator begin, RandomIterator end, CompareFunction comp
     }
 
 #else
-    size_t size = static_cast<size_t>(end - begin);
+    auto size = static_cast<size_t>(end - begin);
 
     typedef typename std::iterator_traits<RandomIterator>::value_type value_type;
     std::vector<value_type> temp(size);
@@ -461,5 +460,3 @@ void parallelSort(RandomIterator begin, RandomIterator end, ExecutionPolicy poli
 }
 
 }  // namespace vox
-
-#endif  // INCLUDE_JET_DETAIL_PARALLEL_INL_H_

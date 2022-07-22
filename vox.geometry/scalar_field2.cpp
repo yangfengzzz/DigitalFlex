@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Doyub Kim
+// Copyright (c) 2022 Feng Yang
 //
 // I am making my contributions/submissions to this project solely in my
 // personal capacity and am not conveying any rights to any intellectual
@@ -8,11 +8,11 @@
 
 using namespace vox;
 
-ScalarField2::ScalarField2() {}
+ScalarField2::ScalarField2() = default;
 
-ScalarField2::~ScalarField2() {}
+ScalarField2::~ScalarField2() = default;
 
-Vector2D ScalarField2::gradient(const Point2D &) const { return Vector2D(); }
+Vector2D ScalarField2::gradient(const Point2D &) const { return {}; }
 
 double ScalarField2::laplacian(const Point2D &) const { return 0.0; }
 
