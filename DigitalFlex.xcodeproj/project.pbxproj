@@ -348,6 +348,18 @@
 		046C2D4A288AF3830031B2BE /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
 		046C2D4B288AF5A20031B2BE /* matrix_csr_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AD2288AEA0500696E23 /* matrix_csr_tests.cpp */; };
 		046C2D4C288AF5DC0031B2BE /* vector_n_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AE6288AEA0600696E23 /* vector_n_tests.cpp */; };
+		046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D5C288AF7100031B2BE /* collider_set2.cpp */; };
+		046C2D69288AF7110031B2BE /* collider3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D5D288AF7110031B2BE /* collider3.h */; };
+		046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D5E288AF7110031B2BE /* collider_set3.cpp */; };
+		046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D5F288AF7110031B2BE /* rigid_body_collider3.h */; };
+		046C2D6C288AF7110031B2BE /* collider_set3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D60288AF7110031B2BE /* collider_set3.h */; };
+		046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D61288AF7110031B2BE /* collider2.cpp */; };
+		046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D62288AF7110031B2BE /* collider_set2.h */; };
+		046C2D6F288AF7110031B2BE /* rigid_body_collider2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D63288AF7110031B2BE /* rigid_body_collider2.cpp */; };
+		046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D64288AF7110031B2BE /* rigid_body_collider2.h */; };
+		046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D65288AF7110031B2BE /* rigid_body_collider3.cpp */; };
+		046C2D72288AF7110031B2BE /* collider2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D66288AF7110031B2BE /* collider2.h */; };
+		046C2D73288AF7110031B2BE /* collider3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D67288AF7110031B2BE /* collider3.cpp */; };
 		04BEAD7A288ADE06008D3CA1 /* box3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6B288ADE05008D3CA1 /* box3.h */; };
 		04BEAD7B288ADE06008D3CA1 /* sphere2.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6C288ADE05008D3CA1 /* sphere2.h */; };
 		04BEAD7C288ADE06008D3CA1 /* plane3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6D288ADE06008D3CA1 /* plane3.h */; };
@@ -1385,6 +1397,19 @@
 		045EE931288ADCC2001D6B5B /* constant_scalar_field3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constant_scalar_field3.h; sourceTree = "<group>"; };
 		045EE932288ADCC2001D6B5B /* constant_scalar_field2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = constant_scalar_field2.cpp; sourceTree = "<group>"; };
 		045EE933288ADCC2001D6B5B /* constant_scalar_field3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = constant_scalar_field3.cpp; sourceTree = "<group>"; };
+		046C2D51288AF6B90031B2BE /* libvox.force.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.force.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		046C2D5C288AF7100031B2BE /* collider_set2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider_set2.cpp; sourceTree = "<group>"; };
+		046C2D5D288AF7110031B2BE /* collider3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider3.h; sourceTree = "<group>"; };
+		046C2D5E288AF7110031B2BE /* collider_set3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider_set3.cpp; sourceTree = "<group>"; };
+		046C2D5F288AF7110031B2BE /* rigid_body_collider3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rigid_body_collider3.h; sourceTree = "<group>"; };
+		046C2D60288AF7110031B2BE /* collider_set3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider_set3.h; sourceTree = "<group>"; };
+		046C2D61288AF7110031B2BE /* collider2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider2.cpp; sourceTree = "<group>"; };
+		046C2D62288AF7110031B2BE /* collider_set2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider_set2.h; sourceTree = "<group>"; };
+		046C2D63288AF7110031B2BE /* rigid_body_collider2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rigid_body_collider2.cpp; sourceTree = "<group>"; };
+		046C2D64288AF7110031B2BE /* rigid_body_collider2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rigid_body_collider2.h; sourceTree = "<group>"; };
+		046C2D65288AF7110031B2BE /* rigid_body_collider3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rigid_body_collider3.cpp; sourceTree = "<group>"; };
+		046C2D66288AF7110031B2BE /* collider2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider2.h; sourceTree = "<group>"; };
+		046C2D67288AF7110031B2BE /* collider3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider3.cpp; sourceTree = "<group>"; };
 		04BEAD6B288ADE05008D3CA1 /* box3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box3.h; sourceTree = "<group>"; };
 		04BEAD6C288ADE05008D3CA1 /* sphere2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere2.h; sourceTree = "<group>"; };
 		04BEAD6D288ADE06008D3CA1 /* plane3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plane3.h; sourceTree = "<group>"; };
@@ -2046,6 +2071,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		046C2D4F288AF6B90031B2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D09F8D28897C900014DCFD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2562,6 +2594,25 @@
 			name = implicit_surfaces;
 			sourceTree = "<group>";
 		};
+		046C2D52288AF6B90031B2BE /* vox.force */ = {
+			isa = PBXGroup;
+			children = (
+				046C2D66288AF7110031B2BE /* collider2.h */,
+				046C2D61288AF7110031B2BE /* collider2.cpp */,
+				046C2D5D288AF7110031B2BE /* collider3.h */,
+				046C2D67288AF7110031B2BE /* collider3.cpp */,
+				046C2D64288AF7110031B2BE /* rigid_body_collider2.h */,
+				046C2D63288AF7110031B2BE /* rigid_body_collider2.cpp */,
+				046C2D5F288AF7110031B2BE /* rigid_body_collider3.h */,
+				046C2D65288AF7110031B2BE /* rigid_body_collider3.cpp */,
+				046C2D62288AF7110031B2BE /* collider_set2.h */,
+				046C2D5C288AF7100031B2BE /* collider_set2.cpp */,
+				046C2D60288AF7110031B2BE /* collider_set3.h */,
+				046C2D5E288AF7110031B2BE /* collider_set3.cpp */,
+			);
+			path = vox.force;
+			sourceTree = "<group>";
+		};
 		04D09F8728897C900014DCFD = {
 			isa = PBXGroup;
 			children = (
@@ -2569,6 +2620,7 @@
 				04D0A0FD28898D0E0014DCFD /* test.math */,
 				045EE785288A4458001D6B5B /* vox.geometry */,
 				041F4AA0288AE76500696E23 /* test.geometry */,
+				046C2D52288AF6B90031B2BE /* vox.force */,
 				04D0A13E288A1F620014DCFD /* vox.render */,
 				04D09F9228897C900014DCFD /* apps */,
 				045EE6C6288A3A64001D6B5B /* vox.editor */,
@@ -2589,6 +2641,7 @@
 				045EE6D8288A3A99001D6B5B /* editor */,
 				045EE784288A4458001D6B5B /* libvox.geometry.a */,
 				041F4A9F288AE76500696E23 /* test.geometry */,
+				046C2D51288AF6B90031B2BE /* libvox.force.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3798,6 +3851,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		046C2D4D288AF6B90031B2BE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */,
+				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
+				046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */,
+				046C2D6C288AF7110031B2BE /* collider_set3.h in Headers */,
+				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
+				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D0A05028898BB60014DCFD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -4208,6 +4274,23 @@
 			productReference = 045EE784288A4458001D6B5B /* libvox.geometry.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		046C2D50288AF6B90031B2BE /* vox.force */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 046C2D59288AF6B90031B2BE /* Build configuration list for PBXNativeTarget "vox.force" */;
+			buildPhases = (
+				046C2D4D288AF6B90031B2BE /* Headers */,
+				046C2D4E288AF6B90031B2BE /* Sources */,
+				046C2D4F288AF6B90031B2BE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vox.force;
+			productName = vox.force;
+			productReference = 046C2D51288AF6B90031B2BE /* libvox.force.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		04D09F8F28897C900014DCFD /* apps */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04D09F9728897C900014DCFD /* Build configuration list for PBXNativeTarget "apps" */;
@@ -4300,6 +4383,9 @@
 					045EE783288A4458001D6B5B = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
+					046C2D50288AF6B90031B2BE = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 					04D09F8F28897C900014DCFD = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -4331,6 +4417,7 @@
 				04D0A0FB28898D0E0014DCFD /* test.math */,
 				045EE783288A4458001D6B5B /* vox.geometry */,
 				041F4A9E288AE76500696E23 /* test.geometry */,
+				046C2D50288AF6B90031B2BE /* vox.force */,
 				04D0A13C288A1F620014DCFD /* vox.render */,
 				04D09F8F28897C900014DCFD /* apps */,
 				045EE6C4288A3A64001D6B5B /* vox.editor */,
@@ -4531,6 +4618,19 @@
 				04BEAD80288ADE06008D3CA1 /* cylinder3.cpp in Sources */,
 				045EE900288A9A11001D6B5B /* vertex_centered_scalar_grid2.cpp in Sources */,
 				045EE863288A4568001D6B5B /* fdm_iccg_solver3.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		046C2D4E288AF6B90031B2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				046C2D6F288AF7110031B2BE /* rigid_body_collider2.cpp in Sources */,
+				046C2D73288AF7110031B2BE /* collider3.cpp in Sources */,
+				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
+				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
+				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
+				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5207,6 +5307,36 @@
 			};
 			name = Release;
 		};
+		046C2D5A288AF6B90031B2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4SL5L673UU;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = ./third_party/spdlog/include;
+			};
+			name = Debug;
+		};
+		046C2D5B288AF6B90031B2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4SL5L673UU;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SYSTEM_HEADER_SEARCH_PATHS = ./third_party/spdlog/include;
+			};
+			name = Release;
+		};
 		04D09F9528897C900014DCFD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5693,6 +5823,15 @@
 			buildConfigurations = (
 				045EE78C288A4458001D6B5B /* Debug */,
 				045EE78D288A4458001D6B5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		046C2D59288AF6B90031B2BE /* Build configuration list for PBXNativeTarget "vox.force" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				046C2D5A288AF6B90031B2BE /* Debug */,
+				046C2D5B288AF6B90031B2BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

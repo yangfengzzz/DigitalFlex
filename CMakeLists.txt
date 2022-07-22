@@ -56,6 +56,9 @@ add_subdirectory(test.math)
 add_subdirectory(vox.geometry)
 add_subdirectory(test.geometry)
 
+# Add force library
+add_subdirectory(vox.force)
+
 # Add render framework
 add_subdirectory(vox.render)
 add_subdirectory(apps)
