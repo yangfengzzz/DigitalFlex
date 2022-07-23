@@ -352,64 +352,6 @@
 		046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D65288AF7110031B2BE /* rigid_body_collider3.cpp */; };
 		046C2D72288AF7110031B2BE /* collider2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D66288AF7110031B2BE /* collider2.h */; };
 		046C2D73288AF7110031B2BE /* collider3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D67288AF7110031B2BE /* collider3.cpp */; };
-		046C2DAE288AFFEA0031B2BE /* particle_emitter_set2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D74288AFFE70031B2BE /* particle_emitter_set2.cpp */; };
-		046C2DAF288AFFEA0031B2BE /* particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D75288AFFE70031B2BE /* particle_emitter3.cpp */; };
-		046C2DB0288AFFEA0031B2BE /* bcc_lattice_point_generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D76288AFFE70031B2BE /* bcc_lattice_point_generator.h */; };
-		046C2DB1288AFFEA0031B2BE /* point_generator3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D77288AFFE70031B2BE /* point_generator3.h */; };
-		046C2DB2288AFFEA0031B2BE /* point_neighbor_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D78288AFFE70031B2BE /* point_neighbor_searcher3.cpp */; };
-		046C2DB4288AFFEA0031B2BE /* point_particle_emitter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D7A288AFFE80031B2BE /* point_particle_emitter3.h */; };
-		046C2DB5288AFFEA0031B2BE /* particle_emitter_set2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D7B288AFFE80031B2BE /* particle_emitter_set2.h */; };
-		046C2DB6288AFFEA0031B2BE /* point_hash_grid_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7C288AFFE80031B2BE /* point_hash_grid_searcher2.cpp */; };
-		046C2DB7288AFFEA0031B2BE /* point_simple_list_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7D288AFFE80031B2BE /* point_simple_list_searcher3.cpp */; };
-		046C2DB8288AFFEA0031B2BE /* bcc_lattice_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7E288AFFE80031B2BE /* bcc_lattice_point_generator.cpp */; };
-		046C2DB9288AFFEA0031B2BE /* samplers-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D7F288AFFE80031B2BE /* samplers-inl.h */; };
-		046C2DBA288AFFEA0031B2BE /* triangle_point_generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D80288AFFE80031B2BE /* triangle_point_generator.h */; };
-		046C2DBB288AFFEA0031B2BE /* particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D81288AFFE80031B2BE /* particle_emitter2.cpp */; };
-		046C2DBC288AFFEA0031B2BE /* point_particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D82288AFFE80031B2BE /* point_particle_emitter3.cpp */; };
-		046C2DBD288AFFEA0031B2BE /* fcc_lattice_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D83288AFFE80031B2BE /* fcc_lattice_point_generator.cpp */; };
-		046C2DBE288AFFEA0031B2BE /* point_parallel_hash_grid_searcher3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D84288AFFE80031B2BE /* point_parallel_hash_grid_searcher3.h */; };
-		046C2DBF288AFFEA0031B2BE /* particle_emitter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D85288AFFE80031B2BE /* particle_emitter3.h */; };
-		046C2DC1288AFFEA0031B2BE /* grid_point_generator3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D87288AFFE80031B2BE /* grid_point_generator3.cpp */; };
-		046C2DC2288AFFEA0031B2BE /* point_generator3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D88288AFFE80031B2BE /* point_generator3.cpp */; };
-		046C2DC3288AFFEA0031B2BE /* particle_emitter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D89288AFFE80031B2BE /* particle_emitter2.h */; };
-		046C2DC4288AFFEA0031B2BE /* samplers.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D8A288AFFE80031B2BE /* samplers.h */; };
-		046C2DC5288AFFEA0031B2BE /* volume_particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D8B288AFFE80031B2BE /* volume_particle_emitter3.cpp */; };
-		046C2DC6288AFFEA0031B2BE /* point_hash_grid_searcher2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D8C288AFFE80031B2BE /* point_hash_grid_searcher2.h */; };
-		046C2DC7288AFFEA0031B2BE /* point_simple_list_searcher2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D8D288AFFE80031B2BE /* point_simple_list_searcher2.h */; };
-		046C2DC8288AFFEA0031B2BE /* point_particle_emitter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D8E288AFFE80031B2BE /* point_particle_emitter2.h */; };
-		046C2DC9288AFFEA0031B2BE /* point_parallel_hash_grid_searcher2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D8F288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.h */; };
-		046C2DCA288AFFEA0031B2BE /* grid_point_generator3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D90288AFFE90031B2BE /* grid_point_generator3.h */; };
-		046C2DCB288AFFEA0031B2BE /* point_kdtree_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D91288AFFE90031B2BE /* point_kdtree_searcher3.cpp */; };
-		046C2DCC288AFFEA0031B2BE /* point_generator2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D92288AFFE90031B2BE /* point_generator2.cpp */; };
-		046C2DCD288AFFEA0031B2BE /* particle_system_data3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D93288AFFE90031B2BE /* particle_system_data3.h */; };
-		046C2DCE288AFFEA0031B2BE /* point_kdtree_searcher3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D94288AFFE90031B2BE /* point_kdtree_searcher3.h */; };
-		046C2DCF288AFFEA0031B2BE /* grid_point_generator2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D95288AFFE90031B2BE /* grid_point_generator2.h */; };
-		046C2DD0288AFFEA0031B2BE /* volume_particle_emitter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D96288AFFE90031B2BE /* volume_particle_emitter3.h */; };
-		046C2DD1288AFFEA0031B2BE /* point_parallel_hash_grid_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D97288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.cpp */; };
-		046C2DD2288AFFEA0031B2BE /* kdtree-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D98288AFFE90031B2BE /* kdtree-inl.h */; };
-		046C2DD3288AFFEA0031B2BE /* particle_emitter_set3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D99288AFFE90031B2BE /* particle_emitter_set3.cpp */; };
-		046C2DD4288AFFEA0031B2BE /* point_particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D9A288AFFE90031B2BE /* point_particle_emitter2.cpp */; };
-		046C2DD5288AFFEA0031B2BE /* particle_system_data2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D9B288AFFE90031B2BE /* particle_system_data2.h */; };
-		046C2DD6288AFFEA0031B2BE /* point_hash_grid_searcher3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D9C288AFFE90031B2BE /* point_hash_grid_searcher3.h */; };
-		046C2DD7288AFFEA0031B2BE /* point_generator2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D9D288AFFE90031B2BE /* point_generator2.h */; };
-		046C2DD8288AFFEA0031B2BE /* point_simple_list_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D9E288AFFE90031B2BE /* point_simple_list_searcher2.cpp */; };
-		046C2DD9288AFFEA0031B2BE /* point_simple_list_searcher3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2D9F288AFFE90031B2BE /* point_simple_list_searcher3.h */; };
-		046C2DDA288AFFEA0031B2BE /* point_parallel_hash_grid_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA0288AFFE90031B2BE /* point_parallel_hash_grid_searcher3.cpp */; };
-		046C2DDB288AFFEA0031B2BE /* point_kdtree_searcher2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DA1288AFFE90031B2BE /* point_kdtree_searcher2.h */; };
-		046C2DDC288AFFEA0031B2BE /* point_neighbor_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA2288AFFE90031B2BE /* point_neighbor_searcher2.cpp */; };
-		046C2DDD288AFFEA0031B2BE /* triangle_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA3288AFFE90031B2BE /* triangle_point_generator.cpp */; };
-		046C2DDE288AFFEA0031B2BE /* point_kdtree_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA4288AFFE90031B2BE /* point_kdtree_searcher2.cpp */; };
-		046C2DDF288AFFEA0031B2BE /* fcc_lattice_point_generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DA5288AFFE90031B2BE /* fcc_lattice_point_generator.h */; };
-		046C2DE0288AFFEA0031B2BE /* point_neighbor_searcher3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DA6288AFFEA0031B2BE /* point_neighbor_searcher3.h */; };
-		046C2DE1288AFFEA0031B2BE /* particle_emitter_set3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DA7288AFFEA0031B2BE /* particle_emitter_set3.h */; };
-		046C2DE2288AFFEA0031B2BE /* kdtree.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DA8288AFFEA0031B2BE /* kdtree.h */; };
-		046C2DE3288AFFEA0031B2BE /* grid_point_generator2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA9288AFFEA0031B2BE /* grid_point_generator2.cpp */; };
-		046C2DE4288AFFEA0031B2BE /* volume_particle_emitter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DAA288AFFEA0031B2BE /* volume_particle_emitter2.h */; };
-		046C2DE5288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DAB288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp */; };
-		046C2DE6288AFFEA0031B2BE /* point_neighbor_searcher2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2DAC288AFFEA0031B2BE /* point_neighbor_searcher2.h */; };
-		046C2DE7288AFFEA0031B2BE /* volume_particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DAD288AFFEA0031B2BE /* volume_particle_emitter2.cpp */; };
-		046C2DED288B0BA40031B2BE /* particle_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D79288AFFE80031B2BE /* particle_system_data3.cpp */; };
-		046C2DEF288B0C170031B2BE /* particle_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D86288AFFE80031B2BE /* particle_system_data2.cpp */; };
 		046C2DFF288B0C940031B2BE /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A554288A2BF40014DCFD /* timer.cpp */; };
 		046C2E00288B0CC10031B2BE /* parallel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EE883288A9609001D6B5B /* parallel.cpp */; };
 		046C2E03288B0D9A0031B2BE /* libvox.base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C2DF4288B0C720031B2BE /* libvox.base.a */; };
@@ -420,29 +362,10 @@
 		046C2E21288B12980031B2BE /* libvox.force.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C2D51288AF6B90031B2BE /* libvox.force.a */; };
 		046C2E22288B12980031B2BE /* libvox.geometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE784288A4458001D6B5B /* libvox.geometry.a */; };
 		046C2E23288B12980031B2BE /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
-		046C2E38288B13C70031B2BE /* samplers_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E25288B13C60031B2BE /* samplers_tests.cpp */; };
 		046C2E39288B13C70031B2BE /* rigid_body_collider3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E26288B13C60031B2BE /* rigid_body_collider3_tests.cpp */; };
 		046C2E3A288B13C70031B2BE /* rigid_body_collider2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E27288B13C60031B2BE /* rigid_body_collider2_tests.cpp */; };
-		046C2E3B288B13C70031B2BE /* point_simple_list_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E28288B13C60031B2BE /* point_simple_list_searcher3_tests.cpp */; };
-		046C2E3C288B13C70031B2BE /* particle_system_data2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E29288B13C60031B2BE /* particle_system_data2_tests.cpp */; };
-		046C2E3D288B13C70031B2BE /* point_hash_grid_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2A288B13C60031B2BE /* point_hash_grid_searcher2_tests.cpp */; };
-		046C2E3E288B13C70031B2BE /* point_kdtree_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2B288B13C60031B2BE /* point_kdtree_searcher2_tests.cpp */; };
-		046C2E41288B13C70031B2BE /* point_kdtree_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2E288B13C60031B2BE /* point_kdtree_searcher3_tests.cpp */; };
-		046C2E42288B13C70031B2BE /* point_hash_grid_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2F288B13C60031B2BE /* point_hash_grid_searcher3_tests.cpp */; };
-		046C2E43288B13C70031B2BE /* point_simple_list_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E30288B13C60031B2BE /* point_simple_list_searcher2_tests.cpp */; };
-		046C2E44288B13C70031B2BE /* particle_system_data3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E31288B13C70031B2BE /* particle_system_data3_tests.cpp */; };
 		046C2E45288B13C70031B2BE /* collider_set2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E32288B13C70031B2BE /* collider_set2_tests.cpp */; };
-		046C2E47288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E34288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp */; };
-		046C2E48288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E35288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp */; };
 		046C2E49288B13C70031B2BE /* collider_set3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E36288B13C70031B2BE /* collider_set3_tests.cpp */; };
-		046C2E4D288B14AC0031B2BE /* unit_tests_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E4B288B14AC0031B2BE /* unit_tests_utils.cpp */; };
-		046C2E50288B17EB0031B2BE /* frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E4E288B17EA0031B2BE /* frame.cpp */; };
-		046C2E51288B17EB0031B2BE /* frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2E4F288B17EA0031B2BE /* frame.h */; };
-		046C2E52288B18A80031B2BE /* volume_particle_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E24288B13C60031B2BE /* volume_particle_emitter2_tests.cpp */; };
-		046C2E53288B18A80031B2BE /* volume_particle_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E33288B13C70031B2BE /* volume_particle_emitter3_tests.cpp */; };
-		046C2E54288B18A80031B2BE /* point_particle_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2D288B13C60031B2BE /* point_particle_emitter3_tests.cpp */; };
-		046C2E55288B18A80031B2BE /* point_particle_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2C288B13C60031B2BE /* point_particle_emitter2_tests.cpp */; };
-		046C2E57288B1A820031B2BE /* frame_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E56288B1A820031B2BE /* frame_tests.cpp */; };
 		046C2E62288B1B230031B2BE /* vertex_centered_scalar_grid3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E58288B1B220031B2BE /* vertex_centered_scalar_grid3_tests.cpp */; };
 		046C2E63288B1B230031B2BE /* vertex_centered_vector_grid2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E59288B1B220031B2BE /* vertex_centered_vector_grid2_tests.cpp */; };
 		046C2E64288B1B230031B2BE /* cell_centered_vector_grid2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E5A288B1B220031B2BE /* cell_centered_vector_grid2_tests.cpp */; };
@@ -453,6 +376,50 @@
 		046C2E69288B1B230031B2BE /* cell_centered_vector_grid3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E5F288B1B220031B2BE /* cell_centered_vector_grid3_tests.cpp */; };
 		046C2E6A288B1B230031B2BE /* cell_centered_scalar_grid3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E60288B1B230031B2BE /* cell_centered_scalar_grid3_tests.cpp */; };
 		046C2E6B288B1B230031B2BE /* vertex_centered_scalar_grid2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E61288B1B230031B2BE /* vertex_centered_scalar_grid2_tests.cpp */; };
+		046C2E6C288B86810031B2BE /* point_generator3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D88288AFFE80031B2BE /* point_generator3.cpp */; };
+		046C2E6D288B86810031B2BE /* point_kdtree_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D91288AFFE90031B2BE /* point_kdtree_searcher3.cpp */; };
+		046C2E6E288B86810031B2BE /* point_generator2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D92288AFFE90031B2BE /* point_generator2.cpp */; };
+		046C2E6F288B86810031B2BE /* point_kdtree_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA4288AFFE90031B2BE /* point_kdtree_searcher2.cpp */; };
+		046C2E70288B86810031B2BE /* point_neighbor_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D78288AFFE70031B2BE /* point_neighbor_searcher3.cpp */; };
+		046C2E71288B86810031B2BE /* particle_emitter_set3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D99288AFFE90031B2BE /* particle_emitter_set3.cpp */; };
+		046C2E72288B86810031B2BE /* point_particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D9A288AFFE90031B2BE /* point_particle_emitter2.cpp */; };
+		046C2E73288B86810031B2BE /* volume_particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DAD288AFFEA0031B2BE /* volume_particle_emitter2.cpp */; };
+		046C2E74288B86810031B2BE /* grid_point_generator2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA9288AFFEA0031B2BE /* grid_point_generator2.cpp */; };
+		046C2E75288B86810031B2BE /* point_simple_list_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7D288AFFE80031B2BE /* point_simple_list_searcher3.cpp */; };
+		046C2E76288B86810031B2BE /* bcc_lattice_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7E288AFFE80031B2BE /* bcc_lattice_point_generator.cpp */; };
+		046C2E77288B86810031B2BE /* volume_particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D8B288AFFE80031B2BE /* volume_particle_emitter3.cpp */; };
+		046C2E78288B86810031B2BE /* point_particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D82288AFFE80031B2BE /* point_particle_emitter3.cpp */; };
+		046C2E79288B86810031B2BE /* grid_point_generator3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D87288AFFE80031B2BE /* grid_point_generator3.cpp */; };
+		046C2E7A288B86810031B2BE /* point_simple_list_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D9E288AFFE90031B2BE /* point_simple_list_searcher2.cpp */; };
+		046C2E7B288B86810031B2BE /* triangle_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA3288AFFE90031B2BE /* triangle_point_generator.cpp */; };
+		046C2E7C288B86810031B2BE /* point_parallel_hash_grid_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA0288AFFE90031B2BE /* point_parallel_hash_grid_searcher3.cpp */; };
+		046C2E7D288B86810031B2BE /* point_neighbor_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DA2288AFFE90031B2BE /* point_neighbor_searcher2.cpp */; };
+		046C2E7E288B86810031B2BE /* particle_emitter_set2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D74288AFFE70031B2BE /* particle_emitter_set2.cpp */; };
+		046C2E7F288B86810031B2BE /* particle_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D86288AFFE80031B2BE /* particle_system_data2.cpp */; };
+		046C2E80288B86810031B2BE /* point_hash_grid_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D7C288AFFE80031B2BE /* point_hash_grid_searcher2.cpp */; };
+		046C2E81288B86810031B2BE /* particle_emitter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D81288AFFE80031B2BE /* particle_emitter2.cpp */; };
+		046C2E82288B86810031B2BE /* particle_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D75288AFFE70031B2BE /* particle_emitter3.cpp */; };
+		046C2E83288B86810031B2BE /* point_hash_grid_searcher3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2DAB288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp */; };
+		046C2E84288B86810031B2BE /* point_parallel_hash_grid_searcher2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D97288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.cpp */; };
+		046C2E85288B86810031B2BE /* particle_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D79288AFFE80031B2BE /* particle_system_data3.cpp */; };
+		046C2E86288B86810031B2BE /* fcc_lattice_point_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2D83288AFFE80031B2BE /* fcc_lattice_point_generator.cpp */; };
+		046C2E8B288B87260031B2BE /* point_particle_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2C288B13C60031B2BE /* point_particle_emitter2_tests.cpp */; };
+		046C2E8C288B87260031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E34288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp */; };
+		046C2E8D288B87260031B2BE /* point_simple_list_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E28288B13C60031B2BE /* point_simple_list_searcher3_tests.cpp */; };
+		046C2E8E288B87260031B2BE /* volume_particle_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E33288B13C70031B2BE /* volume_particle_emitter3_tests.cpp */; };
+		046C2E8F288B87260031B2BE /* point_hash_grid_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2F288B13C60031B2BE /* point_hash_grid_searcher3_tests.cpp */; };
+		046C2E90288B87260031B2BE /* samplers_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E25288B13C60031B2BE /* samplers_tests.cpp */; };
+		046C2E91288B87260031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E35288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp */; };
+		046C2E92288B87260031B2BE /* volume_particle_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E24288B13C60031B2BE /* volume_particle_emitter2_tests.cpp */; };
+		046C2E93288B87260031B2BE /* particle_system_data2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E29288B13C60031B2BE /* particle_system_data2_tests.cpp */; };
+		046C2E94288B87260031B2BE /* point_hash_grid_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2A288B13C60031B2BE /* point_hash_grid_searcher2_tests.cpp */; };
+		046C2E95288B87260031B2BE /* point_kdtree_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2B288B13C60031B2BE /* point_kdtree_searcher2_tests.cpp */; };
+		046C2E96288B87260031B2BE /* point_kdtree_searcher3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2E288B13C60031B2BE /* point_kdtree_searcher3_tests.cpp */; };
+		046C2E97288B87260031B2BE /* particle_system_data3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E31288B13C70031B2BE /* particle_system_data3_tests.cpp */; };
+		046C2E98288B87260031B2BE /* point_particle_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E2D288B13C60031B2BE /* point_particle_emitter3_tests.cpp */; };
+		046C2E99288B87260031B2BE /* point_simple_list_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E30288B13C60031B2BE /* point_simple_list_searcher2_tests.cpp */; };
+		046C2E9A288B87440031B2BE /* frame_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E56288B1A820031B2BE /* frame_tests.cpp */; };
+		046C2E9B288B87550031B2BE /* frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E4E288B17EA0031B2BE /* frame.cpp */; };
 		04BEAD7A288ADE06008D3CA1 /* box3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6B288ADE05008D3CA1 /* box3.h */; };
 		04BEAD7B288ADE06008D3CA1 /* sphere2.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6C288ADE05008D3CA1 /* sphere2.h */; };
 		04BEAD7C288ADE06008D3CA1 /* plane3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6D288ADE06008D3CA1 /* plane3.h */; };
@@ -1642,8 +1609,6 @@
 		046C2E35288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point_parallel_hash_grid_searcher3_tests.cpp; sourceTree = "<group>"; };
 		046C2E36288B13C70031B2BE /* collider_set3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider_set3_tests.cpp; sourceTree = "<group>"; };
 		046C2E4A288B13EC0031B2BE /* test.force.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = test.force.entitlements; sourceTree = "<group>"; };
-		046C2E4B288B14AC0031B2BE /* unit_tests_utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unit_tests_utils.cpp; sourceTree = "<group>"; };
-		046C2E4C288B14AC0031B2BE /* unit_tests_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unit_tests_utils.h; sourceTree = "<group>"; };
 		046C2E4E288B17EA0031B2BE /* frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frame.cpp; sourceTree = "<group>"; };
 		046C2E4F288B17EA0031B2BE /* frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frame.h; sourceTree = "<group>"; };
 		046C2E56288B1A820031B2BE /* frame_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frame_tests.cpp; sourceTree = "<group>"; };
@@ -2458,6 +2423,22 @@
 				046C2E58288B1B220031B2BE /* vertex_centered_scalar_grid3_tests.cpp */,
 				046C2E59288B1B220031B2BE /* vertex_centered_vector_grid2_tests.cpp */,
 				046C2E5C288B1B220031B2BE /* vertex_centered_vector_grid3_tests.cpp */,
+				046C2E29288B13C60031B2BE /* particle_system_data2_tests.cpp */,
+				046C2E31288B13C70031B2BE /* particle_system_data3_tests.cpp */,
+				046C2E2A288B13C60031B2BE /* point_hash_grid_searcher2_tests.cpp */,
+				046C2E2F288B13C60031B2BE /* point_hash_grid_searcher3_tests.cpp */,
+				046C2E34288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp */,
+				046C2E35288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp */,
+				046C2E2B288B13C60031B2BE /* point_kdtree_searcher2_tests.cpp */,
+				046C2E2E288B13C60031B2BE /* point_kdtree_searcher3_tests.cpp */,
+				046C2E30288B13C60031B2BE /* point_simple_list_searcher2_tests.cpp */,
+				046C2E28288B13C60031B2BE /* point_simple_list_searcher3_tests.cpp */,
+				046C2E25288B13C60031B2BE /* samplers_tests.cpp */,
+				046C2E2C288B13C60031B2BE /* point_particle_emitter2_tests.cpp */,
+				046C2E2D288B13C60031B2BE /* point_particle_emitter3_tests.cpp */,
+				046C2E24288B13C60031B2BE /* volume_particle_emitter2_tests.cpp */,
+				046C2E33288B13C70031B2BE /* volume_particle_emitter3_tests.cpp */,
+				046C2E56288B1A820031B2BE /* frame_tests.cpp */,
 			);
 			path = test.geometry;
 			sourceTree = "<group>";
@@ -2642,6 +2623,27 @@
 				045EE7D5288A4531001D6B5B /* grid3.h */,
 				045EE7BB288A4530001D6B5B /* grid3.cpp */,
 				045EE93C288ADCD5001D6B5B /* grids */,
+				046C2D9B288AFFE90031B2BE /* particle_system_data2.h */,
+				046C2D86288AFFE80031B2BE /* particle_system_data2.cpp */,
+				046C2D93288AFFE90031B2BE /* particle_system_data3.h */,
+				046C2D79288AFFE80031B2BE /* particle_system_data3.cpp */,
+				046C2DAC288AFFEA0031B2BE /* point_neighbor_searcher2.h */,
+				046C2DA2288AFFE90031B2BE /* point_neighbor_searcher2.cpp */,
+				046C2DA6288AFFEA0031B2BE /* point_neighbor_searcher3.h */,
+				046C2D78288AFFE70031B2BE /* point_neighbor_searcher3.cpp */,
+				046C2E88288B86950031B2BE /* point_neighbor_searchers */,
+				046C2D9D288AFFE90031B2BE /* point_generator2.h */,
+				046C2D92288AFFE90031B2BE /* point_generator2.cpp */,
+				046C2D77288AFFE70031B2BE /* point_generator3.h */,
+				046C2D88288AFFE80031B2BE /* point_generator3.cpp */,
+				046C2E89288B869D0031B2BE /* point_generators */,
+				046C2D89288AFFE80031B2BE /* particle_emitter2.h */,
+				046C2D81288AFFE80031B2BE /* particle_emitter2.cpp */,
+				046C2D85288AFFE80031B2BE /* particle_emitter3.h */,
+				046C2D75288AFFE70031B2BE /* particle_emitter3.cpp */,
+				046C2E8A288B86A60031B2BE /* particle_emitters */,
+				046C2E4F288B17EA0031B2BE /* frame.h */,
+				046C2E4E288B17EA0031B2BE /* frame.cpp */,
 			);
 			path = vox.geometry;
 			sourceTree = "<group>";
@@ -2868,32 +2870,11 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
-				046C2E4F288B17EA0031B2BE /* frame.h */,
-				046C2E4E288B17EA0031B2BE /* frame.cpp */,
 				046C2D66288AF7110031B2BE /* collider2.h */,
 				046C2D61288AF7110031B2BE /* collider2.cpp */,
 				046C2D5D288AF7110031B2BE /* collider3.h */,
 				046C2D67288AF7110031B2BE /* collider3.cpp */,
 				046C2DE8288AFFF30031B2BE /* colliders */,
-				046C2D9B288AFFE90031B2BE /* particle_system_data2.h */,
-				046C2D86288AFFE80031B2BE /* particle_system_data2.cpp */,
-				046C2D93288AFFE90031B2BE /* particle_system_data3.h */,
-				046C2D79288AFFE80031B2BE /* particle_system_data3.cpp */,
-				046C2DAC288AFFEA0031B2BE /* point_neighbor_searcher2.h */,
-				046C2DA2288AFFE90031B2BE /* point_neighbor_searcher2.cpp */,
-				046C2DA6288AFFEA0031B2BE /* point_neighbor_searcher3.h */,
-				046C2D78288AFFE70031B2BE /* point_neighbor_searcher3.cpp */,
-				046C2DE9288B000D0031B2BE /* point_neighbor_searchers */,
-				046C2D9D288AFFE90031B2BE /* point_generator2.h */,
-				046C2D92288AFFE90031B2BE /* point_generator2.cpp */,
-				046C2D77288AFFE70031B2BE /* point_generator3.h */,
-				046C2D88288AFFE80031B2BE /* point_generator3.cpp */,
-				046C2DEA288B00670031B2BE /* point_generators */,
-				046C2D89288AFFE80031B2BE /* particle_emitter2.h */,
-				046C2D81288AFFE80031B2BE /* particle_emitter2.cpp */,
-				046C2D85288AFFE80031B2BE /* particle_emitter3.h */,
-				046C2D75288AFFE70031B2BE /* particle_emitter3.cpp */,
-				046C2DEB288B00910031B2BE /* particle_emitters */,
 			);
 			path = vox.force;
 			sourceTree = "<group>";
@@ -2911,69 +2892,6 @@
 				046C2D5E288AF7110031B2BE /* collider_set3.cpp */,
 			);
 			name = colliders;
-			sourceTree = "<group>";
-		};
-		046C2DE9288B000D0031B2BE /* point_neighbor_searchers */ = {
-			isa = PBXGroup;
-			children = (
-				046C2D8C288AFFE80031B2BE /* point_hash_grid_searcher2.h */,
-				046C2D7C288AFFE80031B2BE /* point_hash_grid_searcher2.cpp */,
-				046C2D9C288AFFE90031B2BE /* point_hash_grid_searcher3.h */,
-				046C2DAB288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp */,
-				046C2D8F288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.h */,
-				046C2D97288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.cpp */,
-				046C2D84288AFFE80031B2BE /* point_parallel_hash_grid_searcher3.h */,
-				046C2DA0288AFFE90031B2BE /* point_parallel_hash_grid_searcher3.cpp */,
-				046C2DA8288AFFEA0031B2BE /* kdtree.h */,
-				046C2D98288AFFE90031B2BE /* kdtree-inl.h */,
-				046C2DA1288AFFE90031B2BE /* point_kdtree_searcher2.h */,
-				046C2DA4288AFFE90031B2BE /* point_kdtree_searcher2.cpp */,
-				046C2D94288AFFE90031B2BE /* point_kdtree_searcher3.h */,
-				046C2D91288AFFE90031B2BE /* point_kdtree_searcher3.cpp */,
-				046C2D8D288AFFE80031B2BE /* point_simple_list_searcher2.h */,
-				046C2D9E288AFFE90031B2BE /* point_simple_list_searcher2.cpp */,
-				046C2D9F288AFFE90031B2BE /* point_simple_list_searcher3.h */,
-				046C2D7D288AFFE80031B2BE /* point_simple_list_searcher3.cpp */,
-			);
-			name = point_neighbor_searchers;
-			sourceTree = "<group>";
-		};
-		046C2DEA288B00670031B2BE /* point_generators */ = {
-			isa = PBXGroup;
-			children = (
-				046C2DA5288AFFE90031B2BE /* fcc_lattice_point_generator.h */,
-				046C2D83288AFFE80031B2BE /* fcc_lattice_point_generator.cpp */,
-				046C2D76288AFFE70031B2BE /* bcc_lattice_point_generator.h */,
-				046C2D7E288AFFE80031B2BE /* bcc_lattice_point_generator.cpp */,
-				046C2D95288AFFE90031B2BE /* grid_point_generator2.h */,
-				046C2DA9288AFFEA0031B2BE /* grid_point_generator2.cpp */,
-				046C2D90288AFFE90031B2BE /* grid_point_generator3.h */,
-				046C2D87288AFFE80031B2BE /* grid_point_generator3.cpp */,
-				046C2D80288AFFE80031B2BE /* triangle_point_generator.h */,
-				046C2DA3288AFFE90031B2BE /* triangle_point_generator.cpp */,
-			);
-			name = point_generators;
-			sourceTree = "<group>";
-		};
-		046C2DEB288B00910031B2BE /* particle_emitters */ = {
-			isa = PBXGroup;
-			children = (
-				046C2D8A288AFFE80031B2BE /* samplers.h */,
-				046C2D7F288AFFE80031B2BE /* samplers-inl.h */,
-				046C2D8E288AFFE80031B2BE /* point_particle_emitter2.h */,
-				046C2D9A288AFFE90031B2BE /* point_particle_emitter2.cpp */,
-				046C2D7A288AFFE80031B2BE /* point_particle_emitter3.h */,
-				046C2D82288AFFE80031B2BE /* point_particle_emitter3.cpp */,
-				046C2DAA288AFFEA0031B2BE /* volume_particle_emitter2.h */,
-				046C2DAD288AFFEA0031B2BE /* volume_particle_emitter2.cpp */,
-				046C2D96288AFFE90031B2BE /* volume_particle_emitter3.h */,
-				046C2D8B288AFFE80031B2BE /* volume_particle_emitter3.cpp */,
-				046C2D7B288AFFE80031B2BE /* particle_emitter_set2.h */,
-				046C2D74288AFFE70031B2BE /* particle_emitter_set2.cpp */,
-				046C2DA7288AFFEA0031B2BE /* particle_emitter_set3.h */,
-				046C2D99288AFFE90031B2BE /* particle_emitter_set3.cpp */,
-			);
-			name = particle_emitters;
 			sourceTree = "<group>";
 		};
 		046C2DF5288B0C720031B2BE /* vox.base */ = {
@@ -3000,31 +2918,76 @@
 		046C2E12288B12560031B2BE /* test.force */ = {
 			isa = PBXGroup;
 			children = (
-				046C2E4C288B14AC0031B2BE /* unit_tests_utils.h */,
-				046C2E4B288B14AC0031B2BE /* unit_tests_utils.cpp */,
 				046C2E4A288B13EC0031B2BE /* test.force.entitlements */,
-				046C2E56288B1A820031B2BE /* frame_tests.cpp */,
 				046C2E27288B13C60031B2BE /* rigid_body_collider2_tests.cpp */,
 				046C2E26288B13C60031B2BE /* rigid_body_collider3_tests.cpp */,
 				046C2E32288B13C70031B2BE /* collider_set2_tests.cpp */,
 				046C2E36288B13C70031B2BE /* collider_set3_tests.cpp */,
-				046C2E29288B13C60031B2BE /* particle_system_data2_tests.cpp */,
-				046C2E31288B13C70031B2BE /* particle_system_data3_tests.cpp */,
-				046C2E2A288B13C60031B2BE /* point_hash_grid_searcher2_tests.cpp */,
-				046C2E2F288B13C60031B2BE /* point_hash_grid_searcher3_tests.cpp */,
-				046C2E34288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp */,
-				046C2E35288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp */,
-				046C2E2B288B13C60031B2BE /* point_kdtree_searcher2_tests.cpp */,
-				046C2E2E288B13C60031B2BE /* point_kdtree_searcher3_tests.cpp */,
-				046C2E30288B13C60031B2BE /* point_simple_list_searcher2_tests.cpp */,
-				046C2E28288B13C60031B2BE /* point_simple_list_searcher3_tests.cpp */,
-				046C2E25288B13C60031B2BE /* samplers_tests.cpp */,
-				046C2E2C288B13C60031B2BE /* point_particle_emitter2_tests.cpp */,
-				046C2E2D288B13C60031B2BE /* point_particle_emitter3_tests.cpp */,
-				046C2E24288B13C60031B2BE /* volume_particle_emitter2_tests.cpp */,
-				046C2E33288B13C70031B2BE /* volume_particle_emitter3_tests.cpp */,
 			);
 			path = test.force;
+			sourceTree = "<group>";
+		};
+		046C2E88288B86950031B2BE /* point_neighbor_searchers */ = {
+			isa = PBXGroup;
+			children = (
+				046C2D8C288AFFE80031B2BE /* point_hash_grid_searcher2.h */,
+				046C2D7C288AFFE80031B2BE /* point_hash_grid_searcher2.cpp */,
+				046C2D9C288AFFE90031B2BE /* point_hash_grid_searcher3.h */,
+				046C2DAB288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp */,
+				046C2D8F288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.h */,
+				046C2D97288AFFE90031B2BE /* point_parallel_hash_grid_searcher2.cpp */,
+				046C2D84288AFFE80031B2BE /* point_parallel_hash_grid_searcher3.h */,
+				046C2DA0288AFFE90031B2BE /* point_parallel_hash_grid_searcher3.cpp */,
+				046C2DA8288AFFEA0031B2BE /* kdtree.h */,
+				046C2D98288AFFE90031B2BE /* kdtree-inl.h */,
+				046C2DA1288AFFE90031B2BE /* point_kdtree_searcher2.h */,
+				046C2DA4288AFFE90031B2BE /* point_kdtree_searcher2.cpp */,
+				046C2D94288AFFE90031B2BE /* point_kdtree_searcher3.h */,
+				046C2D91288AFFE90031B2BE /* point_kdtree_searcher3.cpp */,
+				046C2D8D288AFFE80031B2BE /* point_simple_list_searcher2.h */,
+				046C2D9E288AFFE90031B2BE /* point_simple_list_searcher2.cpp */,
+				046C2D9F288AFFE90031B2BE /* point_simple_list_searcher3.h */,
+				046C2D7D288AFFE80031B2BE /* point_simple_list_searcher3.cpp */,
+			);
+			name = point_neighbor_searchers;
+			sourceTree = "<group>";
+		};
+		046C2E89288B869D0031B2BE /* point_generators */ = {
+			isa = PBXGroup;
+			children = (
+				046C2DA5288AFFE90031B2BE /* fcc_lattice_point_generator.h */,
+				046C2D83288AFFE80031B2BE /* fcc_lattice_point_generator.cpp */,
+				046C2D76288AFFE70031B2BE /* bcc_lattice_point_generator.h */,
+				046C2D7E288AFFE80031B2BE /* bcc_lattice_point_generator.cpp */,
+				046C2D95288AFFE90031B2BE /* grid_point_generator2.h */,
+				046C2DA9288AFFEA0031B2BE /* grid_point_generator2.cpp */,
+				046C2D90288AFFE90031B2BE /* grid_point_generator3.h */,
+				046C2D87288AFFE80031B2BE /* grid_point_generator3.cpp */,
+				046C2D80288AFFE80031B2BE /* triangle_point_generator.h */,
+				046C2DA3288AFFE90031B2BE /* triangle_point_generator.cpp */,
+			);
+			name = point_generators;
+			sourceTree = "<group>";
+		};
+		046C2E8A288B86A60031B2BE /* particle_emitters */ = {
+			isa = PBXGroup;
+			children = (
+				046C2D8A288AFFE80031B2BE /* samplers.h */,
+				046C2D7F288AFFE80031B2BE /* samplers-inl.h */,
+				046C2D8E288AFFE80031B2BE /* point_particle_emitter2.h */,
+				046C2D9A288AFFE90031B2BE /* point_particle_emitter2.cpp */,
+				046C2D7A288AFFE80031B2BE /* point_particle_emitter3.h */,
+				046C2D82288AFFE80031B2BE /* point_particle_emitter3.cpp */,
+				046C2DAA288AFFEA0031B2BE /* volume_particle_emitter2.h */,
+				046C2DAD288AFFEA0031B2BE /* volume_particle_emitter2.cpp */,
+				046C2D96288AFFE90031B2BE /* volume_particle_emitter3.h */,
+				046C2D8B288AFFE80031B2BE /* volume_particle_emitter3.cpp */,
+				046C2D7B288AFFE80031B2BE /* particle_emitter_set2.h */,
+				046C2D74288AFFE70031B2BE /* particle_emitter_set2.cpp */,
+				046C2DA7288AFFEA0031B2BE /* particle_emitter_set3.h */,
+				046C2D99288AFFE90031B2BE /* particle_emitter_set3.cpp */,
+			);
+			name = particle_emitters;
 			sourceTree = "<group>";
 		};
 		04D09F8728897C900014DCFD = {
@@ -4261,43 +4224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */,
-				046C2DD2288AFFEA0031B2BE /* kdtree-inl.h in Headers */,
-				046C2DD6288AFFEA0031B2BE /* point_hash_grid_searcher3.h in Headers */,
-				046C2DD7288AFFEA0031B2BE /* point_generator2.h in Headers */,
-				046C2DB9288AFFEA0031B2BE /* samplers-inl.h in Headers */,
-				046C2E51288B17EB0031B2BE /* frame.h in Headers */,
-				046C2DCE288AFFEA0031B2BE /* point_kdtree_searcher3.h in Headers */,
-				046C2DC9288AFFEA0031B2BE /* point_parallel_hash_grid_searcher2.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
-				046C2DE1288AFFEA0031B2BE /* particle_emitter_set3.h in Headers */,
-				046C2DE2288AFFEA0031B2BE /* kdtree.h in Headers */,
-				046C2DC8288AFFEA0031B2BE /* point_particle_emitter2.h in Headers */,
-				046C2DCA288AFFEA0031B2BE /* grid_point_generator3.h in Headers */,
-				046C2DD9288AFFEA0031B2BE /* point_simple_list_searcher3.h in Headers */,
 				046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */,
-				046C2DB1288AFFEA0031B2BE /* point_generator3.h in Headers */,
-				046C2DB4288AFFEA0031B2BE /* point_particle_emitter3.h in Headers */,
-				046C2DB5288AFFEA0031B2BE /* particle_emitter_set2.h in Headers */,
-				046C2DC4288AFFEA0031B2BE /* samplers.h in Headers */,
-				046C2DB0288AFFEA0031B2BE /* bcc_lattice_point_generator.h in Headers */,
 				046C2D6C288AF7110031B2BE /* collider_set3.h in Headers */,
-				046C2DCD288AFFEA0031B2BE /* particle_system_data3.h in Headers */,
-				046C2DDF288AFFEA0031B2BE /* fcc_lattice_point_generator.h in Headers */,
-				046C2DE4288AFFEA0031B2BE /* volume_particle_emitter2.h in Headers */,
-				046C2DBF288AFFEA0031B2BE /* particle_emitter3.h in Headers */,
-				046C2DD5288AFFEA0031B2BE /* particle_system_data2.h in Headers */,
-				046C2DDB288AFFEA0031B2BE /* point_kdtree_searcher2.h in Headers */,
-				046C2DBE288AFFEA0031B2BE /* point_parallel_hash_grid_searcher3.h in Headers */,
-				046C2DC6288AFFEA0031B2BE /* point_hash_grid_searcher2.h in Headers */,
-				046C2DE0288AFFEA0031B2BE /* point_neighbor_searcher3.h in Headers */,
-				046C2DC7288AFFEA0031B2BE /* point_simple_list_searcher2.h in Headers */,
-				046C2DD0288AFFEA0031B2BE /* volume_particle_emitter3.h in Headers */,
-				046C2DBA288AFFEA0031B2BE /* triangle_point_generator.h in Headers */,
-				046C2DCF288AFFEA0031B2BE /* grid_point_generator2.h in Headers */,
-				046C2DE6288AFFEA0031B2BE /* point_neighbor_searcher2.h in Headers */,
 				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
-				046C2DC3288AFFEA0031B2BE /* particle_emitter2.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4924,6 +4855,7 @@
 				041F4AF4288AEA0600696E23 /* surface_set3_tests.cpp in Sources */,
 				041F4B10288AEA0600696E23 /* surface_to_implicit3_tests.cpp in Sources */,
 				041F4B1F288AEA0600696E23 /* svd_tests.cpp in Sources */,
+				046C2E96288B87260031B2BE /* point_kdtree_searcher3_tests.cpp in Sources */,
 				046C2E6B288B1B230031B2BE /* vertex_centered_scalar_grid2_tests.cpp in Sources */,
 				041F4B11288AEA0600696E23 /* plane2_tests.cpp in Sources */,
 				046C2E63288B1B230031B2BE /* vertex_centered_vector_grid2_tests.cpp in Sources */,
@@ -4935,37 +4867,48 @@
 				041F4AF6288AEA0600696E23 /* triangle3_tests.cpp in Sources */,
 				041F4AF3288AEA0600696E23 /* sphere3_tests.cpp in Sources */,
 				041F4B0B288AEA0600696E23 /* implicit_triangle_mesh3_tests.cpp in Sources */,
+				046C2E95288B87260031B2BE /* point_kdtree_searcher2_tests.cpp in Sources */,
 				041F4B19288AEA0600696E23 /* fdm_gauss_seidel_solver3_tests.cpp in Sources */,
 				046C2E67288B1B230031B2BE /* face_centered_grid2_tests.cpp in Sources */,
 				046C2E66288B1B230031B2BE /* vertex_centered_vector_grid3_tests.cpp in Sources */,
 				041F4B00288AEA0600696E23 /* array2_tests.cpp in Sources */,
 				046C2E64288B1B230031B2BE /* cell_centered_vector_grid2_tests.cpp in Sources */,
 				041F4AF8288AEA0600696E23 /* cylinder3_tests.cpp in Sources */,
+				046C2E99288B87260031B2BE /* point_simple_list_searcher2_tests.cpp in Sources */,
 				041F4AFB288AEA0600696E23 /* fdm_iccg_solver3_tests.cpp in Sources */,
+				046C2E91288B87260031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp in Sources */,
 				041F4B06288AEA0600696E23 /* implicit_surface_set3_tests.cpp in Sources */,
+				046C2E93288B87260031B2BE /* particle_system_data2_tests.cpp in Sources */,
 				041F4B18288AEA0600696E23 /* matrix_mxn_tests.cpp in Sources */,
 				041F4B16288AEA0600696E23 /* plane3_tests.cpp in Sources */,
 				046C2E69288B1B230031B2BE /* cell_centered_vector_grid3_tests.cpp in Sources */,
 				046C2E6A288B1B230031B2BE /* cell_centered_scalar_grid3_tests.cpp in Sources */,
 				041F4B09288AEA0600696E23 /* array1_tests.cpp in Sources */,
 				041F4B17288AEA0600696E23 /* fdm_mgpcg_solver3_tests.cpp in Sources */,
+				046C2E8B288B87260031B2BE /* point_particle_emitter2_tests.cpp in Sources */,
 				041F4AF5288AEA0600696E23 /* triangle_mesh_to_sdf_tests.cpp in Sources */,
 				041F4B1C288AEA0600696E23 /* custom_implicit_surface2_tests.cpp in Sources */,
 				041F4AEF288AEA0600696E23 /* cg_tests.cpp in Sources */,
 				041F4AF2288AEA0600696E23 /* sphere2_tests.cpp in Sources */,
 				041F4AFF288AEA0600696E23 /* triangle_mesh3_tests.cpp in Sources */,
 				041F4AFE288AEA0600696E23 /* box3_tests.cpp in Sources */,
+				046C2E9A288B87440031B2BE /* frame_tests.cpp in Sources */,
 				046C2E65288B1B230031B2BE /* cell_centered_scalar_grid2_tests.cpp in Sources */,
+				046C2E98288B87260031B2BE /* point_particle_emitter3_tests.cpp in Sources */,
 				041F4B0D288AEA0600696E23 /* mg_tests.cpp in Sources */,
 				041F4AED288AEA0600696E23 /* marching_cubes_tests.cpp in Sources */,
 				041F4B1A288AEA0600696E23 /* parallel_tests.cpp in Sources */,
 				041F4AEC288AEA0600696E23 /* fdm_cg_solver3_tests.cpp in Sources */,
 				041F4AEA288AEA0600696E23 /* array_samplers_tests.cpp in Sources */,
+				046C2E94288B87260031B2BE /* point_hash_grid_searcher2_tests.cpp in Sources */,
 				041F4B0F288AEA0600696E23 /* box2_tests.cpp in Sources */,
 				041F4B03288AEA0600696E23 /* fdm_mgpcg_solver2_tests.cpp in Sources */,
+				046C2E97288B87260031B2BE /* particle_system_data3_tests.cpp in Sources */,
 				041F4B04288AEA0600696E23 /* array_accessor3_tests.cpp in Sources */,
 				041F4B1B288AEA0600696E23 /* octree_tests.cpp in Sources */,
 				041F4AF0288AEA0600696E23 /* bvh3_tests.cpp in Sources */,
+				046C2E8F288B87260031B2BE /* point_hash_grid_searcher3_tests.cpp in Sources */,
+				046C2E90288B87260031B2BE /* samplers_tests.cpp in Sources */,
 				041F4B24288AEAA400696E23 /* unit_tests_utils.cpp in Sources */,
 				041F4B02288AEA0600696E23 /* list_query_engine3_tests.cpp in Sources */,
 				041F4AE9288AEA0600696E23 /* fdm_mg_solver3_tests.cpp in Sources */,
@@ -4979,11 +4922,15 @@
 				041F4B12288AEA0600696E23 /* fdm_jacobi_solver3_tests.cpp in Sources */,
 				041F4AEB288AEA0600696E23 /* fdm_gauss_seidel_solver2_tests.cpp in Sources */,
 				041F4B0E288AEA0600696E23 /* implicit_surface_set2_tests.cpp in Sources */,
+				046C2E8E288B87260031B2BE /* volume_particle_emitter3_tests.cpp in Sources */,
 				041F4B08288AEA0600696E23 /* fdm_mg_linear_system2_tests.cpp.cpp in Sources */,
+				046C2E8C288B87260031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp in Sources */,
 				041F4AF9288AEA0600696E23 /* array3_tests.cpp in Sources */,
+				046C2E92288B87260031B2BE /* volume_particle_emitter2_tests.cpp in Sources */,
 				041F4B13288AEA0600696E23 /* array_accessor1_tests.cpp in Sources */,
 				041F4AF7288AEA0600696E23 /* fdm_iccg_solver2_tests.cpp in Sources */,
 				041F4B15288AEA0600696E23 /* bvh2_tests.cpp in Sources */,
+				046C2E8D288B87260031B2BE /* point_simple_list_searcher3_tests.cpp in Sources */,
 				041F4AEE288AEA0600696E23 /* array_utils_tests.cpp in Sources */,
 				041F4B05288AEA0600696E23 /* surface_to_implicit2_tests.cpp in Sources */,
 				041F4AF1288AEA0600696E23 /* custom_implicit_surface3_tests.cpp in Sources */,
@@ -5043,44 +4990,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046C2E80288B86810031B2BE /* point_hash_grid_searcher2.cpp in Sources */,
+				046C2E76288B86810031B2BE /* bcc_lattice_point_generator.cpp in Sources */,
 				045EE813288A4531001D6B5B /* implicit_surface2.cpp in Sources */,
 				045EE7F9288A4531001D6B5B /* surface2.cpp in Sources */,
 				045EE84E288A4568001D6B5B /* fdm_mgpcg_solver2.cpp in Sources */,
+				046C2E6E288B86810031B2BE /* point_generator2.cpp in Sources */,
+				046C2E82288B86810031B2BE /* particle_emitter3.cpp in Sources */,
 				045EE8EA288A9A10001D6B5B /* cell_centered_scalar_grid3.cpp in Sources */,
 				045EE8F5288A9A11001D6B5B /* vertex_centered_vector_grid3.cpp in Sources */,
 				045EE820288A4531001D6B5B /* field3.cpp in Sources */,
 				045EE864288A4568001D6B5B /* fdm_mg_linear_system2.cpp in Sources */,
+				046C2E79288B86810031B2BE /* grid_point_generator3.cpp in Sources */,
 				045EE8FF288A9A11001D6B5B /* vector_field3.cpp in Sources */,
 				045EE8EE288A9A10001D6B5B /* collocated_vector_grid2.cpp in Sources */,
 				045EE85B288A4568001D6B5B /* fdm_cg_solver3.cpp in Sources */,
 				04BEAD81288ADE06008D3CA1 /* sphere3.cpp in Sources */,
 				045EE815288A4531001D6B5B /* implicit_surface_set2.cpp in Sources */,
 				045EE862288A4568001D6B5B /* fdm_mg_solver3.cpp in Sources */,
+				046C2E7F288B86810031B2BE /* particle_system_data2.cpp in Sources */,
 				045EE7E9288A4531001D6B5B /* implicit_surface3.cpp in Sources */,
 				045EE8F0288A9A10001D6B5B /* custom_vector_field2.cpp in Sources */,
+				046C2E6D288B86810031B2BE /* point_kdtree_searcher3.cpp in Sources */,
 				041F4AAD288AE8AC00696E23 /* marching_cubes.cpp in Sources */,
+				046C2E83288B86810031B2BE /* point_hash_grid_searcher3.cpp in Sources */,
+				046C2E7A288B86810031B2BE /* point_simple_list_searcher2.cpp in Sources */,
 				045EE7F7288A4531001D6B5B /* surface_set3.cpp in Sources */,
 				045EE8F3288A9A11001D6B5B /* face_centered_grid3.cpp in Sources */,
+				046C2E84288B86810031B2BE /* point_parallel_hash_grid_searcher2.cpp in Sources */,
+				046C2E72288B86810031B2BE /* point_particle_emitter2.cpp in Sources */,
 				045EE8EF288A9A10001D6B5B /* custom_implicit_surface2.cpp in Sources */,
 				045EE84D288A4568001D6B5B /* fdm_utils.cpp in Sources */,
 				045EE93A288ADCC2001D6B5B /* constant_scalar_field2.cpp in Sources */,
+				046C2E7B288B86810031B2BE /* triangle_point_generator.cpp in Sources */,
 				045EE805288A4531001D6B5B /* grid3.cpp in Sources */,
 				04BEAD8F288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp in Sources */,
 				045EE936288ADCC2001D6B5B /* constant_vector_field3.cpp in Sources */,
 				045EE857288A4568001D6B5B /* fdm_linear_system3.cpp in Sources */,
 				04BEAD87288ADE06008D3CA1 /* box3.cpp in Sources */,
+				046C2E6C288B86810031B2BE /* point_generator3.cpp in Sources */,
+				046C2E7D288B86810031B2BE /* point_neighbor_searcher2.cpp in Sources */,
+				046C2E6F288B86810031B2BE /* point_kdtree_searcher2.cpp in Sources */,
+				046C2E74288B86810031B2BE /* grid_point_generator2.cpp in Sources */,
 				045EE8F6288A9A11001D6B5B /* custom_implicit_surface3.cpp in Sources */,
 				045EE8F2288A9A11001D6B5B /* cell_centered_vector_grid3.cpp in Sources */,
+				046C2E7C288B86810031B2BE /* point_parallel_hash_grid_searcher3.cpp in Sources */,
 				045EE808288A4531001D6B5B /* triangle_mesh3.cpp in Sources */,
 				045EE860288A4568001D6B5B /* fdm_gauss_seidel_solver3.cpp in Sources */,
+				046C2E73288B86810031B2BE /* volume_particle_emitter2.cpp in Sources */,
 				045EE8E6288A9A10001D6B5B /* cell_centered_scalar_grid2.cpp in Sources */,
+				046C2E77288B86810031B2BE /* volume_particle_emitter3.cpp in Sources */,
 				045EE804288A4531001D6B5B /* grid2.cpp in Sources */,
 				045EE85A288A4568001D6B5B /* fdm_jacobi_solver3.cpp in Sources */,
+				046C2E86288B86810031B2BE /* fcc_lattice_point_generator.cpp in Sources */,
 				045EE7F4288A4531001D6B5B /* surface_to_implicit3.cpp in Sources */,
 				04BEAD8D288ADE81008D3CA1 /* triangle_mesh_to_sdf.cpp in Sources */,
 				04BEAD82288ADE06008D3CA1 /* box2.cpp in Sources */,
 				045EE937288ADCC2001D6B5B /* constant_vector_field2.cpp in Sources */,
 				045EE93B288ADCC2001D6B5B /* constant_scalar_field3.cpp in Sources */,
+				046C2E75288B86810031B2BE /* point_simple_list_searcher3.cpp in Sources */,
 				045EE8FA288A9A11001D6B5B /* vector_grid2.cpp in Sources */,
 				045EE812288A4531001D6B5B /* triangle3.cpp in Sources */,
 				045EE8EB288A9A10001D6B5B /* scalar_grid2.cpp in Sources */,
@@ -5100,11 +5068,16 @@
 				045EE8F7288A9A11001D6B5B /* custom_scalar_field2.cpp in Sources */,
 				045EE7E4288A4531001D6B5B /* surface_set2.cpp in Sources */,
 				045EE8ED288A9A10001D6B5B /* vector_grid3.cpp in Sources */,
+				046C2E7E288B86810031B2BE /* particle_emitter_set2.cpp in Sources */,
 				045EE8F9288A9A11001D6B5B /* collocated_vector_grid3.cpp in Sources */,
 				045EE8FC288A9A11001D6B5B /* vertex_centered_vector_grid2.cpp in Sources */,
+				046C2E71288B86810031B2BE /* particle_emitter_set3.cpp in Sources */,
 				045EE850288A4568001D6B5B /* fdm_linear_system2.cpp in Sources */,
+				046C2E85288B86810031B2BE /* particle_system_data3.cpp in Sources */,
 				045EE816288A4531001D6B5B /* surface_to_implicit2.cpp in Sources */,
 				045EE8FB288A9A11001D6B5B /* vertex_centered_scalar_grid3.cpp in Sources */,
+				046C2E78288B86810031B2BE /* point_particle_emitter3.cpp in Sources */,
+				046C2E81288B86810031B2BE /* particle_emitter2.cpp in Sources */,
 				045EE7E7288A4531001D6B5B /* implicit_surface_set3.cpp in Sources */,
 				045EE8E5288A9A10001D6B5B /* vector_field2.cpp in Sources */,
 				045EE902288A9A11001D6B5B /* scalar_field3.cpp in Sources */,
@@ -5114,7 +5087,9 @@
 				04BEAD86288ADE06008D3CA1 /* sphere2.cpp in Sources */,
 				045EE856288A4568001D6B5B /* fdm_cg_solver2.cpp in Sources */,
 				04BEAD80288ADE06008D3CA1 /* cylinder3.cpp in Sources */,
+				046C2E70288B86810031B2BE /* point_neighbor_searcher3.cpp in Sources */,
 				045EE900288A9A11001D6B5B /* vertex_centered_scalar_grid2.cpp in Sources */,
+				046C2E9B288B87550031B2BE /* frame.cpp in Sources */,
 				045EE863288A4568001D6B5B /* fdm_iccg_solver3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5123,40 +5098,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046C2DBD288AFFEA0031B2BE /* fcc_lattice_point_generator.cpp in Sources */,
-				046C2DDA288AFFEA0031B2BE /* point_parallel_hash_grid_searcher3.cpp in Sources */,
-				046C2DDD288AFFEA0031B2BE /* triangle_point_generator.cpp in Sources */,
 				046C2D6F288AF7110031B2BE /* rigid_body_collider2.cpp in Sources */,
-				046C2DC2288AFFEA0031B2BE /* point_generator3.cpp in Sources */,
-				046C2DC5288AFFEA0031B2BE /* volume_particle_emitter3.cpp in Sources */,
-				046C2DDC288AFFEA0031B2BE /* point_neighbor_searcher2.cpp in Sources */,
 				046C2D73288AF7110031B2BE /* collider3.cpp in Sources */,
-				046C2DE3288AFFEA0031B2BE /* grid_point_generator2.cpp in Sources */,
-				046C2DBB288AFFEA0031B2BE /* particle_emitter2.cpp in Sources */,
-				046C2E50288B17EB0031B2BE /* frame.cpp in Sources */,
-				046C2DB6288AFFEA0031B2BE /* point_hash_grid_searcher2.cpp in Sources */,
 				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
-				046C2DD4288AFFEA0031B2BE /* point_particle_emitter2.cpp in Sources */,
-				046C2DB7288AFFEA0031B2BE /* point_simple_list_searcher3.cpp in Sources */,
-				046C2DED288B0BA40031B2BE /* particle_system_data3.cpp in Sources */,
-				046C2DB2288AFFEA0031B2BE /* point_neighbor_searcher3.cpp in Sources */,
-				046C2DEF288B0C170031B2BE /* particle_system_data2.cpp in Sources */,
-				046C2DB8288AFFEA0031B2BE /* bcc_lattice_point_generator.cpp in Sources */,
-				046C2DD3288AFFEA0031B2BE /* particle_emitter_set3.cpp in Sources */,
 				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
-				046C2DE7288AFFEA0031B2BE /* volume_particle_emitter2.cpp in Sources */,
-				046C2DD1288AFFEA0031B2BE /* point_parallel_hash_grid_searcher2.cpp in Sources */,
-				046C2DC1288AFFEA0031B2BE /* grid_point_generator3.cpp in Sources */,
-				046C2DCC288AFFEA0031B2BE /* point_generator2.cpp in Sources */,
 				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
-				046C2DAE288AFFEA0031B2BE /* particle_emitter_set2.cpp in Sources */,
-				046C2DAF288AFFEA0031B2BE /* particle_emitter3.cpp in Sources */,
-				046C2DDE288AFFEA0031B2BE /* point_kdtree_searcher2.cpp in Sources */,
-				046C2DD8288AFFEA0031B2BE /* point_simple_list_searcher2.cpp in Sources */,
-				046C2DCB288AFFEA0031B2BE /* point_kdtree_searcher3.cpp in Sources */,
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
-				046C2DBC288AFFEA0031B2BE /* point_particle_emitter3.cpp in Sources */,
-				046C2DE5288AFFEA0031B2BE /* point_hash_grid_searcher3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5173,27 +5120,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046C2E54288B18A80031B2BE /* point_particle_emitter3_tests.cpp in Sources */,
-				046C2E3D288B13C70031B2BE /* point_hash_grid_searcher2_tests.cpp in Sources */,
-				046C2E52288B18A80031B2BE /* volume_particle_emitter2_tests.cpp in Sources */,
-				046C2E47288B13C70031B2BE /* point_parallel_hash_grid_searcher2_tests.cpp in Sources */,
-				046C2E3B288B13C70031B2BE /* point_simple_list_searcher3_tests.cpp in Sources */,
-				046C2E44288B13C70031B2BE /* particle_system_data3_tests.cpp in Sources */,
-				046C2E3E288B13C70031B2BE /* point_kdtree_searcher2_tests.cpp in Sources */,
-				046C2E53288B18A80031B2BE /* volume_particle_emitter3_tests.cpp in Sources */,
 				046C2E45288B13C70031B2BE /* collider_set2_tests.cpp in Sources */,
-				046C2E4D288B14AC0031B2BE /* unit_tests_utils.cpp in Sources */,
-				046C2E3C288B13C70031B2BE /* particle_system_data2_tests.cpp in Sources */,
 				046C2E3A288B13C70031B2BE /* rigid_body_collider2_tests.cpp in Sources */,
-				046C2E55288B18A80031B2BE /* point_particle_emitter2_tests.cpp in Sources */,
-				046C2E38288B13C70031B2BE /* samplers_tests.cpp in Sources */,
-				046C2E43288B13C70031B2BE /* point_simple_list_searcher2_tests.cpp in Sources */,
-				046C2E42288B13C70031B2BE /* point_hash_grid_searcher3_tests.cpp in Sources */,
 				046C2E39288B13C70031B2BE /* rigid_body_collider3_tests.cpp in Sources */,
-				046C2E41288B13C70031B2BE /* point_kdtree_searcher3_tests.cpp in Sources */,
-				046C2E48288B13C70031B2BE /* point_parallel_hash_grid_searcher3_tests.cpp in Sources */,
 				046C2E49288B13C70031B2BE /* collider_set3_tests.cpp in Sources */,
-				046C2E57288B1A820031B2BE /* frame_tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
