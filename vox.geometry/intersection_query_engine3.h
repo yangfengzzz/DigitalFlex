@@ -8,8 +8,8 @@
 
 #include <functional>
 
-#include "vox.math/bounding_box3.h"
 #include "vox.base/constants.h"
+#include "vox.math/bounding_box3.h"
 
 namespace vox {
 

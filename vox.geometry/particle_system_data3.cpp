@@ -10,13 +10,13 @@
 
 #include "vox.geometry/particle_system_data3.h"
 
+#include <algorithm>
+#include <vector>
+
 #include "vox.base/logging.h"
 #include "vox.base/parallel.h"
 #include "vox.base/timer.h"
 #include "vox.geometry/point_parallel_hash_grid_searcher3.h"
-
-#include <algorithm>
-#include <vector>
 
 using namespace vox;
 

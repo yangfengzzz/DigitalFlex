@@ -6,8 +6,8 @@
 
 #include "vox.geometry/fdm_iccg_solver2.h"
 
-#include "vox.geometry/cg.h"
 #include "vox.base/logging.h"
+#include "vox.geometry/cg.h"
 
 using namespace vox;
 

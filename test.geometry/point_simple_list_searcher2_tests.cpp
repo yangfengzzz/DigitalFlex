@@ -6,8 +6,8 @@
 
 #include <gtest/gtest.h>
 
-#include "vox.geometry/point_simple_list_searcher2.h"
 #include "vox.geometry/array1.h"
+#include "vox.geometry/point_simple_list_searcher2.h"
 
 using namespace vox;
 

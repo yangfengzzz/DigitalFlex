@@ -11,9 +11,9 @@
 #include <random>
 
 #include "vox.base/constants.h"
+#include "vox.geometry/implicit_surface2.h"
 #include "vox.geometry/particle_emitter2.h"
 #include "vox.geometry/point_generator2.h"
-#include "vox.geometry/implicit_surface2.h"
 #include "vox.math/bounding_box2.h"
 
 namespace vox {

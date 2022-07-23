@@ -10,8 +10,8 @@
 #include <utility>
 #include <vector>
 
-#include "vox.base/parallel.h"
 #include "vox.base/macros.h"
+#include "vox.base/parallel.h"
 
 namespace vox {
 

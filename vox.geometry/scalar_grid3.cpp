@@ -14,9 +14,9 @@
 #include <utility>
 #include <vector>
 
-#include "vox.geometry/fdm_utils.h"
 #include "vox.base/parallel.h"
 #include "vox.base/serial.h"
+#include "vox.geometry/fdm_utils.h"
 
 using namespace vox;
 

@@ -11,10 +11,10 @@
 #include <random>
 #include <vector>
 
+#include "vox.base/constants.h"
+#include "vox.base/serial.h"
 #include "vox.geometry/array2.h"
 #include "vox.geometry/array3.h"
-#include "vox.base/serial.h"
-#include "vox.base/constants.h"
 
 using namespace vox;
 

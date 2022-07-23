@@ -8,8 +8,8 @@
 
 #include <memory>
 
-#include "vox.math/bounding_box2.h"
 #include "vox.base/constants.h"
+#include "vox.math/bounding_box2.h"
 #include "vox.math/ray2.h"
 #include "vox.math/transform2.h"
 

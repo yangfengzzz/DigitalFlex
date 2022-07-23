@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "vox.base/constants.h"
 #include "vox.geometry/array_accessor3.h"
 #include "vox.geometry/triangle_mesh3.h"
-#include "vox.base/constants.h"
 
 namespace vox {
 

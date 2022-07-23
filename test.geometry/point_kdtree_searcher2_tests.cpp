@@ -6,10 +6,10 @@
 
 #include <gtest/gtest.h>
 
-#include "vox.geometry/point_kdtree_searcher2.h"
-#include "vox.geometry/triangle_point_generator.h"
 #include "vox.geometry/array1.h"
 #include "vox.geometry/array2.h"
+#include "vox.geometry/point_kdtree_searcher2.h"
+#include "vox.geometry/triangle_point_generator.h"
 #include "vox.math/bounding_box2.h"
 
 using namespace vox;

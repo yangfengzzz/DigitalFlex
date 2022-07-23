@@ -11,8 +11,8 @@
 #include "vox.base/logging.h"
 #include "vox.geometry/point_hash_grid_searcher2.h"
 #include "vox.geometry/samplers.h"
-#include "vox.geometry/triangle_point_generator.h"
 #include "vox.geometry/surface_to_implicit2.h"
+#include "vox.geometry/triangle_point_generator.h"
 #include "vox.math/matrix2x2.h"
 
 using namespace vox;

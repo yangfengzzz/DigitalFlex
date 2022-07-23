@@ -8,11 +8,11 @@
 
 #include <vector>
 
+#include "vox.geometry/array1.h"
+#include "vox.geometry/array3.h"
 #include "vox.geometry/bcc_lattice_point_generator.h"
 #include "vox.geometry/point_hash_grid_searcher3.h"
 #include "vox.geometry/point_parallel_hash_grid_searcher3.h"
-#include "vox.geometry/array1.h"
-#include "vox.geometry/array3.h"
 #include "vox.math/bounding_box3.h"
 
 using namespace vox;

@@ -8,9 +8,9 @@
 
 #include <utility>
 
-#include "vox.geometry/array_samplers2.h"
 #include "vox.base/parallel.h"
 #include "vox.base/private_helpers.h"
+#include "vox.geometry/array_samplers2.h"
 
 using namespace vox;
 

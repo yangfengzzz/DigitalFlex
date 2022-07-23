@@ -8,8 +8,8 @@
 
 #include <numeric>
 
-#include "vox.geometry/bvh3.h"
 #include "vox.base/constants.h"
+#include "vox.geometry/bvh3.h"
 #include "vox.math/math_utils.h"
 
 namespace vox {

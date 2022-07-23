@@ -8,12 +8,12 @@
 
 #include <iostream>
 
-#include "vox.geometry/array1.h"
-#include "vox.geometry/array2.h"
-#include "vox.geometry/array3.h"
 #include "vox.base/parallel.h"
 #include "vox.base/serial.h"
 #include "vox.base/type_helpers.h"
+#include "vox.geometry/array1.h"
+#include "vox.geometry/array2.h"
+#include "vox.geometry/array3.h"
 
 namespace vox {
 

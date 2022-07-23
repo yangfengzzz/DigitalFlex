@@ -9,8 +9,8 @@
 #include <memory>
 #include <vector>
 
-#include "vox.geometry/point_neighbor_searcher3.h"
 #include "vox.geometry/array1.h"
+#include "vox.geometry/point_neighbor_searcher3.h"
 
 namespace vox {
 

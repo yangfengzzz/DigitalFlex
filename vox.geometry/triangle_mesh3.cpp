@@ -6,8 +6,8 @@
 
 #include "vox.geometry/triangle_mesh3.h"
 
-#include "vox.base/parallel.h"
 #include "vox.base/logging.h"
+#include "vox.base/parallel.h"
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #define TINYOBJLOADER_USE_DOUBLE

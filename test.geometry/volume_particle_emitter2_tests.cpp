@@ -8,9 +8,9 @@
 
 #include "unit_tests_utils.h"
 #include "vox.geometry/frame.h"
-#include "vox.geometry/volume_particle_emitter2.h"
 #include "vox.geometry/sphere2.h"
 #include "vox.geometry/surface_to_implicit2.h"
+#include "vox.geometry/volume_particle_emitter2.h"
 
 using namespace vox;
 

@@ -6,8 +6,8 @@
 
 #include "vox.geometry/surface_to_implicit3.h"
 
-#include "vox.geometry/triangle_mesh3.h"
 #include "vox.base/logging.h"
+#include "vox.geometry/triangle_mesh3.h"
 
 using namespace vox;
 

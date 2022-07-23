@@ -10,9 +10,9 @@
 #include <utility>
 #include <vector>
 
-#include "vox.geometry/array_samplers3.h"
 #include "vox.base/parallel.h"
 #include "vox.base/private_helpers.h"
+#include "vox.geometry/array_samplers3.h"
 
 using namespace vox;
 

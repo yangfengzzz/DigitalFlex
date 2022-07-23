@@ -10,9 +10,9 @@
 #include <memory>
 #include <random>
 
+#include "vox.geometry/implicit_surface3.h"
 #include "vox.geometry/particle_emitter3.h"
 #include "vox.geometry/point_generator3.h"
-#include "vox.geometry/implicit_surface3.h"
 #include "vox.math/bounding_box3.h"
 
 namespace vox {

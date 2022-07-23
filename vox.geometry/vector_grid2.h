@@ -9,9 +9,9 @@
 #include <memory>
 #include <vector>
 
+#include "vox.base/parallel.h"
 #include "vox.geometry/array_accessor2.h"
 #include "vox.geometry/grid2.h"
-#include "vox.base/parallel.h"
 #include "vox.geometry/vector_field2.h"
 
 namespace vox {

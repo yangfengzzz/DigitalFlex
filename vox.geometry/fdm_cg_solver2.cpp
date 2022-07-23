@@ -6,8 +6,8 @@
 
 #include "vox.geometry/fdm_cg_solver2.h"
 
-#include "vox.geometry/cg.h"
 #include "vox.base/constants.h"
+#include "vox.geometry/cg.h"
 
 using namespace vox;
 

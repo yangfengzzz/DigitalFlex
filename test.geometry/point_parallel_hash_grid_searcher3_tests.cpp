@@ -8,8 +8,8 @@
 
 #include <vector>
 
-#include "vox.geometry/point_parallel_hash_grid_searcher3.h"
 #include "vox.geometry/array1.h"
+#include "vox.geometry/point_parallel_hash_grid_searcher3.h"
 
 using namespace vox;
 

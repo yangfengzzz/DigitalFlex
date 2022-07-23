@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "vox.geometry/matrix_mxn.h"
-#include "vox.base/parallel.h"
 #include "vox.base/macros.h"
+#include "vox.base/parallel.h"
+#include "vox.geometry/matrix_mxn.h"
 #include "vox.math/math_utils.h"
 
 namespace vox {
