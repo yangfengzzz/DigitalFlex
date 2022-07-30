@@ -420,6 +420,73 @@
 		046C2E99288B87260031B2BE /* point_simple_list_searcher2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E30288B13C60031B2BE /* point_simple_list_searcher2_tests.cpp */; };
 		046C2E9A288B87440031B2BE /* frame_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E56288B1A820031B2BE /* frame_tests.cpp */; };
 		046C2E9B288B87550031B2BE /* frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E4E288B17EA0031B2BE /* frame.cpp */; };
+		046C2EB92894F88E0031B2BE /* level_set_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2E9C2894F88D0031B2BE /* level_set_solver3.cpp */; };
+		046C2EBA2894F88E0031B2BE /* physics_animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2E9D2894F88D0031B2BE /* physics_animation.h */; };
+		046C2EBB2894F88E0031B2BE /* pci_sph_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2E9E2894F88D0031B2BE /* pci_sph_solver2.h */; };
+		046C2EBC2894F88E0031B2BE /* sph_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2E9F2894F88D0031B2BE /* sph_solver3.h */; };
+		046C2EBD2894F88E0031B2BE /* level_set_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA02894F88D0031B2BE /* level_set_solver2.cpp */; };
+		046C2EBE2894F88E0031B2BE /* sph_kernels3-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EA12894F88D0031B2BE /* sph_kernels3-inl.h */; };
+		046C2EBF2894F88E0031B2BE /* sph_kernels2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EA22894F88D0031B2BE /* sph_kernels2.h */; };
+		046C2EC12894F88E0031B2BE /* sph_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA42894F88D0031B2BE /* sph_solver2.cpp */; };
+		046C2EC22894F88E0031B2BE /* sph_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EA52894F88D0031B2BE /* sph_solver2.h */; };
+		046C2EC32894F88E0031B2BE /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA62894F88D0031B2BE /* animation.cpp */; };
+		046C2EC42894F88E0031B2BE /* pci_sph_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA72894F88D0031B2BE /* pci_sph_solver3.cpp */; };
+		046C2EC52894F88E0031B2BE /* sph_points_to_implicit2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA82894F88D0031B2BE /* sph_points_to_implicit2.cpp */; };
+		046C2EC62894F88E0031B2BE /* sph_points_to_implicit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EA92894F88D0031B2BE /* sph_points_to_implicit2.h */; };
+		046C2EC72894F88E0031B2BE /* sph_points_to_implicit3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EAA2894F88D0031B2BE /* sph_points_to_implicit3.h */; };
+		046C2EC82894F88E0031B2BE /* level_set_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EAB2894F88D0031B2BE /* level_set_solver2.h */; };
+		046C2ECA2894F88E0031B2BE /* sph_points_to_implicit3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EAD2894F88D0031B2BE /* sph_points_to_implicit3.cpp */; };
+		046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EAE2894F88D0031B2BE /* physics_helpers.h */; };
+		046C2ECC2894F88E0031B2BE /* sph_system_data2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EAF2894F88D0031B2BE /* sph_system_data2.h */; };
+		046C2ECD2894F88E0031B2BE /* sph_system_data3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB02894F88D0031B2BE /* sph_system_data3.h */; };
+		046C2ECE2894F88E0031B2BE /* pci_sph_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EB12894F88E0031B2BE /* pci_sph_solver2.cpp */; };
+		046C2ECF2894F88E0031B2BE /* sph_kernels2-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB22894F88E0031B2BE /* sph_kernels2-inl.h */; };
+		046C2ED02894F88E0031B2BE /* sph_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EB32894F88E0031B2BE /* sph_solver3.cpp */; };
+		046C2ED12894F88E0031B2BE /* level_set_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB42894F88E0031B2BE /* level_set_solver3.h */; };
+		046C2ED22894F88E0031B2BE /* animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB52894F88E0031B2BE /* animation.h */; };
+		046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EB62894F88E0031B2BE /* physics_animation.cpp */; };
+		046C2ED42894F88E0031B2BE /* pci_sph_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB72894F88E0031B2BE /* pci_sph_solver3.h */; };
+		046C2ED52894F88E0031B2BE /* sph_kernels3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EB82894F88E0031B2BE /* sph_kernels3.h */; };
+		046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2ED62894F9050031B2BE /* points_to_implicit3.h */; };
+		046C2EDB2894F9060031B2BE /* points_to_implicit3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2ED72894F9050031B2BE /* points_to_implicit3.cpp */; };
+		046C2EDC2894F9060031B2BE /* points_to_implicit2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2ED82894F9050031B2BE /* points_to_implicit2.cpp */; };
+		046C2EDD2894F9060031B2BE /* points_to_implicit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2ED92894F9060031B2BE /* points_to_implicit2.h */; };
+		046C2EFC2894F9A60031B2BE /* fmm_level_set_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EDE2894F9A50031B2BE /* fmm_level_set_solver2.cpp */; };
+		046C2EFD2894F9A60031B2BE /* iterative_level_set_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EDF2894F9A50031B2BE /* iterative_level_set_solver3.h */; };
+		046C2EFE2894F9A60031B2BE /* spherical_points_to_implicit2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EE02894F9A50031B2BE /* spherical_points_to_implicit2.cpp */; };
+		046C2EFF2894F9A60031B2BE /* zhu_bridson_points_to_implicit3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EE12894F9A50031B2BE /* zhu_bridson_points_to_implicit3.cpp */; };
+		046C2F002894F9A60031B2BE /* iterative_level_set_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EE22894F9A50031B2BE /* iterative_level_set_solver2.h */; };
+		046C2F012894F9A60031B2BE /* eno_level_set_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EE32894F9A50031B2BE /* eno_level_set_solver2.h */; };
+		046C2F022894F9A60031B2BE /* iterative_level_set_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EE42894F9A50031B2BE /* iterative_level_set_solver2.cpp */; };
+		046C2F032894F9A60031B2BE /* eno_level_set_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EE52894F9A50031B2BE /* eno_level_set_solver3.h */; };
+		046C2F042894F9A60031B2BE /* upwind_level_set_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EE62894F9A50031B2BE /* upwind_level_set_solver2.cpp */; };
+		046C2F052894F9A60031B2BE /* spherical_points_to_implicit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EE72894F9A50031B2BE /* spherical_points_to_implicit2.h */; };
+		046C2F062894F9A60031B2BE /* upwind_level_set_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EE82894F9A50031B2BE /* upwind_level_set_solver2.h */; };
+		046C2F072894F9A60031B2BE /* upwind_level_set_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EE92894F9A50031B2BE /* upwind_level_set_solver3.cpp */; };
+		046C2F082894F9A60031B2BE /* anisotropic_points_to_implicit3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EEA2894F9A50031B2BE /* anisotropic_points_to_implicit3.cpp */; };
+		046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EEB2894F9A50031B2BE /* zhu_bridson_points_to_implicit3.h */; };
+		046C2F0A2894F9A60031B2BE /* eno_level_set_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EEC2894F9A50031B2BE /* eno_level_set_solver3.cpp */; };
+		046C2F0B2894F9A60031B2BE /* anisotropic_points_to_implicit2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EED2894F9A50031B2BE /* anisotropic_points_to_implicit2.cpp */; };
+		046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EEE2894F9A50031B2BE /* fmm_level_set_solver3.h */; };
+		046C2F0D2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EEF2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h */; };
+		046C2F0E2894F9A60031B2BE /* fmm_level_set_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF02894F9A60031B2BE /* fmm_level_set_solver2.h */; };
+		046C2F0F2894F9A60031B2BE /* fmm_level_set_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EF12894F9A60031B2BE /* fmm_level_set_solver3.cpp */; };
+		046C2F102894F9A60031B2BE /* anisotropic_points_to_implicit2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF22894F9A60031B2BE /* anisotropic_points_to_implicit2.h */; };
+		046C2F112894F9A60031B2BE /* spherical_points_to_implicit3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF32894F9A60031B2BE /* spherical_points_to_implicit3.h */; };
+		046C2F122894F9A60031B2BE /* pde-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF42894F9A60031B2BE /* pde-inl.h */; };
+		046C2F132894F9A60031B2BE /* pde.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF52894F9A60031B2BE /* pde.h */; };
+		046C2F142894F9A60031B2BE /* spherical_points_to_implicit3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EF62894F9A60031B2BE /* spherical_points_to_implicit3.cpp */; };
+		046C2F152894F9A60031B2BE /* eno_level_set_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EF72894F9A60031B2BE /* eno_level_set_solver2.cpp */; };
+		046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EF82894F9A60031B2BE /* anisotropic_points_to_implicit3.h */; };
+		046C2F172894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EF92894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp */; };
+		046C2F182894F9A60031B2BE /* iterative_level_set_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EFA2894F9A60031B2BE /* iterative_level_set_solver3.cpp */; };
+		046C2F192894F9A60031B2BE /* upwind_level_set_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2EFB2894F9A60031B2BE /* upwind_level_set_solver3.h */; };
+		046C2F1E2894FD8B0031B2BE /* particle_system_solver3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2F1A2894FD8B0031B2BE /* particle_system_solver3.cpp */; };
+		046C2F1F2894FD8B0031B2BE /* particle_system_solver3.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2F1B2894FD8B0031B2BE /* particle_system_solver3.h */; };
+		046C2F202894FD8B0031B2BE /* particle_system_solver2.h in Headers */ = {isa = PBXBuildFile; fileRef = 046C2F1C2894FD8B0031B2BE /* particle_system_solver2.h */; };
+		046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2F1D2894FD8B0031B2BE /* particle_system_solver2.cpp */; };
+		04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */; };
+		04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */; };
 		04BEAD7A288ADE06008D3CA1 /* box3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6B288ADE05008D3CA1 /* box3.h */; };
 		04BEAD7B288ADE06008D3CA1 /* sphere2.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6C288ADE05008D3CA1 /* sphere2.h */; };
 		04BEAD7C288ADE06008D3CA1 /* plane3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD6D288ADE06008D3CA1 /* plane3.h */; };
@@ -1622,6 +1689,73 @@
 		046C2E5F288B1B220031B2BE /* cell_centered_vector_grid3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cell_centered_vector_grid3_tests.cpp; sourceTree = "<group>"; };
 		046C2E60288B1B230031B2BE /* cell_centered_scalar_grid3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cell_centered_scalar_grid3_tests.cpp; sourceTree = "<group>"; };
 		046C2E61288B1B230031B2BE /* vertex_centered_scalar_grid2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vertex_centered_scalar_grid2_tests.cpp; sourceTree = "<group>"; };
+		046C2E9C2894F88D0031B2BE /* level_set_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = level_set_solver3.cpp; sourceTree = "<group>"; };
+		046C2E9D2894F88D0031B2BE /* physics_animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physics_animation.h; sourceTree = "<group>"; };
+		046C2E9E2894F88D0031B2BE /* pci_sph_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pci_sph_solver2.h; sourceTree = "<group>"; };
+		046C2E9F2894F88D0031B2BE /* sph_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_solver3.h; sourceTree = "<group>"; };
+		046C2EA02894F88D0031B2BE /* level_set_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = level_set_solver2.cpp; sourceTree = "<group>"; };
+		046C2EA12894F88D0031B2BE /* sph_kernels3-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sph_kernels3-inl.h"; sourceTree = "<group>"; };
+		046C2EA22894F88D0031B2BE /* sph_kernels2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_kernels2.h; sourceTree = "<group>"; };
+		046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_system_data2.cpp; sourceTree = "<group>"; };
+		046C2EA42894F88D0031B2BE /* sph_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_solver2.cpp; sourceTree = "<group>"; };
+		046C2EA52894F88D0031B2BE /* sph_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_solver2.h; sourceTree = "<group>"; };
+		046C2EA62894F88D0031B2BE /* animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation.cpp; sourceTree = "<group>"; };
+		046C2EA72894F88D0031B2BE /* pci_sph_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pci_sph_solver3.cpp; sourceTree = "<group>"; };
+		046C2EA82894F88D0031B2BE /* sph_points_to_implicit2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_points_to_implicit2.cpp; sourceTree = "<group>"; };
+		046C2EA92894F88D0031B2BE /* sph_points_to_implicit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_points_to_implicit2.h; sourceTree = "<group>"; };
+		046C2EAA2894F88D0031B2BE /* sph_points_to_implicit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_points_to_implicit3.h; sourceTree = "<group>"; };
+		046C2EAB2894F88D0031B2BE /* level_set_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = level_set_solver2.h; sourceTree = "<group>"; };
+		046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_system_data3.cpp; sourceTree = "<group>"; };
+		046C2EAD2894F88D0031B2BE /* sph_points_to_implicit3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_points_to_implicit3.cpp; sourceTree = "<group>"; };
+		046C2EAE2894F88D0031B2BE /* physics_helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physics_helpers.h; sourceTree = "<group>"; };
+		046C2EAF2894F88D0031B2BE /* sph_system_data2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_system_data2.h; sourceTree = "<group>"; };
+		046C2EB02894F88D0031B2BE /* sph_system_data3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_system_data3.h; sourceTree = "<group>"; };
+		046C2EB12894F88E0031B2BE /* pci_sph_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pci_sph_solver2.cpp; sourceTree = "<group>"; };
+		046C2EB22894F88E0031B2BE /* sph_kernels2-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sph_kernels2-inl.h"; sourceTree = "<group>"; };
+		046C2EB32894F88E0031B2BE /* sph_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_solver3.cpp; sourceTree = "<group>"; };
+		046C2EB42894F88E0031B2BE /* level_set_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = level_set_solver3.h; sourceTree = "<group>"; };
+		046C2EB52894F88E0031B2BE /* animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation.h; sourceTree = "<group>"; };
+		046C2EB62894F88E0031B2BE /* physics_animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = physics_animation.cpp; sourceTree = "<group>"; };
+		046C2EB72894F88E0031B2BE /* pci_sph_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pci_sph_solver3.h; sourceTree = "<group>"; };
+		046C2EB82894F88E0031B2BE /* sph_kernels3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_kernels3.h; sourceTree = "<group>"; };
+		046C2ED62894F9050031B2BE /* points_to_implicit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = points_to_implicit3.h; sourceTree = "<group>"; };
+		046C2ED72894F9050031B2BE /* points_to_implicit3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = points_to_implicit3.cpp; sourceTree = "<group>"; };
+		046C2ED82894F9050031B2BE /* points_to_implicit2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = points_to_implicit2.cpp; sourceTree = "<group>"; };
+		046C2ED92894F9060031B2BE /* points_to_implicit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = points_to_implicit2.h; sourceTree = "<group>"; };
+		046C2EDE2894F9A50031B2BE /* fmm_level_set_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmm_level_set_solver2.cpp; sourceTree = "<group>"; };
+		046C2EDF2894F9A50031B2BE /* iterative_level_set_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterative_level_set_solver3.h; sourceTree = "<group>"; };
+		046C2EE02894F9A50031B2BE /* spherical_points_to_implicit2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spherical_points_to_implicit2.cpp; sourceTree = "<group>"; };
+		046C2EE12894F9A50031B2BE /* zhu_bridson_points_to_implicit3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zhu_bridson_points_to_implicit3.cpp; sourceTree = "<group>"; };
+		046C2EE22894F9A50031B2BE /* iterative_level_set_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterative_level_set_solver2.h; sourceTree = "<group>"; };
+		046C2EE32894F9A50031B2BE /* eno_level_set_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eno_level_set_solver2.h; sourceTree = "<group>"; };
+		046C2EE42894F9A50031B2BE /* iterative_level_set_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iterative_level_set_solver2.cpp; sourceTree = "<group>"; };
+		046C2EE52894F9A50031B2BE /* eno_level_set_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eno_level_set_solver3.h; sourceTree = "<group>"; };
+		046C2EE62894F9A50031B2BE /* upwind_level_set_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = upwind_level_set_solver2.cpp; sourceTree = "<group>"; };
+		046C2EE72894F9A50031B2BE /* spherical_points_to_implicit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spherical_points_to_implicit2.h; sourceTree = "<group>"; };
+		046C2EE82894F9A50031B2BE /* upwind_level_set_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upwind_level_set_solver2.h; sourceTree = "<group>"; };
+		046C2EE92894F9A50031B2BE /* upwind_level_set_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = upwind_level_set_solver3.cpp; sourceTree = "<group>"; };
+		046C2EEA2894F9A50031B2BE /* anisotropic_points_to_implicit3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = anisotropic_points_to_implicit3.cpp; sourceTree = "<group>"; };
+		046C2EEB2894F9A50031B2BE /* zhu_bridson_points_to_implicit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhu_bridson_points_to_implicit3.h; sourceTree = "<group>"; };
+		046C2EEC2894F9A50031B2BE /* eno_level_set_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eno_level_set_solver3.cpp; sourceTree = "<group>"; };
+		046C2EED2894F9A50031B2BE /* anisotropic_points_to_implicit2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = anisotropic_points_to_implicit2.cpp; sourceTree = "<group>"; };
+		046C2EEE2894F9A50031B2BE /* fmm_level_set_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmm_level_set_solver3.h; sourceTree = "<group>"; };
+		046C2EEF2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhu_bridson_points_to_implicit2.h; sourceTree = "<group>"; };
+		046C2EF02894F9A60031B2BE /* fmm_level_set_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmm_level_set_solver2.h; sourceTree = "<group>"; };
+		046C2EF12894F9A60031B2BE /* fmm_level_set_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmm_level_set_solver3.cpp; sourceTree = "<group>"; };
+		046C2EF22894F9A60031B2BE /* anisotropic_points_to_implicit2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = anisotropic_points_to_implicit2.h; sourceTree = "<group>"; };
+		046C2EF32894F9A60031B2BE /* spherical_points_to_implicit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spherical_points_to_implicit3.h; sourceTree = "<group>"; };
+		046C2EF42894F9A60031B2BE /* pde-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pde-inl.h"; sourceTree = "<group>"; };
+		046C2EF52894F9A60031B2BE /* pde.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pde.h; sourceTree = "<group>"; };
+		046C2EF62894F9A60031B2BE /* spherical_points_to_implicit3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spherical_points_to_implicit3.cpp; sourceTree = "<group>"; };
+		046C2EF72894F9A60031B2BE /* eno_level_set_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = eno_level_set_solver2.cpp; sourceTree = "<group>"; };
+		046C2EF82894F9A60031B2BE /* anisotropic_points_to_implicit3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = anisotropic_points_to_implicit3.h; sourceTree = "<group>"; };
+		046C2EF92894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zhu_bridson_points_to_implicit2.cpp; sourceTree = "<group>"; };
+		046C2EFA2894F9A60031B2BE /* iterative_level_set_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iterative_level_set_solver3.cpp; sourceTree = "<group>"; };
+		046C2EFB2894F9A60031B2BE /* upwind_level_set_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = upwind_level_set_solver3.h; sourceTree = "<group>"; };
+		046C2F1A2894FD8B0031B2BE /* particle_system_solver3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = particle_system_solver3.cpp; sourceTree = "<group>"; };
+		046C2F1B2894FD8B0031B2BE /* particle_system_solver3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particle_system_solver3.h; sourceTree = "<group>"; };
+		046C2F1C2894FD8B0031B2BE /* particle_system_solver2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particle_system_solver2.h; sourceTree = "<group>"; };
+		046C2F1D2894FD8B0031B2BE /* particle_system_solver2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = particle_system_solver2.cpp; sourceTree = "<group>"; };
 		04BEAD6B288ADE05008D3CA1 /* box3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = box3.h; sourceTree = "<group>"; };
 		04BEAD6C288ADE05008D3CA1 /* sphere2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere2.h; sourceTree = "<group>"; };
 		04BEAD6D288ADE06008D3CA1 /* plane3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plane3.h; sourceTree = "<group>"; };
@@ -2875,6 +3009,43 @@
 				046C2D5D288AF7110031B2BE /* collider3.h */,
 				046C2D67288AF7110031B2BE /* collider3.cpp */,
 				046C2DE8288AFFF30031B2BE /* colliders */,
+				046C2EB52894F88E0031B2BE /* animation.h */,
+				046C2EA62894F88D0031B2BE /* animation.cpp */,
+				046C2EAE2894F88D0031B2BE /* physics_helpers.h */,
+				046C2E9D2894F88D0031B2BE /* physics_animation.h */,
+				046C2EB62894F88E0031B2BE /* physics_animation.cpp */,
+				046C2F1C2894FD8B0031B2BE /* particle_system_solver2.h */,
+				046C2F1D2894FD8B0031B2BE /* particle_system_solver2.cpp */,
+				046C2F1B2894FD8B0031B2BE /* particle_system_solver3.h */,
+				046C2F1A2894FD8B0031B2BE /* particle_system_solver3.cpp */,
+				046C2EAF2894F88D0031B2BE /* sph_system_data2.h */,
+				046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */,
+				046C2EB02894F88D0031B2BE /* sph_system_data3.h */,
+				046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */,
+				046C2EA22894F88D0031B2BE /* sph_kernels2.h */,
+				046C2EB22894F88E0031B2BE /* sph_kernels2-inl.h */,
+				046C2EB82894F88E0031B2BE /* sph_kernels3.h */,
+				046C2EA12894F88D0031B2BE /* sph_kernels3-inl.h */,
+				046C2EA52894F88D0031B2BE /* sph_solver2.h */,
+				046C2EA42894F88D0031B2BE /* sph_solver2.cpp */,
+				046C2E9F2894F88D0031B2BE /* sph_solver3.h */,
+				046C2EB32894F88E0031B2BE /* sph_solver3.cpp */,
+				046C2E9E2894F88D0031B2BE /* pci_sph_solver2.h */,
+				046C2EB12894F88E0031B2BE /* pci_sph_solver2.cpp */,
+				046C2EB72894F88E0031B2BE /* pci_sph_solver3.h */,
+				046C2EA72894F88D0031B2BE /* pci_sph_solver3.cpp */,
+				046C2EAB2894F88D0031B2BE /* level_set_solver2.h */,
+				046C2EA02894F88D0031B2BE /* level_set_solver2.cpp */,
+				046C2EB42894F88E0031B2BE /* level_set_solver3.h */,
+				046C2E9C2894F88D0031B2BE /* level_set_solver3.cpp */,
+				04B71A2C28950E3B0079A969 /* level_set_solvers */,
+				046C2EF52894F9A60031B2BE /* pde.h */,
+				046C2EF42894F9A60031B2BE /* pde-inl.h */,
+				046C2ED92894F9060031B2BE /* points_to_implicit2.h */,
+				046C2ED82894F9050031B2BE /* points_to_implicit2.cpp */,
+				046C2ED62894F9050031B2BE /* points_to_implicit3.h */,
+				046C2ED72894F9050031B2BE /* points_to_implicit3.cpp */,
+				04B71A2D28950E520079A969 /* points_to_implicits */,
 			);
 			path = vox.force;
 			sourceTree = "<group>";
@@ -2988,6 +3159,52 @@
 				046C2D99288AFFE90031B2BE /* particle_emitter_set3.cpp */,
 			);
 			name = particle_emitters;
+			sourceTree = "<group>";
+		};
+		04B71A2C28950E3B0079A969 /* level_set_solvers */ = {
+			isa = PBXGroup;
+			children = (
+				046C2EF02894F9A60031B2BE /* fmm_level_set_solver2.h */,
+				046C2EDE2894F9A50031B2BE /* fmm_level_set_solver2.cpp */,
+				046C2EEE2894F9A50031B2BE /* fmm_level_set_solver3.h */,
+				046C2EF12894F9A60031B2BE /* fmm_level_set_solver3.cpp */,
+				046C2EE22894F9A50031B2BE /* iterative_level_set_solver2.h */,
+				046C2EE42894F9A50031B2BE /* iterative_level_set_solver2.cpp */,
+				046C2EDF2894F9A50031B2BE /* iterative_level_set_solver3.h */,
+				046C2EFA2894F9A60031B2BE /* iterative_level_set_solver3.cpp */,
+				046C2EE82894F9A50031B2BE /* upwind_level_set_solver2.h */,
+				046C2EE62894F9A50031B2BE /* upwind_level_set_solver2.cpp */,
+				046C2EE92894F9A50031B2BE /* upwind_level_set_solver3.cpp */,
+				046C2EFB2894F9A60031B2BE /* upwind_level_set_solver3.h */,
+				046C2EE32894F9A50031B2BE /* eno_level_set_solver2.h */,
+				046C2EF72894F9A60031B2BE /* eno_level_set_solver2.cpp */,
+				046C2EE52894F9A50031B2BE /* eno_level_set_solver3.h */,
+				046C2EEC2894F9A50031B2BE /* eno_level_set_solver3.cpp */,
+			);
+			name = level_set_solvers;
+			sourceTree = "<group>";
+		};
+		04B71A2D28950E520079A969 /* points_to_implicits */ = {
+			isa = PBXGroup;
+			children = (
+				046C2EF22894F9A60031B2BE /* anisotropic_points_to_implicit2.h */,
+				046C2EED2894F9A50031B2BE /* anisotropic_points_to_implicit2.cpp */,
+				046C2EF82894F9A60031B2BE /* anisotropic_points_to_implicit3.h */,
+				046C2EEA2894F9A50031B2BE /* anisotropic_points_to_implicit3.cpp */,
+				046C2EE72894F9A50031B2BE /* spherical_points_to_implicit2.h */,
+				046C2EE02894F9A50031B2BE /* spherical_points_to_implicit2.cpp */,
+				046C2EF32894F9A60031B2BE /* spherical_points_to_implicit3.h */,
+				046C2EF62894F9A60031B2BE /* spherical_points_to_implicit3.cpp */,
+				046C2EEF2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h */,
+				046C2EF92894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp */,
+				046C2EEB2894F9A50031B2BE /* zhu_bridson_points_to_implicit3.h */,
+				046C2EE12894F9A50031B2BE /* zhu_bridson_points_to_implicit3.cpp */,
+				046C2EA92894F88D0031B2BE /* sph_points_to_implicit2.h */,
+				046C2EA82894F88D0031B2BE /* sph_points_to_implicit2.cpp */,
+				046C2EAA2894F88D0031B2BE /* sph_points_to_implicit3.h */,
+				046C2EAD2894F88D0031B2BE /* sph_points_to_implicit3.cpp */,
+			);
+			name = points_to_implicits;
 			sourceTree = "<group>";
 		};
 		04D09F8728897C900014DCFD = {
@@ -4223,12 +4440,49 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046C2F002894F9A60031B2BE /* iterative_level_set_solver2.h in Headers */,
+				046C2F202894FD8B0031B2BE /* particle_system_solver2.h in Headers */,
 				046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */,
+				046C2ECD2894F88E0031B2BE /* sph_system_data3.h in Headers */,
+				046C2EBF2894F88E0031B2BE /* sph_kernels2.h in Headers */,
+				046C2EC22894F88E0031B2BE /* sph_solver2.h in Headers */,
+				046C2EC82894F88E0031B2BE /* level_set_solver2.h in Headers */,
+				046C2F112894F9A60031B2BE /* spherical_points_to_implicit3.h in Headers */,
+				046C2F0E2894F9A60031B2BE /* fmm_level_set_solver2.h in Headers */,
+				046C2EBE2894F88E0031B2BE /* sph_kernels3-inl.h in Headers */,
+				046C2F132894F9A60031B2BE /* pde.h in Headers */,
+				046C2EC62894F88E0031B2BE /* sph_points_to_implicit2.h in Headers */,
+				046C2ECF2894F88E0031B2BE /* sph_kernels2-inl.h in Headers */,
+				046C2ED22894F88E0031B2BE /* animation.h in Headers */,
+				046C2F052894F9A60031B2BE /* spherical_points_to_implicit2.h in Headers */,
+				046C2EC72894F88E0031B2BE /* sph_points_to_implicit3.h in Headers */,
+				046C2ED42894F88E0031B2BE /* pci_sph_solver3.h in Headers */,
+				046C2ED12894F88E0031B2BE /* level_set_solver3.h in Headers */,
+				046C2F062894F9A60031B2BE /* upwind_level_set_solver2.h in Headers */,
+				046C2EBB2894F88E0031B2BE /* pci_sph_solver2.h in Headers */,
+				046C2EBC2894F88E0031B2BE /* sph_solver3.h in Headers */,
+				046C2ECC2894F88E0031B2BE /* sph_system_data2.h in Headers */,
+				046C2ED52894F88E0031B2BE /* sph_kernels3.h in Headers */,
+				046C2F102894F9A60031B2BE /* anisotropic_points_to_implicit2.h in Headers */,
+				046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
+				046C2EFD2894F9A60031B2BE /* iterative_level_set_solver3.h in Headers */,
 				046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */,
+				046C2EBA2894F88E0031B2BE /* physics_animation.h in Headers */,
+				046C2F012894F9A60031B2BE /* eno_level_set_solver2.h in Headers */,
+				046C2EDD2894F9060031B2BE /* points_to_implicit2.h in Headers */,
+				046C2F032894F9A60031B2BE /* eno_level_set_solver3.h in Headers */,
+				046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */,
+				046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */,
+				046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */,
+				046C2F122894F9A60031B2BE /* pde-inl.h in Headers */,
 				046C2D6C288AF7110031B2BE /* collider_set3.h in Headers */,
+				046C2F1F2894FD8B0031B2BE /* particle_system_solver3.h in Headers */,
+				046C2F192894F9A60031B2BE /* upwind_level_set_solver3.h in Headers */,
+				046C2F0D2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h in Headers */,
 				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
+				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5098,12 +5352,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */,
+				046C2F142894F9A60031B2BE /* spherical_points_to_implicit3.cpp in Sources */,
+				046C2EC32894F88E0031B2BE /* animation.cpp in Sources */,
+				046C2EDC2894F9060031B2BE /* points_to_implicit2.cpp in Sources */,
 				046C2D6F288AF7110031B2BE /* rigid_body_collider2.cpp in Sources */,
+				046C2EC42894F88E0031B2BE /* pci_sph_solver3.cpp in Sources */,
 				046C2D73288AF7110031B2BE /* collider3.cpp in Sources */,
+				046C2ECE2894F88E0031B2BE /* pci_sph_solver2.cpp in Sources */,
+				046C2EC12894F88E0031B2BE /* sph_solver2.cpp in Sources */,
+				046C2EB92894F88E0031B2BE /* level_set_solver3.cpp in Sources */,
+				046C2F172894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp in Sources */,
+				046C2EFF2894F9A60031B2BE /* zhu_bridson_points_to_implicit3.cpp in Sources */,
+				046C2F022894F9A60031B2BE /* iterative_level_set_solver2.cpp in Sources */,
+				04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */,
+				046C2F042894F9A60031B2BE /* upwind_level_set_solver2.cpp in Sources */,
 				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
 				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
+				046C2F0A2894F9A60031B2BE /* eno_level_set_solver3.cpp in Sources */,
+				046C2F082894F9A60031B2BE /* anisotropic_points_to_implicit3.cpp in Sources */,
+				046C2F0F2894F9A60031B2BE /* fmm_level_set_solver3.cpp in Sources */,
+				046C2F0B2894F9A60031B2BE /* anisotropic_points_to_implicit2.cpp in Sources */,
+				046C2F1E2894FD8B0031B2BE /* particle_system_solver3.cpp in Sources */,
+				046C2EBD2894F88E0031B2BE /* level_set_solver2.cpp in Sources */,
+				046C2EFE2894F9A60031B2BE /* spherical_points_to_implicit2.cpp in Sources */,
+				046C2F072894F9A60031B2BE /* upwind_level_set_solver3.cpp in Sources */,
+				046C2EC52894F88E0031B2BE /* sph_points_to_implicit2.cpp in Sources */,
+				046C2EFC2894F9A60031B2BE /* fmm_level_set_solver2.cpp in Sources */,
+				046C2ED02894F88E0031B2BE /* sph_solver3.cpp in Sources */,
+				046C2F152894F9A60031B2BE /* eno_level_set_solver2.cpp in Sources */,
+				046C2F182894F9A60031B2BE /* iterative_level_set_solver3.cpp in Sources */,
 				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
+				046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */,
+				046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */,
+				046C2ECA2894F88E0031B2BE /* sph_points_to_implicit3.cpp in Sources */,
+				046C2EDB2894F9060031B2BE /* points_to_implicit3.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
