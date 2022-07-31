@@ -552,6 +552,8 @@
 		047EB3A52896A54000AC5A87 /* triangle_mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */; };
 		047EB3A62896A54000AC5A87 /* entity_iterators.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB39F2896A53F00AC5A87 /* entity_iterators.h */; };
 		047EB3A72896A54000AC5A87 /* entity_containers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB3A02896A53F00AC5A87 /* entity_containers.cpp */; };
+		047EB3AA2896AD5D00AC5A87 /* discrete_grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */; };
+		047EB3AB2896AD5E00AC5A87 /* discrete_grid.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB3A92896AD5D00AC5A87 /* discrete_grid.h */; };
 		04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */; };
 		04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */; };
 		04B71A39289549B90079A969 /* sph_kernels2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */; };
@@ -1938,6 +1940,8 @@
 		047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_mesh.cpp; sourceTree = "<group>"; };
 		047EB39F2896A53F00AC5A87 /* entity_iterators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entity_iterators.h; sourceTree = "<group>"; };
 		047EB3A02896A53F00AC5A87 /* entity_containers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = entity_containers.cpp; sourceTree = "<group>"; };
+		047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = discrete_grid.cpp; sourceTree = "<group>"; };
+		047EB3A92896AD5D00AC5A87 /* discrete_grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discrete_grid.h; sourceTree = "<group>"; };
 		04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_kernels2_tests.cpp; sourceTree = "<group>"; };
 		04B71A2F289549B80079A969 /* pde_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pde_tests.cpp; sourceTree = "<group>"; };
 		04B71A30289549B80079A969 /* sph_solver2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_solver2_tests.cpp; sourceTree = "<group>"; };
@@ -3215,6 +3219,8 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				047EB3A92896AD5D00AC5A87 /* discrete_grid.h */,
+				047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */,
 				047EB39D2896A53F00AC5A87 /* half_edge.h */,
 				047EB39A2896A53F00AC5A87 /* triangle_mesh.h */,
 				047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */,
@@ -4761,6 +4767,7 @@
 				046C2EC22894F88E0031B2BE /* sph_solver2.h in Headers */,
 				047EB3692896257300AC5A87 /* cubic_semi_lagrangian2.h in Headers */,
 				046C2EC82894F88E0031B2BE /* level_set_solver2.h in Headers */,
+				047EB3AB2896AD5E00AC5A87 /* discrete_grid.h in Headers */,
 				046C2F112894F9A60031B2BE /* spherical_points_to_implicit3.h in Headers */,
 				046C2F0E2894F9A60031B2BE /* fmm_level_set_solver2.h in Headers */,
 				046C2EBE2894F88E0031B2BE /* sph_kernels3-inl.h in Headers */,
@@ -5747,6 +5754,7 @@
 				046C2F182894F9A60031B2BE /* iterative_level_set_solver3.cpp in Sources */,
 				047EB3632896257300AC5A87 /* advection_solver2.cpp in Sources */,
 				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
+				047EB3AA2896AD5D00AC5A87 /* discrete_grid.cpp in Sources */,
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
 				046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */,
 				046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */,
