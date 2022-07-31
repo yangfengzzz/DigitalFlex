@@ -542,6 +542,9 @@
 		047EB38E289628CF00AC5A87 /* grid_emitter_set3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB382289628CF00AC5A87 /* grid_emitter_set3.cpp */; };
 		047EB38F289628CF00AC5A87 /* volume_grid_emitter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB383289628CF00AC5A87 /* volume_grid_emitter3.cpp */; };
 		047EB390289628CF00AC5A87 /* volume_grid_emitter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB384289628CF00AC5A87 /* volume_grid_emitter3.h */; };
+		047EB39628962B2C00AC5A87 /* grid_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39228962AFD00AC5A87 /* grid_emitter3_tests.cpp */; };
+		047EB39728962B2C00AC5A87 /* grid_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39328962AFD00AC5A87 /* grid_emitter2_tests.cpp */; };
+		047EB39928962BC000AC5A87 /* advection_solvers_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39828962BC000AC5A87 /* advection_solvers_tests.cpp */; };
 		04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */; };
 		04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */; };
 		04B71A39289549B90079A969 /* sph_kernels2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */; };
@@ -1918,6 +1921,9 @@
 		047EB382289628CF00AC5A87 /* grid_emitter_set3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid_emitter_set3.cpp; sourceTree = "<group>"; };
 		047EB383289628CF00AC5A87 /* volume_grid_emitter3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = volume_grid_emitter3.cpp; sourceTree = "<group>"; };
 		047EB384289628CF00AC5A87 /* volume_grid_emitter3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = volume_grid_emitter3.h; sourceTree = "<group>"; };
+		047EB39228962AFD00AC5A87 /* grid_emitter3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid_emitter3_tests.cpp; sourceTree = "<group>"; };
+		047EB39328962AFD00AC5A87 /* grid_emitter2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid_emitter2_tests.cpp; sourceTree = "<group>"; };
+		047EB39828962BC000AC5A87 /* advection_solvers_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = advection_solvers_tests.cpp; sourceTree = "<group>"; };
 		04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_kernels2_tests.cpp; sourceTree = "<group>"; };
 		04B71A2F289549B80079A969 /* pde_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pde_tests.cpp; sourceTree = "<group>"; };
 		04B71A30289549B80079A969 /* sph_solver2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_solver2_tests.cpp; sourceTree = "<group>"; };
@@ -2741,6 +2747,8 @@
 				046C2E58288B1B220031B2BE /* vertex_centered_scalar_grid3_tests.cpp */,
 				046C2E59288B1B220031B2BE /* vertex_centered_vector_grid2_tests.cpp */,
 				046C2E5C288B1B220031B2BE /* vertex_centered_vector_grid3_tests.cpp */,
+				047EB39328962AFD00AC5A87 /* grid_emitter2_tests.cpp */,
+				047EB39228962AFD00AC5A87 /* grid_emitter3_tests.cpp */,
 				046C2E29288B13C60031B2BE /* particle_system_data2_tests.cpp */,
 				046C2E31288B13C70031B2BE /* particle_system_data3_tests.cpp */,
 				046C2E2A288B13C60031B2BE /* point_hash_grid_searcher2_tests.cpp */,
@@ -3401,6 +3409,7 @@
 				047EB2FE2896192500AC5A87 /* sph_solver3_tests.cpp */,
 				047EB2F82896192400AC5A87 /* pci_sph_solver2_tests.cpp */,
 				047EB2F32896192400AC5A87 /* pci_sph_solver3_tests.cpp */,
+				047EB39828962BC000AC5A87 /* advection_solvers_tests.cpp */,
 			);
 			path = apps.force;
 			sourceTree = "<group>";
@@ -5436,6 +5445,7 @@
 				041F4B0B288AEA0600696E23 /* implicit_triangle_mesh3_tests.cpp in Sources */,
 				046C2E95288B87260031B2BE /* point_kdtree_searcher2_tests.cpp in Sources */,
 				041F4B19288AEA0600696E23 /* fdm_gauss_seidel_solver3_tests.cpp in Sources */,
+				047EB39628962B2C00AC5A87 /* grid_emitter3_tests.cpp in Sources */,
 				046C2E67288B1B230031B2BE /* face_centered_grid2_tests.cpp in Sources */,
 				046C2E66288B1B230031B2BE /* vertex_centered_vector_grid3_tests.cpp in Sources */,
 				041F4B00288AEA0600696E23 /* array2_tests.cpp in Sources */,
@@ -5484,6 +5494,7 @@
 				041F4AFC288AEA0600696E23 /* fdm_utils_tests.cpp in Sources */,
 				046C2E68288B1B230031B2BE /* face_centered_grid3_tests.cpp in Sources */,
 				046C2E62288B1B230031B2BE /* vertex_centered_scalar_grid3_tests.cpp in Sources */,
+				047EB39728962B2C00AC5A87 /* grid_emitter2_tests.cpp in Sources */,
 				041F4B1E288AEA0600696E23 /* fdm_cg_solver2_tests.cpp in Sources */,
 				046C2D4C288AF5DC0031B2BE /* vector_n_tests.cpp in Sources */,
 				041F4B12288AEA0600696E23 /* fdm_jacobi_solver3_tests.cpp in Sources */,
@@ -5776,6 +5787,7 @@
 				047EB3502896200500AC5A87 /* physics_animation_tests.cpp in Sources */,
 				047EB33C28961E5700AC5A87 /* sph_points_to_implicit2_tests.cpp in Sources */,
 				047EB3522896200500AC5A87 /* sph_solver3_tests.cpp in Sources */,
+				047EB39928962BC000AC5A87 /* advection_solvers_tests.cpp in Sources */,
 				047EB34F2896200500AC5A87 /* volume_particle_emitters_tests.cpp in Sources */,
 				047EB34028961E5700AC5A87 /* spherical_points_to_implicit2_tests.cpp in Sources */,
 				047EB34128961E5700AC5A87 /* anisotropic_points_to_implicit3_tests.cpp in Sources */,
