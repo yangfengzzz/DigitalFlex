@@ -58,3 +58,9 @@
 [submodule "third_party/tinyobj"]
 	path = third_party/tinyobj
 	url = https://github.com/tinyobjloader/tinyobjloader.git
+[submodule "third_party/pystring"]
+	path = third_party/pystring
+	url = https://github.com/imageworks/pystring.git
+[submodule "third_party/cnpy"]
+	path = third_party/cnpy
+	url = https://github.com/rogersce/cnpy.git
