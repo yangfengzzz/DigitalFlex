@@ -19,11 +19,10 @@ namespace vox::flex {
 
 class DiscreteGrid {
 public:
-    using CoefficientVector = std::array<double, 32>;
-    using ContinuousFunction = std::function<double(Vector3D const &)>;
-    using MultiIndex = std::array<size_t, 3>;
-    using Predicate = std::function<bool(Vector3D const &, double)>;
-    using SamplePredicate = std::function<bool(Vector3D const &)>;
+    using CoefficientVector = Matrix<double, 32, 1>;
+    using ContinuousFunction = std::function<double(Point3D const &)>;
+    using Predicate = std::function<bool(Point3D const &, double)>;
+    using SamplePredicate = std::function<bool(Point3D const &)>;
 
     DiscreteGrid() = default;
     DiscreteGrid(BoundingBox3D const &domain, Size3 const &resolution)
@@ -42,9 +41,9 @@ public:
                                      bool verbose = false,
                                      SamplePredicate const &pred = nullptr) = 0;
 
-    double interpolate(Vector3D const &xi, Vector3D *gradient = nullptr) const { return interpolate(0u, xi, gradient); }
+    double interpolate(Point3D const &xi, Vector3D *gradient = nullptr) const { return interpolate(0u, xi, gradient); }
 
-    virtual double interpolate(unsigned int field_id, Vector3D const &xi, Vector3D *gradient = nullptr) const = 0;
+    virtual double interpolate(unsigned int field_id, Point3D const &xi, Vector3D *gradient = nullptr) const = 0;
 
     /**
      * @brief Determines the shape functions for the discretization with ID
@@ -60,10 +59,10 @@ public:
      * @return Success of the function.
      */
     virtual bool determineShapeFunctions(unsigned int field_id,
-                                         Vector3D const &x,
+                                         Point3D const &x,
                                          std::array<unsigned int, 32> &cell,
                                          Vector3D &c0,
-                                         std::array<double, 32> &N,
+                                         Matrix<double, 32, 1> &N,
                                          Matrix<double, 32, 3> *dN = nullptr) const = 0;
 
     /**
@@ -82,19 +81,19 @@ public:
      * xi
      */
     virtual double interpolate(unsigned int field_id,
-                               Vector3D const &xi,
+                               Point3D const &xi,
                                const std::array<unsigned int, 32> &cell,
                                const Vector3D &c0,
-                               const std::array<double, 32> &N,
+                               const Matrix<double, 32, 1> &N,
                                Vector3D *gradient = nullptr,
                                Matrix<double, 32, 3> *dN = nullptr) const = 0;
 
     virtual void reduceField(unsigned int field_id, Predicate pred) {}
 
-    [[nodiscard]] MultiIndex singleToMultiIndex(unsigned int i) const;
-    [[nodiscard]] size_t multiToSingleIndex(MultiIndex const &ijk) const;
+    [[nodiscard]] Size3 singleToMultiIndex(unsigned int i) const;
+    [[nodiscard]] size_t multiToSingleIndex(Size3 const &ijk) const;
 
-    [[nodiscard]] BoundingBox3D subdomain(MultiIndex const &ijk) const;
+    [[nodiscard]] BoundingBox3D subdomain(Size3 const &ijk) const;
     [[nodiscard]] BoundingBox3D subdomain(unsigned int l) const;
 
     [[nodiscard]] BoundingBox3D const &domain() const { return m_domain; }

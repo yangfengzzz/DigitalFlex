@@ -8,22 +8,21 @@
 
 namespace vox::flex {
 
-DiscreteGrid::MultiIndex DiscreteGrid::singleToMultiIndex(unsigned int l) const {
-    auto n01 = m_resolution[0] * m_resolution[1];
+Size3 DiscreteGrid::singleToMultiIndex(unsigned int l) const {
+    auto n01 = m_resolution.x * m_resolution.y;
     auto k = l / n01;
     auto temp = l % n01;
-    auto j = temp / m_resolution[0];
-    auto i = temp % m_resolution[0];
-    return {{i, j, k}};
+    auto j = temp / m_resolution.x;
+    auto i = temp % m_resolution.x;
+    return {i, j, k};
 }
 
-size_t DiscreteGrid::multiToSingleIndex(MultiIndex const &ijk) const {
-    return m_resolution[1] * m_resolution[0] * ijk[2] + m_resolution[0] * ijk[1] + ijk[0];
+size_t DiscreteGrid::multiToSingleIndex(Size3 const &ijk) const {
+    return m_resolution.y * m_resolution.x * ijk.z + m_resolution.x * ijk.y + ijk.x;
 }
 
-BoundingBox3D DiscreteGrid::subdomain(MultiIndex const &ijk) const {
-    auto origin =
-            m_domain.lower_corner + Vector3D(ijk[0] * m_cell_size.x, ijk[1] * m_cell_size.y, ijk[2] * m_cell_size.z);
+BoundingBox3D DiscreteGrid::subdomain(Size3 const &ijk) const {
+    auto origin = m_domain.lower_corner + Vector3D(ijk.x * m_cell_size.x, ijk.y * m_cell_size.y, ijk.z * m_cell_size.z);
     return {origin, origin + m_cell_size};
 }
 
