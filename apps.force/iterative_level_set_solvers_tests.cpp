@@ -5,14 +5,14 @@
 // property of any third parties.
 
 #include "manual_tests.h"
-#include "vox.geometry/array_utils.h"
-#include "vox.geometry/cell_centered_scalar_grid2.h"
-#include "vox.geometry/cell_centered_scalar_grid3.h"
-//#include "vox.force/cubic_semi_lagrangian2.h"
+#include "vox.force/cubic_semi_lagrangian2.h"
 #include "vox.force/eno_level_set_solver2.h"
 #include "vox.force/eno_level_set_solver3.h"
 #include "vox.force/upwind_level_set_solver2.h"
 #include "vox.force/upwind_level_set_solver3.h"
+#include "vox.geometry/array_utils.h"
+#include "vox.geometry/cell_centered_scalar_grid2.h"
+#include "vox.geometry/cell_centered_scalar_grid3.h"
 #include "vox.geometry/custom_vector_field2.h"
 
 using namespace vox;
