@@ -24,7 +24,7 @@ VertexConstIterator::reference VertexConstIterator::operator*() { return m_mesh-
 
 unsigned int VertexIterator::index() const { return m_index; }
 
-IncidentFaceIterator::_Mytype &IncidentFaceIterator::operator++() {
+IncidentFaceIterator::Self &IncidentFaceIterator::operator++() {
     Halfedge o = m_mesh->opposite(m_h);
     if (o.isBoundary()) {
         m_h = Halfedge();
