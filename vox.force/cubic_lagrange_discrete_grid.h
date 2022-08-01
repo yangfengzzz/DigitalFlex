@@ -12,7 +12,7 @@ namespace vox::flex {
 
 class CubicLagrangeDiscreteGrid : public DiscreteGrid {
 public:
-    CubicLagrangeDiscreteGrid(std::string const &filename);
+    explicit CubicLagrangeDiscreteGrid(std::string const &filename);
     CubicLagrangeDiscreteGrid(BoundingBox3D const &domain, Size3 const &resolution);
 
     void save(std::string const &filename) const override;
@@ -22,10 +22,9 @@ public:
                              bool verbose = false,
                              SamplePredicate const &pred = nullptr) override;
 
-    std::size_t nCells() const { return m_n_cells; };
-    double interpolate(unsigned int field_id,
-                       Point3D const &xi,
-                       Vector3D *gradient = nullptr) const override;
+    [[nodiscard]] std::size_t nCells() const { return m_n_cells; };
+
+    double interpolate(unsigned int field_id, Point3D const &xi, Vector3D *gradient = nullptr) const override;
 
     /**
      * @brief Determines the shape functions for the discretization with ID
@@ -76,7 +75,7 @@ public:
                      std::function<void(unsigned int, BoundingBox3D const &, unsigned int)> const &cb) const;
 
 private:
-    Point3D indexToNodePosition(unsigned int l) const;
+    [[nodiscard]] Point3D indexToNodePosition(unsigned int l) const;
 
 private:
     std::vector<std::vector<double>> m_nodes;

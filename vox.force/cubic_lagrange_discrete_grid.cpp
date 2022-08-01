@@ -8,6 +8,7 @@
 #include <numeric>
 #include <set>
 
+#include "vox.force/serialize.h"
 #include "vox.force/spinlock.h"
 #include "vox.force/z_sort_table.h"
 
@@ -243,40 +244,88 @@ Matrix<double, 32, 1> shape_function(Point3D const &xi, Matrix<double, 32, 3> *g
         auto _p3m9x2m2x = _3m9x2 - _2x;
         auto _1mx2t1m3x = _1mx2 * _1m3x;
         auto _1mx2t1p3x = _1mx2 * _1p3x;
-        dN(8, 0) = _m3m9x2m2x * _1myt1mz; dN(8, 1) = -_1mx2t1m3x * _1mz; dN(8, 2) = -_1mx2t1m3x * _1my;
-        dN(9, 0) = _m3m9x2m2x * _1myt1pz; dN(9, 1) = -_1mx2t1m3x * _1pz; dN(9, 2) = _1mx2t1m3x * _1my;
-        dN(10, 0) = _m3m9x2m2x * _1pyt1mz; dN(10, 1) = _1mx2t1m3x * _1mz; dN(10, 2) = -_1mx2t1m3x * _1py;
-        dN(11, 0) = _m3m9x2m2x * _1pyt1pz; dN(11, 1) = _1mx2t1m3x * _1pz; dN(11, 2) = _1mx2t1m3x * _1py;
-        dN(12, 0) = _p3m9x2m2x * _1myt1mz; dN(12, 1) = -_1mx2t1p3x * _1mz; dN(12, 2) = -_1mx2t1p3x * _1my;
-        dN(13, 0) = _p3m9x2m2x * _1myt1pz; dN(13, 1) = -_1mx2t1p3x * _1pz; dN(13, 2) = _1mx2t1p3x * _1my;
-        dN(14, 0) = _p3m9x2m2x * _1pyt1mz; dN(14, 1) = _1mx2t1p3x * _1mz; dN(14, 2) = -_1mx2t1p3x * _1py;
-        dN(15, 0) = _p3m9x2m2x * _1pyt1pz; dN(15, 1) = _1mx2t1p3x * _1pz; dN(15, 2) = _1mx2t1p3x * _1py;
+        dN(8, 0) = _m3m9x2m2x * _1myt1mz;
+        dN(8, 1) = -_1mx2t1m3x * _1mz;
+        dN(8, 2) = -_1mx2t1m3x * _1my;
+        dN(9, 0) = _m3m9x2m2x * _1myt1pz;
+        dN(9, 1) = -_1mx2t1m3x * _1pz;
+        dN(9, 2) = _1mx2t1m3x * _1my;
+        dN(10, 0) = _m3m9x2m2x * _1pyt1mz;
+        dN(10, 1) = _1mx2t1m3x * _1mz;
+        dN(10, 2) = -_1mx2t1m3x * _1py;
+        dN(11, 0) = _m3m9x2m2x * _1pyt1pz;
+        dN(11, 1) = _1mx2t1m3x * _1pz;
+        dN(11, 2) = _1mx2t1m3x * _1py;
+        dN(12, 0) = _p3m9x2m2x * _1myt1mz;
+        dN(12, 1) = -_1mx2t1p3x * _1mz;
+        dN(12, 2) = -_1mx2t1p3x * _1my;
+        dN(13, 0) = _p3m9x2m2x * _1myt1pz;
+        dN(13, 1) = -_1mx2t1p3x * _1pz;
+        dN(13, 2) = _1mx2t1p3x * _1my;
+        dN(14, 0) = _p3m9x2m2x * _1pyt1mz;
+        dN(14, 1) = _1mx2t1p3x * _1mz;
+        dN(14, 2) = -_1mx2t1p3x * _1py;
+        dN(15, 0) = _p3m9x2m2x * _1pyt1pz;
+        dN(15, 1) = _1mx2t1p3x * _1pz;
+        dN(15, 2) = _1mx2t1p3x * _1py;
 
         auto _m3m9y2m2y = -_3m9y2 - _2y;
         auto _p3m9y2m2y = _3m9y2 - _2y;
         auto _1my2t1m3y = _1my2 * _1m3y;
         auto _1my2t1p3y = _1my2 * _1p3y;
-        dN(16, 0) = -_1my2t1m3y * _1mz; dN(16, 1) = _m3m9y2m2y * _1mxt1mz; dN(16, 2) = -_1my2t1m3y * _1mx;
-        dN(17, 0) = -_1my2t1m3y * _1pz; dN(17, 1) = _m3m9y2m2y * _1mxt1pz; dN(17, 2) = _1my2t1m3y * _1mx;
-        dN(18, 0) = -_1my2t1p3y * _1mz; dN(18, 1) = _p3m9y2m2y * _1mxt1mz; dN(18, 2) = -_1my2t1p3y * _1mx;
-        dN(19, 0) = -_1my2t1p3y * _1pz; dN(19, 1) = _p3m9y2m2y * _1mxt1pz; dN(19, 2) = _1my2t1p3y * _1mx;
-        dN(20, 0) = _1my2t1m3y * _1mz; dN(20, 1) = _m3m9y2m2y * _1pxt1mz; dN(20, 2) = -_1my2t1m3y * _1px;
-        dN(21, 0) = _1my2t1m3y * _1pz; dN(21, 1) = _m3m9y2m2y * _1pxt1pz; dN(21, 2) = _1my2t1m3y * _1px;
-        dN(22, 0) = _1my2t1p3y * _1mz; dN(22, 1) = _p3m9y2m2y * _1pxt1mz; dN(22, 2) = -_1my2t1p3y * _1px;
-        dN(23, 0) = _1my2t1p3y * _1pz; dN(23, 1) = _p3m9y2m2y * _1pxt1pz; dN(23, 2) = _1my2t1p3y * _1px;
+        dN(16, 0) = -_1my2t1m3y * _1mz;
+        dN(16, 1) = _m3m9y2m2y * _1mxt1mz;
+        dN(16, 2) = -_1my2t1m3y * _1mx;
+        dN(17, 0) = -_1my2t1m3y * _1pz;
+        dN(17, 1) = _m3m9y2m2y * _1mxt1pz;
+        dN(17, 2) = _1my2t1m3y * _1mx;
+        dN(18, 0) = -_1my2t1p3y * _1mz;
+        dN(18, 1) = _p3m9y2m2y * _1mxt1mz;
+        dN(18, 2) = -_1my2t1p3y * _1mx;
+        dN(19, 0) = -_1my2t1p3y * _1pz;
+        dN(19, 1) = _p3m9y2m2y * _1mxt1pz;
+        dN(19, 2) = _1my2t1p3y * _1mx;
+        dN(20, 0) = _1my2t1m3y * _1mz;
+        dN(20, 1) = _m3m9y2m2y * _1pxt1mz;
+        dN(20, 2) = -_1my2t1m3y * _1px;
+        dN(21, 0) = _1my2t1m3y * _1pz;
+        dN(21, 1) = _m3m9y2m2y * _1pxt1pz;
+        dN(21, 2) = _1my2t1m3y * _1px;
+        dN(22, 0) = _1my2t1p3y * _1mz;
+        dN(22, 1) = _p3m9y2m2y * _1pxt1mz;
+        dN(22, 2) = -_1my2t1p3y * _1px;
+        dN(23, 0) = _1my2t1p3y * _1pz;
+        dN(23, 1) = _p3m9y2m2y * _1pxt1pz;
+        dN(23, 2) = _1my2t1p3y * _1px;
 
         auto _m3m9z2m2z = -_3m9z2 - _2z;
         auto _p3m9z2m2z = _3m9z2 - _2z;
         auto _1mz2t1m3z = _1mz2 * _1m3z;
         auto _1mz2t1p3z = _1mz2 * _1p3z;
-        dN(24, 0) = -_1mz2t1m3z * _1my; dN(24, 1) = -_1mz2t1m3z * _1mx; dN(24, 2) = _m3m9z2m2z * _1mxt1my;
-        dN(25, 0) = -_1mz2t1p3z * _1my; dN(25, 1) = -_1mz2t1p3z * _1mx; dN(25, 2) = _p3m9z2m2z * _1mxt1my;
-        dN(26, 0) = -_1mz2t1m3z * _1py; dN(26, 1) = _1mz2t1m3z * _1mx; dN(26, 2) = _m3m9z2m2z * _1mxt1py;
-        dN(27, 0) = -_1mz2t1p3z * _1py; dN(27, 1) = _1mz2t1p3z * _1mx; dN(27, 2) = _p3m9z2m2z * _1mxt1py;
-        dN(28, 0) = _1mz2t1m3z * _1my; dN(28, 1) = -_1mz2t1m3z * _1px; dN(28, 2) = _m3m9z2m2z * _1pxt1my;
-        dN(29, 0) = _1mz2t1p3z * _1my; dN(29, 1) = -_1mz2t1p3z * _1px; dN(29, 2) = _p3m9z2m2z * _1pxt1my;
-        dN(30, 0) = _1mz2t1m3z * _1py; dN(30, 1) = _1mz2t1m3z * _1px; dN(30, 2) = _m3m9z2m2z * _1pxt1py;
-        dN(31, 0) = _1mz2t1p3z * _1py; dN(31, 1) = _1mz2t1p3z * _1px; dN(31, 2) = _p3m9z2m2z * _1pxt1py;
+        dN(24, 0) = -_1mz2t1m3z * _1my;
+        dN(24, 1) = -_1mz2t1m3z * _1mx;
+        dN(24, 2) = _m3m9z2m2z * _1mxt1my;
+        dN(25, 0) = -_1mz2t1p3z * _1my;
+        dN(25, 1) = -_1mz2t1p3z * _1mx;
+        dN(25, 2) = _p3m9z2m2z * _1mxt1my;
+        dN(26, 0) = -_1mz2t1m3z * _1py;
+        dN(26, 1) = _1mz2t1m3z * _1mx;
+        dN(26, 2) = _m3m9z2m2z * _1mxt1py;
+        dN(27, 0) = -_1mz2t1p3z * _1py;
+        dN(27, 1) = _1mz2t1p3z * _1mx;
+        dN(27, 2) = _p3m9z2m2z * _1mxt1py;
+        dN(28, 0) = _1mz2t1m3z * _1my;
+        dN(28, 1) = -_1mz2t1m3z * _1px;
+        dN(28, 2) = _m3m9z2m2z * _1pxt1my;
+        dN(29, 0) = _1mz2t1p3z * _1my;
+        dN(29, 1) = -_1mz2t1p3z * _1px;
+        dN(29, 2) = _p3m9z2m2z * _1pxt1my;
+        dN(30, 0) = _1mz2t1m3z * _1py;
+        dN(30, 1) = _1mz2t1m3z * _1px;
+        dN(30, 2) = _m3m9z2m2z * _1pxt1py;
+        dN(31, 0) = _1mz2t1p3z * _1py;
+        dN(31, 1) = _1mz2t1p3z * _1px;
+        dN(31, 2) = _p3m9z2m2z * _1pxt1py;
 
         for (size_t i = 8; i < 32; i++) {
             for (size_t j = 0; j < 3; j++) {
@@ -443,40 +492,88 @@ Matrix<double, 32, 1> shape_function_(Point3D const &xi, Matrix<double, 32, 3> *
         auto _p3m9x2m2x = _3m9x2 - _2x;
         auto _1mx2t1m3x = _1mx2 * _1m3x;
         auto _1mx2t1p3x = _1mx2 * _1p3x;
-        dN(8, 0) = _m3m9x2m2x * _1myt1mz; dN(8, 1) = -_1mx2t1m3x * _1mz; dN(8, 2) = -_1mx2t1m3x * _1my;
-        dN(9, 0) = _p3m9x2m2x * _1myt1mz; dN(9, 1) = -_1mx2t1p3x * _1mz; dN(9, 2) = -_1mx2t1p3x * _1my;
-        dN(10, 0) = _m3m9x2m2x * _1myt1pz; dN(10, 1) = -_1mx2t1m3x * _1pz; dN(10, 2) = _1mx2t1m3x * _1my;
-        dN(11, 0) = _p3m9x2m2x * _1myt1pz; dN(11, 1) = -_1mx2t1p3x * _1pz; dN(11, 2) = _1mx2t1p3x * _1my;
-        dN(12, 0) = _m3m9x2m2x * _1pyt1mz; dN(12, 1) = _1mx2t1m3x * _1mz; dN(12, 2) = -_1mx2t1m3x * _1py;
-        dN(13, 0) = _p3m9x2m2x * _1pyt1mz; dN(13, 1) = _1mx2t1p3x * _1mz; dN(13, 2) = -_1mx2t1p3x * _1py;
-        dN(14, 0) = _m3m9x2m2x * _1pyt1pz; dN(14, 1) = _1mx2t1m3x * _1pz; dN(14, 2) = _1mx2t1m3x * _1py;
-        dN(15, 0) = _p3m9x2m2x * _1pyt1pz; dN(15, 1) = _1mx2t1p3x * _1pz; dN(15, 2) = _1mx2t1p3x * _1py;
+        dN(8, 0) = _m3m9x2m2x * _1myt1mz;
+        dN(8, 1) = -_1mx2t1m3x * _1mz;
+        dN(8, 2) = -_1mx2t1m3x * _1my;
+        dN(9, 0) = _p3m9x2m2x * _1myt1mz;
+        dN(9, 1) = -_1mx2t1p3x * _1mz;
+        dN(9, 2) = -_1mx2t1p3x * _1my;
+        dN(10, 0) = _m3m9x2m2x * _1myt1pz;
+        dN(10, 1) = -_1mx2t1m3x * _1pz;
+        dN(10, 2) = _1mx2t1m3x * _1my;
+        dN(11, 0) = _p3m9x2m2x * _1myt1pz;
+        dN(11, 1) = -_1mx2t1p3x * _1pz;
+        dN(11, 2) = _1mx2t1p3x * _1my;
+        dN(12, 0) = _m3m9x2m2x * _1pyt1mz;
+        dN(12, 1) = _1mx2t1m3x * _1mz;
+        dN(12, 2) = -_1mx2t1m3x * _1py;
+        dN(13, 0) = _p3m9x2m2x * _1pyt1mz;
+        dN(13, 1) = _1mx2t1p3x * _1mz;
+        dN(13, 2) = -_1mx2t1p3x * _1py;
+        dN(14, 0) = _m3m9x2m2x * _1pyt1pz;
+        dN(14, 1) = _1mx2t1m3x * _1pz;
+        dN(14, 2) = _1mx2t1m3x * _1py;
+        dN(15, 0) = _p3m9x2m2x * _1pyt1pz;
+        dN(15, 1) = _1mx2t1p3x * _1pz;
+        dN(15, 2) = _1mx2t1p3x * _1py;
 
         auto _m3m9y2m2y = -_3m9y2 - _2y;
         auto _p3m9y2m2y = _3m9y2 - _2y;
         auto _1my2t1m3y = _1my2 * _1m3y;
         auto _1my2t1p3y = _1my2 * _1p3y;
-        dN(16, 0) = -_1my2t1m3y * _1mz; dN(16, 1) = _m3m9y2m2y * _1mxt1mz; dN(16, 2) = -_1my2t1m3y * _1mx;
-        dN(17, 0) = -_1my2t1p3y * _1mz; dN(17, 1) = _p3m9y2m2y * _1mxt1mz; dN(17, 2) = -_1my2t1p3y * _1mx;
-        dN(18, 0) = _1my2t1m3y * _1mz; dN(18, 1) = _m3m9y2m2y * _1pxt1mz; dN(18, 2) = -_1my2t1m3y * _1px;
-        dN(19, 0) = _1my2t1p3y * _1mz; dN(19, 1) = _p3m9y2m2y * _1pxt1mz; dN(19, 2) = -_1my2t1p3y * _1px;
-        dN(20, 0) = -_1my2t1m3y * _1pz; dN(20, 1) = _m3m9y2m2y * _1mxt1pz; dN(20, 2) = _1my2t1m3y * _1mx;
-        dN(21, 0) = -_1my2t1p3y * _1pz; dN(21, 1) = _p3m9y2m2y * _1mxt1pz; dN(21, 2) = _1my2t1p3y * _1mx;
-        dN(22, 0) = _1my2t1m3y * _1pz; dN(22, 1) = _m3m9y2m2y * _1pxt1pz; dN(22, 2) = _1my2t1m3y * _1px;
-        dN(23, 0) = _1my2t1p3y * _1pz; dN(23, 1) = _p3m9y2m2y * _1pxt1pz; dN(23, 2) = _1my2t1p3y * _1px;
+        dN(16, 0) = -_1my2t1m3y * _1mz;
+        dN(16, 1) = _m3m9y2m2y * _1mxt1mz;
+        dN(16, 2) = -_1my2t1m3y * _1mx;
+        dN(17, 0) = -_1my2t1p3y * _1mz;
+        dN(17, 1) = _p3m9y2m2y * _1mxt1mz;
+        dN(17, 2) = -_1my2t1p3y * _1mx;
+        dN(18, 0) = _1my2t1m3y * _1mz;
+        dN(18, 1) = _m3m9y2m2y * _1pxt1mz;
+        dN(18, 2) = -_1my2t1m3y * _1px;
+        dN(19, 0) = _1my2t1p3y * _1mz;
+        dN(19, 1) = _p3m9y2m2y * _1pxt1mz;
+        dN(19, 2) = -_1my2t1p3y * _1px;
+        dN(20, 0) = -_1my2t1m3y * _1pz;
+        dN(20, 1) = _m3m9y2m2y * _1mxt1pz;
+        dN(20, 2) = _1my2t1m3y * _1mx;
+        dN(21, 0) = -_1my2t1p3y * _1pz;
+        dN(21, 1) = _p3m9y2m2y * _1mxt1pz;
+        dN(21, 2) = _1my2t1p3y * _1mx;
+        dN(22, 0) = _1my2t1m3y * _1pz;
+        dN(22, 1) = _m3m9y2m2y * _1pxt1pz;
+        dN(22, 2) = _1my2t1m3y * _1px;
+        dN(23, 0) = _1my2t1p3y * _1pz;
+        dN(23, 1) = _p3m9y2m2y * _1pxt1pz;
+        dN(23, 2) = _1my2t1p3y * _1px;
 
         auto _m3m9z2m2z = -_3m9z2 - _2z;
         auto _p3m9z2m2z = _3m9z2 - _2z;
         auto _1mz2t1m3z = _1mz2 * _1m3z;
         auto _1mz2t1p3z = _1mz2 * _1p3z;
-        dN(24, 0) = -_1mz2t1m3z * _1my; dN(24, 1) = -_1mz2t1m3z * _1mx; dN(24, 2) = _m3m9z2m2z * _1mxt1my;
-        dN(25, 0) = -_1mz2t1p3z * _1my; dN(25, 1) = -_1mz2t1p3z * _1mx; dN(25, 2) = _p3m9z2m2z * _1mxt1my;
-        dN(26, 0) = -_1mz2t1m3z * _1py; dN(26, 1) = _1mz2t1m3z * _1mx; dN(26, 2) = _m3m9z2m2z * _1mxt1py;
-        dN(27, 0) = -_1mz2t1p3z * _1py; dN(27, 1) = _1mz2t1p3z * _1mx; dN(27, 2) = _p3m9z2m2z * _1mxt1py;
-        dN(28, 0) = _1mz2t1m3z * _1my; dN(28, 1) = -_1mz2t1m3z * _1px; dN(28, 2) = _m3m9z2m2z * _1pxt1my;
-        dN(29, 0) = _1mz2t1p3z * _1my; dN(29, 1) = -_1mz2t1p3z * _1px; dN(29, 2) = _p3m9z2m2z * _1pxt1my;
-        dN(30, 0) = _1mz2t1m3z * _1py; dN(30, 1) = _1mz2t1m3z * _1px; dN(30, 2) = _m3m9z2m2z * _1pxt1py;
-        dN(31, 0) = _1mz2t1p3z * _1py; dN(31, 1) = _1mz2t1p3z * _1px; dN(31, 2) = _p3m9z2m2z * _1pxt1py;
+        dN(24, 0) = -_1mz2t1m3z * _1my;
+        dN(24, 1) = -_1mz2t1m3z * _1mx;
+        dN(24, 2) = _m3m9z2m2z * _1mxt1my;
+        dN(25, 0) = -_1mz2t1p3z * _1my;
+        dN(25, 1) = -_1mz2t1p3z * _1mx;
+        dN(25, 2) = _p3m9z2m2z * _1mxt1my;
+        dN(26, 0) = -_1mz2t1m3z * _1py;
+        dN(26, 1) = _1mz2t1m3z * _1mx;
+        dN(26, 2) = _m3m9z2m2z * _1mxt1py;
+        dN(27, 0) = -_1mz2t1p3z * _1py;
+        dN(27, 1) = _1mz2t1p3z * _1mx;
+        dN(27, 2) = _p3m9z2m2z * _1mxt1py;
+        dN(28, 0) = _1mz2t1m3z * _1my;
+        dN(28, 1) = -_1mz2t1m3z * _1px;
+        dN(28, 2) = _m3m9z2m2z * _1pxt1my;
+        dN(29, 0) = _1mz2t1p3z * _1my;
+        dN(29, 1) = -_1mz2t1p3z * _1px;
+        dN(29, 2) = _p3m9z2m2z * _1pxt1my;
+        dN(30, 0) = _1mz2t1m3z * _1py;
+        dN(30, 1) = _1mz2t1m3z * _1px;
+        dN(30, 2) = _m3m9z2m2z * _1pxt1py;
+        dN(31, 0) = _1mz2t1p3z * _1py;
+        dN(31, 1) = _1mz2t1p3z * _1px;
+        dN(31, 2) = _p3m9z2m2z * _1pxt1py;
 
         for (size_t i = 8; i < 32; i++) {
             for (size_t j = 0; j < 3; j++) {
@@ -489,8 +586,8 @@ Matrix<double, 32, 1> shape_function_(Point3D const &xi, Matrix<double, 32, 3> *
 }
 
 // Determines Morten value according to z-curve.
-inline uint64_t zValue(Vector3D const &x, double invCellSize) {
-    std::array<int, 3> key;
+inline uint64_t zValue(Point3D const &x, double invCellSize) {
+    std::array<int, 3> key{};
     for (unsigned int i(0); i < 3; ++i) {
         if (x[i] >= 0.0)
             key[i] = static_cast<int>(invCellSize * x[i]);
@@ -507,14 +604,13 @@ inline uint64_t zValue(Vector3D const &x, double invCellSize) {
 }
 }  // namespace
 
-//MARK: - CubicLagrangeDiscreteGrid
+// MARK: - CubicLagrangeDiscreteGrid
 Point3D CubicLagrangeDiscreteGrid::indexToNodePosition(unsigned int l) const {
-    auto x = Point3D();
+    Point3D x;
 
     auto nv = (m_resolution.x + 1) * (m_resolution.y + 1) * (m_resolution.z + 1);
     auto ne_x = (m_resolution.x + 0) * (m_resolution.y + 1) * (m_resolution.z + 1);
     auto ne_y = (m_resolution.x + 1) * (m_resolution.y + 0) * (m_resolution.z + 1);
-    auto ne_z = (m_resolution.x + 1) * (m_resolution.y + 1) * (m_resolution.z + 0);
 
     Vector3D ijk;
     if (l < nv) {
@@ -561,96 +657,95 @@ Point3D CubicLagrangeDiscreteGrid::indexToNodePosition(unsigned int l) const {
 
 CubicLagrangeDiscreteGrid::CubicLagrangeDiscreteGrid(std::string const &filename) { load(filename); }
 
-CubicLagrangeDiscreteGrid::CubicLagrangeDiscreteGrid(BoundingBox3D const &domain,
-                                                     Size3 const &resolution)
+CubicLagrangeDiscreteGrid::CubicLagrangeDiscreteGrid(BoundingBox3D const &domain, Size3 const &resolution)
     : DiscreteGrid(domain, resolution) {}
 
-//void CubicLagrangeDiscreteGrid::save(std::string const &filename) const {
-//    auto out = std::ofstream(filename, std::ios::binary);
-//    serialize::write(*out.rdbuf(), m_domain);
-//    serialize::write(*out.rdbuf(), m_resolution);
-//    serialize::write(*out.rdbuf(), m_cell_size);
-//    serialize::write(*out.rdbuf(), m_inv_cell_size);
-//    serialize::write(*out.rdbuf(), m_n_cells);
-//    serialize::write(*out.rdbuf(), m_n_fields);
-//
-//    serialize::write(*out.rdbuf(), m_nodes.size());
-//    for (auto const &nodes : m_nodes) {
-//        serialize::write(*out.rdbuf(), nodes.size());
-//        for (auto const &node : nodes) {
-//            serialize::write(*out.rdbuf(), node);
-//        }
-//    }
-//
-//    serialize::write(*out.rdbuf(), m_cells.size());
-//    for (auto const &cells : m_cells) {
-//        serialize::write(*out.rdbuf(), cells.size());
-//        for (auto const &cell : cells) {
-//            serialize::write(*out.rdbuf(), cell);
-//        }
-//    }
-//
-//    serialize::write(*out.rdbuf(), m_cell_map.size());
-//    for (auto const &maps : m_cell_map) {
-//        serialize::write(*out.rdbuf(), maps.size());
-//        for (auto const &map : maps) {
-//            serialize::write(*out.rdbuf(), map);
-//        }
-//    }
-//
-//    out.close();
-//}
-//
-//void CubicLagrangeDiscreteGrid::load(std::string const &filename) {
-//    auto in = std::ifstream(filename, std::ios::binary);
-//
-//    if (!in.good()) {
-//        std::cerr << "ERROR: Discrete grid can not be loaded. Input file does not exist!" << std::endl;
-//        return;
-//    }
-//
-//    serialize::read(*in.rdbuf(), m_domain);
-//    serialize::read(*in.rdbuf(), m_resolution);
-//    serialize::read(*in.rdbuf(), m_cell_size);
-//    serialize::read(*in.rdbuf(), m_inv_cell_size);
-//    serialize::read(*in.rdbuf(), m_n_cells);
-//    serialize::read(*in.rdbuf(), m_n_fields);
-//
-//    auto n_nodes = std::size_t{};
-//    serialize::read(*in.rdbuf(), n_nodes);
-//    m_nodes.resize(n_nodes);
-//    for (auto &nodes : m_nodes) {
-//        serialize::read(*in.rdbuf(), n_nodes);
-//        nodes.resize(n_nodes);
-//        for (auto &node : nodes) {
-//            serialize::read(*in.rdbuf(), node);
-//        }
-//    }
-//
-//    auto n_cells = std::size_t{};
-//    serialize::read(*in.rdbuf(), n_cells);
-//    m_cells.resize(n_cells);
-//    for (auto &cells : m_cells) {
-//        serialize::read(*in.rdbuf(), n_cells);
-//        cells.resize(n_cells);
-//        for (auto &cell : cells) {
-//            serialize::read(*in.rdbuf(), cell);
-//        }
-//    }
-//
-//    auto n_cell_maps = std::size_t{};
-//    serialize::read(*in.rdbuf(), n_cell_maps);
-//    m_cell_map.resize(n_cell_maps);
-//    for (auto &cell_maps : m_cell_map) {
-//        serialize::read(*in.rdbuf(), n_cell_maps);
-//        cell_maps.resize(n_cell_maps);
-//        for (auto &cell_map : cell_maps) {
-//            serialize::read(*in.rdbuf(), cell_map);
-//        }
-//    }
-//
-//    in.close();
-//}
+void CubicLagrangeDiscreteGrid::save(std::string const &filename) const {
+    auto out = std::ofstream(filename, std::ios::binary);
+    serialize::write(*out.rdbuf(), m_domain);
+    serialize::write(*out.rdbuf(), m_resolution);
+    serialize::write(*out.rdbuf(), m_cell_size);
+    serialize::write(*out.rdbuf(), m_inv_cell_size);
+    serialize::write(*out.rdbuf(), m_n_cells);
+    serialize::write(*out.rdbuf(), m_n_fields);
+
+    serialize::write(*out.rdbuf(), m_nodes.size());
+    for (auto const &nodes : m_nodes) {
+        serialize::write(*out.rdbuf(), nodes.size());
+        for (auto const &node : nodes) {
+            serialize::write(*out.rdbuf(), node);
+        }
+    }
+
+    serialize::write(*out.rdbuf(), m_cells.size());
+    for (auto const &cells : m_cells) {
+        serialize::write(*out.rdbuf(), cells.size());
+        for (auto const &cell : cells) {
+            serialize::write(*out.rdbuf(), cell);
+        }
+    }
+
+    serialize::write(*out.rdbuf(), m_cell_map.size());
+    for (auto const &maps : m_cell_map) {
+        serialize::write(*out.rdbuf(), maps.size());
+        for (auto const &map : maps) {
+            serialize::write(*out.rdbuf(), map);
+        }
+    }
+
+    out.close();
+}
+
+void CubicLagrangeDiscreteGrid::load(std::string const &filename) {
+    auto in = std::ifstream(filename, std::ios::binary);
+
+    if (!in.good()) {
+        std::cerr << "ERROR: Discrete grid can not be loaded. Input file does not exist!" << std::endl;
+        return;
+    }
+
+    serialize::read(*in.rdbuf(), m_domain);
+    serialize::read(*in.rdbuf(), m_resolution);
+    serialize::read(*in.rdbuf(), m_cell_size);
+    serialize::read(*in.rdbuf(), m_inv_cell_size);
+    serialize::read(*in.rdbuf(), m_n_cells);
+    serialize::read(*in.rdbuf(), m_n_fields);
+
+    auto n_nodes = std::size_t{};
+    serialize::read(*in.rdbuf(), n_nodes);
+    m_nodes.resize(n_nodes);
+    for (auto &nodes : m_nodes) {
+        serialize::read(*in.rdbuf(), n_nodes);
+        nodes.resize(n_nodes);
+        for (auto &node : nodes) {
+            serialize::read(*in.rdbuf(), node);
+        }
+    }
+
+    auto n_cells = std::size_t{};
+    serialize::read(*in.rdbuf(), n_cells);
+    m_cells.resize(n_cells);
+    for (auto &cells : m_cells) {
+        serialize::read(*in.rdbuf(), n_cells);
+        cells.resize(n_cells);
+        for (auto &cell : cells) {
+            serialize::read(*in.rdbuf(), cell);
+        }
+    }
+
+    auto n_cell_maps = std::size_t{};
+    serialize::read(*in.rdbuf(), n_cell_maps);
+    m_cell_map.resize(n_cell_maps);
+    for (auto &cell_maps : m_cell_map) {
+        serialize::read(*in.rdbuf(), n_cell_maps);
+        cell_maps.resize(n_cell_maps);
+        for (auto &cell_map : cell_maps) {
+            serialize::read(*in.rdbuf(), cell_map);
+        }
+    }
+
+    in.close();
+}
 
 unsigned int CubicLagrangeDiscreteGrid::addFunction(ContinuousFunction const &func,
                                                     bool verbose,
@@ -667,7 +762,7 @@ unsigned int CubicLagrangeDiscreteGrid::addFunction(ContinuousFunction const &fu
 
     auto n_nodes = nv + 2 * ne;
 
-    m_nodes.push_back({});
+    m_nodes.emplace_back();
     auto &coeffs = m_nodes.back();
     coeffs.resize(n_nodes);
 
@@ -701,7 +796,7 @@ unsigned int CubicLagrangeDiscreteGrid::addFunction(ContinuousFunction const &fu
         }
     }
 
-    m_cells.push_back({});
+    m_cells.emplace_back();
     auto &cells = m_cells.back();
     cells.resize(m_n_cells);
     for (auto l = 0u; l < m_n_cells; ++l) {
@@ -755,7 +850,7 @@ unsigned int CubicLagrangeDiscreteGrid::addFunction(ContinuousFunction const &fu
         cell[31] = cell[30] + 1;
     }
 
-    m_cell_map.push_back({});
+    m_cell_map.emplace_back();
     auto &cell_map = m_cell_map.back();
     cell_map.resize(m_n_cells);
     std::iota(cell_map.begin(), cell_map.end(), 0u);
@@ -792,11 +887,11 @@ bool CubicLagrangeDiscreteGrid::determineShapeFunctions(unsigned int field_id,
 
     auto denom = sd.upper_corner - sd.lower_corner;
     c0 = Vector3D(2.0 / denom.x, 2.0 / denom.y, 2.0 / denom.z);
-    auto c1 = (sd.upper_corner + sd.lower_corner).cwiseQuotient(denom).eval();
-    auto xi = x * c0 - c1;
+    auto c1 = (sd.upper_corner + sd.lower_corner) / denom;
+    auto xi = Point3D(x.x * c0.x - c1.x, x.y * c0.y - c1.y, x.z * c0.z - c1.z);
 
     cell = m_cells[field_id][i];
-    N = shape_function_(xi; dN);
+    N = shape_function_(xi, dN);
     return true;
 }
 
@@ -835,7 +930,7 @@ double CubicLagrangeDiscreteGrid::interpolate(unsigned int field_id,
         (*gradient).y += c * (*dN)(j, 1);
         (*gradient).z += c * (*dN)(j, 2);
     }
-    gradient->array() *= c0.array();
+    *gradient *= c0;
 
     return phi;
 }
@@ -843,22 +938,23 @@ double CubicLagrangeDiscreteGrid::interpolate(unsigned int field_id,
 double CubicLagrangeDiscreteGrid::interpolate(unsigned int field_id, Point3D const &x, Vector3D *gradient) const {
     if (!m_domain.contains(x)) return std::numeric_limits<double>::max();
 
-    auto mi = (x - m_domain.min()).cwiseProduct(m_inv_cell_size).cast<unsigned int>().eval();
-    if (mi[0] >= m_resolution.x) mi[0] = m_resolution.x - 1;
-    if (mi[1] >= m_resolutiom_resolution.y) mi[1] = m_resolutiom_resolution.y - 1;
-    if (mi[2] >= m_resolution.z) mi[2] = m_resolution.z - 1;
-    auto i = multiToSingleIndex({{mi(0), mi(1), mi(2)}});
+    auto mi = Size3((x.x - m_domain.lower_corner.x) * m_inv_cell_size.x,
+                    (x.x - m_domain.lower_corner.x) * m_inv_cell_size.x,
+                    (x.x - m_domain.lower_corner.x) * m_inv_cell_size.x);
+    if (mi.x >= m_resolution.x) mi.x = m_resolution.x - 1;
+    if (mi.y >= m_resolution.y) mi.y = m_resolution.y - 1;
+    if (mi.z >= m_resolution.z) mi.z = m_resolution.z - 1;
+    auto i = multiToSingleIndex(mi);
     auto i_ = m_cell_map[field_id][i];
     if (i_ == std::numeric_limits<unsigned int>::max()) return std::numeric_limits<double>::max();
 
     auto sd = subdomain(i);
     i = i_;
-    auto d = sd.diagonal().eval();
 
-    auto denom = (sd.max() - sd.min()).eval();
-    auto c0 = Vector3D::Constant(2.0).cwiseQuotient(denom).eval();
-    auto c1 = (sd.max() + sd.min()).cwiseQuotient(denom).eval();
-    auto xi = (c0.cwiseProduct(x) - c1).eval();
+    auto denom = sd.lower_corner - sd.upper_corner;
+    auto c0 = Vector3D(2.0, 2.0, 2.0) / denom;
+    auto c1 = (sd.upper_corner + sd.lower_corner) / denom;
+    auto xi = Point3D(c0.x * x.x - c1.x, c0.y * x.y - c1.y, c0.z * x.z - c1.z);
 
     auto const &cell = m_cells[field_id][i];
     if (!gradient) {
@@ -880,23 +976,6 @@ double CubicLagrangeDiscreteGrid::interpolate(unsigned int field_id, Point3D con
     auto dN = Matrix<double, 32, 3>{};
     auto N = shape_function_(xi, &dN);
 
-    // TEST
-    // auto eps = 1.0e-6;
-    // auto ndN = Matrix<double, 32, 3>{};
-    // for (auto j = 0u; j < 3u; ++j)
-    //{
-    //    auto xip = xi;
-    //    xip(j) += eps;
-    //    auto xim = xi;
-    //    xim(j) -= eps;
-    //    auto Np = shape_function_(xip, nullptr);
-    //    auto Nm = shape_function_(xim, nullptr);
-    //    ndN.col(j) = (Np - Nm) / (2.0 * eps);
-    //}
-    // std::cout << (dN - ndN).cwiseAbs().maxCoeff() /*/ (dN.maxCoeff())*/ <<
-    // std::endl;
-    ///
-
     auto phi = 0.0;
     gradient->setZero();
     for (auto j = 0u; j < 32u; ++j) {
@@ -907,11 +986,11 @@ double CubicLagrangeDiscreteGrid::interpolate(unsigned int field_id, Point3D con
             return std::numeric_limits<double>::max();
         }
         phi += c * N[j];
-        (*gradient)(0) += c * dN(j, 0);
-        (*gradient)(1) += c * dN(j, 1);
-        (*gradient)(2) += c * dN(j, 2);
+        (*gradient).x += c * dN(j, 0);
+        (*gradient).y += c * dN(j, 1);
+        (*gradient).z += c * dN(j, 2);
     }
-    gradient->array() *= c0.array();
+    *gradient *= c0;
 
     return phi;
 }
@@ -945,20 +1024,11 @@ void CubicLagrangeDiscreteGrid::reduceField(unsigned int field_id, Predicate pre
             cell_map[i] = std::numeric_limits<unsigned int>::max();
     }
 
-    auto n = Matrix<unsigned int, 3, 1>::Map(m_resolution.data());
-
-    auto nv = (m_resolution.x + 1) * (m_resolution.y + 1) * (m_resolution.z + 1);
-    auto ne_x = (m_resolution.x + 0) * (m_resolution.y + 1) * (m_resolution.z + 1);
-    auto ne_y = (m_resolution.x + 1) * (m_resolution.y + 0) * (m_resolution.z + 1);
-    auto ne_z = (m_resolution.x + 1) * (m_resolution.y + 1) * (m_resolution.z + 0);
-    auto ne = ne_x + ne_y + ne_z;
-
     // Reduce vertices.
-    auto xi = Vector3D{};
     auto z_values = std::vector<uint64_t>(coeffs.size());
     for (auto l = 0u; l < coeffs.size(); ++l) {
         auto xi = indexToNodePosition(l);
-        z_values[l] = zValue(xi, 4.0 * m_inv_cell_size.minCoeff());
+        z_values[l] = zValue(xi, 4.0 * m_inv_cell_size.min());
     }
 
     std::fill(keep.begin(), keep.end(), false);
@@ -1016,9 +1086,8 @@ void CubicLagrangeDiscreteGrid::forEachCell(
     for (auto i = 0u; i < n; ++i) {
         auto domain = BoundingBox3D{};
         auto mi = singleToMultiIndex(i);
-        domain.min() =
-                m_domain.min() + Matrix<unsigned int, 3, 1>::Map(mi.data()).cast<double>().cwiseProduct(m_cell_size);
-        domain.max() = domain.min() + m_cell_size;
+        domain.lower_corner = m_domain.lower_corner + Vector3D(mi.x, mi.y, mi.z) * m_cell_size;
+        domain.upper_corner = domain.upper_corner + m_cell_size;
 
         cb(i, domain, 0);
     }
