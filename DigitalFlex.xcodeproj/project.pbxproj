@@ -344,6 +344,11 @@
 		04660DFA28990BC900812275 /* boundary_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04660DF728990BC900812275 /* boundary_model.cpp */; };
 		04660DFB28990BC900812275 /* boundary_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DF828990BC900812275 /* boundary_model.h */; };
 		04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFC28990DB300812275 /* binary_file_reader_writer.h */; };
+		04660E032899176000812275 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFE2899176000812275 /* config.h */; };
+		04660E042899176000812275 /* data_structures.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFF2899176000812275 /* data_structures.h */; };
+		04660E052899176000812275 /* compact_n_search.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660E002899176000812275 /* compact_n_search.h */; };
+		04660E062899176000812275 /* compact_n_search.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04660E012899176000812275 /* compact_n_search.cpp */; };
+		04660E072899176000812275 /* point_set.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660E022899176000812275 /* point_set.h */; };
 		046C2D49288AF3830031B2BE /* libvox.geometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE784288A4458001D6B5B /* libvox.geometry.a */; };
 		046C2D4A288AF3830031B2BE /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
 		046C2D4B288AF5A20031B2BE /* matrix_csr_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AD2288AEA0500696E23 /* matrix_csr_tests.cpp */; };
@@ -1717,6 +1722,11 @@
 		04660DF728990BC900812275 /* boundary_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model.cpp; sourceTree = "<group>"; };
 		04660DF828990BC900812275 /* boundary_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model.h; sourceTree = "<group>"; };
 		04660DFC28990DB300812275 /* binary_file_reader_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binary_file_reader_writer.h; sourceTree = "<group>"; };
+		04660DFE2899176000812275 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		04660DFF2899176000812275 /* data_structures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data_structures.h; sourceTree = "<group>"; };
+		04660E002899176000812275 /* compact_n_search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compact_n_search.h; sourceTree = "<group>"; };
+		04660E012899176000812275 /* compact_n_search.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compact_n_search.cpp; sourceTree = "<group>"; };
+		04660E022899176000812275 /* point_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_set.h; sourceTree = "<group>"; };
 		046C2D51288AF6B90031B2BE /* libvox.force.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.force.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		046C2D5C288AF7100031B2BE /* collider_set2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider_set2.cpp; sourceTree = "<group>"; };
 		046C2D5D288AF7110031B2BE /* collider3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider3.h; sourceTree = "<group>"; };
@@ -3236,6 +3246,11 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				04660DFE2899176000812275 /* config.h */,
+				04660E022899176000812275 /* point_set.h */,
+				04660DFF2899176000812275 /* data_structures.h */,
+				04660E002899176000812275 /* compact_n_search.h */,
+				04660E012899176000812275 /* compact_n_search.cpp */,
 				04660DFC28990DB300812275 /* binary_file_reader_writer.h */,
 				04660DF628990BC900812275 /* rigid_body_object.h */,
 				04660DF828990BC900812275 /* boundary_model.h */,
@@ -4805,6 +4820,7 @@
 				046C2ECF2894F88E0031B2BE /* sph_kernels2-inl.h in Headers */,
 				046C2ED22894F88E0031B2BE /* animation.h in Headers */,
 				046C2F052894F9A60031B2BE /* spherical_points_to_implicit2.h in Headers */,
+				04660E042899176000812275 /* data_structures.h in Headers */,
 				047EB3A32896A54000AC5A87 /* entity_containers.h in Headers */,
 				047EB3A62896A54000AC5A87 /* entity_iterators.h in Headers */,
 				046C2EC72894F88E0031B2BE /* sph_points_to_implicit3.h in Headers */,
@@ -4819,6 +4835,7 @@
 				046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
 				04660DF928990BC900812275 /* rigid_body_object.h in Headers */,
+				04660E072899176000812275 /* point_set.h in Headers */,
 				046C2EFD2894F9A60031B2BE /* iterative_level_set_solver3.h in Headers */,
 				047EB3602896257300AC5A87 /* cubic_semi_lagrangian3.h in Headers */,
 				04660DF32896B0C900812275 /* z_sort_table.h in Headers */,
@@ -4832,6 +4849,7 @@
 				046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */,
 				046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */,
 				046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */,
+				04660E052899176000812275 /* compact_n_search.h in Headers */,
 				046C2F122894F9A60031B2BE /* pde-inl.h in Headers */,
 				047EB3A12896A54000AC5A87 /* triangle_mesh.h in Headers */,
 				047EB3612896257300AC5A87 /* semi_lagrangian2.h in Headers */,
@@ -4844,6 +4862,7 @@
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
 				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
 				04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */,
+				04660E032899176000812275 /* config.h in Headers */,
 				04660DF52897635800812275 /* serialize.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5761,6 +5780,7 @@
 				047EB3682896257300AC5A87 /* semi_lagrangian3.cpp in Sources */,
 				047EB3652896257300AC5A87 /* cubic_semi_lagrangian3.cpp in Sources */,
 				046C2EB92894F88E0031B2BE /* level_set_solver3.cpp in Sources */,
+				04660E062899176000812275 /* compact_n_search.cpp in Sources */,
 				046C2F172894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp in Sources */,
 				046C2EFF2894F9A60031B2BE /* zhu_bridson_points_to_implicit3.cpp in Sources */,
 				047EB36B2896257300AC5A87 /* advection_solver3.cpp in Sources */,
@@ -6608,7 +6628,10 @@
 				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SYSTEM_HEADER_SEARCH_PATHS = ./third_party/spdlog/include;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/spdlog/include,
+					./third_party/libmorton/include,
+				);
 			};
 			name = Debug;
 		};
@@ -6623,7 +6646,10 @@
 				HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalFlex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SYSTEM_HEADER_SEARCH_PATHS = ./third_party/spdlog/include;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					./third_party/spdlog/include,
+					./third_party/libmorton/include,
+				);
 			};
 			name = Release;
 		};
