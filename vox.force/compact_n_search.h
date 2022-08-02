@@ -12,7 +12,7 @@
 #include "data_structures.h"
 #include "point_set.h"
 
-namespace CompactNSearch {
+namespace vox::flex {
 
 struct NeighborhoodSearchNotInitialized : public std::exception {
     [[nodiscard]] char const* what() const noexcept override { return "Neighborhood search was not initialized."; }
@@ -218,4 +218,4 @@ private:
     bool m_initialized;
 };
 
-}  // namespace CompactNSearch
+}  // namespace vox::flex

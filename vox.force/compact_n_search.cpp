@@ -4,7 +4,7 @@
 //  personal capacity and am not conveying any rights to any intellectual
 //  property of any third parties.
 
-#include "compact_n_search.h"
+#include "vox.force/compact_n_search.h"
 
 #include <libmorton/morton.h>
 
@@ -15,7 +15,9 @@
 #include <limits>
 #include <numeric>
 
-namespace CompactNSearch {
+#include "vox.base/parallel.h"
+
+namespace vox::flex {
 namespace {
 // Determines Morten value according to z-curve.
 inline uint_fast64_t z_value(HashKey const& key) {
@@ -180,7 +182,8 @@ void NeighborhoodSearch::update_point_sets() {
     }
 
     // Precompute cell indices.
-    std::for_each(m_point_sets.begin(), m_point_sets.end(), [&](PointSet& d) {
+    parallelFor(kZeroSize, m_point_sets.size(), [&](size_t index) {
+        PointSet& d = m_point_sets[index];
         if (d.is_dynamic()) {
             d.m_keys.swap(d.m_old_keys);
             for (unsigned int i = 0; i < d.n_points(); ++i) {
@@ -236,12 +239,11 @@ void NeighborhoodSearch::erase_empty_entries(std::vector<unsigned int> const& to
                    [](std::pair<HashKey const, unsigned int>& kvp) { return &kvp; });
 
     // Perform neighborhood search.
-    std::for_each(kvps.begin(), kvps.end(), [&](std::pair<HashKey const, unsigned int>* kvp_) {
-        auto& kvp = *kvp_;
-
+    parallelFor(kZeroSize, kvps.size(), [&](size_t index) {
+        auto& kvp = kvps[index];
         for (unsigned int i = 0; i < to_delete.size(); ++i) {
-            if (kvp.second >= to_delete[i]) {
-                kvp.second -= static_cast<unsigned int>(to_delete.size() - i);
+            if (kvp->second >= to_delete[i]) {
+                kvp->second -= static_cast<unsigned int>(to_delete.size() - i);
                 break;
             }
         }
@@ -303,9 +305,9 @@ void NeighborhoodSearch::query() {
                    [](std::pair<HashKey const, unsigned int> const& kvp) { return &kvp; });
 
     // Perform neighborhood search.
-    std::for_each(kvps.begin(), kvps.end(), [&](std::pair<HashKey const, unsigned int> const* kvp_) {
-        auto const& kvp = *kvp_;
-        HashEntry const& entry = m_entries[kvp.second];
+    parallelFor(kZeroSize, kvps.size(), [&](size_t i) {
+        auto& kvp = kvps[i];
+        HashEntry const& entry = m_entries[kvp->second];
 
         if (entry.n_searching_points == 0u) {
             return;
@@ -347,12 +349,12 @@ void NeighborhoodSearch::query() {
     std::vector<std::array<bool, 27>> visited(m_entries.size(), {false});
     std::vector<Spinlock> entry_locks(m_entries.size());
 
-    std::for_each(kvps.begin(), kvps.end(), [&](std::pair<HashKey const, unsigned int> const* kvp_) {
-        auto const& kvp = *kvp_;
-        HashEntry const& entry = m_entries[kvp.second];
+    parallelFor(kZeroSize, kvps.size(), [&](size_t index) {
+        auto& kvp = kvps[index];
+        HashEntry const& entry = m_entries[kvp->second];
 
         if (entry.n_searching_points == 0u) return;
-        HashKey const& key = kvp.first;
+        HashKey const& key = kvp->first;
 
         for (int dj = -1; dj <= 1; dj++)
             for (int dk = -1; dk <= 1; dk++)
@@ -361,28 +363,28 @@ void NeighborhoodSearch::query() {
                     if (l_ind == 13) {
                         continue;
                     }
-                    entry_locks[kvp.second].lock();
-                    if (visited[kvp.second][l_ind]) {
-                        entry_locks[kvp.second].unlock();
+                    entry_locks[kvp->second].lock();
+                    if (visited[kvp->second][l_ind]) {
+                        entry_locks[kvp->second].unlock();
                         continue;
                     }
-                    entry_locks[kvp.second].unlock();
+                    entry_locks[kvp->second].unlock();
 
                     auto it = m_map.find({key.k[0] + dj, key.k[1] + dk, key.k[2] + dl});
                     if (it == m_map.end()) continue;
 
-                    std::array<unsigned int, 2> entry_ids{{kvp.second, it->second}};
+                    std::array<unsigned int, 2> entry_ids{{kvp->second, it->second}};
                     if (entry_ids[0] > entry_ids[1]) std::swap(entry_ids[0], entry_ids[1]);
                     entry_locks[entry_ids[0]].lock();
                     entry_locks[entry_ids[1]].lock();
 
-                    if (visited[kvp.second][l_ind]) {
+                    if (visited[kvp->second][l_ind]) {
                         entry_locks[entry_ids[1]].unlock();
                         entry_locks[entry_ids[0]].unlock();
                         continue;
                     }
 
-                    visited[kvp.second][l_ind] = true;
+                    visited[kvp->second][l_ind] = true;
                     visited[it->second][26 - l_ind] = true;
 
                     entry_locks[entry_ids[1]].unlock();
@@ -442,8 +444,7 @@ void NeighborhoodSearch::query(unsigned int point_set_id,
 
     Real const* xa = d.point(point_index);
     HashKey hash_key = cell_index(xa);
-    auto it = m_map.find(hash_key);
-    std::pair<HashKey const, unsigned int>& kvp = *it;
+    std::pair<HashKey const, unsigned int>& kvp = *m_map.find(hash_key);
     HashEntry const& entry = m_entries[kvp.second];
 
     // Perform neighborhood search.
@@ -575,4 +576,4 @@ void NeighborhoodSearch::query(Real const* xa, std::vector<std::vector<unsigned 
     }
 }
 
-}  // namespace CompactNSearch
+}  // namespace vox::flex

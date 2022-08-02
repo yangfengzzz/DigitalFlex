@@ -10,7 +10,7 @@
 
 #include "config.h"
 
-namespace CompactNSearch {
+namespace vox::flex {
 class NeighborhoodSearch;
 
 /**
@@ -155,4 +155,4 @@ void PointSet::sort_field(T* lst) const {
     std::vector<T> tmp(lst, lst + m_sort_table.size());
     std::transform(m_sort_table.begin(), m_sort_table.end(), lst, [&](int i) { return tmp[i]; });
 }
-}  // namespace CompactNSearch
+}  // namespace vox::flex

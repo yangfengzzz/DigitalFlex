@@ -11,7 +11,7 @@
 
 #include "config.h"
 
-namespace CompactNSearch {
+namespace vox::flex {
 struct PointID {
     unsigned int point_set_id;
     unsigned int point_id;
@@ -23,7 +23,11 @@ struct PointID {
 
 struct HashKey {
     HashKey() = default;
-    HashKey(int i, int j, int k) { this->k[0] = i; this->k[1] = j; this->k[2] = k; }
+    HashKey(int i, int j, int k) {
+        this->k[0] = i;
+        this->k[1] = j;
+        this->k[2] = k;
+    }
 
     HashKey& operator=(HashKey const& other) {
         k[0] = other.k[0];
@@ -151,4 +155,4 @@ public:
         return false;
     }
 };
-}  // namespace CompactNSearch
+}  // namespace vox::flex
