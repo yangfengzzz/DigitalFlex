@@ -11,6 +11,7 @@
 #include "vox.force/compact_n_search.h"
 #include "vox.force/fluid_model.h"
 #include "vox.force/non_pressure_force.h"
+#include "vox.force/sph_kernels3.h"
 #include "vox.math/bounding_box3.h"
 //#include "Utilities/FileSystem.h"
 #ifdef USE_DEBUG_TOOLS

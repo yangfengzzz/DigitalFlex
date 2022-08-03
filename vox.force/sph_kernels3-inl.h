@@ -61,6 +61,7 @@ inline double SphStdKernel3::secondDerivative(double distance) const {
     }
 }
 
+// MARK: - SphSpikyKernel3
 inline SphSpikyKernel3::SphSpikyKernel3() : h(0), h2(0), h3(0), h4(0), h5(0) {}
 
 inline SphSpikyKernel3::SphSpikyKernel3(double h_) : h(h_), h2(h * h), h3(h2 * h), h4(h2 * h2), h5(h3 * h2) {}

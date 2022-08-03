@@ -1182,6 +1182,7 @@
 		04E212EA289A270D003F4FDD /* animation_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E7289A270D003F4FDD /* animation_field.h */; };
 		04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E8289A270D003F4FDD /* animation_field_system.h */; };
 		04E212ED289A2A7B003F4FDD /* simulation.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212EC289A2A7B003F4FDD /* simulation.h */; };
+		04E212EF289A40F8003F4FDD /* sph_kernels3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212EE289A40F8003F4FDD /* sph_kernels3.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2638,6 +2639,7 @@
 		04E212E7289A270D003F4FDD /* animation_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field.h; sourceTree = "<group>"; };
 		04E212E8289A270D003F4FDD /* animation_field_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field_system.h; sourceTree = "<group>"; };
 		04E212EC289A2A7B003F4FDD /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simulation.h; sourceTree = "<group>"; };
+		04E212EE289A40F8003F4FDD /* sph_kernels3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sph_kernels3.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3344,6 +3346,7 @@
 				046C2EB22894F88E0031B2BE /* sph_kernels2-inl.h */,
 				046C2EB82894F88E0031B2BE /* sph_kernels3.h */,
 				046C2EA12894F88D0031B2BE /* sph_kernels3-inl.h */,
+				04E212EE289A40F8003F4FDD /* sph_kernels3.cpp */,
 				046C2EA52894F88D0031B2BE /* sph_solver2.h */,
 				046C2EA42894F88D0031B2BE /* sph_solver2.cpp */,
 				046C2E9F2894F88D0031B2BE /* sph_solver3.h */,
@@ -5879,6 +5882,7 @@
 				047EB3632896257300AC5A87 /* advection_solver2.cpp in Sources */,
 				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
 				047EB3AA2896AD5D00AC5A87 /* discrete_grid.cpp in Sources */,
+				04E212EF289A40F8003F4FDD /* sph_kernels3.cpp in Sources */,
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
 				046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */,
 				046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */,
