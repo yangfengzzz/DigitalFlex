@@ -1181,6 +1181,7 @@
 		04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212E6289A270D003F4FDD /* animation_field_system.cpp */; };
 		04E212EA289A270D003F4FDD /* animation_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E7289A270D003F4FDD /* animation_field.h */; };
 		04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E8289A270D003F4FDD /* animation_field_system.h */; };
+		04E212ED289A2A7B003F4FDD /* simulation.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212EC289A2A7B003F4FDD /* simulation.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2636,6 +2637,7 @@
 		04E212E6289A270D003F4FDD /* animation_field_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation_field_system.cpp; sourceTree = "<group>"; };
 		04E212E7289A270D003F4FDD /* animation_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field.h; sourceTree = "<group>"; };
 		04E212E8289A270D003F4FDD /* animation_field_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field_system.h; sourceTree = "<group>"; };
+		04E212EC289A2A7B003F4FDD /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simulation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3279,6 +3281,7 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				04E212EC289A2A7B003F4FDD /* simulation.h */,
 				04E212E7289A270D003F4FDD /* animation_field.h */,
 				04E212E8289A270D003F4FDD /* animation_field_system.h */,
 				04E212E6289A270D003F4FDD /* animation_field_system.cpp */,
@@ -4864,6 +4867,7 @@
 				046C2F0E2894F9A60031B2BE /* fmm_level_set_solver2.h in Headers */,
 				04660DF12896B0C900812275 /* cubic_lagrange_discrete_grid.h in Headers */,
 				046C2EBE2894F88E0031B2BE /* sph_kernels3-inl.h in Headers */,
+				04E212ED289A2A7B003F4FDD /* simulation.h in Headers */,
 				047EB3662896257300AC5A87 /* advection_solver3.h in Headers */,
 				047EB3672896257300AC5A87 /* semi_lagrangian3.h in Headers */,
 				046C2F132894F9A60031B2BE /* pde.h in Headers */,

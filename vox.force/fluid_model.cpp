@@ -15,7 +15,7 @@
 #include "vox.force/vorticity_solver.h"
 //#include "EmitterSystem.h"
 //#include "NeighborhoodSearch.h"
-//#include "Simulation.h"
+#include "vox.force/simulation.h"
 //#include "SPHKernels.h"
 //#include "TimeManager.h"
 //#include "TimeStep.h"

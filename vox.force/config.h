@@ -7,11 +7,7 @@
 #pragma once
 
 namespace vox::flex {
-#ifdef USE_DOUBLE
 using Real = double;
-#else
-using Real = float;
-#endif
 }  // namespace vox::flex
 
 #define INITIAL_NUMBER_OF_INDICES 50
