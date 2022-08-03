@@ -1167,7 +1167,6 @@
 		04D0A552288A2BB90014DCFD /* helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A550288A2BB90014DCFD /* helper.cpp */; };
 		04E212CA289A13E3003F4FDD /* non_pressure_force.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212C6289A13E3003F4FDD /* non_pressure_force.h */; };
 		04E212CB289A13E3003F4FDD /* fluid_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212C7289A13E3003F4FDD /* fluid_model.h */; };
-		04E212CC289A13E3003F4FDD /* fluid_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212C8289A13E3003F4FDD /* fluid_model.cpp */; };
 		04E212CD289A13E3003F4FDD /* non_pressure_force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */; };
 		04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212CE289A22A3003F4FDD /* elasticity_solver.h */; };
 		04E212D9289A22A4003F4FDD /* elasticity_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */; };
@@ -1179,6 +1178,9 @@
 		04E212E1289A22A4003F4FDD /* vorticity_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */; };
 		04E212E4289A22DC003F4FDD /* surface_tension_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */; };
 		04E212E5289A22DC003F4FDD /* surface_tension_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E3289A22DC003F4FDD /* surface_tension_solver.h */; };
+		04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212E6289A270D003F4FDD /* animation_field_system.cpp */; };
+		04E212EA289A270D003F4FDD /* animation_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E7289A270D003F4FDD /* animation_field.h */; };
+		04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E8289A270D003F4FDD /* animation_field_system.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2631,6 +2633,9 @@
 		04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vorticity_solver.cpp; sourceTree = "<group>"; };
 		04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_solver.cpp; sourceTree = "<group>"; };
 		04E212E3289A22DC003F4FDD /* surface_tension_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_solver.h; sourceTree = "<group>"; };
+		04E212E6289A270D003F4FDD /* animation_field_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation_field_system.cpp; sourceTree = "<group>"; };
+		04E212E7289A270D003F4FDD /* animation_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field.h; sourceTree = "<group>"; };
+		04E212E8289A270D003F4FDD /* animation_field_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field_system.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3274,6 +3279,9 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				04E212E7289A270D003F4FDD /* animation_field.h */,
+				04E212E8289A270D003F4FDD /* animation_field_system.h */,
+				04E212E6289A270D003F4FDD /* animation_field_system.cpp */,
 				04E212D5289A22A4003F4FDD /* drag_solver.h */,
 				04E212D2289A22A3003F4FDD /* drag_solver.cpp */,
 				04E212D6289A22A4003F4FDD /* vorticity_solver.h */,
@@ -3286,6 +3294,9 @@
 				04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */,
 				04E212C6289A13E3003F4FDD /* non_pressure_force.h */,
 				04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */,
+				04660DF628990BC900812275 /* rigid_body_object.h */,
+				04660DF828990BC900812275 /* boundary_model.h */,
+				04660DF728990BC900812275 /* boundary_model.cpp */,
 				04E212C7289A13E3003F4FDD /* fluid_model.h */,
 				04E212C8289A13E3003F4FDD /* fluid_model.cpp */,
 				04660DFE2899176000812275 /* config.h */,
@@ -3294,9 +3305,6 @@
 				04660E002899176000812275 /* compact_n_search.h */,
 				04660E012899176000812275 /* compact_n_search.cpp */,
 				04660DFC28990DB300812275 /* binary_file_reader_writer.h */,
-				04660DF628990BC900812275 /* rigid_body_object.h */,
-				04660DF828990BC900812275 /* boundary_model.h */,
-				04660DF728990BC900812275 /* boundary_model.cpp */,
 				04660DF42897635800812275 /* serialize.h */,
 				04660DEE2896B0C900812275 /* spinlock.h */,
 				04660DEF2896B0C900812275 /* z_sort_table.h */,
@@ -4876,6 +4884,7 @@
 				046C2ED52894F88E0031B2BE /* sph_kernels3.h in Headers */,
 				046C2F102894F9A60031B2BE /* anisotropic_points_to_implicit2.h in Headers */,
 				04E212CA289A13E3003F4FDD /* non_pressure_force.h in Headers */,
+				04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */,
 				046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
 				04660DF928990BC900812275 /* rigid_body_object.h in Headers */,
@@ -4911,6 +4920,7 @@
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
 				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
 				04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */,
+				04E212EA289A270D003F4FDD /* animation_field.h in Headers */,
 				04660E032899176000812275 /* config.h in Headers */,
 				04660DF52897635800812275 /* serialize.h in Headers */,
 			);
@@ -5842,9 +5852,9 @@
 				04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */,
 				046C2F042894F9A60031B2BE /* upwind_level_set_solver2.cpp in Sources */,
 				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
+				04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */,
 				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
 				04E212E1289A22A4003F4FDD /* vorticity_solver.cpp in Sources */,
-				04E212CC289A13E3003F4FDD /* fluid_model.cpp in Sources */,
 				046C2F0A2894F9A60031B2BE /* eno_level_set_solver3.cpp in Sources */,
 				04E212E4289A22DC003F4FDD /* surface_tension_solver.cpp in Sources */,
 				046C2F082894F9A60031B2BE /* anisotropic_points_to_implicit3.cpp in Sources */,
