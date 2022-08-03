@@ -14,12 +14,7 @@
 #include "vox.force/surface_tension_solver.h"
 #include "vox.force/viscosity_solver.h"
 #include "vox.force/vorticity_solver.h"
-//#include "NeighborhoodSearch.h"
 #include "vox.force/simulation.h"
-//#include "SPHKernels.h"
-//#include "TimeManager.h"
-//#include "TimeStep.h"
-//#include "Utilities/Logger.h"
 
 namespace vox::flex {
 

@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "vox.base/file_system.h"
 #include "vox.force/animation_field_system.h"
 #include "vox.force/boundary_model.h"
 #include "vox.force/compact_n_search.h"
@@ -13,7 +14,6 @@
 #include "vox.force/non_pressure_force.h"
 #include "vox.force/sph_kernels3.h"
 #include "vox.math/bounding_box3.h"
-//#include "Utilities/FileSystem.h"
 #ifdef USE_DEBUG_TOOLS
 #include "SPlisHSPlasH/Utilities/DebugTools.h"
 #endif
@@ -244,7 +244,7 @@ public:
             if (numParticles != other.numParticles) return false;
             if ((type == 1) && (other.type == 1) && (scale == other.scale)) {
                 if (samplesFile == other.samplesFile) {
-                    std::string ext = Utilities::FileSystem::getFileExt(samplesFile);
+                    std::string ext = utilities::getFileExt(samplesFile);
                     std::transform(ext.begin(), ext.end(), ext.begin(), ::toupper);
                     if (ext == "OBJ") {
                         if (mode == other.mode) return true;
