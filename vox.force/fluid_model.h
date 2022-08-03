@@ -118,7 +118,7 @@ protected:
     std::vector<unsigned int> m_objectId;
     std::vector<unsigned int> m_objectId0;
     std::vector<ParticleState> m_particleState;
-    double m_V;
+    double m_V{};
 
 #ifdef USE_PERFORMANCE_OPTIMIZATION
     std::vector<Vector3f8, Eigen::aligned_allocator<Vector3f8>> m_precomp_V_gradW;
@@ -147,8 +147,8 @@ protected:
     double m_density0;
     unsigned int m_pointSetIndex;
 
-    unsigned int m_numActiveParticles;
-    unsigned int m_numActiveParticles0;
+    unsigned int m_numActiveParticles{};
+    unsigned int m_numActiveParticles0{};
 
     virtual void initParameters();
 
@@ -188,7 +188,7 @@ public:
                    const unsigned int nFluidParticles,
                    Vector3D *fluidParticles,
                    Vector3D *fluidVelocities,
-                   unsigned int *fluidObjectIds,
+                   const unsigned int *fluidObjectIds,
                    const unsigned int nMaxEmitterParticles);
 
     const unsigned int numParticles() const { return static_cast<unsigned int>(m_masses.size()); }

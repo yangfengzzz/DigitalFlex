@@ -10,10 +10,10 @@
 
 #include "vox.force/drag_solver.h"
 #include "vox.force/elasticity_solver.h"
+#include "vox.force/emitter_system.h"
 #include "vox.force/surface_tension_solver.h"
 #include "vox.force/viscosity_solver.h"
 #include "vox.force/vorticity_solver.h"
-//#include "EmitterSystem.h"
 //#include "NeighborhoodSearch.h"
 #include "vox.force/simulation.h"
 //#include "SPHKernels.h"
@@ -117,8 +117,10 @@ void FluidModel::reset() {
     const unsigned int nPoints = numActiveParticles();
 
     struct Comparator {
-        Comparator(FluidModel* _this) : m_this(_this){};
-        bool operator()(unsigned int a, unsigned int b) { return m_this->getParticleId(a) < m_this->getParticleId(b); }
+        explicit Comparator(FluidModel* _this) : m_this(_this){};
+        bool operator()(unsigned int a, unsigned int b) const {
+            return m_this->getParticleId(a) < m_this->getParticleId(b);
+        }
         FluidModel* m_this;
     };
 
@@ -203,7 +205,7 @@ void FluidModel::initModel(const std::string& id,
                            const unsigned int nFluidParticles,
                            Vector3D* fluidParticles,
                            Vector3D* fluidVelocities,
-                           unsigned int* fluidObjectIds,
+                           const unsigned int* fluidObjectIds,
                            const unsigned int nMaxEmitterParticles) {
     m_id = id;
     init();
@@ -360,9 +362,8 @@ void FluidModel::setSurfaceTensionMethod(const unsigned int val) {
 
     m_surfaceTensionMethod = stm;
     int method_id = getValue<int>(FluidModel::SURFACE_TENSION_METHOD);
-    for (unsigned int i = 0; i < stMethods.size(); i++) {
-        if (stMethods[i].m_id == method_id)
-            m_surfaceTension = static_cast<SurfaceTensionBase*>(stMethods[i].m_creator(this));
+    for (auto& stMethod : stMethods) {
+        if (stMethod.m_id == method_id) m_surfaceTension = static_cast<SurfaceTensionBase*>(stMethod.m_creator(this));
     }
 
     if (m_surfaceTension != nullptr) m_surfaceTension->init();
@@ -383,10 +384,10 @@ void FluidModel::setViscosityMethod(const std::string& val) {
 
 void FluidModel::setViscosityMethod(const unsigned int val) {
     Simulation* sim = Simulation::getCurrent();
-    std::vector<Simulation::NonPressureForceMethod>& viscoMethods = sim->getViscosityMethods();
+    std::vector<Simulation::NonPressureForceMethod>& viscosityMethods = sim->getViscosityMethods();
 
     unsigned int vm = val;
-    if (vm >= viscoMethods.size()) vm = 0;
+    if (vm >= viscosityMethods.size()) vm = 0;
 
     if (vm == m_viscosityMethod) return;
 
@@ -395,9 +396,9 @@ void FluidModel::setViscosityMethod(const unsigned int val) {
 
     m_viscosityMethod = vm;
 
-    for (unsigned int i = 0; i < viscoMethods.size(); i++) {
-        if (viscoMethods[i].m_id == m_viscosityMethod) {
-            m_viscosity = static_cast<ViscosityBase*>(viscoMethods[i].m_creator(this));
+    for (auto& viscosityMethod : viscosityMethods) {
+        if (viscosityMethod.m_id == m_viscosityMethod) {
+            m_viscosity = static_cast<ViscosityBase*>(viscosityMethod.m_creator(this));
             break;
         }
     }
@@ -433,9 +434,9 @@ void FluidModel::setVorticityMethod(const unsigned int val) {
     m_vorticityMethod = vm;
 
     int method_id = getValue<int>(FluidModel::VORTICITY_METHOD);
-    for (unsigned int i = 0; i < vorticityMethods.size(); i++) {
-        if (vorticityMethods[i].m_id == method_id)
-            m_vorticity = static_cast<VorticityBase*>(vorticityMethods[i].m_creator(this));
+    for (auto& vorticityMethod : vorticityMethods) {
+        if (vorticityMethod.m_id == method_id)
+            m_vorticity = static_cast<VorticityBase*>(vorticityMethod.m_creator(this));
     }
 
     if (m_vorticity != nullptr) m_vorticity->init();
@@ -469,8 +470,8 @@ void FluidModel::setDragMethod(const unsigned int val) {
     m_dragMethod = dm;
 
     int method_id = getValue<int>(FluidModel::DRAG_METHOD);
-    for (unsigned int i = 0; i < dragMethods.size(); i++) {
-        if (dragMethods[i].m_id == method_id) m_drag = static_cast<DragBase*>(dragMethods[i].m_creator(this));
+    for (auto& dragMethod : dragMethods) {
+        if (dragMethod.m_id == method_id) m_drag = static_cast<DragBase*>(dragMethod.m_creator(this));
     }
 
     if (m_drag != nullptr) m_drag->init();
@@ -504,9 +505,9 @@ void FluidModel::setElasticityMethod(const unsigned int val) {
     m_elasticityMethod = em;
 
     int method_id = getValue<int>(FluidModel::ELASTICITY_METHOD);
-    for (unsigned int i = 0; i < elasticityMethods.size(); i++) {
-        if (elasticityMethods[i].m_id == method_id)
-            m_elasticity = static_cast<ElasticityBase*>(elasticityMethods[i].m_creator(this));
+    for (auto& elasticityMethod : elasticityMethods) {
+        if (elasticityMethod.m_id == method_id)
+            m_elasticity = static_cast<ElasticityBase*>(elasticityMethod.m_creator(this));
     }
 
     if (m_elasticity != nullptr) m_elasticity->init();
