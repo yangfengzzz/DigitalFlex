@@ -252,9 +252,7 @@ public:
                         return true;
                 }
             } else if ((type == 0) && (other.type == 0)) {
-                if (((box.upper_corner - box.lower_corner).isSimilar(other.box.upper_corner - other.box.lower_corner),
-                     1.0e-9) &&
-                    (mode == other.mode))
+                if ((box.upper_corner - box.lower_corner).isSimilar(other.box.upper_corner - other.box.lower_corner, 1.0e-9) && (mode == other.mode))
                     return true;
             }
             return false;

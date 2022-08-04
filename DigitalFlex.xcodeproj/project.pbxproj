@@ -1195,6 +1195,9 @@
 		04E21311289A6882003F4FDD /* test_parameter_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E21310289A6882003F4FDD /* test_parameter_object.cpp */; };
 		04E21314289A688C003F4FDD /* libvox.base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C2DF4288B0C720031B2BE /* libvox.base.a */; };
 		04E21316289A7A2A003F4FDD /* parameter_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E21315289A7A2A003F4FDD /* parameter_tests.cpp */; };
+		04E21317289A7E5A003F4FDD /* fluid_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212C8289A13E3003F4FDD /* fluid_model.cpp */; };
+		04E2131A289B4835003F4FDD /* file_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E21318289B4835003F4FDD /* file_system.h */; };
+		04E2131B289B4835003F4FDD /* string_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E21319289B4835003F4FDD /* string_utils.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2682,6 +2685,8 @@
 		04E2130F289A6882003F4FDD /* test_parameter_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test_parameter_object.h; sourceTree = "<group>"; };
 		04E21310289A6882003F4FDD /* test_parameter_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_parameter_object.cpp; sourceTree = "<group>"; };
 		04E21315289A7A2A003F4FDD /* parameter_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parameter_tests.cpp; sourceTree = "<group>"; };
+		04E21318289B4835003F4FDD /* file_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_system.h; sourceTree = "<group>"; };
+		04E21319289B4835003F4FDD /* string_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3447,6 +3452,8 @@
 		046C2DF5288B0C720031B2BE /* vox.base */ = {
 			isa = PBXGroup;
 			children = (
+				04E21318289B4835003F4FDD /* file_system.h */,
+				04E21319289B4835003F4FDD /* string_utils.h */,
 				04E212F6289A623A003F4FDD /* reflect */,
 				04D0A54B288A2B240014DCFD /* logging.h */,
 				04D0A553288A2BF40014DCFD /* timer.h */,
@@ -5022,7 +5029,9 @@
 				04E21300289A6697003F4FDD /* numeric_parameter.h in Headers */,
 				04E21302289A6697003F4FDD /* parameter_object.h in Headers */,
 				04E212FE289A6697003F4FDD /* parameter.h in Headers */,
+				04E2131B289B4835003F4FDD /* string_utils.h in Headers */,
 				04E212FD289A6697003F4FDD /* function_parameter.h in Headers */,
+				04E2131A289B4835003F4FDD /* file_system.h in Headers */,
 				04E21301289A6697003F4FDD /* enum_parameter.h in Headers */,
 				04E212FF289A6697003F4FDD /* vector_parameter.h in Headers */,
 			);
@@ -5964,6 +5973,7 @@
 				046C2EFF2894F9A60031B2BE /* zhu_bridson_points_to_implicit3.cpp in Sources */,
 				047EB36B2896257300AC5A87 /* advection_solver3.cpp in Sources */,
 				04E212DC289A22A4003F4FDD /* drag_solver.cpp in Sources */,
+				04E21317289A7E5A003F4FDD /* fluid_model.cpp in Sources */,
 				047EB3622896257300AC5A87 /* semi_lagrangian2.cpp in Sources */,
 				046C2F022894F9A60031B2BE /* iterative_level_set_solver2.cpp in Sources */,
 				04660DFA28990BC900812275 /* boundary_model.cpp in Sources */,

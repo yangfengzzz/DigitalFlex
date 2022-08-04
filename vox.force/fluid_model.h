@@ -10,7 +10,7 @@
 #include <vector>
 
 #include "vox.force/rigid_body_object.h"
-//#include "SPHKernels.h"
+#include "vox.base/reflect/parameter_object.h"
 #ifdef USE_AVX
 #include "SPlisHSPlasH/Utilities/AVX_math.h"
 #endif
@@ -74,7 +74,7 @@ enum class ParticleState { Active = 0, AnimatedByEmitter, Fixed };
 
 /** \brief The fluid model stores the particle and simulation information
  */
-class FluidModel {
+class FluidModel : public utility::ParameterObject {
 public:
     static int NUM_PARTICLES;
     static int NUM_REUSED_PARTICLES;

@@ -12,7 +12,7 @@
 #include <vector>
 
 namespace vox::utilities {
-static void tokenize(const std::string& str, std::vector<std::string>& tokens, const std::string& delimiters = " ") {
+inline void tokenize(const std::string& str, std::vector<std::string>& tokens, const std::string& delimiters = " ") {
     std::string::size_type lastPos = str.find_first_not_of(delimiters, 0);
     std::string::size_type pos = str.find_first_of(delimiters, lastPos);
 
@@ -25,14 +25,14 @@ static void tokenize(const std::string& str, std::vector<std::string>& tokens, c
 
 /** converts a double or a float to a string */
 template <typename T>
-static std::string real2String(const T r) {
+inline std::string real2String(const T r) {
     std::string str = std::to_string(r);
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
     str.erase(str.find_last_not_of('.') + 1, std::string::npos);
     return str;
 }
 
-static std::string to_upper(const std::string& str) {
+inline std::string to_upper(const std::string& str) {
     std::string res = str;
     std::transform(res.begin(), res.end(), res.begin(), ::toupper);
     return res;
