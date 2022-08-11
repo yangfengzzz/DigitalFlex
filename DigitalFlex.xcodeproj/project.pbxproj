@@ -598,6 +598,11 @@
 		04BEAD8E288ADE81008D3CA1 /* triangle_mesh_to_sdf.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD89288ADE81008D3CA1 /* triangle_mesh_to_sdf.h */; };
 		04BEAD8F288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */; };
 		04BEAD90288ADE81008D3CA1 /* implicit_triangle_mesh3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */; };
+		04CA280E28A48B2A008176C4 /* boundary_simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280928A48B2A008176C4 /* boundary_simulator.cpp */; };
+		04CA280F28A48B2A008176C4 /* time_step.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280A28A48B2A008176C4 /* time_step.h */; };
+		04CA281028A48B2A008176C4 /* time_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280B28A48B2A008176C4 /* time_manager.cpp */; };
+		04CA281128A48B2A008176C4 /* time_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280C28A48B2A008176C4 /* time_manager.h */; };
+		04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280D28A48B2A008176C4 /* boundary_simulator.h */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -2047,6 +2052,11 @@
 		04BEAD89288ADE81008D3CA1 /* triangle_mesh_to_sdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh_to_sdf.h; sourceTree = "<group>"; };
 		04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = implicit_triangle_mesh3.cpp; sourceTree = "<group>"; };
 		04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implicit_triangle_mesh3.h; sourceTree = "<group>"; };
+		04CA280928A48B2A008176C4 /* boundary_simulator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_simulator.cpp; sourceTree = "<group>"; };
+		04CA280A28A48B2A008176C4 /* time_step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_step.h; sourceTree = "<group>"; };
+		04CA280B28A48B2A008176C4 /* time_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = time_manager.cpp; sourceTree = "<group>"; };
+		04CA280C28A48B2A008176C4 /* time_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_manager.h; sourceTree = "<group>"; };
+		04CA280D28A48B2A008176C4 /* boundary_simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_simulator.h; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3338,6 +3348,11 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				04CA280D28A48B2A008176C4 /* boundary_simulator.h */,
+				04CA280928A48B2A008176C4 /* boundary_simulator.cpp */,
+				04CA280A28A48B2A008176C4 /* time_step.h */,
+				04CA280C28A48B2A008176C4 /* time_manager.h */,
+				04CA280B28A48B2A008176C4 /* time_manager.cpp */,
 				04E212F2289A4C53003F4FDD /* emitter.h */,
 				04E212F1289A4C53003F4FDD /* emitter_system.h */,
 				04E212F0289A4C53003F4FDD /* emitter_system.cpp */,
@@ -4993,14 +5008,17 @@
 				046C2EBA2894F88E0031B2BE /* physics_animation.h in Headers */,
 				046C2F012894F9A60031B2BE /* eno_level_set_solver2.h in Headers */,
 				04E212E0289A22A4003F4FDD /* vorticity_solver.h in Headers */,
+				04CA281128A48B2A008176C4 /* time_manager.h in Headers */,
 				046C2EDD2894F9060031B2BE /* points_to_implicit2.h in Headers */,
 				04E212E5289A22DC003F4FDD /* surface_tension_solver.h in Headers */,
 				046C2F032894F9A60031B2BE /* eno_level_set_solver3.h in Headers */,
 				047EB3A42896A54000AC5A87 /* half_edge.h in Headers */,
+				04CA280F28A48B2A008176C4 /* time_step.h in Headers */,
 				046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */,
 				046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */,
 				04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */,
 				046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */,
+				04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */,
 				04660E052899176000812275 /* compact_n_search.h in Headers */,
 				046C2F122894F9A60031B2BE /* pde-inl.h in Headers */,
 				047EB3A12896A54000AC5A87 /* triangle_mesh.h in Headers */,
@@ -5981,6 +5999,7 @@
 				046C2F042894F9A60031B2BE /* upwind_level_set_solver2.cpp in Sources */,
 				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
 				04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */,
+				04CA281028A48B2A008176C4 /* time_manager.cpp in Sources */,
 				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
 				04E212E1289A22A4003F4FDD /* vorticity_solver.cpp in Sources */,
 				046C2F0A2894F9A60031B2BE /* eno_level_set_solver3.cpp in Sources */,
@@ -5991,6 +6010,7 @@
 				046C2F0B2894F9A60031B2BE /* anisotropic_points_to_implicit2.cpp in Sources */,
 				046C2F1E2894FD8B0031B2BE /* particle_system_solver3.cpp in Sources */,
 				047EB36A2896257300AC5A87 /* cubic_semi_lagrangian2.cpp in Sources */,
+				04CA280E28A48B2A008176C4 /* boundary_simulator.cpp in Sources */,
 				046C2EBD2894F88E0031B2BE /* level_set_solver2.cpp in Sources */,
 				046C2EFE2894F9A60031B2BE /* spherical_points_to_implicit2.cpp in Sources */,
 				046C2F072894F9A60031B2BE /* upwind_level_set_solver3.cpp in Sources */,
