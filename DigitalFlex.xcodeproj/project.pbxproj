@@ -605,6 +605,10 @@
 		04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281C28A48E73008176C4 /* pressure_solver.h */; };
 		04CA282028A49010008176C4 /* boundary_model_Akinci2012.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */; };
 		04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */; };
+		04CA282628A494CB008176C4 /* boundary_model_Koschier2017.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */; };
+		04CA282728A494CB008176C4 /* boundary_model_Bender2019.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */; };
+		04CA282828A494CB008176C4 /* boundary_model_Bender2019.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */; };
+		04CA282928A494CB008176C4 /* boundary_model_Koschier2017.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -2061,6 +2065,10 @@
 		04CA281C28A48E73008176C4 /* pressure_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pressure_solver.h; sourceTree = "<group>"; };
 		04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Akinci2012.h; sourceTree = "<group>"; };
 		04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Akinci2012.cpp; sourceTree = "<group>"; };
+		04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Koschier2017.cpp; sourceTree = "<group>"; };
+		04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Bender2019.cpp; sourceTree = "<group>"; };
+		04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Bender2019.h; sourceTree = "<group>"; };
+		04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Koschier2017.h; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3715,6 +3723,10 @@
 			children = (
 				04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */,
 				04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */,
+				04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */,
+				04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */,
+				04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */,
+				04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */,
 			);
 			name = boundary_models;
 			sourceTree = "<group>";
@@ -5076,6 +5088,7 @@
 				046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
 				04660DF928990BC900812275 /* rigid_body_object.h in Headers */,
+				04CA282928A494CB008176C4 /* boundary_model_Koschier2017.h in Headers */,
 				04660E072899176000812275 /* point_set.h in Headers */,
 				046C2EFD2894F9A60031B2BE /* iterative_level_set_solver3.h in Headers */,
 				04E212F5289A4C54003F4FDD /* emitter.h in Headers */,
@@ -5109,6 +5122,7 @@
 				04660DFB28990BC900812275 /* boundary_model.h in Headers */,
 				046C2F0D2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h in Headers */,
 				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
+				04CA282828A494CB008176C4 /* boundary_model_Bender2019.h in Headers */,
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
 				04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */,
 				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
@@ -6049,6 +6063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */,
+				04CA282728A494CB008176C4 /* boundary_model_Bender2019.cpp in Sources */,
 				047EB3A22896A54000AC5A87 /* entity_iterators.cpp in Sources */,
 				04E212CD289A13E3003F4FDD /* non_pressure_force.cpp in Sources */,
 				046C2F142894F9A60031B2BE /* spherical_points_to_implicit3.cpp in Sources */,
@@ -6107,6 +6122,7 @@
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
 				046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */,
 				046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */,
+				04CA282628A494CB008176C4 /* boundary_model_Koschier2017.cpp in Sources */,
 				046C2ECA2894F88E0031B2BE /* sph_points_to_implicit3.cpp in Sources */,
 				046C2EDB2894F9060031B2BE /* points_to_implicit3.cpp in Sources */,
 			);
