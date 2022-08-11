@@ -13,7 +13,7 @@
 #include "vox.force/binary_file_reader_writer.h"
 
 namespace vox::flex {
-class TimeStep;
+class PressureSolver;
 
 /** \brief The boundary model stores the information required for boundary handling
  */

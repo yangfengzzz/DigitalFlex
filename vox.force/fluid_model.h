@@ -47,7 +47,7 @@
 #endif
 
 namespace vox::flex {
-class TimeStep;
+class PressureSolver;
 class ViscosityBase;
 class SurfaceTensionBase;
 class VorticityBase;

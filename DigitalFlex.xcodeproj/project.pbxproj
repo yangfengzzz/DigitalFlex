@@ -599,10 +599,10 @@
 		04BEAD8F288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */; };
 		04BEAD90288ADE81008D3CA1 /* implicit_triangle_mesh3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */; };
 		04CA280E28A48B2A008176C4 /* boundary_simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280928A48B2A008176C4 /* boundary_simulator.cpp */; };
-		04CA280F28A48B2A008176C4 /* time_step.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280A28A48B2A008176C4 /* time_step.h */; };
 		04CA281028A48B2A008176C4 /* time_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280B28A48B2A008176C4 /* time_manager.cpp */; };
 		04CA281128A48B2A008176C4 /* time_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280C28A48B2A008176C4 /* time_manager.h */; };
 		04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280D28A48B2A008176C4 /* boundary_simulator.h */; };
+		04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281C28A48E73008176C4 /* pressure_solver.h */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -2053,10 +2053,10 @@
 		04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = implicit_triangle_mesh3.cpp; sourceTree = "<group>"; };
 		04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implicit_triangle_mesh3.h; sourceTree = "<group>"; };
 		04CA280928A48B2A008176C4 /* boundary_simulator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_simulator.cpp; sourceTree = "<group>"; };
-		04CA280A28A48B2A008176C4 /* time_step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_step.h; sourceTree = "<group>"; };
 		04CA280B28A48B2A008176C4 /* time_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = time_manager.cpp; sourceTree = "<group>"; };
 		04CA280C28A48B2A008176C4 /* time_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_manager.h; sourceTree = "<group>"; };
 		04CA280D28A48B2A008176C4 /* boundary_simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_simulator.h; sourceTree = "<group>"; };
+		04CA281C28A48E73008176C4 /* pressure_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pressure_solver.h; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3348,9 +3348,14 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
+				04660DF828990BC900812275 /* boundary_model.h */,
+				04660DF728990BC900812275 /* boundary_model.cpp */,
+				04CA281428A48D32008176C4 /* boundary_models */,
 				04CA280D28A48B2A008176C4 /* boundary_simulator.h */,
 				04CA280928A48B2A008176C4 /* boundary_simulator.cpp */,
-				04CA280A28A48B2A008176C4 /* time_step.h */,
+				04CA281328A48C17008176C4 /* boundary_simulators */,
+				04660DF628990BC900812275 /* rigid_body_object.h */,
+				04CA281B28A48DE1008176C4 /* rigid_body_objects */,
 				04CA280C28A48B2A008176C4 /* time_manager.h */,
 				04CA280B28A48B2A008176C4 /* time_manager.cpp */,
 				04E212F2289A4C53003F4FDD /* emitter.h */,
@@ -3360,21 +3365,25 @@
 				04E212E8289A270D003F4FDD /* animation_field_system.h */,
 				04E212E6289A270D003F4FDD /* animation_field_system.cpp */,
 				04E212EC289A2A7B003F4FDD /* simulation.h */,
-				04E212D5289A22A4003F4FDD /* drag_solver.h */,
-				04E212D2289A22A3003F4FDD /* drag_solver.cpp */,
-				04E212D6289A22A4003F4FDD /* vorticity_solver.h */,
-				04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */,
-				04E212D3289A22A3003F4FDD /* viscosity_solver.h */,
-				04E212D0289A22A3003F4FDD /* viscosity_solver.cpp */,
-				04E212CE289A22A3003F4FDD /* elasticity_solver.h */,
-				04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */,
-				04E212E3289A22DC003F4FDD /* surface_tension_solver.h */,
-				04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */,
+				04CA281C28A48E73008176C4 /* pressure_solver.h */,
+				04CA281A28A48DB4008176C4 /* pressure_solvers */,
 				04E212C6289A13E3003F4FDD /* non_pressure_force.h */,
 				04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */,
-				04660DF628990BC900812275 /* rigid_body_object.h */,
-				04660DF828990BC900812275 /* boundary_model.h */,
-				04660DF728990BC900812275 /* boundary_model.cpp */,
+				04E212D5289A22A4003F4FDD /* drag_solver.h */,
+				04E212D2289A22A3003F4FDD /* drag_solver.cpp */,
+				04CA281928A48D93008176C4 /* drag_solvers */,
+				04E212D6289A22A4003F4FDD /* vorticity_solver.h */,
+				04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */,
+				04CA281828A48D73008176C4 /* vorticity_solvers */,
+				04E212D3289A22A3003F4FDD /* viscosity_solver.h */,
+				04E212D0289A22A3003F4FDD /* viscosity_solver.cpp */,
+				04CA281728A48D6B008176C4 /* viscosity_solvers */,
+				04E212CE289A22A3003F4FDD /* elasticity_solver.h */,
+				04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */,
+				04CA281628A48D53008176C4 /* elasticity_solvers */,
+				04E212E3289A22DC003F4FDD /* surface_tension_solver.h */,
+				04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */,
+				04CA281528A48D4C008176C4 /* surface_tension_solvers */,
 				04E212C7289A13E3003F4FDD /* fluid_model.h */,
 				04E212C8289A13E3003F4FDD /* fluid_model.cpp */,
 				04660DFE2899176000812275 /* config.h */,
@@ -3688,6 +3697,69 @@
 				046C2EAD2894F88D0031B2BE /* sph_points_to_implicit3.cpp */,
 			);
 			name = points_to_implicits;
+			sourceTree = "<group>";
+		};
+		04CA281328A48C17008176C4 /* boundary_simulators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = boundary_simulators;
+			sourceTree = "<group>";
+		};
+		04CA281428A48D32008176C4 /* boundary_models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = boundary_models;
+			sourceTree = "<group>";
+		};
+		04CA281528A48D4C008176C4 /* surface_tension_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = surface_tension_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281628A48D53008176C4 /* elasticity_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = elasticity_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281728A48D6B008176C4 /* viscosity_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = viscosity_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281828A48D73008176C4 /* vorticity_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = vorticity_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281928A48D93008176C4 /* drag_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = drag_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281A28A48DB4008176C4 /* pressure_solvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pressure_solvers;
+			sourceTree = "<group>";
+		};
+		04CA281B28A48DE1008176C4 /* rigid_body_objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = rigid_body_objects;
 			sourceTree = "<group>";
 		};
 		04D09F8728897C900014DCFD = {
@@ -5013,7 +5085,6 @@
 				04E212E5289A22DC003F4FDD /* surface_tension_solver.h in Headers */,
 				046C2F032894F9A60031B2BE /* eno_level_set_solver3.h in Headers */,
 				047EB3A42896A54000AC5A87 /* half_edge.h in Headers */,
-				04CA280F28A48B2A008176C4 /* time_step.h in Headers */,
 				046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */,
 				046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */,
 				04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */,
@@ -5032,6 +5103,7 @@
 				046C2F0D2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h in Headers */,
 				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
+				04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */,
 				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
 				04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */,
 				04E212EA289A270D003F4FDD /* animation_field.h in Headers */,

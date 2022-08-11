@@ -11,7 +11,7 @@
 #include "vox.force/emitter.h"
 
 namespace vox::flex {
-class TimeStep;
+class PressureSolver;
 class FluidModel;
 
 class EmitterSystem {

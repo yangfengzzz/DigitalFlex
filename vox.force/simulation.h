@@ -275,7 +275,7 @@ protected:
     Real (*m_kernelFct)(const Vector3D&);
     Vector3D (*m_gradKernelFct)(const Vector3D& r);
     SimulationMethods m_simulationMethod;
-    TimeStep* m_timeStep;
+    PressureSolver* m_timeStep;
     Vector3D m_gravitation;
     Real m_particleRadius;
     Real m_supportRadius;
@@ -371,7 +371,7 @@ public:
 
     void setSimulationMethodChangedCallback(std::function<void()> const& callBackFct);
 
-    TimeStep* getTimeStep() { return m_timeStep; }
+    PressureSolver* getTimeStep() { return m_timeStep; }
 
     bool is2DSimulation() { return m_sim2D; }
     bool zSortEnabled() { return m_enableZSort; }
