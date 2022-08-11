@@ -61,16 +61,16 @@
 /** Loop over the boundary density maps.
  * Simulation *sim, unsigned int nBoundaries and unsigned int fluidModelIndex must be defined.
  */
-#define forall_density_maps(code)                                                                               \
-    for (unsigned int pid = 0; pid < nBoundaries; pid++) {                                                      \
-        BoundaryModel_Koschier2017* bm_neighbor =                                                               \
-                static_cast<BoundaryModel_Koschier2017*>(sim->getBoundaryModel(pid));                           \
-        const Real rho = bm_neighbor->getBoundaryDensity(fluidModelIndex, i);                                   \
-        if (rho != 0.0) {                                                                                       \
-            const Vector3D& gradRho = bm_neighbor->getBoundaryDensityGradient(fluidModelIndex, i).cast<Real>(); \
-            const Vector3D& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                \
-            code                                                                                                \
-        }                                                                                                       \
+#define forall_density_maps(code)                                                                  \
+    for (unsigned int pid = 0; pid < nBoundaries; pid++) {                                         \
+        BoundaryModel_Koschier2017* bm_neighbor =                                                  \
+                static_cast<BoundaryModel_Koschier2017*>(sim->getBoundaryModel(pid));              \
+        const double rho = bm_neighbor->getBoundaryDensity(fluidModelIndex, i);                    \
+        if (rho != 0.0) {                                                                          \
+            const Vector3D& gradRho = bm_neighbor->getBoundaryDensityGradient(fluidModelIndex, i); \
+            const Vector3D& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                   \
+            code                                                                                   \
+        }                                                                                          \
     }
 
 /** Loop over the boundary volume maps.
@@ -79,7 +79,7 @@
 #define forall_volume_maps(code)                                                                                    \
     for (unsigned int pid = 0; pid < nBoundaries; pid++) {                                                          \
         BoundaryModel_Bender2019* bm_neighbor = static_cast<BoundaryModel_Bender2019*>(sim->getBoundaryModel(pid)); \
-        const Real Vj = bm_neighbor->getBoundaryVolume(fluidModelIndex, i);                                         \
+        const double Vj = bm_neighbor->getBoundaryVolume(fluidModelIndex, i);                                       \
         if (Vj > 0.0) {                                                                                             \
             const Vector3D& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                    \
             code                                                                                                    \
@@ -236,9 +236,9 @@ public:
         std::array<unsigned int, 3> resolutionSDF;
         unsigned int emitter_width;
         unsigned int emitter_height;
-        Real emitter_velocity;  // emission velocity
-        Real emitter_emitStartTime;
-        Real emitter_emitEndTime;
+        double emitter_velocity;  // emission velocity
+        double emitter_emitStartTime;
+        double emitter_emitEndTime;
         unsigned int emitter_type;
 
         bool hasSameParticleSampling(const FluidInfo& other) {
@@ -269,19 +269,19 @@ protected:
     NeighborhoodSearch* m_neighborhoodSearch;
     AnimationFieldSystem* m_animationFieldSystem;
     int m_cflMethod;
-    Real m_cflFactor;
-    Real m_cflMinTimeStepSize;
-    Real m_cflMaxTimeStepSize;
+    double m_cflFactor;
+    double m_cflMinTimeStepSize;
+    double m_cflMaxTimeStepSize;
     int m_kernelMethod;
     int m_gradKernelMethod;
-    Real m_W_zero;
-    Real (*m_kernelFct)(const Vector3D&);
+    double m_W_zero;
+    double (*m_kernelFct)(const Vector3D&);
     Vector3D (*m_gradKernelFct)(const Vector3D& r);
     SimulationMethods m_simulationMethod;
     PressureSolver* m_timeStep;
     Vector3D m_gravitation;
-    Real m_particleRadius;
-    Real m_supportRadius;
+    double m_particleRadius;
+    double m_supportRadius;
     bool m_sim2D;
     bool m_enableZSort;
     std::function<void()> m_simulationMethodChanged;
@@ -311,7 +311,7 @@ public:
     Simulation& operator=(const Simulation&) = delete;
     ~Simulation();
 
-    void init(const Real particleRadius, const bool sim2D);
+    void init(const double particleRadius, const bool sim2D);
 
     /** This function is called after the simulation scene is loaded and all
      * parameters are initialized. While reading a scene file several parameters
@@ -365,8 +365,8 @@ public:
     int isSimulationInitialized() const { return m_simulationIsInitialized; }
     void setSimulationInitialized(int val);
 
-    inline Real W_zero() const { return m_W_zero; }
-    inline Real W(const Vector3D& r) const { return m_kernelFct(r); }
+    inline double W_zero() const { return m_W_zero; }
+    inline double W(const Vector3D& r) const { return m_kernelFct(r); }
     inline Vector3D gradW(const Vector3D& r) { return m_gradKernelFct(r); }
 
     int getSimulationMethod() const { return static_cast<int>(m_simulationMethod); }
@@ -381,9 +381,9 @@ public:
 
     void initKernels();
 
-    void setParticleRadius(Real val);
-    Real getParticleRadius() const { return m_particleRadius; }
-    Real getSupportRadius() const { return m_supportRadius; }
+    void setParticleRadius(double val);
+    double getParticleRadius() const { return m_particleRadius; }
+    double getSupportRadius() const { return m_supportRadius; }
 
     /** Update time step size depending on the chosen method.
      */
