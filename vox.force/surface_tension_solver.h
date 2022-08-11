@@ -17,7 +17,7 @@ protected:
     double m_surfaceTension;
     double m_surfaceTensionBoundary;
 
-    virtual void initParameters();
+    void initParameters() override;
 
 public:
     static int SURFACE_TENSION;

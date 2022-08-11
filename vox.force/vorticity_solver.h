@@ -16,7 +16,7 @@ class VorticityBase : public NonPressureForceBase {
 protected:
     double m_vorticityCoeff;
 
-    virtual void initParameters();
+    void initParameters() override;
 
 public:
     static int VORTICITY_COEFFICIENT;

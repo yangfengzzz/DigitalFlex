@@ -19,7 +19,7 @@ protected:
     Vector3D m_fixedBoxMin;
     Vector3D m_fixedBoxMax;
 
-    virtual void initParameters();
+    void initParameters() override;
     void determineFixedParticles();
 
 public:

@@ -7,11 +7,12 @@
 #pragma once
 
 #include "vox.force/fluid_model.h"
+#include "vox.base/reflect/parameter_object.h"
 
 namespace vox::flex {
 /** \brief Base class for all non-pressure force methods.
  */
-class NonPressureForceBase {
+class NonPressureForceBase : public utility::ParameterObject {
 protected:
     FluidModel *m_model;
 
@@ -19,7 +20,7 @@ public:
     explicit NonPressureForceBase(FluidModel *model);
     NonPressureForceBase(const NonPressureForceBase &) = delete;
     NonPressureForceBase &operator=(const NonPressureForceBase &) = delete;
-    virtual ~NonPressureForceBase();
+    ~NonPressureForceBase() override;
 
     virtual void step() = 0;
 

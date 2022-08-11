@@ -7,6 +7,7 @@
 #pragma once
 
 #include "vox.base/file_system.h"
+#include "vox.base/reflect/parameter_object.h"
 #include "vox.force/animation_field_system.h"
 #include "vox.force/boundary_model.h"
 #include "vox.force/compact_n_search.h"
@@ -28,7 +29,7 @@
         FluidModel* fm_neighbor = sim->getFluidModelFromPointSet(pid);                       \
         for (unsigned int j = 0; j < sim->numberOfNeighbors(fluidModelIndex, pid, i); j++) { \
             const unsigned int neighborIndex = sim->getNeighbor(fluidModelIndex, pid, i, j); \
-            const Vector3r& xj = fm_neighbor->getPosition(neighborIndex);                    \
+            const Vector3D& xj = fm_neighbor->getPosition(neighborIndex);                    \
             code                                                                             \
         }                                                                                    \
     }
@@ -39,7 +40,7 @@
 #define forall_fluid_neighbors_in_same_phase(code)                                                   \
     for (unsigned int j = 0; j < sim->numberOfNeighbors(fluidModelIndex, fluidModelIndex, i); j++) { \
         const unsigned int neighborIndex = sim->getNeighbor(fluidModelIndex, fluidModelIndex, i, j); \
-        const Vector3r& xj = model->getPosition(neighborIndex);                                      \
+        const Vector3D& xj = model->getPosition(neighborIndex);                                      \
         code                                                                                         \
     }
 
@@ -52,7 +53,7 @@
                 static_cast<BoundaryModel_Akinci2012*>(sim->getBoundaryModelFromPointSet(pid)); \
         for (unsigned int j = 0; j < sim->numberOfNeighbors(fluidModelIndex, pid, i); j++) {    \
             const unsigned int neighborIndex = sim->getNeighbor(fluidModelIndex, pid, i, j);    \
-            const Vector3r& xj = bm_neighbor->getPosition(neighborIndex);                       \
+            const Vector3D& xj = bm_neighbor->getPosition(neighborIndex);                       \
             code                                                                                \
         }                                                                                       \
     }
@@ -66,8 +67,8 @@
                 static_cast<BoundaryModel_Koschier2017*>(sim->getBoundaryModel(pid));                           \
         const Real rho = bm_neighbor->getBoundaryDensity(fluidModelIndex, i);                                   \
         if (rho != 0.0) {                                                                                       \
-            const Vector3r& gradRho = bm_neighbor->getBoundaryDensityGradient(fluidModelIndex, i).cast<Real>(); \
-            const Vector3r& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                \
+            const Vector3D& gradRho = bm_neighbor->getBoundaryDensityGradient(fluidModelIndex, i).cast<Real>(); \
+            const Vector3D& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                \
             code                                                                                                \
         }                                                                                                       \
     }
@@ -80,7 +81,7 @@
         BoundaryModel_Bender2019* bm_neighbor = static_cast<BoundaryModel_Bender2019*>(sim->getBoundaryModel(pid)); \
         const Real Vj = bm_neighbor->getBoundaryVolume(fluidModelIndex, i);                                         \
         if (Vj > 0.0) {                                                                                             \
-            const Vector3r& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                    \
+            const Vector3D& xj = bm_neighbor->getBoundaryXj(fluidModelIndex, i);                                    \
             code                                                                                                    \
         }                                                                                                           \
     }
@@ -162,7 +163,7 @@ enum class BoundaryHandlingMethods { Akinci2012 = 0, Koschier2017, Bender2019, N
 /** \brief Class to manage the current simulation time and the time step size.
  * This class is a singleton.
  */
-class Simulation {
+class Simulation : public utility::ParameterObject {
 public:
     static int SIM_2D;
     static int PARTICLE_RADIUS;
@@ -252,7 +253,9 @@ public:
                         return true;
                 }
             } else if ((type == 0) && (other.type == 0)) {
-                if ((box.upper_corner - box.lower_corner).isSimilar(other.box.upper_corner - other.box.lower_corner, 1.0e-9) && (mode == other.mode))
+                if ((box.upper_corner - box.lower_corner)
+                            .isSimilar(other.box.upper_corner - other.box.lower_corner, 1.0e-9) &&
+                    (mode == other.mode))
                     return true;
             }
             return false;

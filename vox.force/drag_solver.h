@@ -16,7 +16,7 @@ class DragBase : public NonPressureForceBase {
 protected:
     double m_dragCoefficient;
 
-    virtual void initParameters();
+    void initParameters() override;
 
 public:
     static int DRAG_COEFFICIENT;

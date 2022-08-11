@@ -17,7 +17,7 @@ class ViscosityBase : public NonPressureForceBase {
 protected:
     double m_viscosity;
 
-    virtual void initParameters();
+    void initParameters() override;
 
 public:
     static int VISCOSITY_COEFFICIENT;
