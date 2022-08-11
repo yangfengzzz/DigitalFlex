@@ -603,6 +603,8 @@
 		04CA281128A48B2A008176C4 /* time_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280C28A48B2A008176C4 /* time_manager.h */; };
 		04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280D28A48B2A008176C4 /* boundary_simulator.h */; };
 		04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281C28A48E73008176C4 /* pressure_solver.h */; };
+		04CA282028A49010008176C4 /* boundary_model_Akinci2012.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */; };
+		04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -2057,6 +2059,8 @@
 		04CA280C28A48B2A008176C4 /* time_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_manager.h; sourceTree = "<group>"; };
 		04CA280D28A48B2A008176C4 /* boundary_simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_simulator.h; sourceTree = "<group>"; };
 		04CA281C28A48E73008176C4 /* pressure_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pressure_solver.h; sourceTree = "<group>"; };
+		04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Akinci2012.h; sourceTree = "<group>"; };
+		04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Akinci2012.cpp; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3709,6 +3713,8 @@
 		04CA281428A48D32008176C4 /* boundary_models */ = {
 			isa = PBXGroup;
 			children = (
+				04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */,
+				04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */,
 			);
 			name = boundary_models;
 			sourceTree = "<group>";
@@ -5090,6 +5096,7 @@
 				04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */,
 				046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */,
 				04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */,
+				04CA282028A49010008176C4 /* boundary_model_Akinci2012.h in Headers */,
 				04660E052899176000812275 /* compact_n_search.h in Headers */,
 				046C2F122894F9A60031B2BE /* pde-inl.h in Headers */,
 				047EB3A12896A54000AC5A87 /* triangle_mesh.h in Headers */,
@@ -6055,6 +6062,7 @@
 				046C2ECE2894F88E0031B2BE /* pci_sph_solver2.cpp in Sources */,
 				046C2EC12894F88E0031B2BE /* sph_solver2.cpp in Sources */,
 				047EB3682896257300AC5A87 /* semi_lagrangian3.cpp in Sources */,
+				04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */,
 				047EB3652896257300AC5A87 /* cubic_semi_lagrangian3.cpp in Sources */,
 				046C2EB92894F88E0031B2BE /* level_set_solver3.cpp in Sources */,
 				04660E062899176000812275 /* compact_n_search.cpp in Sources */,
