@@ -36,7 +36,7 @@ Please get in contact for feedback/support.
 #include "vox.force/simulation.h"
 #include "vox.force/surface_tension_haltonVec323.h"
 #include "vox.force/time_manager.h"
-#include "vox.math/matrix_utils.h"
+#include "vox.geometry/matrix_utils.h"
 
 namespace vox::flex {
 

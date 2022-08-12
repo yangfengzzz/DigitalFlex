@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "vox.geometry/svd.h"
 #include "vox.math/math_utils.h"
 #include "vox.math/matrix4x4.h"
 #include "vox.math/quaternion.h"
@@ -299,14 +300,11 @@ void extractRotation(const Matrix3x3<T> &A, Quaternion<T> &q, unsigned int maxIt
 
 template <typename T>
 void pseudoInverse(const Matrix3x3<T> &a, Matrix3x3<T> &res) {
-    //    const T epsilon = std::numeric_limits<T>::epsilon();
-    //    const T tolerance = epsilon * std::max(a.cols(), a.rows()) * svd.singularValues().array().abs()(0);
-    //    res = svd.matrixV() *
-    //          (svd.singularValues().array().abs() > tolerance)
-    //                  .select(svd.singularValues().array().inverse(), 0)
-    //                  .matrix()
-    //                  .asDiagonal() *
-    //          svd.matrixU().adjoint();
+    const T epsilon = std::numeric_limits<T>::epsilon();
+    Matrix3x3<T> u, v;
+    Vector3<T> w;
+    svd(a, u, w, v);
+    res = v * makeScaleMatrix(1 / w.x, 1 / w.y, 1 / w.z) * u.transposed();
 }
 
 /**

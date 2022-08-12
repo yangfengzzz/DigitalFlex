@@ -6,8 +6,8 @@
 
 #include "vox.render/transform.h"
 
+#include "vox.geometry/matrix_utils.h"
 #include "vox.math/math_utils.h"
-#include "vox.math/matrix_utils.h"
 #include "vox.render/entity.h"
 
 namespace vox {

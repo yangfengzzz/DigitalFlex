@@ -5,8 +5,8 @@
 //  property of any third parties.
 
 #include "unit_tests_utils.h"
+#include "vox.geometry/matrix_utils.h"
 #include "vox.math/matrix4x4.h"
-#include "vox.math/matrix_utils.h"
 
 using namespace vox;
 

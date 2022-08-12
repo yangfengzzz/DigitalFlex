@@ -6,7 +6,7 @@
 
 #include "vox.render/shadow/shadow_manager.h"
 
-#include "vox.math/matrix_utils.h"
+#include "vox.geometry/matrix_utils.h"
 #include "vox.render/camera.h"
 #include "vox.render/entity.h"
 #include "vox.render/lighting/light_manager.h"

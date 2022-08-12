@@ -6,7 +6,7 @@
 
 #include "vox.render/camera.h"
 
-#include "vox.math/matrix_utils.h"
+#include "vox.geometry/matrix_utils.h"
 #include "vox.render/entity.h"
 #include "vox.render/scene.h"
 

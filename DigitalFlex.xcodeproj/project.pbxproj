@@ -14,6 +14,7 @@
 		0404089D28A630F8001C0E63 /* surface_tension_Akinci2013.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */; };
 		0404089E28A630F8001C0E63 /* surface_tension_haltonVec323.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */; };
 		0404089F28A630F8001C0E63 /* surface_tension_He2014.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */; };
+		040408A128A63712001C0E63 /* matrix_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 040408A028A63712001C0E63 /* matrix_utils.h */; };
 		041F4AAA288AE8AC00696E23 /* marching_cubes_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */; };
 		041F4AAB288AE8AC00696E23 /* marching_squares_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA7288AE8AC00696E23 /* marching_squares_table.h */; };
 		041F4AAC288AE8AC00696E23 /* marching_cubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA8288AE8AC00696E23 /* marching_cubes.h */; };
@@ -674,7 +675,6 @@
 		04D0A0DB28898BEF0014DCFD /* ray3-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09428898BEF0014DCFD /* ray3-inl.h */; };
 		04D0A0DC28898BEF0014DCFD /* bounding_box-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09528898BEF0014DCFD /* bounding_box-inl.h */; };
 		04D0A0DD28898BEF0014DCFD /* algorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09628898BEF0014DCFD /* algorithm.h */; };
-		04D0A0DE28898BEF0014DCFD /* matrix_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09728898BEF0014DCFD /* matrix_utils.h */; };
 		04D0A0DF28898BEF0014DCFD /* size-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09828898BEF0014DCFD /* size-inl.h */; };
 		04D0A0E028898BEF0014DCFD /* bounding_box3-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09928898BEF0014DCFD /* bounding_box3-inl.h */; };
 		04D0A0E128898BEF0014DCFD /* vector2-inl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A09A28898BEF0014DCFD /* vector2-inl.h */; };
@@ -1452,6 +1452,7 @@
 		0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_Akinci2013.h; sourceTree = "<group>"; };
 		0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_haltonVec323.h; sourceTree = "<group>"; };
 		0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_He2014.cpp; sourceTree = "<group>"; };
+		040408A028A63712001C0E63 /* matrix_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix_utils.h; sourceTree = "<group>"; };
 		041F4A9F288AE76500696E23 /* test.geometry */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test.geometry; sourceTree = BUILT_PRODUCTS_DIR; };
 		041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_cubes_table.h; sourceTree = "<group>"; };
 		041F4AA7288AE8AC00696E23 /* marching_squares_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_squares_table.h; sourceTree = "<group>"; };
@@ -2154,7 +2155,6 @@
 		04D0A09428898BEF0014DCFD /* ray3-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ray3-inl.h"; sourceTree = "<group>"; };
 		04D0A09528898BEF0014DCFD /* bounding_box-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bounding_box-inl.h"; sourceTree = "<group>"; };
 		04D0A09628898BEF0014DCFD /* algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
-		04D0A09728898BEF0014DCFD /* matrix_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix_utils.h; sourceTree = "<group>"; };
 		04D0A09828898BEF0014DCFD /* size-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "size-inl.h"; sourceTree = "<group>"; };
 		04D0A09928898BEF0014DCFD /* bounding_box3-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bounding_box3-inl.h"; sourceTree = "<group>"; };
 		04D0A09A28898BEF0014DCFD /* vector2-inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "vector2-inl.h"; sourceTree = "<group>"; };
@@ -3127,6 +3127,7 @@
 				045EE86D288A4745001D6B5B /* matrix_mxn-inl.h */,
 				045EE86B288A4745001D6B5B /* matrix_csr.h */,
 				045EE86E288A4745001D6B5B /* matrix_csr-inl.h */,
+				040408A028A63712001C0E63 /* matrix_utils.h */,
 				045EE896288A9718001D6B5B /* blas.h */,
 				045EE895288A9718001D6B5B /* blas-inl.h */,
 				045EE88D288A96F2001D6B5B /* svd.h */,
@@ -3952,7 +3953,6 @@
 				04D0A08928898BEF0014DCFD /* matrix3x3-inl.h */,
 				04D0A09028898BEF0014DCFD /* matrix4x4.h */,
 				04D0A06828898BEE0014DCFD /* matrix4x4-inl.h */,
-				04D0A09728898BEF0014DCFD /* matrix_utils.h */,
 				04D0A06528898BEE0014DCFD /* quaternion.h */,
 				04D0A09228898BEF0014DCFD /* quaternion-inl.h */,
 				04D0A07428898BEE0014DCFD /* transform2.h */,
@@ -5072,6 +5072,7 @@
 				045EE935288ADCC2001D6B5B /* constant_scalar_field2.h in Headers */,
 				045EE8C2288A9976001D6B5B /* face_centered_grid3.h in Headers */,
 				045EE868288A4568001D6B5B /* fdm_mg_linear_system2.h in Headers */,
+				040408A128A63712001C0E63 /* matrix_utils.h in Headers */,
 				045EE871288A4745001D6B5B /* matrix_mxn-inl.h in Headers */,
 				045EE80A288A4531001D6B5B /* array_accessor3.h in Headers */,
 				045EE84A288A4568001D6B5B /* fdm_utils.h in Headers */,
@@ -5238,7 +5239,6 @@
 				04D0A0E728898BEF0014DCFD /* vector4-inl.h in Headers */,
 				04D0A0E528898BEF0014DCFD /* vector3.h in Headers */,
 				04D0A0BB28898BEF0014DCFD /* ray3.h in Headers */,
-				04D0A0DE28898BEF0014DCFD /* matrix_utils.h in Headers */,
 				04D0A0AB28898BEF0014DCFD /* bounding_box2-inl.h in Headers */,
 				04D0A0B228898BEF0014DCFD /* matrix.h in Headers */,
 				04D0A0AA28898BEF0014DCFD /* spherical_harmonics3.h in Headers */,
