@@ -30,15 +30,13 @@ Please get in contact for feedback/support.
 
 #include "vox.force/surface_tension_ZorillaRitter2020.h"
 
-#include <fstream>
 #include <iostream>
 #include <map>
 
 #include "vox.force/simulation.h"
-#include "vox.force/time_manager.h"
-// #include "SPlisHSPlasH/Utilities/MathFunctions.h"
-#include "vox.base/string_utils.h"
 #include "vox.force/surface_tension_haltonVec323.h"
+#include "vox.force/time_manager.h"
+#include "vox.math/matrix_utils.h"
 
 namespace vox::flex {
 
@@ -189,9 +187,7 @@ void SurfaceTension_ZorillaRitter2020::initParameters() {
     setDescription(TEMPORAL_SMOOTH, "Enable temporal smoothing");
 }
 
-SurfaceTension_ZorillaRitter2020::~SurfaceTension_ZorillaRitter2020(void) {
-    Simulation* sim = Simulation::getCurrent();
-
+SurfaceTension_ZorillaRitter2020::~SurfaceTension_ZorillaRitter2020() {
     m_model->removeFieldByName("Curv.Final (SurfZR20)");
     m_model->removeFieldByName("Surf.Class (SurfZR20)");
 }
@@ -241,7 +237,7 @@ bool SurfaceTension_ZorillaRitter2020::classifySurfaceParticle(double com, int n
         return false;
 }
 
-bool SurfaceTension_ZorillaRitter2020::classifyParticleConfigurable(double com, int non, double d_offset) {
+bool SurfaceTension_ZorillaRitter2020::classifyParticleConfigurable(double com, int non, double d_offset) const {
     double neighborsOnTheLine = m_class_k * com + m_class_d + d_offset;  // pre-multiplied
 
     if (non <= neighborsOnTheLine)
@@ -251,11 +247,8 @@ bool SurfaceTension_ZorillaRitter2020::classifyParticleConfigurable(double com, 
 }
 
 void SurfaceTension_ZorillaRitter2020::performNeighborhoodSearchSort() {
-    Simulation* sim = Simulation::getCurrent();
-    const unsigned int nModels = sim->numberOfFluidModels();
-
     const unsigned int fluidModelIndex = m_model->getPointSetIndex();
-
+    Simulation* sim = Simulation::getCurrent();
     auto const& d = sim->getNeighborhoodSearch()->point_set(fluidModelIndex);
 
     // Both version state fields
@@ -291,7 +284,7 @@ void SurfaceTension_ZorillaRitter2020::step() {
 Vector3D SurfaceTension_ZorillaRitter2020::anglesToVec(double theta, double phi, double radius) {
     const double r_sin_phi = radius * sin(phi);
 
-    return Vector3D(r_sin_phi * cos(theta), r_sin_phi * sin(theta), radius * cos(phi));
+    return {r_sin_phi * cos(theta), r_sin_phi * sin(theta), radius * cos(phi)};
 }
 
 std::vector<Vector3D> SurfaceTension_ZorillaRitter2020::getSphereSamplesRnd(int N, double supportRadius) {
@@ -361,7 +354,7 @@ void SurfaceTension_ZorillaRitter2020::stepZorilla() {
                     m_mc_normals[i] += points[p];
                 }
 
-                if (points.size() > 0) {
+                if (!points.empty()) {
                     m_mc_normals[i].normalize();
 
                     m_mc_curv[i] = (static_cast<double>(1.0) / supportRadius) * static_cast<double>(-2.0) *
@@ -434,7 +427,7 @@ std::vector<Vector3D> SurfaceTension_ZorillaRitter2020::getSphereSamplesLookUp(
 void SurfaceTension_ZorillaRitter2020::stepRitter() {
     auto& tm = *TimeManager::getCurrent();
     double timeStep = tm.getTimeStepSize();
-    size_t step = static_cast<size_t>(std::floor(tm.getTime() / timeStep));
+    auto step = static_cast<size_t>(std::floor(tm.getTime() / timeStep));
 
     m_r2 = m_r1 * m_r2mult;
 
@@ -521,7 +514,7 @@ void SurfaceTension_ZorillaRitter2020::stepRitter() {
                         for (int p = static_cast<int>(points.size()) - 1; p >= 0; --p) m_mc_normals[i] += points[p];
 
                 // -- if surface classified and non-overlapping neighborhood spheres
-                if (points.size() > 0) {
+                if (!points.empty()) {
                     m_mc_normals[i].normalize();
 
                     // -- estimate curvature by sample ratio and particle radii
@@ -634,7 +627,9 @@ void SurfaceTension_ZorillaRitter2020::stepRitter() {
                         double w = CubicKernel::W(distanceji) / CubicKernel::W_zero();
                         neighCent += w * xj;
 
-                        Matrix3x3D dy = xjxi * xjxi.transposed();
+                        auto dy = Matrix3x3D(xjxi.x * xjxi.x, xjxi.x * xjxi.y, xjxi.x * xjxi.z, xjxi.y * xjxi.x,
+                                             xjxi.y * xjxi.y, xjxi.y * xjxi.z, xjxi.z * xjxi.x, xjxi.z * xjxi.y,
+                                             xjxi.z * xjxi.z);
 
                         t = t + w * dy;
                         t_count++;
@@ -647,7 +642,7 @@ void SurfaceTension_ZorillaRitter2020::stepRitter() {
                     if (neighs.size() >= 4) {
                         Vector3D pdt_ev;
                         Matrix3x3D pdt_ec;
-                        MathFunctions::eigenDecomposition(t, pdt_ec, pdt_ev);
+                        eigenDecomposition(t, pdt_ec, pdt_ev);
 
                         // sort values smallest to greatest
                         if (pdt_ev.x > pdt_ev.y) {
@@ -719,12 +714,14 @@ void SurfaceTension_ZorillaRitter2020::stepRitter() {
                     forall_fluid_neighbors_in_same_phase(if (m_mc_normals[neighborIndex] != Vector3D()) {
                         CsCorr += m_pca_curv[neighborIndex];
                         count++;
-                    })
+                    });
 
-                            if (count > 0) m_pca_curv_smooth[i] =
-                                    static_cast<double>(0.25) * m_pca_curv_smooth[i] +
-                                    static_cast<double>(0.75) * CsCorr / static_cast<double>(count);
-                    else m_pca_curv_smooth[i] = m_pca_curv[i];
+                    if (count > 0) {
+                        m_pca_curv_smooth[i] = static_cast<double>(0.25) * m_pca_curv_smooth[i] +
+                                               static_cast<double>(0.75) * CsCorr / static_cast<double>(count);
+                    } else {
+                        m_pca_curv_smooth[i] = m_pca_curv[i];
+                    }
 
                     m_pca_curv_smooth[i] /= supportRadius;
 

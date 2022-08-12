@@ -276,4 +276,298 @@ Point3<T> getTranslation(const Matrix<T, 4, 4> &matrix) {
     return Point3<T>(matrix[12], matrix[13], matrix[14]);
 }
 
+// MARK: - Solver
+/**
+ * Implementation of the paper: \n
+ * Matthias Müller, Jan Bender, Nuttapong Chentanez and Miles Macklin,
+ * "A Robust Method to Extract the Rotational Part of Deformations",
+ * ACM SIGGRAPH Motion in Games, 2016
+ */
+template <typename T>
+void extractRotation(const Matrix3x3<T> &A, Quaternion<T> &q, unsigned int maxIter) {
+    for (unsigned int iter = 0; iter < maxIter; iter++) {
+        Matrix3x3<T> R = q.matrix();
+        Vector3<T> omega =
+                (R.col(0).cross(A.col(0)) + R.col(1).cross(A.col(1)) + R.col(2).cross(A.col(2))) *
+                (1.0 / fabs(R.col(0).dot(A.col(0)) + R.col(1).dot(A.col(1)) + R.col(2).dot(A.col(2)) + 1.0e-9));
+        T w = omega.length();
+        if (w < 1.0e-9) break;
+        q = Quaternionr(AngleAxisr(w, (1.0 / w) * omega)) * q;
+        q.normalize();
+    }
+}
+
+template <typename T>
+void pseudoInverse(const Matrix3x3<T> &a, Matrix3x3<T> &res) {
+    //    const T epsilon = std::numeric_limits<T>::epsilon();
+    //    const T tolerance = epsilon * std::max(a.cols(), a.rows()) * svd.singularValues().array().abs()(0);
+    //    res = svd.matrixV() *
+    //          (svd.singularValues().array().abs() > tolerance)
+    //                  .select(svd.singularValues().array().inverse(), 0)
+    //                  .matrix()
+    //                  .asDiagonal() *
+    //          svd.matrixU().adjoint();
+}
+
+/**
+ * Perform a singular value decomposition of matrix A: A = U * sigma * V^T.
+ * This function returns two proper rotation matrices U and V^T which do not
+ * contain a reflection. Reflections are corrected by the inversion handling
+ * proposed by Irving et al. 2004.
+ */
+template <typename T>
+void svdWithInversionHandling(const Matrix3x3<T> &A, Vector3<T> &sigma, Matrix3x3<T> &U, Matrix3x3<T> &VT) {
+    Matrix3x3<T> AT_A, V;
+    AT_A = A.transpose() * A;
+
+    Vector3<T> S;
+
+    // Eigen decomposition of A^T * A
+    eigenDecomposition(AT_A, V, S);
+
+    // Detect if V is a reflection .
+    // Make a rotation out of it by multiplying one column with -1.
+    const T detV = V.determinant();
+    if (detV < 0.0) {
+        T minLambda = std::numeric_limits<T>::max();
+        unsigned char pos = 0;
+        for (unsigned char l = 0; l < 3; l++) {
+            if (S[l] < minLambda) {
+                pos = l;
+                minLambda = S[l];
+            }
+        }
+        V(0, pos) = -V(0, pos);
+        V(1, pos) = -V(1, pos);
+        V(2, pos) = -V(2, pos);
+    }
+
+    if (S[0] < 0.0) S[0] = 0.0;  // safety for sqrt
+    if (S[1] < 0.0) S[1] = 0.0;
+    if (S[2] < 0.0) S[2] = 0.0;
+
+    sigma[0] = sqrt(S[0]);
+    sigma[1] = sqrt(S[1]);
+    sigma[2] = sqrt(S[2]);
+
+    VT = V.transpose();
+
+    //
+    // Check for values of hatF near zero
+    //
+    unsigned char chk = 0;
+    unsigned char pos = 0;
+    for (unsigned char l = 0; l < 3; l++) {
+        if (fabs(sigma[l]) < 1.0e-4) {
+            pos = l;
+            chk++;
+        }
+    }
+
+    if (chk > 0) {
+        if (chk > 1) {
+            U.setIdentity();
+        } else {
+            U = A * V;
+            for (unsigned char l = 0; l < 3; l++) {
+                if (l != pos) {
+                    for (unsigned char m = 0; m < 3; m++) {
+                        U(m, l) *= static_cast<T>(1.0) / sigma[l];
+                    }
+                }
+            }
+
+            Vector3<T> v[2];
+            unsigned char index = 0;
+            for (unsigned char l = 0; l < 3; l++) {
+                if (l != pos) {
+                    v[index++] = Vector3<T>(U(0, l), U(1, l), U(2, l));
+                }
+            }
+            Vector3<T> vec = v[0].cross(v[1]);
+            vec.normalize();
+            U(0, pos) = vec[0];
+            U(1, pos) = vec[1];
+            U(2, pos) = vec[2];
+        }
+    } else {
+        Vector3<T> sigmaInv(static_cast<T>(1.0) / sigma[0], static_cast<T>(1.0) / sigma[1],
+                            static_cast<T>(1.0) / sigma[2]);
+        U = A * V;
+        for (unsigned char l = 0; l < 3; l++) {
+            for (unsigned char m = 0; m < 3; m++) {
+                U(m, l) *= sigmaInv[l];
+            }
+        }
+    }
+
+    const T detU = U.determinant();
+
+    // U is a reflection => inversion
+    if (detU < 0.0) {
+        // std::cout << "Inversion!\n";
+        T minLambda = std::numeric_limits<T>::max();
+        unsigned char pos = 0;
+        for (unsigned char l = 0; l < 3; l++) {
+            if (sigma[l] < minLambda) {
+                pos = l;
+                minLambda = sigma[l];
+            }
+        }
+
+        // invert values of smallest singular value
+        sigma[pos] = -sigma[pos];
+        U(0, pos) = -U(0, pos);
+        U(1, pos) = -U(1, pos);
+        U(2, pos) = -U(2, pos);
+    }
+}
+
+template <typename T>
+void eigenDecomposition(const Matrix3x3<T> &A, Matrix3x3<T> &eigenVecs, Vector3<T> &eigenVals) {
+    const int numJacobiIterations = 10;
+    const T epsilon = static_cast<T>(1e-15);
+
+    Matrix3x3<T> D = A;
+
+    // only for symmetric matrices!
+    eigenVecs = Matrix3x3<T>::makeIdentity();  // unit matrix
+    int iter = 0;
+    while (iter < numJacobiIterations) {  // 3 off diagonal elements
+                                          // find off diagonal element with maximum modulus
+        int p, q;
+        T a, max;
+        max = fabs(D(0, 1));
+        p = 0;
+        q = 1;
+        a = fabs(D(0, 2));
+        if (a > max) {
+            p = 0;
+            q = 2;
+            max = a;
+        }
+        a = fabs(D(1, 2));
+        if (a > max) {
+            p = 1;
+            q = 2;
+            max = a;
+        }
+        // all small enough -> done
+        if (max < epsilon) break;
+        // rotate matrix with respect to that element
+        jacobiRotate(D, eigenVecs, p, q);
+        iter++;
+    }
+    eigenVals[0] = D(0, 0);
+    eigenVals[1] = D(1, 1);
+    eigenVals[2] = D(2, 2);
+}
+
+template <typename T>
+void jacobiRotate(Matrix3x3<T> &A, Matrix3x3<T> &R, int p, int q) {
+    // rotates A through phi in pq-plane to set A(p,q) = 0
+    // rotation stored in R whose columns are eigenvectors of A
+    if (A(p, q) == 0.0) return;
+
+    T d = (A(p, p) - A(q, q)) / (static_cast<T>(2.0) * A(p, q));
+    T t = static_cast<T>(1.0) / (fabs(d) + sqrt(d * d + static_cast<T>(1.0)));
+    if (d < 0.0) t = -t;
+    T c = static_cast<T>(1.0) / sqrt(t * t + 1);
+    T s = t * c;
+    A(p, p) += t * A(p, q);
+    A(q, q) -= t * A(p, q);
+    A(p, q) = A(q, p) = 0.0;
+    // transform A
+    int k;
+    for (k = 0; k < 3; k++) {
+        if (k != p && k != q) {
+            T Akp = c * A(k, p) + s * A(k, q);
+            T Akq = -s * A(k, p) + c * A(k, q);
+            A(k, p) = A(p, k) = Akp;
+            A(k, q) = A(q, k) = Akq;
+        }
+    }
+    // store rotation in R
+    for (k = 0; k < 3; k++) {
+        T Rkp = c * R(k, p) + s * R(k, q);
+        T Rkq = -s * R(k, p) + c * R(k, q);
+        R(k, p) = Rkp;
+        R(k, q) = Rkq;
+    }
+}
+
+/** Returns two orthogonal vectors to vec which are also orthogonal to each other. */
+template <typename T>
+void getOrthogonalVectors(const Vector3<T> &vec, Vector3<T> &x, Vector3<T> &y) {
+    // Get plane vectors x, y
+    Vector3<T> v(1, 0, 0);
+
+    // Check, if v has same direction as vec
+    if (fabs(v.dot(vec)) > 0.999) v = Vector3<T>(0, 1, 0);
+
+    x = vec.cross(v);
+    y = vec.cross(x);
+    x.normalize();
+    y.normalize();
+}
+
+/**
+ * computes the APD of 8 deformation gradients. (Alg. 3 from the paper: Kugelstadt et al. "Fast Corotated FEM using
+ * Operator Splitting", CGF 2018)
+ */
+template <typename T>
+void APD_Newton(const Matrix3x3<T> &F, Quaternion<T> &q) {
+    // one iteration is sufficient for plausible results
+    for (int it = 0; it < 1; it++) {
+        // transform quaternion to rotation matrix
+        Matrix3x3<T> R;
+        R = q.matrix();
+
+        // columns of B = RT * F
+        Vector3<T> B0 = R.transpose() * F.col(0);
+        Vector3<T> B1 = R.transpose() * F.col(1);
+        Vector3<T> B2 = R.transpose() * F.col(2);
+
+        Vector3<T> gradient(B2[1] - B1[2], B0[2] - B2[0], B1[0] - B0[1]);
+
+        // compute Hessian, use the fact that it is symmetric
+        const T h00 = B1[1] + B2[2];
+        const T h11 = B0[0] + B2[2];
+        const T h22 = B0[0] + B1[1];
+        const T h01 = static_cast<T>(-0.5) * (B1[0] + B0[1]);
+        const T h02 = static_cast<T>(-0.5) * (B2[0] + B0[2]);
+        const T h12 = static_cast<T>(-0.5) * (B2[1] + B1[2]);
+
+        const T detH = static_cast<T>(-1.0) * h02 * h02 * h11 + static_cast<T>(2.0) * h01 * h02 * h12 -
+                       h00 * h12 * h12 - h01 * h01 * h22 + h00 * h11 * h22;
+
+        Vector3<T> omega;
+        // compute symmetric inverse
+        const T factor = static_cast<T>(-0.25) / detH;
+        omega[0] = (h11 * h22 - h12 * h12) * gradient[0] + (h02 * h12 - h01 * h22) * gradient[1] +
+                   (h01 * h12 - h02 * h11) * gradient[2];
+        omega[0] *= factor;
+
+        omega[1] = (h02 * h12 - h01 * h22) * gradient[0] + (h00 * h22 - h02 * h02) * gradient[1] +
+                   (h01 * h02 - h00 * h12) * gradient[2];
+        omega[1] *= factor;
+
+        omega[2] = (h01 * h12 - h02 * h11) * gradient[0] + (h01 * h02 - h00 * h12) * gradient[1] +
+                   (h00 * h11 - h01 * h01) * gradient[2];
+        omega[2] *= factor;
+
+        // if det(H) = 0 use gradient descent, never happened in our tests, could also be removed
+        if (fabs(detH) < static_cast<T>(1.0e-9)) omega = -gradient;
+
+        // instead of clamping just use gradient descent. also works fine and does not require the norm
+        if (omega.dot(gradient) > 0.0) omega = gradient * static_cast<T>(-0.125);
+
+        const T l_omega2 = omega.squaredNorm();
+        const T w = (static_cast<T>(1.0) - l_omega2) / (static_cast<T>(1.0) + l_omega2);
+        const Vector3<T> vec = omega * (static_cast<T>(2.0) / (static_cast<T>(1.0) + l_omega2));
+        // no normalization needed because the Cayley map returs a unit quaternion
+        q = q * Quaternionr(w, vec.x(), vec.y(), vec.z());
+    }
+}
+
 }  // namespace vox

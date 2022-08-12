@@ -165,7 +165,7 @@ private:
     /** More configurable linear classifier (non fix k and d) Equivalent to
      * classifySurfaceParticle( ... ) above.
      **/
-    bool classifyParticleConfigurable(double com, int non, double d_offset = 0.0);
+    bool classifyParticleConfigurable(double com, int non, double d_offset = 0.0) const;
 
     /** Neural network classifier. Divides into surface or non-surface particle.
             Weights are pre-trained.

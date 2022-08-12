@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0404089928A630F8001C0E63 /* surface_tension_He2014.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089228A630F7001C0E63 /* surface_tension_He2014.h */; };
+		0404089A28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */; };
+		0404089B28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */; };
+		0404089C28A630F8001C0E63 /* surface_tension_Akinci2013.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */; };
+		0404089D28A630F8001C0E63 /* surface_tension_Akinci2013.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */; };
+		0404089E28A630F8001C0E63 /* surface_tension_haltonVec323.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */; };
+		0404089F28A630F8001C0E63 /* surface_tension_He2014.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */; };
 		041F4AAA288AE8AC00696E23 /* marching_cubes_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */; };
 		041F4AAB288AE8AC00696E23 /* marching_squares_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA7288AE8AC00696E23 /* marching_squares_table.h */; };
 		041F4AAC288AE8AC00696E23 /* marching_cubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA8288AE8AC00696E23 /* marching_cubes.h */; };
@@ -1438,6 +1445,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0404089228A630F7001C0E63 /* surface_tension_He2014.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_He2014.h; sourceTree = "<group>"; };
+		0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_ZorillaRitter2020.cpp; sourceTree = "<group>"; };
+		0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_ZorillaRitter2020.h; sourceTree = "<group>"; };
+		0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_Akinci2013.cpp; sourceTree = "<group>"; };
+		0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_Akinci2013.h; sourceTree = "<group>"; };
+		0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_haltonVec323.h; sourceTree = "<group>"; };
+		0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_He2014.cpp; sourceTree = "<group>"; };
 		041F4A9F288AE76500696E23 /* test.geometry */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test.geometry; sourceTree = BUILT_PRODUCTS_DIR; };
 		041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_cubes_table.h; sourceTree = "<group>"; };
 		041F4AA7288AE8AC00696E23 /* marching_squares_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_squares_table.h; sourceTree = "<group>"; };
@@ -3756,6 +3770,13 @@
 			children = (
 				04E67A6B28A55A1900604CED /* surface_tension_Becker2007.h */,
 				04E67A6C28A55A1900604CED /* surface_tension_Becker2007.cpp */,
+				0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */,
+				0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */,
+				0404089228A630F7001C0E63 /* surface_tension_He2014.h */,
+				0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */,
+				0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */,
+				0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */,
+				0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */,
 			);
 			name = surface_tension_solvers;
 			sourceTree = "<group>";
@@ -5079,6 +5100,8 @@
 			files = (
 				046C2F002894F9A60031B2BE /* iterative_level_set_solver2.h in Headers */,
 				046C2F202894FD8B0031B2BE /* particle_system_solver2.h in Headers */,
+				0404089D28A630F8001C0E63 /* surface_tension_Akinci2013.h in Headers */,
+				0404089E28A630F8001C0E63 /* surface_tension_haltonVec323.h in Headers */,
 				047EB3642896257300AC5A87 /* advection_solver2.h in Headers */,
 				046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */,
 				046C2ECD2894F88E0031B2BE /* sph_system_data3.h in Headers */,
@@ -5101,6 +5124,7 @@
 				046C2EC62894F88E0031B2BE /* sph_points_to_implicit2.h in Headers */,
 				04E67A6D28A55A1900604CED /* surface_tension_Becker2007.h in Headers */,
 				04E212F4289A4C54003F4FDD /* emitter_system.h in Headers */,
+				0404089928A630F8001C0E63 /* surface_tension_He2014.h in Headers */,
 				046C2ECF2894F88E0031B2BE /* sph_kernels2-inl.h in Headers */,
 				046C2ED22894F88E0031B2BE /* animation.h in Headers */,
 				046C2F052894F9A60031B2BE /* spherical_points_to_implicit2.h in Headers */,
@@ -5129,6 +5153,7 @@
 				04E212F5289A4C54003F4FDD /* emitter.h in Headers */,
 				047EB3602896257300AC5A87 /* cubic_semi_lagrangian3.h in Headers */,
 				04660DF32896B0C900812275 /* z_sort_table.h in Headers */,
+				0404089B28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.h in Headers */,
 				046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */,
 				04660DF22896B0C900812275 /* spinlock.h in Headers */,
 				046C2EBA2894F88E0031B2BE /* physics_animation.h in Headers */,
@@ -6098,6 +6123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */,
+				0404089A28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.cpp in Sources */,
 				04CA282728A494CB008176C4 /* boundary_model_Bender2019.cpp in Sources */,
 				047EB3A22896A54000AC5A87 /* entity_iterators.cpp in Sources */,
 				04E212CD289A13E3003F4FDD /* non_pressure_force.cpp in Sources */,
@@ -6111,6 +6137,7 @@
 				047EB3A52896A54000AC5A87 /* triangle_mesh.cpp in Sources */,
 				046C2ECE2894F88E0031B2BE /* pci_sph_solver2.cpp in Sources */,
 				046C2EC12894F88E0031B2BE /* sph_solver2.cpp in Sources */,
+				0404089F28A630F8001C0E63 /* surface_tension_He2014.cpp in Sources */,
 				047EB3682896257300AC5A87 /* semi_lagrangian3.cpp in Sources */,
 				04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */,
 				047EB3652896257300AC5A87 /* cubic_semi_lagrangian3.cpp in Sources */,
@@ -6149,6 +6176,7 @@
 				046C2EC52894F88E0031B2BE /* sph_points_to_implicit2.cpp in Sources */,
 				046C2EFC2894F9A60031B2BE /* fmm_level_set_solver2.cpp in Sources */,
 				046C2ED02894F88E0031B2BE /* sph_solver3.cpp in Sources */,
+				0404089C28A630F8001C0E63 /* surface_tension_Akinci2013.cpp in Sources */,
 				046C2F152894F9A60031B2BE /* eno_level_set_solver2.cpp in Sources */,
 				04E212D9289A22A4003F4FDD /* elasticity_solver.cpp in Sources */,
 				046C2F182894F9A60031B2BE /* iterative_level_set_solver3.cpp in Sources */,
