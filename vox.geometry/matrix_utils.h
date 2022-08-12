@@ -287,13 +287,13 @@ Point3<T> getTranslation(const Matrix<T, 4, 4> &matrix) {
 template <typename T>
 void extractRotation(const Matrix3x3<T> &A, Quaternion<T> &q, unsigned int maxIter) {
     for (unsigned int iter = 0; iter < maxIter; iter++) {
-        Matrix3x3<T> R = q.matrix();
+        Matrix3x3<T> R = q.matrix3();
         Vector3<T> omega =
                 (R.col(0).cross(A.col(0)) + R.col(1).cross(A.col(1)) + R.col(2).cross(A.col(2))) *
                 (1.0 / fabs(R.col(0).dot(A.col(0)) + R.col(1).dot(A.col(1)) + R.col(2).dot(A.col(2)) + 1.0e-9));
         T w = omega.length();
         if (w < 1.0e-9) break;
-        q = Quaternionr(AngleAxisr(w, (1.0 / w) * omega)) * q;
+        q = Quaternion<T>((1.0 / w) * omega, w) * q;
         q.normalize();
     }
 }
@@ -519,7 +519,7 @@ void APD_Newton(const Matrix3x3<T> &F, Quaternion<T> &q) {
     for (int it = 0; it < 1; it++) {
         // transform quaternion to rotation matrix
         Matrix3x3<T> R;
-        R = q.matrix();
+        R = q.matrix3();
 
         // columns of B = RT * F
         Vector3<T> B0 = R.transpose() * F.col(0);

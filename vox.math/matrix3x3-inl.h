@@ -146,6 +146,16 @@ size_t Matrix<T, 3, 3>::cols() const {
 }
 
 template <typename T>
+Vector3<T> Matrix<T, 3, 3>::col(size_t i) const {
+    return Vector3<T>(elements_[0 + 3 * i], elements_[1 + 3 * i], elements_[2 + 3 * i]);
+}
+
+template <typename T>
+Vector3<T> Matrix<T, 3, 3>::row(size_t i) const {
+    return Vector3<T>(elements_[0 + i], elements_[3 + i], elements_[6 + i]);
+}
+
+template <typename T>
 T *Matrix<T, 3, 3>::data() {
     return elements_.data();
 }
@@ -642,6 +652,13 @@ Matrix<T, 3, 3> Matrix<T, 3, 3>::makeRotationMatrix(const Vector<T, 3> &axis, T 
                   axis.y * std::sin(rad) + (1 - std::cos(rad)) * axis.x * axis.z,
                   -axis.x * std::sin(rad) + (1 - std::cos(rad)) * axis.y * axis.z,
                   1 + (1 - std::cos(rad)) * (axis.z * axis.z - 1));
+}
+
+template <typename T>
+Matrix<T, 3, 3> makeTensorMatrix(const Vector3<T> &x, const Vector3<T> &y) {
+    return Matrix(x.x * y.x, x.x * y.y, x.x * y.z,
+                  x.y * y.x, x.y * y.y, x.y * y.z,
+                  x.z * y.x, x.z * y.y, x.z * y.z);
 }
 
 // MARK: - Operator overloadings

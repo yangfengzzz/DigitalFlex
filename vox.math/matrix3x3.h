@@ -134,6 +134,10 @@ public:
     //! Returns number of columns of this matrix.
     [[nodiscard]] size_t cols() const;
 
+    Vector3<T> col(size_t i) const;
+
+    Vector3<T> row(size_t i) const;
+
     //! Returns data pointer of this matrix.
     T *data();
 
@@ -347,6 +351,9 @@ public:
     //! Makes rotation matrix.
     //! \warning Input angle should be radian.
     static Matrix makeRotationMatrix(const Vector3<T> &axis, T rad);
+
+    //! Makes tensor matrix.
+    static Matrix makeTensorMatrix(const Vector3<T> &x, const Vector3<T> &y);
 
 private:
     std::array<T, 9> elements_;
