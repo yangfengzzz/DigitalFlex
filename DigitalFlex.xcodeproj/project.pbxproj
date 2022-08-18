@@ -7,20 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0404089928A630F8001C0E63 /* surface_tension_He2014.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089228A630F7001C0E63 /* surface_tension_He2014.h */; };
-		0404089A28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */; };
-		0404089B28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */; };
-		0404089C28A630F8001C0E63 /* surface_tension_Akinci2013.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */; };
-		0404089D28A630F8001C0E63 /* surface_tension_Akinci2013.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */; };
-		0404089E28A630F8001C0E63 /* surface_tension_haltonVec323.h in Headers */ = {isa = PBXBuildFile; fileRef = 0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */; };
-		0404089F28A630F8001C0E63 /* surface_tension_He2014.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */; };
 		040408A128A63712001C0E63 /* matrix_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 040408A028A63712001C0E63 /* matrix_utils.h */; };
-		040408A428A64377001C0E63 /* elasticity_Becker2009.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040408A228A64377001C0E63 /* elasticity_Becker2009.cpp */; };
-		040408A528A64377001C0E63 /* elasticity_Becker2009.h in Headers */ = {isa = PBXBuildFile; fileRef = 040408A328A64377001C0E63 /* elasticity_Becker2009.h */; };
-		040408AA28A648A1001C0E63 /* viscosity_XSPH.h in Headers */ = {isa = PBXBuildFile; fileRef = 040408A628A648A1001C0E63 /* viscosity_XSPH.h */; };
-		040408AB28A648A1001C0E63 /* viscosity_standard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040408A728A648A1001C0E63 /* viscosity_standard.cpp */; };
-		040408AC28A648A1001C0E63 /* viscosity_XSPH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040408A828A648A1001C0E63 /* viscosity_XSPH.cpp */; };
-		040408AD28A648A1001C0E63 /* viscosity_standard.h in Headers */ = {isa = PBXBuildFile; fileRef = 040408A928A648A1001C0E63 /* viscosity_standard.h */; };
 		041F4AAA288AE8AC00696E23 /* marching_cubes_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */; };
 		041F4AAB288AE8AC00696E23 /* marching_squares_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA7288AE8AC00696E23 /* marching_squares_table.h */; };
 		041F4AAC288AE8AC00696E23 /* marching_cubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 041F4AA8288AE8AC00696E23 /* marching_cubes.h */; };
@@ -350,19 +337,6 @@
 		045EE939288ADCC2001D6B5B /* constant_scalar_field3.h in Headers */ = {isa = PBXBuildFile; fileRef = 045EE931288ADCC2001D6B5B /* constant_scalar_field3.h */; };
 		045EE93A288ADCC2001D6B5B /* constant_scalar_field2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EE932288ADCC2001D6B5B /* constant_scalar_field2.cpp */; };
 		045EE93B288ADCC2001D6B5B /* constant_scalar_field3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 045EE933288ADCC2001D6B5B /* constant_scalar_field3.cpp */; };
-		04660DF12896B0C900812275 /* cubic_lagrange_discrete_grid.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DED2896B0C900812275 /* cubic_lagrange_discrete_grid.h */; };
-		04660DF22896B0C900812275 /* spinlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DEE2896B0C900812275 /* spinlock.h */; };
-		04660DF32896B0C900812275 /* z_sort_table.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DEF2896B0C900812275 /* z_sort_table.h */; };
-		04660DF52897635800812275 /* serialize.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DF42897635800812275 /* serialize.h */; };
-		04660DF928990BC900812275 /* rigid_body_object.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DF628990BC900812275 /* rigid_body_object.h */; };
-		04660DFA28990BC900812275 /* boundary_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04660DF728990BC900812275 /* boundary_model.cpp */; };
-		04660DFB28990BC900812275 /* boundary_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DF828990BC900812275 /* boundary_model.h */; };
-		04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFC28990DB300812275 /* binary_file_reader_writer.h */; };
-		04660E032899176000812275 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFE2899176000812275 /* config.h */; };
-		04660E042899176000812275 /* data_structures.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660DFF2899176000812275 /* data_structures.h */; };
-		04660E052899176000812275 /* compact_n_search.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660E002899176000812275 /* compact_n_search.h */; };
-		04660E062899176000812275 /* compact_n_search.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04660E012899176000812275 /* compact_n_search.cpp */; };
-		04660E072899176000812275 /* point_set.h in Headers */ = {isa = PBXBuildFile; fileRef = 04660E022899176000812275 /* point_set.h */; };
 		046C2D49288AF3830031B2BE /* libvox.geometry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 045EE784288A4458001D6B5B /* libvox.geometry.a */; };
 		046C2D4A288AF3830031B2BE /* libvox.math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0A05428898BB60014DCFD /* libvox.math.a */; };
 		046C2D4B288AF5A20031B2BE /* matrix_csr_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F4AD2288AEA0500696E23 /* matrix_csr_tests.cpp */; };
@@ -572,15 +546,6 @@
 		047EB39628962B2C00AC5A87 /* grid_emitter3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39228962AFD00AC5A87 /* grid_emitter3_tests.cpp */; };
 		047EB39728962B2C00AC5A87 /* grid_emitter2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39328962AFD00AC5A87 /* grid_emitter2_tests.cpp */; };
 		047EB39928962BC000AC5A87 /* advection_solvers_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39828962BC000AC5A87 /* advection_solvers_tests.cpp */; };
-		047EB3A12896A54000AC5A87 /* triangle_mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB39A2896A53F00AC5A87 /* triangle_mesh.h */; };
-		047EB3A22896A54000AC5A87 /* entity_iterators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39B2896A53F00AC5A87 /* entity_iterators.cpp */; };
-		047EB3A32896A54000AC5A87 /* entity_containers.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB39C2896A53F00AC5A87 /* entity_containers.h */; };
-		047EB3A42896A54000AC5A87 /* half_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB39D2896A53F00AC5A87 /* half_edge.h */; };
-		047EB3A52896A54000AC5A87 /* triangle_mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */; };
-		047EB3A62896A54000AC5A87 /* entity_iterators.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB39F2896A53F00AC5A87 /* entity_iterators.h */; };
-		047EB3A72896A54000AC5A87 /* entity_containers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB3A02896A53F00AC5A87 /* entity_containers.cpp */; };
-		047EB3AA2896AD5D00AC5A87 /* discrete_grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */; };
-		047EB3AB2896AD5E00AC5A87 /* discrete_grid.h in Headers */ = {isa = PBXBuildFile; fileRef = 047EB3A92896AD5D00AC5A87 /* discrete_grid.h */; };
 		04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EA32894F88D0031B2BE /* sph_system_data2.cpp */; };
 		04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046C2EAC2894F88D0031B2BE /* sph_system_data3.cpp */; };
 		04B71A39289549B90079A969 /* sph_kernels2_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */; };
@@ -612,25 +577,6 @@
 		04BEAD8E288ADE81008D3CA1 /* triangle_mesh_to_sdf.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD89288ADE81008D3CA1 /* triangle_mesh_to_sdf.h */; };
 		04BEAD8F288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */; };
 		04BEAD90288ADE81008D3CA1 /* implicit_triangle_mesh3.h in Headers */ = {isa = PBXBuildFile; fileRef = 04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */; };
-		04CA280E28A48B2A008176C4 /* boundary_simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280928A48B2A008176C4 /* boundary_simulator.cpp */; };
-		04CA281028A48B2A008176C4 /* time_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA280B28A48B2A008176C4 /* time_manager.cpp */; };
-		04CA281128A48B2A008176C4 /* time_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280C28A48B2A008176C4 /* time_manager.h */; };
-		04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA280D28A48B2A008176C4 /* boundary_simulator.h */; };
-		04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281C28A48E73008176C4 /* pressure_solver.h */; };
-		04CA282028A49010008176C4 /* boundary_model_Akinci2012.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */; };
-		04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */; };
-		04CA282628A494CB008176C4 /* boundary_model_Koschier2017.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */; };
-		04CA282728A494CB008176C4 /* boundary_model_Bender2019.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */; };
-		04CA282828A494CB008176C4 /* boundary_model_Bender2019.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */; };
-		04CA282928A494CB008176C4 /* boundary_model_Koschier2017.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */; };
-		04CA282E28A537B2008176C4 /* drag_force_Macklin2014.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282A28A537B2008176C4 /* drag_force_Macklin2014.cpp */; };
-		04CA282F28A537B2008176C4 /* drag_force_Gissler2017.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282B28A537B2008176C4 /* drag_force_Gissler2017.h */; };
-		04CA283028A537B2008176C4 /* drag_force_Macklin2014.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA282C28A537B2008176C4 /* drag_force_Macklin2014.h */; };
-		04CA283128A537B2008176C4 /* drag_force_Gissler2017.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA282D28A537B2008176C4 /* drag_force_Gissler2017.cpp */; };
-		04CA283628A54386008176C4 /* vorticity_confinement.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA283228A54386008176C4 /* vorticity_confinement.h */; };
-		04CA283728A54386008176C4 /* vorticity_micropolar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA283328A54386008176C4 /* vorticity_micropolar.cpp */; };
-		04CA283828A54386008176C4 /* vorticity_confinement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04CA283428A54386008176C4 /* vorticity_confinement.cpp */; };
-		04CA283928A54386008176C4 /* vorticity_micropolar.h in Headers */ = {isa = PBXBuildFile; fileRef = 04CA283528A54386008176C4 /* vorticity_micropolar.h */; };
 		04D09F9428897C900014DCFD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D09F9328897C900014DCFD /* main.cpp */; };
 		04D0A0A728898BEF0014DCFD /* matrix_expression.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A05F28898BEE0014DCFD /* matrix_expression.h */; };
 		04D0A0A828898BEF0014DCFD /* spherical_harmonics3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A06028898BEE0014DCFD /* spherical_harmonics3.cpp */; };
@@ -1197,27 +1143,7 @@
 		04D0A54E288A2B240014DCFD /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A54C288A2B240014DCFD /* singleton.h */; };
 		04D0A551288A2BB90014DCFD /* helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D0A54F288A2BB90014DCFD /* helper.h */; };
 		04D0A552288A2BB90014DCFD /* helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D0A550288A2BB90014DCFD /* helper.cpp */; };
-		04E212CA289A13E3003F4FDD /* non_pressure_force.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212C6289A13E3003F4FDD /* non_pressure_force.h */; };
-		04E212CB289A13E3003F4FDD /* fluid_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212C7289A13E3003F4FDD /* fluid_model.h */; };
-		04E212CD289A13E3003F4FDD /* non_pressure_force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */; };
-		04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212CE289A22A3003F4FDD /* elasticity_solver.h */; };
-		04E212D9289A22A4003F4FDD /* elasticity_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */; };
-		04E212DA289A22A4003F4FDD /* viscosity_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212D0289A22A3003F4FDD /* viscosity_solver.cpp */; };
-		04E212DC289A22A4003F4FDD /* drag_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212D2289A22A3003F4FDD /* drag_solver.cpp */; };
-		04E212DD289A22A4003F4FDD /* viscosity_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212D3289A22A3003F4FDD /* viscosity_solver.h */; };
-		04E212DF289A22A4003F4FDD /* drag_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212D5289A22A4003F4FDD /* drag_solver.h */; };
-		04E212E0289A22A4003F4FDD /* vorticity_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212D6289A22A4003F4FDD /* vorticity_solver.h */; };
-		04E212E1289A22A4003F4FDD /* vorticity_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */; };
-		04E212E4289A22DC003F4FDD /* surface_tension_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */; };
-		04E212E5289A22DC003F4FDD /* surface_tension_solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E3289A22DC003F4FDD /* surface_tension_solver.h */; };
-		04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212E6289A270D003F4FDD /* animation_field_system.cpp */; };
-		04E212EA289A270D003F4FDD /* animation_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E7289A270D003F4FDD /* animation_field.h */; };
-		04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212E8289A270D003F4FDD /* animation_field_system.h */; };
-		04E212ED289A2A7B003F4FDD /* simulation.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212EC289A2A7B003F4FDD /* simulation.h */; };
 		04E212EF289A40F8003F4FDD /* sph_kernels3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212EE289A40F8003F4FDD /* sph_kernels3.cpp */; };
-		04E212F3289A4C54003F4FDD /* emitter_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212F0289A4C53003F4FDD /* emitter_system.cpp */; };
-		04E212F4289A4C54003F4FDD /* emitter_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212F1289A4C53003F4FDD /* emitter_system.h */; };
-		04E212F5289A4C54003F4FDD /* emitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212F2289A4C53003F4FDD /* emitter.h */; };
 		04E212FD289A6697003F4FDD /* function_parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212F7289A6697003F4FDD /* function_parameter.h */; };
 		04E212FE289A6697003F4FDD /* parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212F8289A6697003F4FDD /* parameter.h */; };
 		04E212FF289A6697003F4FDD /* vector_parameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E212F9289A6697003F4FDD /* vector_parameter.h */; };
@@ -1227,11 +1153,8 @@
 		04E21311289A6882003F4FDD /* test_parameter_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E21310289A6882003F4FDD /* test_parameter_object.cpp */; };
 		04E21314289A688C003F4FDD /* libvox.base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C2DF4288B0C720031B2BE /* libvox.base.a */; };
 		04E21316289A7A2A003F4FDD /* parameter_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E21315289A7A2A003F4FDD /* parameter_tests.cpp */; };
-		04E21317289A7E5A003F4FDD /* fluid_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E212C8289A13E3003F4FDD /* fluid_model.cpp */; };
 		04E2131A289B4835003F4FDD /* file_system.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E21318289B4835003F4FDD /* file_system.h */; };
 		04E2131B289B4835003F4FDD /* string_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E21319289B4835003F4FDD /* string_utils.h */; };
-		04E67A6D28A55A1900604CED /* surface_tension_Becker2007.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E67A6B28A55A1900604CED /* surface_tension_Becker2007.h */; };
-		04E67A6E28A55A1900604CED /* surface_tension_Becker2007.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04E67A6C28A55A1900604CED /* surface_tension_Becker2007.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1451,20 +1374,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0404089228A630F7001C0E63 /* surface_tension_He2014.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_He2014.h; sourceTree = "<group>"; };
-		0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_ZorillaRitter2020.cpp; sourceTree = "<group>"; };
-		0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_ZorillaRitter2020.h; sourceTree = "<group>"; };
-		0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_Akinci2013.cpp; sourceTree = "<group>"; };
-		0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_Akinci2013.h; sourceTree = "<group>"; };
-		0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_haltonVec323.h; sourceTree = "<group>"; };
-		0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_He2014.cpp; sourceTree = "<group>"; };
 		040408A028A63712001C0E63 /* matrix_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix_utils.h; sourceTree = "<group>"; };
-		040408A228A64377001C0E63 /* elasticity_Becker2009.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = elasticity_Becker2009.cpp; sourceTree = "<group>"; };
-		040408A328A64377001C0E63 /* elasticity_Becker2009.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = elasticity_Becker2009.h; sourceTree = "<group>"; };
-		040408A628A648A1001C0E63 /* viscosity_XSPH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viscosity_XSPH.h; sourceTree = "<group>"; };
-		040408A728A648A1001C0E63 /* viscosity_standard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viscosity_standard.cpp; sourceTree = "<group>"; };
-		040408A828A648A1001C0E63 /* viscosity_XSPH.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viscosity_XSPH.cpp; sourceTree = "<group>"; };
-		040408A928A648A1001C0E63 /* viscosity_standard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viscosity_standard.h; sourceTree = "<group>"; };
 		041F4A9F288AE76500696E23 /* test.geometry */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test.geometry; sourceTree = BUILT_PRODUCTS_DIR; };
 		041F4AA6288AE8AC00696E23 /* marching_cubes_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_cubes_table.h; sourceTree = "<group>"; };
 		041F4AA7288AE8AC00696E23 /* marching_squares_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marching_squares_table.h; sourceTree = "<group>"; };
@@ -1810,20 +1720,6 @@
 		045EE931288ADCC2001D6B5B /* constant_scalar_field3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constant_scalar_field3.h; sourceTree = "<group>"; };
 		045EE932288ADCC2001D6B5B /* constant_scalar_field2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = constant_scalar_field2.cpp; sourceTree = "<group>"; };
 		045EE933288ADCC2001D6B5B /* constant_scalar_field3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = constant_scalar_field3.cpp; sourceTree = "<group>"; };
-		04660DEC2896B0C900812275 /* cubic_lagrange_discrete_grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubic_lagrange_discrete_grid.cpp; sourceTree = "<group>"; };
-		04660DED2896B0C900812275 /* cubic_lagrange_discrete_grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cubic_lagrange_discrete_grid.h; sourceTree = "<group>"; };
-		04660DEE2896B0C900812275 /* spinlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spinlock.h; sourceTree = "<group>"; };
-		04660DEF2896B0C900812275 /* z_sort_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = z_sort_table.h; sourceTree = "<group>"; };
-		04660DF42897635800812275 /* serialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serialize.h; sourceTree = "<group>"; };
-		04660DF628990BC900812275 /* rigid_body_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rigid_body_object.h; sourceTree = "<group>"; };
-		04660DF728990BC900812275 /* boundary_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model.cpp; sourceTree = "<group>"; };
-		04660DF828990BC900812275 /* boundary_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model.h; sourceTree = "<group>"; };
-		04660DFC28990DB300812275 /* binary_file_reader_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binary_file_reader_writer.h; sourceTree = "<group>"; };
-		04660DFE2899176000812275 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		04660DFF2899176000812275 /* data_structures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data_structures.h; sourceTree = "<group>"; };
-		04660E002899176000812275 /* compact_n_search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compact_n_search.h; sourceTree = "<group>"; };
-		04660E012899176000812275 /* compact_n_search.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = compact_n_search.cpp; sourceTree = "<group>"; };
-		04660E022899176000812275 /* point_set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point_set.h; sourceTree = "<group>"; };
 		046C2D51288AF6B90031B2BE /* libvox.force.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.force.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		046C2D5C288AF7100031B2BE /* collider_set2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = collider_set2.cpp; sourceTree = "<group>"; };
 		046C2D5D288AF7110031B2BE /* collider3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collider3.h; sourceTree = "<group>"; };
@@ -2057,15 +1953,6 @@
 		047EB39228962AFD00AC5A87 /* grid_emitter3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid_emitter3_tests.cpp; sourceTree = "<group>"; };
 		047EB39328962AFD00AC5A87 /* grid_emitter2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grid_emitter2_tests.cpp; sourceTree = "<group>"; };
 		047EB39828962BC000AC5A87 /* advection_solvers_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = advection_solvers_tests.cpp; sourceTree = "<group>"; };
-		047EB39A2896A53F00AC5A87 /* triangle_mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh.h; sourceTree = "<group>"; };
-		047EB39B2896A53F00AC5A87 /* entity_iterators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = entity_iterators.cpp; sourceTree = "<group>"; };
-		047EB39C2896A53F00AC5A87 /* entity_containers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entity_containers.h; sourceTree = "<group>"; };
-		047EB39D2896A53F00AC5A87 /* half_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = half_edge.h; sourceTree = "<group>"; };
-		047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_mesh.cpp; sourceTree = "<group>"; };
-		047EB39F2896A53F00AC5A87 /* entity_iterators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entity_iterators.h; sourceTree = "<group>"; };
-		047EB3A02896A53F00AC5A87 /* entity_containers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = entity_containers.cpp; sourceTree = "<group>"; };
-		047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = discrete_grid.cpp; sourceTree = "<group>"; };
-		047EB3A92896AD5D00AC5A87 /* discrete_grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discrete_grid.h; sourceTree = "<group>"; };
 		04B71A2E289549B80079A969 /* sph_kernels2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_kernels2_tests.cpp; sourceTree = "<group>"; };
 		04B71A2F289549B80079A969 /* pde_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pde_tests.cpp; sourceTree = "<group>"; };
 		04B71A30289549B80079A969 /* sph_solver2_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sph_solver2_tests.cpp; sourceTree = "<group>"; };
@@ -2095,25 +1982,6 @@
 		04BEAD89288ADE81008D3CA1 /* triangle_mesh_to_sdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle_mesh_to_sdf.h; sourceTree = "<group>"; };
 		04BEAD8A288ADE81008D3CA1 /* implicit_triangle_mesh3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = implicit_triangle_mesh3.cpp; sourceTree = "<group>"; };
 		04BEAD8C288ADE81008D3CA1 /* implicit_triangle_mesh3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implicit_triangle_mesh3.h; sourceTree = "<group>"; };
-		04CA280928A48B2A008176C4 /* boundary_simulator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_simulator.cpp; sourceTree = "<group>"; };
-		04CA280B28A48B2A008176C4 /* time_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = time_manager.cpp; sourceTree = "<group>"; };
-		04CA280C28A48B2A008176C4 /* time_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_manager.h; sourceTree = "<group>"; };
-		04CA280D28A48B2A008176C4 /* boundary_simulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_simulator.h; sourceTree = "<group>"; };
-		04CA281C28A48E73008176C4 /* pressure_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pressure_solver.h; sourceTree = "<group>"; };
-		04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Akinci2012.h; sourceTree = "<group>"; };
-		04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Akinci2012.cpp; sourceTree = "<group>"; };
-		04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Koschier2017.cpp; sourceTree = "<group>"; };
-		04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boundary_model_Bender2019.cpp; sourceTree = "<group>"; };
-		04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Bender2019.h; sourceTree = "<group>"; };
-		04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boundary_model_Koschier2017.h; sourceTree = "<group>"; };
-		04CA282A28A537B2008176C4 /* drag_force_Macklin2014.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drag_force_Macklin2014.cpp; sourceTree = "<group>"; };
-		04CA282B28A537B2008176C4 /* drag_force_Gissler2017.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drag_force_Gissler2017.h; sourceTree = "<group>"; };
-		04CA282C28A537B2008176C4 /* drag_force_Macklin2014.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drag_force_Macklin2014.h; sourceTree = "<group>"; };
-		04CA282D28A537B2008176C4 /* drag_force_Gissler2017.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drag_force_Gissler2017.cpp; sourceTree = "<group>"; };
-		04CA283228A54386008176C4 /* vorticity_confinement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vorticity_confinement.h; sourceTree = "<group>"; };
-		04CA283328A54386008176C4 /* vorticity_micropolar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vorticity_micropolar.cpp; sourceTree = "<group>"; };
-		04CA283428A54386008176C4 /* vorticity_confinement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vorticity_confinement.cpp; sourceTree = "<group>"; };
-		04CA283528A54386008176C4 /* vorticity_micropolar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vorticity_micropolar.h; sourceTree = "<group>"; };
 		04D09F9028897C900014DCFD /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D09F9328897C900014DCFD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		04D0A05428898BB60014DCFD /* libvox.math.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvox.math.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2718,28 +2586,7 @@
 		04D0A550288A2BB90014DCFD /* helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helper.cpp; sourceTree = "<group>"; };
 		04D0A553288A2BF40014DCFD /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		04D0A554288A2BF40014DCFD /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
-		04E212C6289A13E3003F4FDD /* non_pressure_force.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = non_pressure_force.h; sourceTree = "<group>"; };
-		04E212C7289A13E3003F4FDD /* fluid_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fluid_model.h; sourceTree = "<group>"; };
-		04E212C8289A13E3003F4FDD /* fluid_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fluid_model.cpp; sourceTree = "<group>"; };
-		04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = non_pressure_force.cpp; sourceTree = "<group>"; };
-		04E212CE289A22A3003F4FDD /* elasticity_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = elasticity_solver.h; sourceTree = "<group>"; };
-		04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = elasticity_solver.cpp; sourceTree = "<group>"; };
-		04E212D0289A22A3003F4FDD /* viscosity_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = viscosity_solver.cpp; sourceTree = "<group>"; };
-		04E212D2289A22A3003F4FDD /* drag_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drag_solver.cpp; sourceTree = "<group>"; };
-		04E212D3289A22A3003F4FDD /* viscosity_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viscosity_solver.h; sourceTree = "<group>"; };
-		04E212D5289A22A4003F4FDD /* drag_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drag_solver.h; sourceTree = "<group>"; };
-		04E212D6289A22A4003F4FDD /* vorticity_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vorticity_solver.h; sourceTree = "<group>"; };
-		04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vorticity_solver.cpp; sourceTree = "<group>"; };
-		04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_solver.cpp; sourceTree = "<group>"; };
-		04E212E3289A22DC003F4FDD /* surface_tension_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_solver.h; sourceTree = "<group>"; };
-		04E212E6289A270D003F4FDD /* animation_field_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation_field_system.cpp; sourceTree = "<group>"; };
-		04E212E7289A270D003F4FDD /* animation_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field.h; sourceTree = "<group>"; };
-		04E212E8289A270D003F4FDD /* animation_field_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animation_field_system.h; sourceTree = "<group>"; };
-		04E212EC289A2A7B003F4FDD /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simulation.h; sourceTree = "<group>"; };
 		04E212EE289A40F8003F4FDD /* sph_kernels3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sph_kernels3.cpp; sourceTree = "<group>"; };
-		04E212F0289A4C53003F4FDD /* emitter_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emitter_system.cpp; sourceTree = "<group>"; };
-		04E212F1289A4C53003F4FDD /* emitter_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emitter_system.h; sourceTree = "<group>"; };
-		04E212F2289A4C53003F4FDD /* emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emitter.h; sourceTree = "<group>"; };
 		04E212F7289A6697003F4FDD /* function_parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = function_parameter.h; sourceTree = "<group>"; };
 		04E212F8289A6697003F4FDD /* parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parameter.h; sourceTree = "<group>"; };
 		04E212F9289A6697003F4FDD /* vector_parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector_parameter.h; sourceTree = "<group>"; };
@@ -2753,8 +2600,6 @@
 		04E21315289A7A2A003F4FDD /* parameter_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parameter_tests.cpp; sourceTree = "<group>"; };
 		04E21318289B4835003F4FDD /* file_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file_system.h; sourceTree = "<group>"; };
 		04E21319289B4835003F4FDD /* string_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string_utils.h; sourceTree = "<group>"; };
-		04E67A6B28A55A1900604CED /* surface_tension_Becker2007.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface_tension_Becker2007.h; sourceTree = "<group>"; };
-		04E67A6C28A55A1900604CED /* surface_tension_Becker2007.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface_tension_Becker2007.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3407,64 +3252,6 @@
 		046C2D52288AF6B90031B2BE /* vox.force */ = {
 			isa = PBXGroup;
 			children = (
-				04660DF828990BC900812275 /* boundary_model.h */,
-				04660DF728990BC900812275 /* boundary_model.cpp */,
-				04CA281428A48D32008176C4 /* boundary_models */,
-				04CA280D28A48B2A008176C4 /* boundary_simulator.h */,
-				04CA280928A48B2A008176C4 /* boundary_simulator.cpp */,
-				04CA281328A48C17008176C4 /* boundary_simulators */,
-				04660DF628990BC900812275 /* rigid_body_object.h */,
-				04CA281B28A48DE1008176C4 /* rigid_body_objects */,
-				04CA280C28A48B2A008176C4 /* time_manager.h */,
-				04CA280B28A48B2A008176C4 /* time_manager.cpp */,
-				04E212F2289A4C53003F4FDD /* emitter.h */,
-				04E212F1289A4C53003F4FDD /* emitter_system.h */,
-				04E212F0289A4C53003F4FDD /* emitter_system.cpp */,
-				04E212E7289A270D003F4FDD /* animation_field.h */,
-				04E212E8289A270D003F4FDD /* animation_field_system.h */,
-				04E212E6289A270D003F4FDD /* animation_field_system.cpp */,
-				04E212EC289A2A7B003F4FDD /* simulation.h */,
-				04CA281C28A48E73008176C4 /* pressure_solver.h */,
-				04CA281A28A48DB4008176C4 /* pressure_solvers */,
-				04E212C6289A13E3003F4FDD /* non_pressure_force.h */,
-				04E212C9289A13E3003F4FDD /* non_pressure_force.cpp */,
-				04E212D5289A22A4003F4FDD /* drag_solver.h */,
-				04E212D2289A22A3003F4FDD /* drag_solver.cpp */,
-				04CA281928A48D93008176C4 /* drag_solvers */,
-				04E212D6289A22A4003F4FDD /* vorticity_solver.h */,
-				04E212D7289A22A4003F4FDD /* vorticity_solver.cpp */,
-				04CA281828A48D73008176C4 /* vorticity_solvers */,
-				04E212D3289A22A3003F4FDD /* viscosity_solver.h */,
-				04E212D0289A22A3003F4FDD /* viscosity_solver.cpp */,
-				04CA281728A48D6B008176C4 /* viscosity_solvers */,
-				04E212CE289A22A3003F4FDD /* elasticity_solver.h */,
-				04E212CF289A22A3003F4FDD /* elasticity_solver.cpp */,
-				04CA281628A48D53008176C4 /* elasticity_solvers */,
-				04E212E3289A22DC003F4FDD /* surface_tension_solver.h */,
-				04E212E2289A22DC003F4FDD /* surface_tension_solver.cpp */,
-				04CA281528A48D4C008176C4 /* surface_tension_solvers */,
-				04E212C7289A13E3003F4FDD /* fluid_model.h */,
-				04E212C8289A13E3003F4FDD /* fluid_model.cpp */,
-				04660DFE2899176000812275 /* config.h */,
-				04660E022899176000812275 /* point_set.h */,
-				04660DFF2899176000812275 /* data_structures.h */,
-				04660E002899176000812275 /* compact_n_search.h */,
-				04660E012899176000812275 /* compact_n_search.cpp */,
-				04660DFC28990DB300812275 /* binary_file_reader_writer.h */,
-				04660DF42897635800812275 /* serialize.h */,
-				04660DEE2896B0C900812275 /* spinlock.h */,
-				04660DEF2896B0C900812275 /* z_sort_table.h */,
-				047EB3A92896AD5D00AC5A87 /* discrete_grid.h */,
-				047EB3A82896AD5D00AC5A87 /* discrete_grid.cpp */,
-				04660DED2896B0C900812275 /* cubic_lagrange_discrete_grid.h */,
-				04660DEC2896B0C900812275 /* cubic_lagrange_discrete_grid.cpp */,
-				047EB39D2896A53F00AC5A87 /* half_edge.h */,
-				047EB39A2896A53F00AC5A87 /* triangle_mesh.h */,
-				047EB39E2896A53F00AC5A87 /* triangle_mesh.cpp */,
-				047EB39F2896A53F00AC5A87 /* entity_iterators.h */,
-				047EB39B2896A53F00AC5A87 /* entity_iterators.cpp */,
-				047EB39C2896A53F00AC5A87 /* entity_containers.h */,
-				047EB3A02896A53F00AC5A87 /* entity_containers.cpp */,
 				046C2D66288AF7110031B2BE /* collider2.h */,
 				046C2D61288AF7110031B2BE /* collider2.cpp */,
 				046C2D5D288AF7110031B2BE /* collider3.h */,
@@ -3756,98 +3543,6 @@
 				046C2EAD2894F88D0031B2BE /* sph_points_to_implicit3.cpp */,
 			);
 			name = points_to_implicits;
-			sourceTree = "<group>";
-		};
-		04CA281328A48C17008176C4 /* boundary_simulators */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = boundary_simulators;
-			sourceTree = "<group>";
-		};
-		04CA281428A48D32008176C4 /* boundary_models */ = {
-			isa = PBXGroup;
-			children = (
-				04CA281E28A49010008176C4 /* boundary_model_Akinci2012.h */,
-				04CA281F28A49010008176C4 /* boundary_model_Akinci2012.cpp */,
-				04CA282528A494CB008176C4 /* boundary_model_Koschier2017.h */,
-				04CA282228A494CB008176C4 /* boundary_model_Koschier2017.cpp */,
-				04CA282428A494CB008176C4 /* boundary_model_Bender2019.h */,
-				04CA282328A494CB008176C4 /* boundary_model_Bender2019.cpp */,
-			);
-			name = boundary_models;
-			sourceTree = "<group>";
-		};
-		04CA281528A48D4C008176C4 /* surface_tension_solvers */ = {
-			isa = PBXGroup;
-			children = (
-				04E67A6B28A55A1900604CED /* surface_tension_Becker2007.h */,
-				04E67A6C28A55A1900604CED /* surface_tension_Becker2007.cpp */,
-				0404089628A630F8001C0E63 /* surface_tension_Akinci2013.h */,
-				0404089528A630F8001C0E63 /* surface_tension_Akinci2013.cpp */,
-				0404089228A630F7001C0E63 /* surface_tension_He2014.h */,
-				0404089828A630F8001C0E63 /* surface_tension_He2014.cpp */,
-				0404089728A630F8001C0E63 /* surface_tension_haltonVec323.h */,
-				0404089428A630F7001C0E63 /* surface_tension_ZorillaRitter2020.h */,
-				0404089328A630F7001C0E63 /* surface_tension_ZorillaRitter2020.cpp */,
-			);
-			name = surface_tension_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281628A48D53008176C4 /* elasticity_solvers */ = {
-			isa = PBXGroup;
-			children = (
-				040408A328A64377001C0E63 /* elasticity_Becker2009.h */,
-				040408A228A64377001C0E63 /* elasticity_Becker2009.cpp */,
-			);
-			name = elasticity_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281728A48D6B008176C4 /* viscosity_solvers */ = {
-			isa = PBXGroup;
-			children = (
-				040408A928A648A1001C0E63 /* viscosity_standard.h */,
-				040408A728A648A1001C0E63 /* viscosity_standard.cpp */,
-				040408A628A648A1001C0E63 /* viscosity_XSPH.h */,
-				040408A828A648A1001C0E63 /* viscosity_XSPH.cpp */,
-			);
-			name = viscosity_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281828A48D73008176C4 /* vorticity_solvers */ = {
-			isa = PBXGroup;
-			children = (
-				04CA283228A54386008176C4 /* vorticity_confinement.h */,
-				04CA283428A54386008176C4 /* vorticity_confinement.cpp */,
-				04CA283528A54386008176C4 /* vorticity_micropolar.h */,
-				04CA283328A54386008176C4 /* vorticity_micropolar.cpp */,
-			);
-			name = vorticity_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281928A48D93008176C4 /* drag_solvers */ = {
-			isa = PBXGroup;
-			children = (
-				04CA282C28A537B2008176C4 /* drag_force_Macklin2014.h */,
-				04CA282A28A537B2008176C4 /* drag_force_Macklin2014.cpp */,
-				04CA282B28A537B2008176C4 /* drag_force_Gissler2017.h */,
-				04CA282D28A537B2008176C4 /* drag_force_Gissler2017.cpp */,
-			);
-			name = drag_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281A28A48DB4008176C4 /* pressure_solvers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = pressure_solvers;
-			sourceTree = "<group>";
-		};
-		04CA281B28A48DE1008176C4 /* rigid_body_objects */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = rigid_body_objects;
 			sourceTree = "<group>";
 		};
 		04D09F8728897C900014DCFD = {
@@ -5119,39 +4814,23 @@
 			files = (
 				046C2F002894F9A60031B2BE /* iterative_level_set_solver2.h in Headers */,
 				046C2F202894FD8B0031B2BE /* particle_system_solver2.h in Headers */,
-				0404089D28A630F8001C0E63 /* surface_tension_Akinci2013.h in Headers */,
-				0404089E28A630F8001C0E63 /* surface_tension_haltonVec323.h in Headers */,
 				047EB3642896257300AC5A87 /* advection_solver2.h in Headers */,
 				046C2D6E288AF7110031B2BE /* collider_set2.h in Headers */,
 				046C2ECD2894F88E0031B2BE /* sph_system_data3.h in Headers */,
-				04E212DD289A22A4003F4FDD /* viscosity_solver.h in Headers */,
 				046C2EBF2894F88E0031B2BE /* sph_kernels2.h in Headers */,
 				046C2EC22894F88E0031B2BE /* sph_solver2.h in Headers */,
 				047EB3692896257300AC5A87 /* cubic_semi_lagrangian2.h in Headers */,
-				04CA283628A54386008176C4 /* vorticity_confinement.h in Headers */,
 				046C2EC82894F88E0031B2BE /* level_set_solver2.h in Headers */,
-				040408AA28A648A1001C0E63 /* viscosity_XSPH.h in Headers */,
-				047EB3AB2896AD5E00AC5A87 /* discrete_grid.h in Headers */,
 				046C2F112894F9A60031B2BE /* spherical_points_to_implicit3.h in Headers */,
 				046C2F0E2894F9A60031B2BE /* fmm_level_set_solver2.h in Headers */,
-				04660DF12896B0C900812275 /* cubic_lagrange_discrete_grid.h in Headers */,
-				04CA283928A54386008176C4 /* vorticity_micropolar.h in Headers */,
 				046C2EBE2894F88E0031B2BE /* sph_kernels3-inl.h in Headers */,
-				04E212ED289A2A7B003F4FDD /* simulation.h in Headers */,
-				040408AD28A648A1001C0E63 /* viscosity_standard.h in Headers */,
 				047EB3662896257300AC5A87 /* advection_solver3.h in Headers */,
 				047EB3672896257300AC5A87 /* semi_lagrangian3.h in Headers */,
 				046C2F132894F9A60031B2BE /* pde.h in Headers */,
 				046C2EC62894F88E0031B2BE /* sph_points_to_implicit2.h in Headers */,
-				04E67A6D28A55A1900604CED /* surface_tension_Becker2007.h in Headers */,
-				04E212F4289A4C54003F4FDD /* emitter_system.h in Headers */,
-				0404089928A630F8001C0E63 /* surface_tension_He2014.h in Headers */,
 				046C2ECF2894F88E0031B2BE /* sph_kernels2-inl.h in Headers */,
 				046C2ED22894F88E0031B2BE /* animation.h in Headers */,
 				046C2F052894F9A60031B2BE /* spherical_points_to_implicit2.h in Headers */,
-				04660E042899176000812275 /* data_structures.h in Headers */,
-				047EB3A32896A54000AC5A87 /* entity_containers.h in Headers */,
-				047EB3A62896A54000AC5A87 /* entity_iterators.h in Headers */,
 				046C2EC72894F88E0031B2BE /* sph_points_to_implicit3.h in Headers */,
 				046C2ED42894F88E0031B2BE /* pci_sph_solver3.h in Headers */,
 				046C2ED12894F88E0031B2BE /* level_set_solver3.h in Headers */,
@@ -5161,57 +4840,27 @@
 				046C2ECC2894F88E0031B2BE /* sph_system_data2.h in Headers */,
 				046C2ED52894F88E0031B2BE /* sph_kernels3.h in Headers */,
 				046C2F102894F9A60031B2BE /* anisotropic_points_to_implicit2.h in Headers */,
-				04E212CA289A13E3003F4FDD /* non_pressure_force.h in Headers */,
-				04E212EB289A270D003F4FDD /* animation_field_system.h in Headers */,
 				046C2F0C2894F9A60031B2BE /* fmm_level_set_solver3.h in Headers */,
 				046C2D72288AF7110031B2BE /* collider2.h in Headers */,
-				04660DF928990BC900812275 /* rigid_body_object.h in Headers */,
-				04CA282928A494CB008176C4 /* boundary_model_Koschier2017.h in Headers */,
-				04660E072899176000812275 /* point_set.h in Headers */,
 				046C2EFD2894F9A60031B2BE /* iterative_level_set_solver3.h in Headers */,
-				04CA283028A537B2008176C4 /* drag_force_Macklin2014.h in Headers */,
-				04CA282F28A537B2008176C4 /* drag_force_Gissler2017.h in Headers */,
-				04E212F5289A4C54003F4FDD /* emitter.h in Headers */,
 				047EB3602896257300AC5A87 /* cubic_semi_lagrangian3.h in Headers */,
-				04660DF32896B0C900812275 /* z_sort_table.h in Headers */,
-				0404089B28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.h in Headers */,
 				046C2D70288AF7110031B2BE /* rigid_body_collider2.h in Headers */,
-				04660DF22896B0C900812275 /* spinlock.h in Headers */,
 				046C2EBA2894F88E0031B2BE /* physics_animation.h in Headers */,
 				046C2F012894F9A60031B2BE /* eno_level_set_solver2.h in Headers */,
-				04E212E0289A22A4003F4FDD /* vorticity_solver.h in Headers */,
-				04CA281128A48B2A008176C4 /* time_manager.h in Headers */,
 				046C2EDD2894F9060031B2BE /* points_to_implicit2.h in Headers */,
-				04E212E5289A22DC003F4FDD /* surface_tension_solver.h in Headers */,
-				040408A528A64377001C0E63 /* elasticity_Becker2009.h in Headers */,
 				046C2F032894F9A60031B2BE /* eno_level_set_solver3.h in Headers */,
-				047EB3A42896A54000AC5A87 /* half_edge.h in Headers */,
 				046C2F162894F9A60031B2BE /* anisotropic_points_to_implicit3.h in Headers */,
 				046C2ECB2894F88E0031B2BE /* physics_helpers.h in Headers */,
-				04E212D8289A22A4003F4FDD /* elasticity_solver.h in Headers */,
 				046C2F092894F9A60031B2BE /* zhu_bridson_points_to_implicit3.h in Headers */,
-				04CA281228A48B2A008176C4 /* boundary_simulator.h in Headers */,
-				04CA282028A49010008176C4 /* boundary_model_Akinci2012.h in Headers */,
-				04660E052899176000812275 /* compact_n_search.h in Headers */,
 				046C2F122894F9A60031B2BE /* pde-inl.h in Headers */,
-				047EB3A12896A54000AC5A87 /* triangle_mesh.h in Headers */,
 				047EB3612896257300AC5A87 /* semi_lagrangian2.h in Headers */,
-				04E212CB289A13E3003F4FDD /* fluid_model.h in Headers */,
 				046C2D6C288AF7110031B2BE /* collider_set3.h in Headers */,
-				04E212DF289A22A4003F4FDD /* drag_solver.h in Headers */,
 				046C2F1F2894FD8B0031B2BE /* particle_system_solver3.h in Headers */,
 				046C2F192894F9A60031B2BE /* upwind_level_set_solver3.h in Headers */,
-				04660DFB28990BC900812275 /* boundary_model.h in Headers */,
 				046C2F0D2894F9A60031B2BE /* zhu_bridson_points_to_implicit2.h in Headers */,
 				046C2D6B288AF7110031B2BE /* rigid_body_collider3.h in Headers */,
-				04CA282828A494CB008176C4 /* boundary_model_Bender2019.h in Headers */,
 				046C2D69288AF7110031B2BE /* collider3.h in Headers */,
-				04CA281D28A48E73008176C4 /* pressure_solver.h in Headers */,
 				046C2EDA2894F9060031B2BE /* points_to_implicit3.h in Headers */,
-				04660DFD28990DB300812275 /* binary_file_reader_writer.h in Headers */,
-				04E212EA289A270D003F4FDD /* animation_field.h in Headers */,
-				04660E032899176000812275 /* config.h in Headers */,
-				04660DF52897635800812275 /* serialize.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6144,79 +5793,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B71A2B2895096B0079A969 /* sph_system_data3.cpp in Sources */,
-				0404089A28A630F8001C0E63 /* surface_tension_ZorillaRitter2020.cpp in Sources */,
-				04CA282728A494CB008176C4 /* boundary_model_Bender2019.cpp in Sources */,
-				047EB3A22896A54000AC5A87 /* entity_iterators.cpp in Sources */,
-				04E212CD289A13E3003F4FDD /* non_pressure_force.cpp in Sources */,
 				046C2F142894F9A60031B2BE /* spherical_points_to_implicit3.cpp in Sources */,
-				04E212DA289A22A4003F4FDD /* viscosity_solver.cpp in Sources */,
 				046C2EC32894F88E0031B2BE /* animation.cpp in Sources */,
 				046C2EDC2894F9060031B2BE /* points_to_implicit2.cpp in Sources */,
 				046C2D6F288AF7110031B2BE /* rigid_body_collider2.cpp in Sources */,
 				046C2EC42894F88E0031B2BE /* pci_sph_solver3.cpp in Sources */,
 				046C2D73288AF7110031B2BE /* collider3.cpp in Sources */,
-				047EB3A52896A54000AC5A87 /* triangle_mesh.cpp in Sources */,
 				046C2ECE2894F88E0031B2BE /* pci_sph_solver2.cpp in Sources */,
 				046C2EC12894F88E0031B2BE /* sph_solver2.cpp in Sources */,
-				0404089F28A630F8001C0E63 /* surface_tension_He2014.cpp in Sources */,
 				047EB3682896257300AC5A87 /* semi_lagrangian3.cpp in Sources */,
-				040408AB28A648A1001C0E63 /* viscosity_standard.cpp in Sources */,
-				04CA282128A49010008176C4 /* boundary_model_Akinci2012.cpp in Sources */,
 				047EB3652896257300AC5A87 /* cubic_semi_lagrangian3.cpp in Sources */,
 				046C2EB92894F88E0031B2BE /* level_set_solver3.cpp in Sources */,
-				04660E062899176000812275 /* compact_n_search.cpp in Sources */,
-				04E212F3289A4C54003F4FDD /* emitter_system.cpp in Sources */,
 				046C2F172894F9A60031B2BE /* zhu_bridson_points_to_implicit2.cpp in Sources */,
-				040408AC28A648A1001C0E63 /* viscosity_XSPH.cpp in Sources */,
 				046C2EFF2894F9A60031B2BE /* zhu_bridson_points_to_implicit3.cpp in Sources */,
 				047EB36B2896257300AC5A87 /* advection_solver3.cpp in Sources */,
-				04E212DC289A22A4003F4FDD /* drag_solver.cpp in Sources */,
-				04E21317289A7E5A003F4FDD /* fluid_model.cpp in Sources */,
 				047EB3622896257300AC5A87 /* semi_lagrangian2.cpp in Sources */,
 				046C2F022894F9A60031B2BE /* iterative_level_set_solver2.cpp in Sources */,
-				04660DFA28990BC900812275 /* boundary_model.cpp in Sources */,
 				04B71A2A2895091D0079A969 /* sph_system_data2.cpp in Sources */,
 				046C2F042894F9A60031B2BE /* upwind_level_set_solver2.cpp in Sources */,
 				046C2D6A288AF7110031B2BE /* collider_set3.cpp in Sources */,
-				04CA283128A537B2008176C4 /* drag_force_Gissler2017.cpp in Sources */,
-				04E212E9289A270D003F4FDD /* animation_field_system.cpp in Sources */,
-				04CA281028A48B2A008176C4 /* time_manager.cpp in Sources */,
 				046C2D6D288AF7110031B2BE /* collider2.cpp in Sources */,
-				04CA283728A54386008176C4 /* vorticity_micropolar.cpp in Sources */,
-				04E212E1289A22A4003F4FDD /* vorticity_solver.cpp in Sources */,
 				046C2F0A2894F9A60031B2BE /* eno_level_set_solver3.cpp in Sources */,
-				04E212E4289A22DC003F4FDD /* surface_tension_solver.cpp in Sources */,
 				046C2F082894F9A60031B2BE /* anisotropic_points_to_implicit3.cpp in Sources */,
-				047EB3A72896A54000AC5A87 /* entity_containers.cpp in Sources */,
 				046C2F0F2894F9A60031B2BE /* fmm_level_set_solver3.cpp in Sources */,
 				046C2F0B2894F9A60031B2BE /* anisotropic_points_to_implicit2.cpp in Sources */,
 				046C2F1E2894FD8B0031B2BE /* particle_system_solver3.cpp in Sources */,
 				047EB36A2896257300AC5A87 /* cubic_semi_lagrangian2.cpp in Sources */,
-				04CA280E28A48B2A008176C4 /* boundary_simulator.cpp in Sources */,
 				046C2EBD2894F88E0031B2BE /* level_set_solver2.cpp in Sources */,
 				046C2EFE2894F9A60031B2BE /* spherical_points_to_implicit2.cpp in Sources */,
 				046C2F072894F9A60031B2BE /* upwind_level_set_solver3.cpp in Sources */,
 				046C2EC52894F88E0031B2BE /* sph_points_to_implicit2.cpp in Sources */,
 				046C2EFC2894F9A60031B2BE /* fmm_level_set_solver2.cpp in Sources */,
 				046C2ED02894F88E0031B2BE /* sph_solver3.cpp in Sources */,
-				0404089C28A630F8001C0E63 /* surface_tension_Akinci2013.cpp in Sources */,
 				046C2F152894F9A60031B2BE /* eno_level_set_solver2.cpp in Sources */,
-				04E212D9289A22A4003F4FDD /* elasticity_solver.cpp in Sources */,
 				046C2F182894F9A60031B2BE /* iterative_level_set_solver3.cpp in Sources */,
 				047EB3632896257300AC5A87 /* advection_solver2.cpp in Sources */,
-				040408A428A64377001C0E63 /* elasticity_Becker2009.cpp in Sources */,
 				046C2D71288AF7110031B2BE /* rigid_body_collider3.cpp in Sources */,
-				047EB3AA2896AD5D00AC5A87 /* discrete_grid.cpp in Sources */,
 				04E212EF289A40F8003F4FDD /* sph_kernels3.cpp in Sources */,
-				04E67A6E28A55A1900604CED /* surface_tension_Becker2007.cpp in Sources */,
 				046C2D68288AF7110031B2BE /* collider_set2.cpp in Sources */,
 				046C2F212894FD8B0031B2BE /* particle_system_solver2.cpp in Sources */,
 				046C2ED32894F88E0031B2BE /* physics_animation.cpp in Sources */,
-				04CA282E28A537B2008176C4 /* drag_force_Macklin2014.cpp in Sources */,
-				04CA282628A494CB008176C4 /* boundary_model_Koschier2017.cpp in Sources */,
 				046C2ECA2894F88E0031B2BE /* sph_points_to_implicit3.cpp in Sources */,
 				046C2EDB2894F9060031B2BE /* points_to_implicit3.cpp in Sources */,
-				04CA283828A54386008176C4 /* vorticity_confinement.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
